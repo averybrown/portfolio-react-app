@@ -1,19 +1,18 @@
 .App {
   text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  background-color: #282c34;
+  color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-nav {
+  height: 8vmin;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+.App-body {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,9 +23,16 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.active-link{
+  /* color: orange;
+  font-size: calc(10px + 2vmin); */
 }
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +42,5 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200');
