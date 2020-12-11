@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import HomePage from 'Routes/Home';
-import NavBar from 'Components/NavBar';
 
 const Routes = (props) => {
 
@@ -12,7 +11,35 @@ const Routes = (props) => {
                     exact
                     path="/"
                     render={props => (
-                        <HomePage/>
+                        <HomePage />
+                    )}
+                />
+                <Route
+                    exact
+                    path="/projects"
+                    render={props => (
+                        <HomePage />
+                    )}
+                />
+                <Route
+                    exact
+                    path="/resume"
+                    render={props => (
+                        <HomePage />
+                    )}
+                />
+                <Route
+                    exact
+                    path="/about"
+                    render={props => (
+                        <HomePage />
+                    )}
+                />
+                <Route
+                    exact
+                    path="/contact"
+                    render={props => (
+                        <HomePage />
                     )}
                 />
                 <Redirect exact to='/' />

@@ -6,14 +6,11 @@ import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
     navBar: {
-        // width: '100%',
         display: 'flex',
         flexShrink: 0,
         alignItems: 'center',
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(2),
-        height: '100%',
-        // backgroundColor: 'rgba(0, 0, 0, 0)',
         [theme.breakpoints.down("sm")]: {
             display: 'none'
         },
@@ -27,7 +24,6 @@ const styles = theme => ({
         maxWidth: '25%',
     },
     navText: {
-        color: 'rgb(256, 256, 256, 1)',
         textAlign: 'start',
         margin: theme.spacing(3)
     },
@@ -45,6 +41,9 @@ const styles = theme => ({
     hangerIcon: {
         marginRight: theme.spacing(3)
     },
+    active: {
+        textDecoration: 'none'
+    }
 });
 
 
@@ -57,20 +56,24 @@ class NavBar extends Component {
             <React.Fragment>
                 < nav className={classes.navBar} >
                     <div className={classes.title}>
-                        <NavLink exact to="/">
-                            <Typography className={classes.navText}>home</Typography>
+                        <NavLink exact to="/" activeClassName={classes.active}>
+                            <Typography variant="subtitle2" className={classes.navText}>home</Typography>
                         </NavLink>
                     </div>
                     <div className={classes.navLinks}>
-                        <NavLink exact className={classes.link} activeClassName='active-link' to="/">
-                            <Typography className={classes.navText}>projects</Typography>
+                        <NavLink exact className={classes.link} activeClassName={classes.active} to="/projects">
+                            <Typography variant="subtitle2" className={classes.navText}>projects</Typography>
                         </NavLink>
-                        <NavLink className={classes.link} activeClassName='active-link' to="/">
-                            <Typography className={classes.navText}>about me</Typography>
+                        <NavLink className={classes.link} activeClassName={classes.active} to="/resume">
+                            <Typography variant="subtitle2" className={classes.navText}>resume</Typography>
                         </NavLink>
-                        <NavLink className={classes.link} activeClassName='active-link' to="/">
-                            <Typography className={classes.navText}>contact me</Typography>
+                        <NavLink className={classes.link} activeClassName={classes.active} to="/about">
+                            <Typography variant="subtitle2" className={classes.navText}>about me</Typography>
                         </NavLink>
+                        <NavLink className={classes.link} activeClassName={classes.active} to="/contact">
+                            <Typography variant="subtitle2" className={classes.navText}>contact me</Typography>
+                        </NavLink>
+
                     </div>
                 </nav >
             </React.Fragment>
