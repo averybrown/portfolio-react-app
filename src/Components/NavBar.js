@@ -42,7 +42,7 @@ const styles = theme => ({
         marginRight: theme.spacing(3)
     },
     active: {
-        textDecoration: 'none'
+        textDecoration: 'none !important',
     }
 });
 
@@ -56,7 +56,7 @@ class NavBar extends Component {
             <React.Fragment>
                 < nav className={classes.navBar} >
                     <div className={classes.title}>
-                        <NavLink exact to="/" activeClassName={classes.active}>
+                        <NavLink exact to="/" activeClassName={classes.active} className={classes.link} >
                             <Typography variant="subtitle2" className={classes.navText}>home</Typography>
                         </NavLink>
                     </div>

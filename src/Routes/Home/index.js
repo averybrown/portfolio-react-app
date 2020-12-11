@@ -7,7 +7,13 @@ import fox from 'Assets/fox.png';
 const styles = theme => {
     return {
         homePage: {
-            overflowY: 'hidden'
+            height: '100%',
+            width: '100%',
+            overflowY: 'hidden', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            position: 'relative'
         },
         fox: {
             position: 'absolute', 
