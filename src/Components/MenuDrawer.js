@@ -74,13 +74,13 @@ function ResponsiveDrawer(props) {
                     <Typography variant='subtitle2' className={classes.navText}>home</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
+                    <Typography variant='subtitle2' className={classes.navText}>about me</Typography>
+                </NavLink>
+                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>projects</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>resume</Typography>
-                </NavLink>
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
-                    <Typography variant='subtitle2' className={classes.navText}>about me</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>contact me</Typography>

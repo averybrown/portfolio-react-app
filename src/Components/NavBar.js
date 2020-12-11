@@ -61,14 +61,14 @@ class NavBar extends Component {
                         </NavLink>
                     </div>
                     <div className={classes.navLinks}>
+                        <NavLink className={classes.link} activeClassName={classes.active} to="/about">
+                            <Typography variant="subtitle2" className={classes.navText}>about me</Typography>
+                        </NavLink>
                         <NavLink exact className={classes.link} activeClassName={classes.active} to="/projects">
                             <Typography variant="subtitle2" className={classes.navText}>projects</Typography>
                         </NavLink>
                         <NavLink className={classes.link} activeClassName={classes.active} to="/resume">
                             <Typography variant="subtitle2" className={classes.navText}>resume</Typography>
-                        </NavLink>
-                        <NavLink className={classes.link} activeClassName={classes.active} to="/about">
-                            <Typography variant="subtitle2" className={classes.navText}>about me</Typography>
                         </NavLink>
                         <NavLink className={classes.link} activeClassName={classes.active} to="/contact">
                             <Typography variant="subtitle2" className={classes.navText}>contact me</Typography>
