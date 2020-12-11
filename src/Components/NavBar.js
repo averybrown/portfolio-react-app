@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom"
 import { withStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import { NAV_BAR_HEIGHT } from 'Constants/StylingConstants';
 import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
     navBar: {
-        width: '100%',
+        // width: '100%',
         display: 'flex',
         flexShrink: 0,
         alignItems: 'center',
-        // height: NAV_BAR_HEIGHT,
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
         height: '100%',
         // backgroundColor: 'rgba(0, 0, 0, 0)',
         [theme.breakpoints.down("sm")]: {
@@ -21,14 +21,12 @@ const styles = theme => ({
     title: {
         flex: '1 0 0',
         maxWidth: '300px',
-        marginLeft: theme.spacing(5),
         textAlign: 'start'
     },
     pages: {
         maxWidth: '25%',
     },
     navText: {
-        // textTransform: 'uppercase',
         color: 'rgb(256, 256, 256, 1)',
         textAlign: 'start',
     },
@@ -40,7 +38,7 @@ const styles = theme => ({
     },
     link: {
         textDecoration: 'none !important',
-        marginLeft: theme.spacing(2),
+        // marginLeft: theme.spacing(2),
         cursor: 'pointer'
     },
     hangerIcon: {

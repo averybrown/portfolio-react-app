@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 const styles = theme => {
     return {
         homePage:{
-            
+            height: '100%'
         },
         myName: {
             fontFamily: `"Mukta", sans-serif`,
