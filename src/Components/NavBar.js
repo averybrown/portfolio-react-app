@@ -29,6 +29,7 @@ const styles = theme => ({
     navText: {
         color: 'rgb(256, 256, 256, 1)',
         textAlign: 'start',
+        margin: theme.spacing(3)
     },
     navLinks: {
         display: 'flex',
@@ -57,15 +58,18 @@ class NavBar extends Component {
                 < nav className={classes.navBar} >
                     <div className={classes.title}>
                         <NavLink exact to="/">
-                            <Typography className={classes.navText}>Home</Typography>
+                            <Typography className={classes.navText}>home</Typography>
                         </NavLink>
                     </div>
                     <div className={classes.navLinks}>
                         <NavLink exact className={classes.link} activeClassName='active-link' to="/">
-                            <Typography className={classes.navText}>Projects</Typography>
+                            <Typography className={classes.navText}>projects</Typography>
                         </NavLink>
                         <NavLink className={classes.link} activeClassName='active-link' to="/">
-                            <Typography className={classes.navText}>About me</Typography>
+                            <Typography className={classes.navText}>about me</Typography>
+                        </NavLink>
+                        <NavLink className={classes.link} activeClassName='active-link' to="/">
+                            <Typography className={classes.navText}>contact me</Typography>
                         </NavLink>
                     </div>
                 </nav >
