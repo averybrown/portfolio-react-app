@@ -35,7 +35,6 @@ const styles = theme => ({
     },
     link: {
         textDecoration: 'none !important',
-        // marginLeft: theme.spacing(2),
         cursor: 'pointer'
     },
     hangerIcon: {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-import fox from 'Assets/fox.png';
+import fox from 'Assets/foxbubbles2.gif';
 
 
 const styles = theme => {
@@ -17,7 +17,7 @@ const styles = theme => {
         },
         fox: {
             position: 'absolute', 
-            bottom: '-22%', 
+            bottom: '-21%', 
             left: '-10%',
             // right: '60%'
             width: '60%',
@@ -25,6 +25,12 @@ const styles = theme => {
             minWidth: '450px', 
             [theme.breakpoints.up("md")]: {
                 bottom: '-30%', 
+            },
+            [theme.breakpoints.down("md")]: {
+                bottom: '-25%', 
+            },
+            [theme.breakpoints.down("xs")]: {
+                bottom: '-22%', 
             },
         },
     };
