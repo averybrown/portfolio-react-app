@@ -37,7 +37,7 @@ const styles = theme => {
             },
         },
         bubble1: {
-            animation: '$BubbleUp1 8.2s 0.3s infinite',
+            animation: '$BubbleUp1 8.2s 0.2s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -45,7 +45,7 @@ const styles = theme => {
             animationFillMode: 'both'
         },
         bubble2: {
-            animation: '$BubbleUp2 8.2s 1.7s infinite',
+            animation: '$BubbleUp2 8.2s 1.6s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -53,7 +53,7 @@ const styles = theme => {
             animationFillMode: 'both'
         },
         bubble3: {
-            animation: '$BubbleUp3 8.2s 3.1s infinite',
+            animation: '$BubbleUp3 8.2s 3s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -61,7 +61,7 @@ const styles = theme => {
             animationFillMode: 'both'
         },
         bubble4: {
-            animation: '$BubbleUp4 8.2s 4.5s infinite',
+            animation: '$BubbleUp4 8.2s 4.4s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -70,7 +70,7 @@ const styles = theme => {
 
         },
         bubble5: {
-            animation: '$BubbleUp5 8.2s 5.9s infinite',
+            animation: '$BubbleUp5 8.2s 5.8s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -79,7 +79,7 @@ const styles = theme => {
 
         },
         bubble6: {
-            animation: '$BubbleUp6 8.2s 7.3s infinite',
+            animation: '$BubbleUp6 8.2s 7.2s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
@@ -120,17 +120,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(4vh) scale(1)'
-            },
-            "40%": {
                 transform: 'translateX(8vh) scale(1)'
             },
+            "40%": {
+                transform: 'translateX(12vh) scale(1)'
+            },
             "60%": {
-                transform: 'translateX(3vh) scale(1)'
+                transform: 'translateX(8vh) scale(1)'
             },
             "100%": {
                 bottom: '110%',
-                transform: 'translateX(9vh) scale(1)'
+                transform: 'translateX(12vh) scale(1)'
             },
         },
         "@keyframes BubbleUp3": {
@@ -212,17 +212,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(4vh) scale(1)'
+                transform: 'translateX(9vh) scale(1)'
             },
             "40%": {
-                transform: 'translateX(8vh) scale(1)'
+                transform: 'translateX(12vh) scale(1)'
             },
             "60%": {
-                transform: 'translateX(3vh) scale(1)'
+                transform: 'translateX(7vh) scale(1)'
             },
             "100%": {
                 bottom: '110%',
-                transform: 'translateX(9vh) scale(1)'
+                transform: 'translateX(12vh) scale(1)'
             },
         },
     };
