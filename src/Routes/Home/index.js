@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-// import fox from 'Assets/flipbook-2-big-eyes-2.gif';
-// import fox from 'Assets/foxbubbles2.gif';
 import bubble from 'Assets/bubble.png';
-// import fox from 'Assets/foxbubbles3.gif';
-import fox from 'Assets/flipbook-med-eyes.gif';
+import fox from 'Assets/homepage-fox.gif';
 
 
 
@@ -39,23 +36,71 @@ const styles = theme => {
 
             },
         },
-        bubble: {
-            animation: '$MoveUpDown 10s infinite',
+        bubble1: {
+            animation: '$BubbleUp1 8.2s 0.3s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
-            left: '20%'
+            left: '20%',
+            animationFillMode: 'both'
         },
-        "@keyframes MoveUpDown": {
+        bubble2: {
+            animation: '$BubbleUp2 8.2s 1.7s infinite',
+            position: 'absolute',
+            maxWidth: '100px',
+            bottom: '20%',
+            left: '20%',
+            animationFillMode: 'both'
+        },
+        bubble3: {
+            animation: '$BubbleUp3 8.2s 3.1s infinite',
+            position: 'absolute',
+            maxWidth: '100px',
+            bottom: '20%',
+            left: '20%',
+            animationFillMode: 'both'
+        },
+        bubble4: {
+            animation: '$BubbleUp4 8.2s 4.5s infinite',
+            position: 'absolute',
+            maxWidth: '100px',
+            bottom: '20%',
+            left: '20%',
+            animationFillMode: 'both'
+
+        },
+        bubble5: {
+            animation: '$BubbleUp5 8.2s 5.9s infinite',
+            position: 'absolute',
+            maxWidth: '100px',
+            bottom: '20%',
+            left: '20%',
+            animationFillMode: 'both'
+
+        },
+        bubble6: {
+            animation: '$BubbleUp6 8.2s 7.3s infinite',
+            position: 'absolute',
+            maxWidth: '100px',
+            bottom: '20%',
+            left: '20%',
+            animationFillMode: 'both'
+
+        },
+        "@keyframes BubbleUp1": {
             "0%": {
-                bottom: '5%',
+                bottom: '10%',
+                opacity: 0,
                 transform: 'scale(0.4)'
             },
+            "1%": {
+                opacity: 100
+            },
             "20%": {
-                transform: 'translateX(8vh) scale(1.2)'
+                transform: 'translateX(10vh) scale(1.2)'
             },
             "40%": {
-                transform: 'translateX(12vh) scale(1.2)'
+                transform: 'translateX(14vh) scale(1.2)'
             },
             "60%": {
                 transform: 'translateX(10vh) scale(1.2)'
@@ -63,6 +108,121 @@ const styles = theme => {
             "100%": {
                 bottom: '110%',
                 transform: 'translateX(5vh) scale(1.2)'
+            },
+        },
+        "@keyframes BubbleUp2": {
+            "0%": {
+                bottom: '10%',
+                opacity: 0,
+                transform: 'scale(0.3)'
+            },
+            "1%": {
+                opacity: 100
+            },
+            "20%": {
+                transform: 'translateX(4vh) scale(1)'
+            },
+            "40%": {
+                transform: 'translateX(8vh) scale(1)'
+            },
+            "60%": {
+                transform: 'translateX(3vh) scale(1)'
+            },
+            "100%": {
+                bottom: '110%',
+                transform: 'translateX(9vh) scale(1)'
+            },
+        },
+        "@keyframes BubbleUp3": {
+            "0%": {
+                bottom: '10%',
+                opacity: 0,
+                transform: 'scale(0.2)'
+            },
+            "1%": {
+                opacity: 100
+            },
+            "20%": {
+                transform: 'translateX(6vh) scale(0.8)'
+            },
+            "40%": {
+                transform: 'translateX(4vh) scale(0.8)'
+            },
+            "60%": {
+                transform: 'translateX(6vh) scale(0.8)'
+            },
+            "100%": {
+                bottom: '110%',
+                transform: 'translateX(8vh) scale(0.8)'
+            },
+        },
+        "@keyframes BubbleUp4": {
+            "0%": {
+                bottom: '10%',
+                opacity: 0,
+                transform: 'scale(0.4)'
+            },
+            "1%": {
+                opacity: 100
+            },
+            "20%": {
+                transform: 'translateX(8vh) scale(0.7)'
+            },
+            "40%": {
+                transform: 'translateX(12vh) scale(0.7)'
+            },
+            "60%": {
+                transform: 'translateX(10vh) scale(0.7)'
+            },
+            "100%": {
+                bottom: '110%',
+                transform: 'translateX(5vh) scale(0.7)'
+            },
+        },
+        "@keyframes BubbleUp5": {
+            "0%": {
+                bottom: '10%',
+                opacity: 0,
+                transform: 'scale(0.4)'
+            },
+            "1%": {
+                opacity: 100
+            },
+            "20%": {
+                transform: 'translateX(10vh) scale(1.2)'
+            },
+            "40%": {
+                transform: 'translateX(14vh) scale(1.2)'
+            },
+            "60%": {
+                transform: 'translateX(10vh) scale(1.2)'
+            },
+            "100%": {
+                bottom: '110%',
+                transform: 'translateX(5vh) scale(1.2)'
+            },
+        },
+        "@keyframes BubbleUp6": {
+            "0%": {
+                bottom: '10%',
+                opacity: 0,
+                transform: 'scale(0.3)'
+            },
+            "1%": {
+                opacity: 100
+            },
+            "20%": {
+                transform: 'translateX(4vh) scale(1)'
+            },
+            "40%": {
+                transform: 'translateX(8vh) scale(1)'
+            },
+            "60%": {
+                transform: 'translateX(3vh) scale(1)'
+            },
+            "100%": {
+                bottom: '110%',
+                transform: 'translateX(9vh) scale(1)'
             },
         },
     };
@@ -77,7 +237,12 @@ class HomePage extends Component {
         return <div className={classes.homePage}>
             <Typography variant="h6">avery brown</Typography>
             <img className={classes.fox} src={fox} alt='fox' />
-            <img className={classes.bubble} src={bubble} alt='bubble' />
+            <img className={classes.bubble1} src={bubble} alt='bubble' />
+            <img className={classes.bubble2} src={bubble} alt='bubble' />
+            <img className={classes.bubble3} src={bubble} alt='bubble' />
+            <img className={classes.bubble4} src={bubble} alt='bubble' />
+            <img className={classes.bubble5} src={bubble} alt='bubble' />
+            <img className={classes.bubble6} src={bubble} alt='bubble' />
         </div>
     }
 }
