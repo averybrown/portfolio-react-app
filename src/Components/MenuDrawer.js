@@ -34,18 +34,23 @@ const useStyles = makeStyles(theme => ({
         },
     },
     drawerPaper: {
-        width: 140,
-        backgroundColor: '#88C29F'
+        width: '100%',
+        // height: '100%',
+        backgroundColor: '#88C29F', 
+        // opacity: '90%'
     },
     navBar: {
         display: 'flex',
         flexDirection: 'column',
-        paddingTop: theme.spacing(5),
-        paddingRight: theme.spacing(3)
+        // paddingTop: theme.spacing(5),
+        // paddingRight: theme.spacing(3)
+        // paddingTop: theme.spacing(2), 
+        paddingBottom: theme.spacing(2)
     },
     navText: {
         color: 'rgb(255, 255, 255, 1)',
-        textAlign: 'end',
+        // textAlign: 'end',
+        textAlign: 'center',
         verticalAlign: 'middle'
     },
     link: {
@@ -106,7 +111,8 @@ function ResponsiveDrawer(props) {
                     <Drawer
                         container={container}
                         variant="temporary"
-                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                        // anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                        anchor='top'
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
                         classes={{
