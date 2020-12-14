@@ -7,7 +7,7 @@ import fox from 'Assets/homepage-fox-2.gif';
 // import fox from 'Assets/fox-bubbles2.gif';
 // import fox from 'Assets/fox-bubbles3.gif';
 // import fox from 'Assets/fox-bubbles4.gif';
-
+import {BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION} from 'Constants/constants';
 
 
 const styles = theme => {
@@ -36,56 +36,39 @@ const styles = theme => {
                 minWidth: '450px',
             },
         },
-        bubble1: {
-            animation: '$BubbleUp1 7.2s 0.2s infinite',
+        bubble: {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
             left: '67%',
-            animationFillMode: 'both'
+            animationIterationCount: 'infinite',
+            animationFillMode: 'both', 
+            animationDuration: BUBBLEDURATION,
+        },
+        bubble1: {
+            animationName: '$BubbleUp1',
+            animationDelay: `${BUBBLESTART}s`
         },
         bubble2: {
-            animation: '$BubbleUp2 7.2s 1.4s infinite',
-            position: 'absolute',
-            maxWidth: '100px',
-            bottom: '53%',
-            left: '67%',
-            animationFillMode: 'both'
+            animationName: '$BubbleUp2',
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY}s`
         },
         bubble3: {
-            animation: '$BubbleUp3 7.2s 2.6s infinite',
-            position: 'absolute',
-            maxWidth: '100px',
-            bottom: '53%',
-            left: '67%',
-            animationFillMode: 'both'
+            animationName: '$BubbleUp3',
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY*2}s`
         },
         bubble4: {
-            animation: '$BubbleUp4 7.2s 3.8s infinite',
-            position: 'absolute',
-            maxWidth: '100px',
-            bottom: '53%',
-            left: '67%',
-            animationFillMode: 'both'
+            animationName: '$BubbleUp4',
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY*3}s`
 
         },
         bubble5: {
-            animation: '$BubbleUp5 7.2s 5s infinite',
-            position: 'absolute',
-            maxWidth: '100px',
-            bottom: '53%',
-            left: '67%',
-            animationFillMode: 'both'
-
+            animationName: '$BubbleUp5',
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY*4}s`
         },
         bubble6: {
-            animation: '$BubbleUp6 7.2s 6.2s infinite',
-            position: 'absolute',
-            maxWidth: '100px',
-            bottom: '20%',
-            left: '67%',
-            animationFillMode: 'both'
-
+            animationName: '$BubbleUp6',
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY*5}s`
         },
         "@keyframes BubbleUp1": {
             "0%": {
@@ -235,15 +218,15 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.homePage}>
-            <Typography style={{zIndex: 5}} variant="h6">avery brown</Typography>
+            <Typography style={{ zIndex: 5 }} variant="h6">avery brown</Typography>
             <div className={classes.foxbubble}>
                 <img className={classes.fox} src={fox} alt='fox' />
-                <img className={classes.bubble1} src={bubble} alt='bubble' />
-                <img className={classes.bubble2} src={bubble} alt='bubble' />
-                <img className={classes.bubble3} src={bubble} alt='bubble' />
-                <img className={classes.bubble4} src={bubble} alt='bubble' />
-                <img className={classes.bubble5} src={bubble} alt='bubble' />
-                <img className={classes.bubble6} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' />
+                <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' />
             </div>
         </div>
     }

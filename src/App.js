@@ -17,7 +17,7 @@ let theme = createMuiTheme({
       },
       subtitle2: {
         fontFamily: `"Mukta", sans-serif`,
-        fontSize: 'calc(10px + 2vmin) !important',
+        fontSize: 'calc(10px + 1.5vmin) !important',
         color: 'black',
       }
     }
