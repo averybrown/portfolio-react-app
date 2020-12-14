@@ -6,17 +6,17 @@ import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
     navBar: {
-        display: 'flex',
-        flexShrink: 0,
-        alignItems: 'center',
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        [theme.breakpoints.down("sm")]: {
-            display: 'none'
+        display: 'none',
+        [theme.breakpoints.up("sm")]: {
+            display: 'flex',
+            flexShrink: 0,
+            alignItems: 'center',
+            paddingLeft: theme.spacing(2),
+            paddingRight: theme.spacing(2),
         },
     },
     title: {
-        flex: '1 0 0',
+        flex: '0 0 0',
         maxWidth: '300px',
         textAlign: 'start'
     },
@@ -61,7 +61,7 @@ class NavBar extends Component {
                     </div>
                     <div className={classes.navLinks}>
                         <NavLink className={classes.link} activeClassName={classes.active} to="/about">
-                            <Typography variant="subtitle2" className={classes.navText}>about me</Typography>
+                            <Typography variant="subtitle2" className={classes.navText}>about</Typography>
                         </NavLink>
                         <NavLink exact className={classes.link} activeClassName={classes.active} to="/projects">
                             <Typography variant="subtitle2" className={classes.navText}>projects</Typography>
@@ -70,7 +70,7 @@ class NavBar extends Component {
                             <Typography variant="subtitle2" className={classes.navText}>resume</Typography>
                         </NavLink>
                         <NavLink className={classes.link} activeClassName={classes.active} to="/contact">
-                            <Typography variant="subtitle2" className={classes.navText}>contact me</Typography>
+                            <Typography variant="subtitle2" className={classes.navText}>contact</Typography>
                         </NavLink>
 
                     </div>

@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import bubble from 'Assets/bubble.png';
-import fox from 'Assets/homepage-fox.gif';
+// import fox from 'Assets/homepage-fox.gif';
+import fox from 'Assets/homepage-fox-2.gif';
+// import fox from 'Assets/fox-bubbles2.gif';
+// import fox from 'Assets/fox-bubbles3.gif';
+// import fox from 'Assets/fox-bubbles4.gif';
 
 
 
@@ -15,81 +19,78 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            position: 'relative'
+            // position: 'relative'
+        },
+        foxbubble: {
+            position: 'absolute',
+            display: 'flex',
+            width: 'auto',
+            bottom: 0,
+            left: 0,
+            marginLeft: '-10%',
+            marginBottom: '-20%',
         },
         fox: {
-            position: 'fixed',
-            bottom: '-21%',
-            left: '-10%',
-            // right: '60%'
-            width: '45%',
-            // maxWidth: '600px',
-            [theme.breakpoints.up("md")]: {
-                bottom: '-30%',
-            },
-            [theme.breakpoints.down("md")]: {
-                bottom: '-25%',
-            },
+            width: '50vw',
             [theme.breakpoints.down("xs")]: {
-                bottom: '-22%',
+                marginLeft: 'calc(450/2)',
                 minWidth: '450px',
-
             },
         },
         bubble1: {
-            animation: '$BubbleUp1 8.2s 0.2s infinite',
+            animation: '$BubbleUp1 7.2s 0.2s infinite',
             position: 'absolute',
             maxWidth: '100px',
-            bottom: '20%',
-            left: '20%',
+            bottom: '53%',
+            left: '66%',
             animationFillMode: 'both'
         },
         bubble2: {
-            animation: '$BubbleUp2 8.2s 1.6s infinite',
+            animation: '$BubbleUp2 7.2s 1.4s infinite',
             position: 'absolute',
             maxWidth: '100px',
-            bottom: '20%',
-            left: '20%',
+            bottom: '53%',
+            left: '66%',
             animationFillMode: 'both'
         },
         bubble3: {
-            animation: '$BubbleUp3 8.2s 3s infinite',
+            animation: '$BubbleUp3 7.2s 2.6s infinite',
             position: 'absolute',
             maxWidth: '100px',
-            bottom: '20%',
-            left: '20%',
+            bottom: '53%',
+            left: '66%',
             animationFillMode: 'both'
         },
         bubble4: {
-            animation: '$BubbleUp4 8.2s 4.4s infinite',
+            animation: '$BubbleUp4 7.2s 3.8s infinite',
             position: 'absolute',
             maxWidth: '100px',
-            bottom: '20%',
-            left: '20%',
+            bottom: '53%',
+            left: '66%',
             animationFillMode: 'both'
 
         },
         bubble5: {
-            animation: '$BubbleUp5 8.2s 5.8s infinite',
+            animation: '$BubbleUp5 7.2s 5s infinite',
             position: 'absolute',
             maxWidth: '100px',
-            bottom: '20%',
-            left: '20%',
+            bottom: '53%',
+            left: '66%',
             animationFillMode: 'both'
 
         },
         bubble6: {
-            animation: '$BubbleUp6 8.2s 7.2s infinite',
+            animation: '$BubbleUp6 7.2s 6.2s infinite',
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
-            left: '20%',
+            left: '66%',
             animationFillMode: 'both'
 
         },
         "@keyframes BubbleUp1": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.4)'
             },
@@ -106,13 +107,13 @@ const styles = theme => {
                 transform: 'translateX(10vh) scale(1.2)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(5vh) scale(1.2)'
             },
         },
         "@keyframes BubbleUp2": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.3)'
             },
@@ -129,13 +130,13 @@ const styles = theme => {
                 transform: 'translateX(8vh) scale(1)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(12vh) scale(1)'
             },
         },
         "@keyframes BubbleUp3": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.2)'
             },
@@ -152,13 +153,13 @@ const styles = theme => {
                 transform: 'translateX(6vh) scale(0.8)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(8vh) scale(0.8)'
             },
         },
         "@keyframes BubbleUp4": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.4)'
             },
@@ -175,13 +176,13 @@ const styles = theme => {
                 transform: 'translateX(10vh) scale(0.7)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(5vh) scale(0.7)'
             },
         },
         "@keyframes BubbleUp5": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.4)'
             },
@@ -198,13 +199,13 @@ const styles = theme => {
                 transform: 'translateX(10vh) scale(1.2)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(5vh) scale(1.2)'
             },
         },
         "@keyframes BubbleUp6": {
             "0%": {
-                bottom: '10%',
+                bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.3)'
             },
@@ -221,7 +222,7 @@ const styles = theme => {
                 transform: 'translateX(7vh) scale(1)'
             },
             "100%": {
-                bottom: '110%',
+                bottom: '145vh',
                 transform: 'translateX(12vh) scale(1)'
             },
         },
@@ -235,14 +236,16 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.homePage}>
-            <Typography variant="h6">avery brown</Typography>
-            <img className={classes.fox} src={fox} alt='fox' />
-            <img className={classes.bubble1} src={bubble} alt='bubble' />
-            <img className={classes.bubble2} src={bubble} alt='bubble' />
-            <img className={classes.bubble3} src={bubble} alt='bubble' />
-            <img className={classes.bubble4} src={bubble} alt='bubble' />
-            <img className={classes.bubble5} src={bubble} alt='bubble' />
-            <img className={classes.bubble6} src={bubble} alt='bubble' />
+            <Typography style={{zIndex: 5}} variant="h6">avery brown</Typography>
+            <div className={classes.foxbubble}>
+                <img className={classes.fox} src={fox} alt='fox' />
+                <img className={classes.bubble1} src={bubble} alt='bubble' />
+                <img className={classes.bubble2} src={bubble} alt='bubble' />
+                <img className={classes.bubble3} src={bubble} alt='bubble' />
+                <img className={classes.bubble4} src={bubble} alt='bubble' />
+                <img className={classes.bubble5} src={bubble} alt='bubble' />
+                <img className={classes.bubble6} src={bubble} alt='bubble' />
+            </div>
         </div>
     }
 }

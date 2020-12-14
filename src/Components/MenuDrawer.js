@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom';
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'none',
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
             display: 'flex',
             position: 'absolute',
         },
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: 140,
-        backgroundColor: 'black'
+        backgroundColor: '#88C29F'
     },
     navBar: {
         display: 'flex',
@@ -74,7 +74,7 @@ function ResponsiveDrawer(props) {
                     <Typography variant='subtitle2' className={classes.navText}>home</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
-                    <Typography variant='subtitle2' className={classes.navText}>about me</Typography>
+                    <Typography variant='subtitle2' className={classes.navText}>about</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>projects</Typography>
@@ -83,7 +83,7 @@ function ResponsiveDrawer(props) {
                     <Typography variant='subtitle2' className={classes.navText}>resume</Typography>
                 </NavLink>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
-                    <Typography variant='subtitle2' className={classes.navText}>contact me</Typography>
+                    <Typography variant='subtitle2' className={classes.navText}>contact</Typography>
                 </NavLink>
             </div>
         </nav >

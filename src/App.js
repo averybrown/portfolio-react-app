@@ -16,10 +16,8 @@ let theme = createMuiTheme({
         textShadowRadius:10,
       },
       subtitle2: {
-        // fontFamily: ['Andale Mono'],
-        // fontSize: '1rem',
         fontFamily: `"Mukta", sans-serif`,
-        fontSize: '1.4rem',
+        fontSize: 'calc(10px + 2vmin) !important',
         color: 'black',
       }
     }
