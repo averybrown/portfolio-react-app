@@ -19,7 +19,6 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            // position: 'relative'
         },
         foxbubble: {
             position: 'absolute',
@@ -42,7 +41,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
         },
         bubble2: {
@@ -50,7 +49,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
         },
         bubble3: {
@@ -58,7 +57,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
         },
         bubble4: {
@@ -66,7 +65,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
 
         },
@@ -75,7 +74,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '53%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
 
         },
@@ -84,7 +83,7 @@ const styles = theme => {
             position: 'absolute',
             maxWidth: '100px',
             bottom: '20%',
-            left: '66%',
+            left: '67%',
             animationFillMode: 'both'
 
         },

@@ -6,7 +6,6 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import { isMobile } from 'react-device-detect';
 import { withRouter } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
 
