@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import bubble from 'Assets/bubble.png';
-// import fox from 'Assets/homepage-fox.gif';
-import fox from 'Assets/homepage-fox-2.gif';
-// import fox from 'Assets/fox-bubbles2.gif';
-// import fox from 'Assets/fox-bubbles3.gif';
-// import fox from 'Assets/fox-bubbles4.gif';
-import {BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION} from 'Constants/constants';
+import foxBubble from 'Assets/fox-blowing-bubbles.gif';
+// import foxIdle from 'Assets/fox-idle.gif';
+import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION } from 'Constants/constants';
 
 
 const styles = theme => {
@@ -19,31 +16,40 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            position: 'relative'
         },
         foxbubble: {
             position: 'absolute',
             display: 'flex',
-            width: 'auto',
+            flexDirection: 'column',
+            flex: '0 0 auto',
+            width: '50vw',
+            alignItems: 'stretch',
             bottom: 0,
             left: 0,
             marginLeft: '-10%',
             marginBottom: '-20%',
+            [theme.breakpoints.down("xs")]: {
+                marginLeft: '-75px',
+                marginBottom: '-120px',
+                width: '320px',
+            }
         },
         fox: {
-            width: '50vw',
-            [theme.breakpoints.down("xs")]: {
-                marginLeft: 'calc(450/2)',
-                minWidth: '450px',
-            },
+            width: '100%',
+            height: 'auto'
         },
         bubble: {
             position: 'absolute',
-            maxWidth: '100px',
+            width: '7vw',
             bottom: '53%',
             left: '67%',
             animationIterationCount: 'infinite',
-            animationFillMode: 'both', 
+            animationFillMode: 'both',
             animationDuration: BUBBLEDURATION,
+            [theme.breakpoints.down("xs")]: {
+                minWidth: '60px',
+            },
         },
         bubble1: {
             animationName: '$BubbleUp1',
@@ -55,20 +61,20 @@ const styles = theme => {
         },
         bubble3: {
             animationName: '$BubbleUp3',
-            animationDelay: `${BUBBLESTART + BUBBLEDELAY*2}s`
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY * 2}s`
         },
         bubble4: {
             animationName: '$BubbleUp4',
-            animationDelay: `${BUBBLESTART + BUBBLEDELAY*3}s`
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY * 3}s`
 
         },
         bubble5: {
             animationName: '$BubbleUp5',
-            animationDelay: `${BUBBLESTART + BUBBLEDELAY*4}s`
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY * 4}s`
         },
         bubble6: {
             animationName: '$BubbleUp6',
-            animationDelay: `${BUBBLESTART + BUBBLEDELAY*5}s`
+            animationDelay: `${BUBBLESTART + BUBBLEDELAY * 5}s`
         },
         "@keyframes BubbleUp1": {
             "0%": {
@@ -211,24 +217,61 @@ const styles = theme => {
     };
 };
 
+const foxstates = {
+    ENTER: 'enter',
+    BUBBLES: foxBubble,
+}
+
 
 class HomePage extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            foxState: foxstates.BUBBLES,
+        }
+        if (window.performance) {
+            if (window.PerformanceNavigationTiming.type === 1) {
+                let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
+                this.setState({ foxState: foxSrc })
+            }
+        }
+
+    }
+
+    // updateFoxState = () => {
+    //     let { foxState } = this.state;
+    //     if (foxState === foxstates.ENTER) {
+    //         this.setState({ foxState: foxstates.BUBBLES });
+    //     }
+    // };
+
+    // componentDidMount() {
+    //     setInterval(this.updateFoxState, 12800);
+    //   }
+
+
     render() {
+        let { foxState } = this.state;
         let { classes } = this.props;
 
-        return <div className={classes.homePage}>
+        return foxState ? <div className={classes.homePage}>
             <Typography style={{ zIndex: 5 }} variant="h6">avery brown</Typography>
             <div className={classes.foxbubble}>
-                <img className={classes.fox} src={fox} alt='fox' />
-                <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' />
-                <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' />
-                <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' />
-                <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' />
-                <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' />
-                <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' />
+                <img className={classes.fox} src={foxState} alt='fox' />
+                {foxState === foxstates.BUBBLES ?
+                    <React.Fragment>
+                        <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' />
+                        <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' />
+                        <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' />
+                        <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' />
+                        <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' />
+                        <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' />
+                    </React.Fragment> : null
+                }
             </div>
-        </div>
+        </div> : null
     }
 }
 
