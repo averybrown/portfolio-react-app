@@ -5,6 +5,8 @@ import bubble from 'Assets/bubble.png';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 // import foxIdle from 'Assets/fox-idle.gif';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
+import bubblePop from 'Assets/bubblepop.mp3'
+
 
 
 const styles = theme => {
@@ -105,28 +107,22 @@ const styles = theme => {
                 bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.3)',
-                // display: 'block',
             },
             "1%": {
-                opacity: 100, 
-                // display: 'block'
+                opacity: 100,
             },
             "20%": {
-                transform: 'translateX(8vh) scale(1)', 
-                // display: 'block',
+                transform: 'translateX(8vh) scale(1)',
             },
             "40%": {
-                transform: 'translateX(12vh) scale(1)', 
-                // display: 'block'
+                transform: 'translateX(12vh) scale(1)',
             },
             "60%": {
-                transform: 'translateX(8vh) scale(1)', 
-                // display: 'block'
+                transform: 'translateX(8vh) scale(1)',
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(12vh) scale(1)', 
-                // display: 'block',
+                transform: 'translateX(12vh) scale(1)',
             },
         },
         "@keyframes BubbleUp3": {
@@ -134,7 +130,6 @@ const styles = theme => {
                 bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.2)',
-                display: 'block !important'
             },
             "1%": {
                 opacity: 100
@@ -157,8 +152,7 @@ const styles = theme => {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
-                transform: 'scale(0.4)',
-                display: 'block !important'
+                transform: 'scale(0.4)'
             },
             "1%": {
                 opacity: 100
@@ -182,10 +176,9 @@ const styles = theme => {
                 bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.4)',
-                display: 'block !important'
             },
             "1%": {
-                opacity: 100, 
+                opacity: 100,
             },
             "20%": {
                 transform: 'translateX(10vh) scale(1.2)'
@@ -206,7 +199,6 @@ const styles = theme => {
                 bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.3)',
-                display: 'block'
             },
             "1%": {
                 opacity: 100
@@ -235,7 +227,7 @@ const foxstates = {
 
 
 class HomePage extends Component {
-
+ 
 
     constructor(props) {
         super(props);
@@ -243,15 +235,14 @@ class HomePage extends Component {
             foxState: foxstates.BUBBLES,
             bubblesPopped: Array(NUMBUBBLES).fill(0)
         }
-        this.popBubble = this.popBubble.bind(this)
 
         // if (window.performance && window.performance.getEntriesByType('navigation').length) {
-            // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
-            //     let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
-            // img.src = img.src.replace(/\?.*$/,"")+"?x="+Math.random();
+        // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
+        //     let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
+        // img.src = img.src.replace(/\?.*$/,"")+"?x="+Math.random();
 
-            //     this.setState({ foxState: foxSrc })
-            // }
+        //     this.setState({ foxState: foxSrc })
+        // }
         // }	
 
     }
@@ -263,29 +254,40 @@ class HomePage extends Component {
     //     }
     // };
 
-    popBubble = (e) => {
-        console.log(e.target)
-        e.target.style.display = 'none';
+    popBubble = (e, audio) => {
+        console.log(e.target);
+        e.target.style.visibility = 'hidden';
+        audio.play();
+      }
+
+    bubbleStart = (e) => {
+        console.log("bubblestart: ", e.target);
+        console.log("bubbleStart display: ", e.target.style.display);
+        e.target.style.visibility = 'visible';
     }
 
     // componentDidMount() {
     //     setInterval(this.updateFoxState, 12800);
     //   }
 
-    renderBubbles = () => {
-        let { classes } = this.props;
+    
+    // renderBubbles = () => {
+    //     let { classes } = this.props;
 
-        for (let i = 1; i <= 6; i++) {
-            let bubbleClass = `bubble${i}`
-            console.log(bubbleClass);
-            <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-        }
-    }
+    //     for (let i = 1; i <= NUMBUBBLES; i++) {
+    //         let bubbleClass = `bubble${i}`
+    //         console.log(bubbleClass);
+    //         <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
+    //     }
+    // }
 
 
     render() {
         let { foxState } = this.state;
         let { classes } = this.props;
+
+        let audio = new Audio(bubblePop)
+
 
         return foxState ? <div className={classes.homePage}>
             <Typography style={{ zIndex: 5 }} variant="h6">avery brown</Typography>
@@ -293,12 +295,15 @@ class HomePage extends Component {
                 <img className={classes.fox} src={foxState} alt='fox' />
                 {foxState === foxstates.BUBBLES ?
                     <React.Fragment>
-                        <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-                        <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-                        <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-                        <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-                        <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-                        <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
+                        <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
+                        {/* <audio className="audio-element">
+                            <source src={bubblePop}></source>
+                        </audio> */}
                     </React.Fragment> : null
                 }
             </div>
