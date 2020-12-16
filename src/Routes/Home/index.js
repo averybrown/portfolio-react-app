@@ -257,6 +257,8 @@ class HomePage extends Component {
     popBubble = (e, audio) => {
         console.log(e.target);
         e.target.style.visibility = 'hidden';
+        console.log("play audio: ");
+        console.log(audio);
         audio.play();
       }
 
@@ -301,9 +303,6 @@ class HomePage extends Component {
                         <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
                         <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
                         <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        {/* <audio className="audio-element">
-                            <source src={bubblePop}></source>
-                        </audio> */}
                     </React.Fragment> : null
                 }
             </div>
