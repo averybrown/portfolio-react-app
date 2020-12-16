@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import HomePage from 'Routes/Home';
+import AboutPage from 'Routes/About';
 
 const Routes = (props) => {
 
@@ -16,6 +17,13 @@ const Routes = (props) => {
                 />
                 <Route
                     exact
+                    path="/about"
+                    render={props => (
+                        <AboutPage />
+                    )}
+                />
+                <Route
+                    exact
                     path="/projects"
                     render={props => (
                         <HomePage />
@@ -24,13 +32,6 @@ const Routes = (props) => {
                 <Route
                     exact
                     path="/resume"
-                    render={props => (
-                        <HomePage />
-                    )}
-                />
-                <Route
-                    exact
-                    path="/about"
                     render={props => (
                         <HomePage />
                     )}

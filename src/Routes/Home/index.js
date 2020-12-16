@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import bubble from 'Assets/bubble.png';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-
-
+import bubblePopPath from 'Assets/bubblepop.mp3';
+// const bubblePopPath = require(`${process.env.PUBLIC_URL}/audio/bubblepop.mp3`);
 
 const styles = theme => {
     return {
@@ -16,7 +16,8 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            position: 'relative'
+            position: 'relative',
+            minHeight: '100%'
         },
         foxbubble: {
             position: 'absolute',
@@ -234,7 +235,8 @@ class HomePage extends Component {
             foxState: foxstates.BUBBLES,
             bubblesPopped: Array(NUMBUBBLES).fill(0)
         }
-
+        this.popSound = new Audio(bubblePopPath);
+        // this.popSound.muted = true;
         // if (window.performance && window.performance.getEntriesByType('navigation').length) {
         // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
         //     let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
@@ -243,7 +245,6 @@ class HomePage extends Component {
         //     this.setState({ foxState: foxSrc })
         // }
         // }	
-
     }
 
     // updateFoxState = () => {
@@ -254,9 +255,24 @@ class HomePage extends Component {
     // };
 
     popBubble = (e) => {
-        // let audio = new Audio(process.env.PUBLIC_URL + '/bubblepop.mp3')
         e.target.style.visibility = 'hidden';
-        // audio.play();
+
+        var playPromise = this.popSound.play();
+
+        // try {
+        //     this.popSound.play();
+        // } catch (error) {
+        //     console.log("playback prevented");
+        // }
+        if (playPromise !== undefined) {
+            playPromise
+                .then(_ => {
+                    console.log("audio played auto");
+                })
+                .catch(error => {
+                    console.log("playback prevented: ", process.env.PUBLIC_URL + '/audio/bubblepop.mp3');
+                });
+        }
     }
 
     bubbleStart = (e) => {
@@ -271,8 +287,8 @@ class HomePage extends Component {
     renderBubbles = () => {
         let { classes } = this.props;
 
-        return [...Array(NUMBUBBLES)].map((e, i) => 
-             <img key={i}
+        return [...Array(NUMBUBBLES)].map((e, i) =>
+            <img key={i}
                 className={`${classes.bubble} ${classes[`bubble${i + 1}`]}`}
                 src={bubble} alt='bubble'
                 onMouseOver={this.popBubble}
@@ -285,16 +301,11 @@ class HomePage extends Component {
         let { foxState } = this.state;
         let { classes } = this.props;
 
-
-
         return foxState ? <div className={classes.homePage}>
             <Typography style={{ zIndex: 10 }} variant="h6">avery brown</Typography>
             <div className={classes.foxbubble}>
                 <img className={classes.fox} src={foxState} alt='fox' />
-                {foxState === foxstates.BUBBLES ?
-                    this.renderBubbles()
-                    : null
-                }
+                {foxState === foxstates.BUBBLES ? this.renderBubbles() : null}
             </div>
         </div> : null
     }

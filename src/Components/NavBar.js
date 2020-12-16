@@ -16,6 +16,7 @@ const styles = theme => ({
         },
     },
     title: {
+        display: 'flex',
         flex: '0 0 0',
         maxWidth: '300px',
         textAlign: 'start'
@@ -31,12 +32,12 @@ const styles = theme => ({
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        flex: '1 1 0',
-        zIndex: 9
+        flex: '1 1 0'
     },
     link: {
         textDecoration: 'none !important',
-        cursor: 'pointer'
+        cursor: 'pointer', 
+        zIndex: 9
     },
     hangerIcon: {
         marginRight: theme.spacing(3)

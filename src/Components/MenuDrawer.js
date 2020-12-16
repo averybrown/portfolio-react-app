@@ -78,22 +78,22 @@ function ResponsiveDrawer(props) {
                 </NavLink>
                 <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
 
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
+                <NavLink exact className={classes.link} activeClassName='active-link' to="/about">
                     <Typography variant='subtitle2' className={classes.navText}>about</Typography>
                 </NavLink>
                 <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
 
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
+                <NavLink exact className={classes.link} activeClassName='active-link' to="/projects">
                     <Typography variant='subtitle2' className={classes.navText}>projects</Typography>
                 </NavLink>
                 <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
 
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
+                <NavLink exact className={classes.link} activeClassName='active-link' to="/resume">
                     <Typography variant='subtitle2' className={classes.navText}>resume</Typography>
                 </NavLink>
                 <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
 
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/">
+                <NavLink exact className={classes.link} activeClassName='active-link' to="/contact">
                     <Typography variant='subtitle2' className={classes.navText}>contact</Typography>
                 </NavLink>
             </div>
