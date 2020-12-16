@@ -254,7 +254,7 @@ class HomePage extends Component {
     //     }
     // };
 
-    popBubble = (e, audio) => {
+    popBubble = (e, audio) => { 
         console.log(e.target);
         e.target.style.visibility = 'hidden';
         console.log("play audio: ");
