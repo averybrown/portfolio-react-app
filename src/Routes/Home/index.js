@@ -3,9 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import bubble from 'Assets/bubble.png';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
-// import foxIdle from 'Assets/fox-idle.gif';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-import bubblePop from 'Assets/bubblepop.mp3'
 
 
 
@@ -50,6 +48,7 @@ const styles = theme => {
             animationIterationCount: 'infinite',
             animationFillMode: 'both',
             animationDuration: BUBBLEDURATION,
+            zIndex: 10,
             [theme.breakpoints.down("xs")]: {
                 minWidth: '60px',
             },
@@ -227,7 +226,7 @@ const foxstates = {
 
 
 class HomePage extends Component {
- 
+
 
     constructor(props) {
         super(props);
@@ -254,17 +253,13 @@ class HomePage extends Component {
     //     }
     // };
 
-    popBubble = (e, audio) => { 
-        console.log(e.target);
+    popBubble = (e) => {
+        // let audio = new Audio(process.env.PUBLIC_URL + '/bubblepop.mp3')
         e.target.style.visibility = 'hidden';
-        console.log("play audio: ");
-        console.log(audio);
-        audio.play();
-      }
+        // audio.play();
+    }
 
     bubbleStart = (e) => {
-        console.log("bubblestart: ", e.target);
-        console.log("bubbleStart display: ", e.target.style.display);
         e.target.style.visibility = 'visible';
     }
 
@@ -272,38 +267,33 @@ class HomePage extends Component {
     //     setInterval(this.updateFoxState, 12800);
     //   }
 
-    
-    // renderBubbles = () => {
-    //     let { classes } = this.props;
 
-    //     for (let i = 1; i <= NUMBUBBLES; i++) {
-    //         let bubbleClass = `bubble${i}`
-    //         console.log(bubbleClass);
-    //         <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={this.popBubble} />
-    //     }
-    // }
+    renderBubbles = () => {
+        let { classes } = this.props;
+
+        return [...Array(NUMBUBBLES)].map((e, i) => 
+             <img key={i}
+                className={`${classes.bubble} ${classes[`bubble${i + 1}`]}`}
+                src={bubble} alt='bubble'
+                onMouseOver={this.popBubble}
+                onAnimationIteration={this.bubbleStart} />
+        )
+    }
 
 
     render() {
         let { foxState } = this.state;
         let { classes } = this.props;
 
-        let audio = new Audio(bubblePop)
 
 
         return foxState ? <div className={classes.homePage}>
-            <Typography style={{ zIndex: 5 }} variant="h6">avery brown</Typography>
+            <Typography style={{ zIndex: 10 }} variant="h6">avery brown</Typography>
             <div className={classes.foxbubble}>
                 <img className={classes.fox} src={foxState} alt='fox' />
                 {foxState === foxstates.BUBBLES ?
-                    <React.Fragment>
-                        <img className={`${classes.bubble} ${classes.bubble1}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        <img className={`${classes.bubble} ${classes.bubble2}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        <img className={`${classes.bubble} ${classes.bubble3}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        <img className={`${classes.bubble} ${classes.bubble4}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        <img className={`${classes.bubble} ${classes.bubble5}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                        <img className={`${classes.bubble} ${classes.bubble6}`} src={bubble} alt='bubble' onMouseOver={(e) => this.popBubble(e, audio)} onAnimationIteration={this.bubbleStart} />
-                    </React.Fragment> : null
+                    this.renderBubbles()
+                    : null
                 }
             </div>
         </div> : null

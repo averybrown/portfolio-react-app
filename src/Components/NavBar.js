@@ -32,6 +32,7 @@ const styles = theme => ({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flex: '1 1 0',
+        zIndex: 9
     },
     link: {
         textDecoration: 'none !important',

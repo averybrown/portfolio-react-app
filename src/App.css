@@ -16,11 +16,9 @@
 
 .App-nav {
   height: 8vmin;
-  z-index: 2;
 }
 
 .App-body {
-  z-index: 1;
   min-height: 100vh;
   display: flex;
   height: 100%;
@@ -29,13 +27,6 @@
   align-items: center;
   justify-content: center;
 }
-
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
 
 
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200');
