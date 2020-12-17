@@ -42,148 +42,104 @@ const styles = theme => {
             height: 'auto',
             transform: 'scaleX(-1)'
         },
-        bubble: {
+        balloon: {
             position: 'absolute',
-            width: '7vw',
+            width: '10vw',
             bottom: 0,
             left: '50%',
             display: 'block',
-            // animationIterationCount: 'infinite',
             animationFillMode: 'both',
             animationDuration: '10s',
-            zIndex: 15,
+            zIndex: 100,
             [theme.breakpoints.down("xs")]: {
                 minWidth: '60px',
             },
         },
-        bubble1: {
+        balloon1: {
             animationName: '$Balloon1',
         },
-        bubble2: {
-            animationName: '$BubbleUp2',
+        balloon2: {
+            animationName: '$Balloon2',
         },
-        bubble3: {
-            animationName: '$BubbleUp3',
+        balloon3: {
+            animationName: '$Balloon3',
         },
-        bubble4: {
-            animationName: '$BubbleUp4',
-        },
-        bubble5: {
-            animationName: '$BubbleUp5',
-        },
-        bubble6: {
-            animationName: '$BubbleUp6',
+        balloon4: {
+            animationName: '$Balloon4',
         },
         "@keyframes Balloon1": {
             "0%": {
                 bottom: '0%',
-                transform: 'scale(0.4)',
             },
             "20%": {
-                transform: 'translateX(10vh)'
+                transform: 'translateX(10vw)'
             },
             "40%": {
-                transform: 'translateX(14vh)'
+                transform: 'translateX(14vw)'
             },
             "60%": {
-                transform: 'translateX(10vh)'
+                transform: 'translateX(10vw)'
             },
             "100%": {
                 bottom: '140vh',
-                transform: 'translateX(5vh)'
+                transform: 'translateX(5vw)'
             },
         },
-        "@keyframes BubbleUp2": {
+        "@keyframes Balloon2": {
             "0%": {
                 bottom: '0%',
             },
             "20%": {
-                transform: 'translateX(8vh)',
+                transform: 'translateX(8vw)',
             },
             "40%": {
-                transform: 'translateX(12vh)',
+                transform: 'translateX(12vw)',
             },
             "60%": {
-                transform: 'translateX(8vh)',
+                transform: 'translateX(8vw)',
             },
             "100%": {
                 bottom: '140vh',
-                transform: 'translateX(12vh)',
+                transform: 'translateX(12vw)',
             },
         },
-        "@keyframes BubbleUp3": {
+        "@keyframes Balloon3": {
             "0%": {
                 bottom: '0%',
             },
             "20%": {
-                transform: 'translateX(6vh)'
+                transform: 'translateX(6vw)'
             },
             "40%": {
-                transform: 'translateX(4vh)'
+                transform: 'translateX(4vw)'
             },
             "60%": {
-                transform: 'translateX(6vh)'
+                transform: 'translateX(6vw)'
             },
             "100%": {
                 bottom: '140vh',
-                transform: 'translateX(8vh)'
+                transform: 'translateX(8vw)'
             },
         },
-        "@keyframes BubbleUp4": {
+        "@keyframes Balloon4": {
             "0%": {
                 bottom: '0%',
             },
             "20%": {
-                transform: 'translateX(8vh)'
+                transform: 'translateX(8vw)'
             },
             "40%": {
-                transform: 'translateX(12vh)'
+                transform: 'translateX(12vw)'
             },
             "60%": {
-                transform: 'translateX(10vh)'
+                transform: 'translateX(10vw)'
             },
             "100%": {
                 bottom: '140vh',
-                transform: 'translateX(5vh)'
-            },
-        },
-        "@keyframes BubbleUp5": {
-            "0%": {
-                bottom: '0%',
-            },
-            "20%": {
-                transform: 'translateX(10vh)'
-            },
-            "40%": {
-                transform: 'translateX(14vh)'
-            },
-            "60%": {
-                transform: 'translateX(10vh)'
-            },
-            "100%": {
-                bottom: '140vh',
-                transform: 'translateX(5vh)'
-            },
-        },
-        "@keyframes BubbleUp6": {
-            "0%": {
-                bottom: '0%',
-            },
-            "20%": {
-                transform: 'translateX(9vh)'
-            },
-            "40%": {
-                transform: 'translateX(12vh)'
-            },
-            "60%": {
-                transform: 'translateX(7vh)'
-            },
-            "100%": {
-                bottom: '140vh',
-                transform: 'translateX(12vh)'
-            },
-        },
-    };
+                transform: 'translateX(5vw)'
+            }
+        }
+    }
 
 };
 
@@ -200,13 +156,17 @@ class AboutPage extends Component {
 
     renderBalloons = () => {
         let { classes } = this.props;
-    
-        return [...Array(NUMBALLOONS)].map((e, i) =>
-            <img key={i}
-                className={`${classes.bubble} ${classes[`bubble${i + 1}`]}`}
+
+        return [...Array(NUMBALLOONS)].map((e, i) => {
+            let classNum = (i + 1 )% 4;
+            let pos = Math.floor(Math.random() * 100) + 1 + '%';
+            return <img key={i}
+                style = {{left: pos}}
+                className={`${classes.balloon} ${classes[`balloon${classNum}`]}`}
                 src={bubble} alt='bubble'
                 onMouseOver={this.popBubble}
                 onAnimationIteration={this.bubbleStart} />
+        }
         )
     }
 
@@ -217,8 +177,8 @@ class AboutPage extends Component {
             <Typography style={{ zIndex: 10 }} variant="h5">about me</Typography>
             <div className={classes.bearContainer}>
                 <img className={classes.bear} src={foxBubble} alt='fox' />
-                {this.renderBalloons()}
             </div>
+            {this.renderBalloons()}
         </div>
     }
 }

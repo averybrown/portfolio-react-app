@@ -6,6 +6,6 @@ export const NUMBUBBLES = 6;
 
 
 // About me page constants
-export const NUMBALLOONS = 10;
+export const NUMBALLOONS = 30;
 
 

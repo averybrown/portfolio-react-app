@@ -89,17 +89,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(10vh) scale(1.2)'
+                transform: 'translateX(10vw) scale(1.2)'
             },
             "40%": {
-                transform: 'translateX(14vh) scale(1.2)'
+                transform: 'translateX(14vw) scale(1.2)'
             },
             "60%": {
-                transform: 'translateX(10vh) scale(1.2)'
+                transform: 'translateX(10vw) scale(1.2)'
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vh) scale(1.2)'
+                transform: 'translateX(5vw) scale(1.2)'
             },
         },
         "@keyframes BubbleUp2": {
@@ -112,17 +112,17 @@ const styles = theme => {
                 opacity: 100,
             },
             "20%": {
-                transform: 'translateX(8vh) scale(1)',
+                transform: 'translateX(8vw) scale(1)',
             },
             "40%": {
-                transform: 'translateX(12vh) scale(1)',
+                transform: 'translateX(12vw) scale(1)',
             },
             "60%": {
-                transform: 'translateX(8vh) scale(1)',
+                transform: 'translateX(8vw) scale(1)',
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(12vh) scale(1)',
+                transform: 'translateX(12vw) scale(1)',
             },
         },
         "@keyframes BubbleUp3": {
@@ -135,17 +135,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(6vh) scale(0.8)'
+                transform: 'translateX(6vw) scale(0.8)'
             },
             "40%": {
-                transform: 'translateX(4vh) scale(0.8)'
+                transform: 'translateX(4vw) scale(0.8)'
             },
             "60%": {
-                transform: 'translateX(6vh) scale(0.8)'
+                transform: 'translateX(6vw) scale(0.8)'
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(8vh) scale(0.8)'
+                transform: 'translateX(8vw) scale(0.8)'
             },
         },
         "@keyframes BubbleUp4": {
@@ -158,17 +158,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(8vh) scale(0.7)'
+                transform: 'translateX(8vw) scale(0.7)'
             },
             "40%": {
-                transform: 'translateX(12vh) scale(0.7)'
+                transform: 'translateX(12vw) scale(0.7)'
             },
             "60%": {
-                transform: 'translateX(10vh) scale(0.7)'
+                transform: 'translateX(10vw) scale(0.7)'
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vh) scale(0.7)'
+                transform: 'translateX(5vw) scale(0.7)'
             },
         },
         "@keyframes BubbleUp5": {
@@ -181,17 +181,17 @@ const styles = theme => {
                 opacity: 100,
             },
             "20%": {
-                transform: 'translateX(10vh) scale(1.2)'
+                transform: 'translateX(10vw) scale(1.2)'
             },
             "40%": {
-                transform: 'translateX(14vh) scale(1.2)'
+                transform: 'translateX(14vw) scale(1.2)'
             },
             "60%": {
-                transform: 'translateX(10vh) scale(1.2)'
+                transform: 'translateX(10vw) scale(1.2)'
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vh) scale(1.2)'
+                transform: 'translateX(5vw) scale(1.2)'
             },
         },
         "@keyframes BubbleUp6": {
@@ -204,17 +204,17 @@ const styles = theme => {
                 opacity: 100
             },
             "20%": {
-                transform: 'translateX(9vh) scale(1)'
+                transform: 'translateX(9vw) scale(1)'
             },
             "40%": {
-                transform: 'translateX(12vh) scale(1)'
+                transform: 'translateX(12vw) scale(1)'
             },
             "60%": {
-                transform: 'translateX(7vh) scale(1)'
+                transform: 'translateX(7vw) scale(1)'
             },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(12vh) scale(1)'
+                transform: 'translateX(12vw) scale(1)'
             },
         },
     };
