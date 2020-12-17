@@ -16,7 +16,8 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            position: 'relative',
+            position: 'absolute',
+            top: 0,
             minHeight: 0
         },
         foxbubble: {
@@ -83,7 +84,6 @@ const styles = theme => {
                 bottom: '53%',
                 opacity: 0,
                 transform: 'scale(0.4)',
-                display: 'block !important'
             },
             "1%": {
                 opacity: 100
@@ -236,7 +236,7 @@ class HomePage extends Component {
             bubblesPopped: Array(NUMBUBBLES).fill(0)
         }
         this.popSound = new Audio(bubblePopPath);
-        // this.popSound.muted = true;
+
         // if (window.performance && window.performance.getEntriesByType('navigation').length) {
         // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
         //     let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
@@ -257,20 +257,14 @@ class HomePage extends Component {
     popBubble = (e) => {
         e.target.style.visibility = 'hidden';
 
-        var playPromise = this.popSound.play();
-
-        // try {
-        //     this.popSound.play();
-        // } catch (error) {
-        //     console.log("playback prevented");
-        // }
+        const playPromise = this.popSound.play();
         if (playPromise !== undefined) {
             playPromise
                 .then(_ => {
                     console.log("audio played auto");
                 })
                 .catch(error => {
-                    console.log("playback prevented: ", process.env.PUBLIC_URL + '/audio/bubblepop.mp3');
+                    console.log("playback prevented: ", error);
                 });
         }
     }

@@ -26,7 +26,7 @@ const styles = theme => ({
     },
     navText: {
         textAlign: 'start',
-        margin: theme.spacing(3)
+        margin: theme.spacing(3), 
     },
     navLinks: {
         display: 'flex',
@@ -39,11 +39,9 @@ const styles = theme => ({
         cursor: 'pointer', 
         zIndex: 9
     },
-    hangerIcon: {
-        marginRight: theme.spacing(3)
-    },
     active: {
         textDecoration: 'none !important',
+
     }
 });
 

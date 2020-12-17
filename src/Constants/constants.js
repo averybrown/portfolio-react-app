@@ -5,3 +5,7 @@ export const BUBBLEDURATION = '6.6s';
 export const NUMBUBBLES = 6;
 
 
+// About me page constants
+export const NUMBALLOONS = 10;
+
+
