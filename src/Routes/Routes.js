@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import HomePage from 'Routes/Home';
 import AboutPage from 'Routes/About';
+import ResumePage from 'Routes/Resume';
+import ContactPage from 'Routes/Contact';
+import ProjectsPage from 'Routes/Projects';
 
 const Routes = (props) => {
 
@@ -26,21 +29,21 @@ const Routes = (props) => {
                     exact
                     path="/projects"
                     render={props => (
-                        <HomePage />
+                        <ProjectsPage />
                     )}
                 />
                 <Route
                     exact
                     path="/resume"
                     render={props => (
-                        <HomePage />
+                        <ResumePage />
                     )}
                 />
                 <Route
                     exact
                     path="/contact"
                     render={props => (
-                        <HomePage />
+                        <ContactPage />
                     )}
                 />
                 <Redirect exact to='/' />

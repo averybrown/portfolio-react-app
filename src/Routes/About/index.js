@@ -32,7 +32,7 @@ const styles = theme => {
             marginRight: '-10%',
             marginBottom: '-16%',
             [theme.breakpoints.down("xs")]: {
-                marginLeft: '-75px',
+                marginRight: '-75px',
                 marginBottom: '-120px',
                 width: '320px',
             }
@@ -60,12 +60,23 @@ const styles = theme => {
         },
         balloon2: {
             animationName: '$Balloon2',
+            animationDelay: '0.4s'
         },
         balloon3: {
             animationName: '$Balloon3',
+            animationDelay: '0.7s'
         },
         balloon4: {
             animationName: '$Balloon4',
+            animationDelay: '1s'
+        },
+        balloon5: {
+            animationName: '$Balloon2',
+            animationDelay: '1.2s'
+        },
+        balloon6: {
+            animationName: '$Balloon4',
+            animationDelay: '1.4s'
         },
         "@keyframes Balloon1": {
             "0%": {
@@ -154,18 +165,35 @@ class AboutPage extends Component {
         }
     }
 
+    popBalloon = (e) => {
+        e.target.style.visibility = 'hidden';
+
+        const playPromise = document.getElementById("audio").play();
+
+        if (playPromise !== undefined) {
+            playPromise
+                .then(_ => {
+                    console.log("audio played auto");
+                })
+                .catch(error => {
+                    console.log("playback prevented: ", error);
+                });
+        }
+    }
+
     renderBalloons = () => {
         let { classes } = this.props;
 
         return [...Array(NUMBALLOONS)].map((e, i) => {
-            let classNum = (i + 1 )% 4;
+            let classNum = (i % 6) + 1;
             let pos = Math.floor(Math.random() * 100) + 1 + '%';
             return <img key={i}
                 style = {{left: pos}}
                 className={`${classes.balloon} ${classes[`balloon${classNum}`]}`}
-                src={bubble} alt='bubble'
-                onMouseOver={this.popBubble}
-                onAnimationIteration={this.bubbleStart} />
+                src={bubble} 
+                alt='bubble'
+                onMouseOver={this.popBalloon}
+                 />
         }
         )
     }

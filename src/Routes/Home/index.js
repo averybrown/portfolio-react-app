@@ -258,6 +258,8 @@ class HomePage extends Component {
         e.target.style.visibility = 'hidden';
 
         const playPromise = this.popSound.play();
+        // const playPromise = document.getElementById("audio").play();
+
         if (playPromise !== undefined) {
             playPromise
                 .then(_ => {
