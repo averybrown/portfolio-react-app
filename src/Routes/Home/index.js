@@ -17,7 +17,7 @@ const styles = theme => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
-            minHeight: '100%'
+            minHeight: 0
         },
         foxbubble: {
             position: 'absolute',
