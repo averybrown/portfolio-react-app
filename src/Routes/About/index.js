@@ -30,7 +30,7 @@ const styles = theme => {
             bottom: 0,
             right: 0,
             marginRight: '-10%',
-            marginBottom: '-16%',
+            marginBottom: '-17.8%',
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-75px',
                 marginBottom: '-120px',
@@ -202,7 +202,7 @@ class AboutPage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.aboutPage}>
-            <Typography style={{ zIndex: 10 }} variant="h5">about me</Typography>
+            <Typography className="content" style={{ zIndex: 10 }} variant="h5">about me</Typography>
             <div className={classes.bearContainer}>
                 <img className={classes.bear} src={foxBubble} alt='fox' />
             </div>

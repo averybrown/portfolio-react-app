@@ -11,6 +11,9 @@
   <meta name="description" content="Web site created using create-react-app" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
   <audio id="audio"><source src="/audio/bubblepop.mp3" type="audio/mpeg"></source></audio>
+  <script>window.loadPromise = new Promise(resolve => {
+    window.addEventListener('DOMContentLoaded', resolve)
+  })</script>
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
