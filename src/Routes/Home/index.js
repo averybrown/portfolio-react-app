@@ -50,7 +50,7 @@ const styles = theme => {
             animationIterationCount: 'infinite',
             animationFillMode: 'both',
             animationDuration: BUBBLEDURATION,
-            zIndex: 10,
+            zIndex: 15,
             [theme.breakpoints.down("xs")]: {
                 minWidth: '60px',
             },
@@ -298,7 +298,7 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return foxState ? <div className={classes.homePage}>
-            <Typography className="name" style={{ zIndex: 10 }} variant="h6">avery brown</Typography>
+            <Typography className="name" variant="h6">avery brown</Typography>
             <div className={`${classes.foxbubble} character`}>
                 <img className={classes.fox} src={foxState} alt='fox' />
                 {foxState === foxstates.BUBBLES ? this.renderBubbles() : null}
