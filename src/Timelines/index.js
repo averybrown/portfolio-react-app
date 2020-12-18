@@ -3,11 +3,11 @@ import { TimelineMax as Timeline, Power1 } from 'gsap';
 const getDefaultTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
     const character = node.querySelector('.character');
-    //   const contentInner = node.querySelector('.content--inner');
+    const title = node.querySelector('h5');
 
     timeline
-        .from(character, 1.5, { duration: 2, display: 'none', y: 200, delay }) 
-        .from(node, 0.3, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
+        .from(character, 1.5, { duration: 2, display: 'none', y: 200, delay })
+        .staggerFrom(title, 0.375, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
     // .from(content, 0.15, { autoAlpha: 0, y: 25, ease: Power1.easeInOut })
     // .from(contentInner, 0.15, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
 
