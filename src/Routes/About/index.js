@@ -18,7 +18,11 @@ const styles = theme => {
             justifyContent: 'center',
             position: 'relative',
             minHeight: '100%',
-            marginTop: theme.spacing(8)
+            paddingTop: theme.spacing(8)
+        },
+        title: {
+            zIndex: 10, 
+            marginTop: theme.spacing(10)
         },
         bearContainer: {
             position: 'absolute',
@@ -35,12 +39,12 @@ const styles = theme => {
                 marginRight: '-75px',
                 marginBottom: '-90px',
                 width: '320px',
-            }
+            }, 
+            transform: 'scaleX(-1)'
         },
         bear: {
             width: '100%',
             height: 'auto',
-            transform: 'scaleX(-1)'
         },
         balloon: {
             position: 'absolute',
@@ -202,7 +206,7 @@ class AboutPage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.aboutPage}>
-            <Typography className="content" style={{ zIndex: 10 }} variant="h5">about me</Typography>
+            <Typography className={classes.title} variant="h5">about me</Typography>
             <div className={classes.bearContainer}>
                 <img className={`${classes.bear} character`} src={foxBubble} alt='fox' />
             </div>

@@ -18,6 +18,10 @@ const styles = theme => {
             minHeight: '100%',
             marginTop: theme.spacing(8)
         },
+        title: {
+            zIndex: 10, 
+            marginTop: theme.spacing(10)
+        },
         foxContainer: {
             position: 'absolute',
             display: 'flex',
@@ -57,7 +61,7 @@ class ContactPage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.contactPage}>
-            <Typography style={{ zIndex: 10 }} variant="h5">contact</Typography>
+            <Typography className={classes.title} variant="h5">contact</Typography>
             <div className={classes.foxContainer}>
                 <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
             </div>

@@ -20,6 +20,10 @@ const styles = theme => {
             minHeight: '100%',
             marginTop: theme.spacing(8)
         },
+        title: {
+            zIndex: 10, 
+            marginTop: theme.spacing(10)
+        },
         foxContainer: {
             position: 'absolute',
             display: 'flex',
@@ -59,7 +63,7 @@ class ResumePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.resumePage}>
-            <Typography style={{ zIndex: 10 }} variant="h5">resume</Typography>
+            <Typography className={classes.title} variant="h5">resume</Typography>
             <div className={classes.foxContainer}>
                 <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
             </div>

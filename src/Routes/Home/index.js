@@ -5,7 +5,6 @@ import bubble from 'Assets/bubble.png';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
 import bubblePopPath from 'Assets/bubblepop.mp3';
-// const bubblePopPath = require(`${process.env.PUBLIC_URL}/audio/bubblepop.mp3`);
 
 const styles = theme => {
     return {
@@ -15,10 +14,11 @@ const styles = theme => {
             overflowY: 'hidden',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            position: 'absolute',
-            top: 0,
-            minHeight: 0
+            justifyContent: 'center'
+        },
+        title: {
+            zIndex: 10, 
+            marginTop: theme.spacing(15)
         },
         foxbubble: {
             position: 'absolute',
