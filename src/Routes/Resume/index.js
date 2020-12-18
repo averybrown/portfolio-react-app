@@ -61,7 +61,7 @@ class ResumePage extends Component {
         return <div className={classes.resumePage}>
             <Typography style={{ zIndex: 10 }} variant="h5">resume</Typography>
             <div className={classes.foxContainer}>
-                <img className={classes.fox} src={foxIdle} alt='fox' />
+                <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
             </div>
         </div>
     }

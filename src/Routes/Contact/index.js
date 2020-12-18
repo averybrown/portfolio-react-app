@@ -59,7 +59,7 @@ class ContactPage extends Component {
         return <div className={classes.contactPage}>
             <Typography style={{ zIndex: 10 }} variant="h5">contact</Typography>
             <div className={classes.foxContainer}>
-                <img className={classes.fox} src={foxIdle} alt='fox' />
+                <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
             </div>
         </div>
     }

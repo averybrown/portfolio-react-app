@@ -13,8 +13,8 @@ const Routes = (props) => {
 
     return (
         <React.Fragment>
-            <Route render={(location) => {
-                const { pathname, key } = location
+            <Route render={(routeProps) => {
+                const { pathname, key } = routeProps.location
 
                 return (
                     <TransitionGroup component={null}>

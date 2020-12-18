@@ -298,8 +298,8 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return foxState ? <div className={classes.homePage}>
-            <Typography style={{ zIndex: 10 }} variant="h6">avery brown</Typography>
-            <div className={classes.foxbubble}>
+            <Typography className="name" style={{ zIndex: 10 }} variant="h6">avery brown</Typography>
+            <div className={`${classes.foxbubble} character`}>
                 <img className={classes.fox} src={foxState} alt='fox' />
                 {foxState === foxstates.BUBBLES ? this.renderBubbles() : null}
             </div>

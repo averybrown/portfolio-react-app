@@ -60,7 +60,7 @@ class ProjectsPage extends Component {
         return <div className={classes.projectsPage}>
             <Typography style={{ zIndex: 10 }} variant="h5">projects</Typography>
             <div className={classes.bearContainer}>
-                <img className={classes.bear} src={foxIdle} alt='fox' />
+                <img className={`${classes.bear} character`} src={foxIdle} alt='fox' />
             </div>
         </div>
     }

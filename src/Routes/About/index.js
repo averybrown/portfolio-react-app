@@ -204,7 +204,7 @@ class AboutPage extends Component {
         return <div className={classes.aboutPage}>
             <Typography className="content" style={{ zIndex: 10 }} variant="h5">about me</Typography>
             <div className={classes.bearContainer}>
-                <img className={classes.bear} src={foxBubble} alt='fox' />
+                <img className={`${classes.bear} character`} src={foxBubble} alt='fox' />
             </div>
             {this.renderBalloons()}
         </div>
