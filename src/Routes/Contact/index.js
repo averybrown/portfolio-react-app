@@ -14,9 +14,7 @@ const styles = theme => {
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'center',
-            position: 'relative',
-            minHeight: '100%',
-            marginTop: theme.spacing(8)
+            minHeight: 0,
         },
         title: {
             zIndex: 10, 

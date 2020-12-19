@@ -42,7 +42,7 @@ function App() {
         <div className="App-nav">
           <NavBar />
         </div>
-        <div style={{position: 'absolute'}} className="App-body">
+        <div style={{position: 'absolute', overflowY: 'hidden'}} className="App-body">
           <Routes />
         </div>
       </div>

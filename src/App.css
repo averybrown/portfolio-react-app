@@ -29,6 +29,7 @@
   justify-content: center;
   position: 'absolute';
   top: 0;
+  overflow-y: 'hidden';
 }
 
 

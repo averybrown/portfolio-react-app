@@ -16,6 +16,7 @@ const styles = theme => {
             justifyContent: 'center',
             position: 'relative',
             minHeight: '100%',
+            paddingTop: theme.spacing(8)
         },
         title: {
             zIndex: 10, 
