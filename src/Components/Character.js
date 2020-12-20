@@ -28,8 +28,21 @@ const styles = theme => {
         },
         character: {
             width: '100%',
-            height: 'auto'
+            height: 'auto', 
         },
+        bearContainer: { 
+            transform: 'scaleX(-1)', 
+            bottom: 0,
+            right: 0,
+            marginRight: '-10%',
+            marginBottom: '-17.8%',
+            [theme.breakpoints.down("xs")]: {
+                marginRight: '-75px',
+                marginBottom: '-90px',
+                width: '320px',
+            },
+        }, 
+
         bubble: {
             position: 'absolute',
             width: '7vw',
@@ -284,10 +297,11 @@ class Character extends Component {
         let characterStates = this.context.getCharacterStates()
         let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
         let characterType = this.context.getCharacterType();
-
+        let bear = characterType !== undefined ? (characterType === 'bear') : undefined; 
+        //add bear class
         
-        return <div className={doesCharacterEnter ? `${classes.characterContainer} characterEntrance` : classes.characterContainer}
-            style={{ transform: characterType === 'bear' ? 'scaleX(-1)' : 'scale(1)'}}>
+        return <div className={doesCharacterEnter ? `${classes.characterContainer} characterEntrance` 
+        : classes.characterContainer}>
             <img className={classes.character} src={animation} alt='character' />
             {showBubbles ? this.renderBubbles() : null}
         </div>

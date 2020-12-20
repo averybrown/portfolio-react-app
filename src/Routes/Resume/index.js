@@ -20,28 +20,7 @@ const styles = theme => {
         title: {
             zIndex: 10,
             marginTop: theme.spacing(10)
-        },
-        foxContainer: {
-            position: 'absolute',
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '0 0 auto',
-            width: '50vw',
-            alignItems: 'stretch',
-            bottom: 0,
-            left: 0,
-            marginLeft: '-10%',
-            marginBottom: '-17.8%',
-            [theme.breakpoints.down("xs")]: {
-                marginLeft: '-75px',
-                marginBottom: '-90px',
-                width: '320px',
-            }
-        },
-        fox: {
-            width: '100%',
-            height: 'auto',
-        },
+        }
     };
 };
 

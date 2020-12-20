@@ -23,28 +23,6 @@ const styles = theme => {
             zIndex: 10,
             marginTop: theme.spacing(10)
         },
-        bearContainer: {
-            position: 'absolute',
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '0 0 auto',
-            width: '50vw',
-            alignItems: 'stretch',
-            bottom: 0,
-            right: 0,
-            marginRight: '-10%',
-            marginBottom: '-17.8%',
-            [theme.breakpoints.down("xs")]: {
-                marginRight: '-75px',
-                marginBottom: '-90px',
-                width: '320px',
-            },
-            transform: 'scaleX(-1)'
-        },
-        bear: {
-            width: '100%',
-            height: 'auto',
-        },
         balloon: {
             position: 'absolute',
             width: '10vw',
