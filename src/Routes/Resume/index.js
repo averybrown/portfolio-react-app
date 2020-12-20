@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-import bubble from 'Assets/bubble.png';
-import foxIdle from 'Assets/fox-idle.gif';
-import { NUMBALLOONS } from 'Constants/constants';
-
+import Character from 'Components/Character';
 
 
 const styles = theme => {
@@ -18,10 +15,10 @@ const styles = theme => {
             justifyContent: 'center',
             position: 'relative',
             minHeight: '100%',
-            marginTop: theme.spacing(8)
+            paddingTop: theme.spacing(8)
         },
         title: {
-            zIndex: 10, 
+            zIndex: 10,
             marginTop: theme.spacing(10)
         },
         foxContainer: {
@@ -64,9 +61,7 @@ class ResumePage extends Component {
 
         return <div className={classes.resumePage}>
             <Typography className={classes.title} variant="h5">resume</Typography>
-            <div className={classes.foxContainer}>
-                <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
-            </div>
+            <Character />
         </div>
     }
 }

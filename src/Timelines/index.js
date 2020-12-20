@@ -2,7 +2,7 @@ import { TimelineMax as Timeline, Power1 } from 'gsap';
 
 const getDefaultTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
-    const character = node.querySelector('.character');
+    const character = node.querySelector('.characterEntrance');
     const title = node.querySelector('h5');
 
     timeline
@@ -17,7 +17,7 @@ const getDefaultTimeline = (node, delay) => {
 const getHomeTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
     const name = node.querySelector('h6');
-    const character = node.querySelector('.character');
+    const character = node.querySelector('.characterEntrance');
 
     timeline
         .from(character, 1.5, { duration: 1, display: 'none', y: 200, delay })

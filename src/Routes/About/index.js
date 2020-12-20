@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import bubble from 'Assets/bubble.png';
-import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import { NUMBALLOONS } from 'Constants/constants';
-
+import Character from 'Components/Character';
 
 
 const styles = theme => {
@@ -21,7 +20,7 @@ const styles = theme => {
             paddingTop: theme.spacing(8)
         },
         title: {
-            zIndex: 10, 
+            zIndex: 10,
             marginTop: theme.spacing(10)
         },
         bearContainer: {
@@ -39,7 +38,7 @@ const styles = theme => {
                 marginRight: '-75px',
                 marginBottom: '-90px',
                 width: '320px',
-            }, 
+            },
             transform: 'scaleX(-1)'
         },
         bear: {
@@ -192,12 +191,12 @@ class AboutPage extends Component {
             let classNum = (i % 6) + 1;
             let pos = Math.floor(Math.random() * 100) + 1 + '%';
             return <img key={i}
-                style = {{left: pos}}
+                style={{ left: pos }}
                 className={`${classes.balloon} ${classes[`balloon${classNum}`]}`}
-                src={bubble} 
+                src={bubble}
                 alt='bubble'
                 onMouseOver={this.popBalloon}
-                 />
+            />
         }
         )
     }
@@ -207,9 +206,7 @@ class AboutPage extends Component {
 
         return <div className={classes.aboutPage}>
             <Typography className={classes.title} variant="h5">about me</Typography>
-            <div className={classes.bearContainer}>
-                <img className={`${classes.bear} character`} src={foxBubble} alt='fox' />
-            </div>
+            <Character />
             {this.renderBalloons()}
         </div>
     }

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-import foxIdle from 'Assets/fox-idle.gif';
-
+import Character from 'Components/Character';
 
 
 const styles = theme => {
@@ -15,6 +14,7 @@ const styles = theme => {
             alignItems: 'flex-start',
             justifyContent: 'center',
             minHeight: 0,
+            paddingTop: theme.spacing(8)
         },
         title: {
             zIndex: 10, 
@@ -60,9 +60,7 @@ class ContactPage extends Component {
 
         return <div className={classes.contactPage}>
             <Typography className={classes.title} variant="h5">contact</Typography>
-            <div className={classes.foxContainer}>
-                <img className={`${classes.fox} character`} src={foxIdle} alt='fox' />
-            </div>
+            <Character/>
         </div>
     }
 }

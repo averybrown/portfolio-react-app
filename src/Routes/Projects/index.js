@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import foxIdle from 'Assets/fox-idle.gif';
+import Character from 'Components/Character';
 
 
 
@@ -63,9 +64,7 @@ class ProjectsPage extends Component {
 
         return <div className={classes.projectsPage}>
             <Typography className={classes.title} variant="h5">projects</Typography>
-            <div className={classes.bearContainer}>
-                <img className={`${classes.bear} character`} src={foxIdle} alt='fox' />
-            </div>
+            <Character/>
         </div>
     }
 }
