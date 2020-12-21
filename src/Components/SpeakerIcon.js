@@ -27,17 +27,19 @@ const styles = theme => {
 class SpeakerIcon extends Component {
     static contextType = CharacterContext;
 
- 
+
     render() {
         let { classes } = this.props;
         const { soundOn } = this.props.soundContext;
         let character = this.context.getCharacterType();
         let fox = character === 'fox'
-        
 
-        return <button style={{visibility: 'hidden'}} className={classes.speaker} onClick={this.context.switchSoundOn}>
-            <img style={fox ? {right: '2%'} : {left: '2%'} } className={classes.speaker} src={soundOn ? muteIcon : speakerIcon} alt='speaker' />
-        </button>
+
+        return <img
+            style={fox ? { right: '2%' } : { left: '2%' }}
+            className={classes.speaker}
+            src={soundOn ? muteIcon : speakerIcon}
+            alt='speaker' onClick={this.props.soundContext.switchSoundOn} />
     }
 }
 
