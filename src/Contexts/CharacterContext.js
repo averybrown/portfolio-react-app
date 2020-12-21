@@ -19,9 +19,9 @@ const animations = {
 
 const pages = [
     { name: 'home', character: 'fox', bubbles: true, states: [{ animation: animations.FOXENTRANCE }, { animation: animations.FOXBUBBLES }] },
-    { name: 'projects', character: 'bear', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.BEARWAVE }] },
-    { name: 'resume', character: 'bear', states: [{ animation: animations.FOXENTRANCE }, { animation: animations.BEARBALLOONS }] },
-    { name: 'contact', character: 'fox', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.FOXPHONE }] }
+    { name: 'projects', character: 'bear', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.FOXIDLE }] },
+    { name: 'resume', character: 'bear', states: [{ animation: animations.FOXENTRANCE }, { animation: animations.FOXIDLE }] },
+    { name: 'contact', character: 'fox', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.FOXIDLE }] }
 ]
 
 

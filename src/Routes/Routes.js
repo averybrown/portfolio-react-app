@@ -33,13 +33,13 @@ const Routes = (props) => {
                                         <HomePage />
                                     )}
                                 />
-                                <Route
+                                {/* <Route
                                     exact
                                     path="/about"
                                     render={props => (
                                         <AboutPage />
                                     )}
-                                />
+                                /> */}
                                 <Route
                                     exact
                                     path="/projects"

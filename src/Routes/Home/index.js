@@ -30,7 +30,7 @@ class HomePage extends Component {
 
         return <div className={classes.homePage}>
             <Typography className="name" variant="h6">avery brown</Typography>
-            <Character/>
+            <Character />
         </div>
     }
 }

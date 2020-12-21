@@ -16,6 +16,12 @@ const styles = theme => {
             flex: '0 0 auto',
             width: '50vw',
             alignItems: 'stretch',
+        },
+        character: {
+            width: '100%',
+            height: 'auto',
+        },
+        fox: {
             bottom: 0,
             left: 0,
             marginLeft: '-10%',
@@ -26,12 +32,8 @@ const styles = theme => {
                 width: '320px',
             }
         },
-        character: {
-            width: '100%',
-            height: 'auto', 
-        },
-        bearContainer: { 
-            transform: 'scaleX(-1)', 
+        bear: {
+            transform: 'scaleX(-1) !important',
             bottom: 0,
             right: 0,
             marginRight: '-10%',
@@ -41,7 +43,7 @@ const styles = theme => {
                 marginBottom: '-90px',
                 width: '320px',
             },
-        }, 
+        },
 
         bubble: {
             position: 'absolute',
@@ -297,11 +299,10 @@ class Character extends Component {
         let characterStates = this.context.getCharacterStates()
         let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
         let characterType = this.context.getCharacterType();
-        let bear = characterType !== undefined ? (characterType === 'bear') : undefined; 
-        //add bear class
-        
-        return <div className={doesCharacterEnter ? `${classes.characterContainer} characterEntrance` 
-        : classes.characterContainer}>
+
+        return <div className={doesCharacterEnter ?
+                `${classes.characterContainer} characterEntrance ${classes[characterType]}`
+                : classes.characterContainer}>
             <img className={classes.character} src={animation} alt='character' />
             {showBubbles ? this.renderBubbles() : null}
         </div>
