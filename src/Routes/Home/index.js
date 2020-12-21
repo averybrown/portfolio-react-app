@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import Character from 'Components/Character';
-
+import SpeakerIcon from 'Components/SpeakerIcon';
 
 const styles = theme => {
     return {
@@ -32,6 +32,7 @@ class HomePage extends Component {
         return <div className={classes.homePage}>
             <Typography className="name" variant="h6">avery brown</Typography>
             <Character />
+            <SpeakerIcon/>
         </div>
     }
 }

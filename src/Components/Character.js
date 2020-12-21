@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import bubble from 'Assets/bubble.png';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-// import bubblePopPath from 'Assets/bubblepop.mp3';
 import { CharacterContext } from 'Contexts/CharacterContext';
+import { withSoundContext } from 'Contexts/SoundContext';
 
 
 
@@ -227,45 +227,21 @@ const styles = theme => {
 class Character extends Component {
     static contextType = CharacterContext;
 
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            bubblesPopped: Array(NUMBUBBLES).fill(0)
-        }
-        // this.popSound = new Audio(bubblePopPath);
-
-        // if (window.performance && window.performance.getEntriesByType('navigation').length) {
-        // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
-        //     let foxSrc = `${foxstates.foxState}+?a=${Math.random()}`
-        // img.src = img.src.replace(/\?.*$/,"")+"?x="+Math.random();
-
-        //     this.setState({ foxState: foxSrc })
-        // }
-        // }	
-    }
-
-    // updateFoxState = () => {
-    //     let { foxState } = this.state;
-    //     if (foxState === foxstates.ENTER) {
-    //         this.setState({ foxState: foxstates.BUBBLES });
-    //     }
-    // };
-
     pop = (e) => {
         e.target.style.visibility = 'hidden';
 
-        // const playPromise = this.popSound.play();
-        const playPromise = document.getElementById("bubble-pop").play();
+        if (this.props.soundContext.soundOn) {
+            const playPromise = document.getElementById("bubble-pop").play();
 
-        if (playPromise !== undefined) {
-            playPromise
-                .then(_ => {
-                    console.log("audio played auto");
-                })
-                .catch(error => {
-                    console.log("playback prevented: ", error);
-                });
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(_ => {
+                        console.log("audio played auto");
+                    })
+                    .catch(error => {
+                        console.log("playback prevented: ", error);
+                    });
+            }
         }
     }
 
@@ -298,18 +274,15 @@ class Character extends Component {
         let characterStates = this.context.getCharacterStates()
         let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
         let characterType = this.context.getCharacterType();
-        // let flipCharacter = characterType !== this.context.startingCharacter
 
 
         return <div className={doesCharacterEnter ?
                 `${classes.characterContainer} characterEntrance ${classes[characterType]}`
                 : `${classes.characterContainer} ${classes[characterType]}`}>
-            <img 
-            // style={flipCharacter ? {transform: 'scaleX(-1)'} : {transform: 'scaleX(1)'}} 
-            className={classes.character} src={animation} alt='character' />
+            <img className={classes.character} src={animation} alt='character' />
             {showBubbles ? this.renderBubbles() : null}
         </div>
     }
 }
 
-export default withStyles(styles)(Character);
+export default withSoundContext(withStyles(styles)(Character));

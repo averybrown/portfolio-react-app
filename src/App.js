@@ -4,6 +4,7 @@ import NavBar from 'Components/NavBar';
 import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import MenuDrawer from 'Components/MenuDrawer';
 import CharacterDataProvider from 'Contexts/CharacterContext';
+import { SoundProvider } from 'Contexts/SoundContext';
 
 
 let theme = createMuiTheme({
@@ -40,15 +41,17 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CharacterDataProvider>
-        <div className="App">
-          <MenuDrawer />
-          <div className="App-nav">
-            <NavBar />
+        <SoundProvider>
+          <div className="App">
+            <MenuDrawer />
+            <div className="App-nav">
+              <NavBar />
+            </div>
+            <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
+              <Routes />
+            </div>
           </div>
-          <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
-            <Routes />
-          </div>
-        </div>
+        </SoundProvider>
       </CharacterDataProvider>
     </ThemeProvider>
   );

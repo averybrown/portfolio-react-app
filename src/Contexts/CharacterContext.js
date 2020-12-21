@@ -1,5 +1,4 @@
 import React, { createContext, Component } from 'react';
-// import { useLocation } from 'react-router-dom';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import { withRouter } from "react-router-dom";
@@ -102,7 +101,6 @@ class CharacterDataProvider extends Component {
             this.setState({ startingCharacter: currentPageData.character })
         }
     }
-
 
     componentDidMount() {
         let currentPageData = this.getPage();
