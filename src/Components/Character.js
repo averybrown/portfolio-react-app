@@ -10,6 +10,7 @@ import { CharacterContext } from 'Contexts/CharacterContext';
 const styles = theme => {
     return {
         characterContainer: {
+            // visibility: 'hidden',
             position: 'absolute',
             display: 'flex',
             flexDirection: 'column',
@@ -33,7 +34,6 @@ const styles = theme => {
             }
         },
         bear: {
-            transform: 'scaleX(-1) !important',
             bottom: 0,
             right: 0,
             marginRight: '-10%',
@@ -44,7 +44,6 @@ const styles = theme => {
                 width: '320px',
             },
         },
-
         bubble: {
             position: 'absolute',
             width: '7vw',
@@ -299,11 +298,15 @@ class Character extends Component {
         let characterStates = this.context.getCharacterStates()
         let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
         let characterType = this.context.getCharacterType();
+        // let flipCharacter = characterType !== this.context.startingCharacter
+
 
         return <div className={doesCharacterEnter ?
                 `${classes.characterContainer} characterEntrance ${classes[characterType]}`
-                : classes.characterContainer}>
-            <img className={classes.character} src={animation} alt='character' />
+                : `${classes.characterContainer} ${classes[characterType]}`}>
+            <img 
+            // style={flipCharacter ? {transform: 'scaleX(-1)'} : {transform: 'scaleX(1)'}} 
+            className={classes.character} src={animation} alt='character' />
             {showBubbles ? this.renderBubbles() : null}
         </div>
     }

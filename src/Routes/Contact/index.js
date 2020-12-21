@@ -11,14 +11,17 @@ const styles = theme => {
             width: '100%',
             overflowY: 'hidden',
             display: 'flex',
-            alignItems: 'flex-start',
             justifyContent: 'center',
             position: 'relative',
             minHeight: '100%',
+            flexDirection: 'column'
         },
         title: {
             zIndex: 10,
-            marginTop: theme.spacing(14)
+            visibility: 'hidden',
+        }, 
+        email: {
+            textDecoration: 'none'
         }
     };
 };
@@ -26,19 +29,12 @@ const styles = theme => {
 
 class ContactPage extends Component {
 
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-
     render() {
         let { classes } = this.props;
 
         return <div className={classes.contactPage}>
             <Typography className={classes.title} variant="h5">contact</Typography>
+            <a className={classes.email} href={"mailto:avery.brown@mac.com"}><Typography variant="subtitle2">avery.brown@mac.com</Typography></a>
             <Character/>
         </div>
     }

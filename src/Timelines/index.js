@@ -6,10 +6,8 @@ const getDefaultTimeline = (node, delay) => {
     const title = node.querySelector('h5');
 
     timeline
-        .from(character, 1.5, { duration: 2, display: 'none', y: 200, delay })
-        .staggerFrom(title, 0.375, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
-    // .from(content, 0.15, { autoAlpha: 0, y: 25, ease: Power1.easeInOut })
-    // .from(contentInner, 0.15, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
+        .from(character, { duration: 1.5, display: 'none', y: 200, autoAlpha: 0 })
+        .staggerFrom(title, 0.2, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
 
     return timeline;
 }
@@ -20,9 +18,8 @@ const getHomeTimeline = (node, delay) => {
     const character = node.querySelector('.characterEntrance');
 
     timeline
-        .from(character, 1.5, { duration: 1, display: 'none', y: 200, delay })
-        // .from(fox, 0.1, { display: 'none', autoAlpha: 0, delay })
-        .staggerFrom(name, 0.375, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
+        .from(character, { duration: 1.5, display: 'none', y: 200, autoAlpha: 0 })
+        .staggerFrom(name, 0.2, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
 
     return timeline;
 }
@@ -31,20 +28,20 @@ export const play = (pathname, node, appears) => {
     const delay = appears ? 0 : 0.5;
     let timeline
 
-    if (pathname === '/')
-        timeline = getHomeTimeline(node, delay);
-    else
-        timeline = getDefaultTimeline(node, delay);
 
     window
         .loadPromise
-        // .then(() => requestAnimationFrame(() => timeline.play()))
-        .then(() => timeline.play())
+        .then(() => {
+            if (pathname === '/') timeline = getHomeTimeline(node, delay);
+            else timeline = getDefaultTimeline(node, delay);
+
+            timeline.play()
+        })
 }
 
 export const exit = (node) => {
     const timeline = new Timeline({ paused: true });
 
-    timeline.to(node, 0.15, { autoAlpha: 0, ease: Power1.easeOut });
+    timeline.to(node, { duration: 0.15, autoAlpha: 0, ease: Power1.easeOut });
     timeline.play();
 }

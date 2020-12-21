@@ -16,7 +16,8 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: theme.spacing(15)
+            marginTop: theme.spacing(15), 
+            visibility: 'hidden',
         }
     };
 };

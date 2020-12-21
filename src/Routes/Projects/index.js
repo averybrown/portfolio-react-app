@@ -20,7 +20,8 @@ const styles = theme => {
         },
         title: {
             zIndex: 10, 
-            marginTop: theme.spacing(14)
+            marginTop: theme.spacing(14), 
+            visibility: 'hidden',
         }
     };
 };

@@ -2,6 +2,7 @@ import React, { createContext, Component } from 'react';
 // import { useLocation } from 'react-router-dom';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxIdle from 'Assets/fox-idle.gif';
+import { withRouter } from "react-router-dom";
 
 
 export const CharacterContext = createContext();
@@ -18,20 +19,39 @@ const animations = {
 }
 
 const pages = [
-    { name: 'home', character: 'fox', bubbles: true, states: [{ animation: animations.FOXENTRANCE }, { animation: animations.FOXBUBBLES }] },
-    { name: 'projects', character: 'bear', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.FOXIDLE }] },
-    { name: 'resume', character: 'bear', states: [{ animation: animations.FOXENTRANCE }, { animation: animations.FOXIDLE }] },
-    { name: 'contact', character: 'fox', states: [{ animation: animations.BEARENTRANCE }, { animation: animations.FOXIDLE }] }
+    {
+        name: 'home', character: 'fox', bubbles: true, states: [
+            { animation: animations.FOXENTRANCE },
+            { animation: animations.FOXBUBBLES }
+        ]
+    },
+    {
+        name: 'projects', character: 'bear', states: [
+            { animation: animations.BEARENTRANCE },
+            { animation: animations.FOXIDLE }
+        ]
+    },
+    {
+        name: 'resume', character: 'bear', states: [
+            { animation: animations.FOXENTRANCE },
+            { animation: animations.FOXIDLE }]
+    },
+    {
+        name: 'contact', character: 'fox', states: [
+            { animation: animations.BEARENTRANCE },
+            { animation: animations.FOXIDLE }]
+    }
 ]
 
 
-export class CharacterDataProvider extends Component {
+class CharacterDataProvider extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             currentPage: undefined,
             lastPage: undefined,
+            startingCharacter: undefined
         }
     }
 
@@ -70,20 +90,29 @@ export class CharacterDataProvider extends Component {
 
     setCurrentPageState = async (currentPageData) => {
         const { currentPage } = this.state;
+
         currentPage === undefined ?
             this.setState({ currentPage: currentPageData })
             : this.setState({ currentPage: currentPageData, lastPage: currentPage })
     }
 
-    componentDidMount() {
-        let currentPageData = this.getPage();
-        this.setCurrentPageState(currentPageData).then(() => console.log(this.state.currentPage))
+    setStartingCharacter = async (currentPageData) => {
+        if (currentPageData !== undefined) {
+            this.setState({ startingCharacter: currentPageData.character })
+        }
     }
 
-    componentDidUpdate() {
-        console.log("update")
+
+    componentDidMount() {
+        let currentPageData = this.getPage();
+        this.setCurrentPageState(currentPageData)
+        this.setStartingCharacter(currentPageData)
+    }
+
+    componentDidUpdate(newProps) {
         const { currentPage } = this.state;
-        if (currentPage !== undefined) {
+
+        if (this.props.location !== newProps.location) {
             let currentPageData = this.getPage();
             if (currentPageData !== currentPage) {
                 this.setCurrentPageState(currentPageData)
@@ -107,8 +136,4 @@ export class CharacterDataProvider extends Component {
 }
 
 
-export const withCharacterContext = Component => props => (
-    <CharacterConsumer>
-        {value => <Component CharacterContext={value} {...props} />}
-    </CharacterConsumer>
-) 
+export default withRouter(CharacterDataProvider)

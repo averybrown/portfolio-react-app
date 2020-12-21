@@ -3,7 +3,7 @@ import Routes from 'Routes/Routes';
 import NavBar from 'Components/NavBar';
 import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import MenuDrawer from 'Components/MenuDrawer';
-import { CharacterDataProvider } from 'Contexts/CharacterContext';
+import CharacterDataProvider from 'Contexts/CharacterContext';
 
 
 let theme = createMuiTheme({
@@ -39,17 +39,17 @@ theme = responsiveFontSizes(theme);
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="App">
-        <MenuDrawer />
-        <div className="App-nav">
-          <NavBar />
-        </div>
-        <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
-          <CharacterDataProvider>
+      <CharacterDataProvider>
+        <div className="App">
+          <MenuDrawer />
+          <div className="App-nav">
+            <NavBar />
+          </div>
+          <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
             <Routes />
-          </CharacterDataProvider>
+          </div>
         </div>
-      </div>
+      </CharacterDataProvider>
     </ThemeProvider>
   );
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import Character from 'Components/Character';
+import { Link } from "react-router-dom";
 
 
 const styles = theme => {
@@ -11,14 +12,16 @@ const styles = theme => {
             width: '100%',
             overflowY: 'hidden',
             display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
+            flexDirection: 'column',
+            // alignItems: 'flex-start',
+            // justifyContent: 'center',
             position: 'relative',
             minHeight: '100%',
         },
         title: {
             zIndex: 10,
-            marginTop: theme.spacing(14)
+            marginTop: theme.spacing(14),
+            visibility: 'hidden'
         }
     };
 };
@@ -39,6 +42,11 @@ class ResumePage extends Component {
 
         return <div className={classes.resumePage}>
             <Typography className={classes.title} variant="h5">resume</Typography>
+            <Link to="/resume.pdf" target="_blank" download>
+                <Typography className={classes.passage} variant="subtitle2">
+                    download resume
+                </Typography>
+            </Link>
             <Character />
         </div>
     }
