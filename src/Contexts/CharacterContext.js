@@ -3,6 +3,7 @@ import React, { createContext, Component } from 'react';
 import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import { withRouter } from "react-router-dom";
+import bear from 'Assets/bear.png';
 
 
 export const CharacterContext = createContext();
@@ -13,9 +14,9 @@ const animations = {
     BEARENTRANCE: 'bear enter',
     FOXBUBBLES: foxBubble,
     FOXIDLE: foxIdle,
-    BEARBALLOONS: 'bear balloons',
+    BEARBALLOONS: bear,
     FOXPHONE: 'fox phone',
-    BEARWAVE: 'bear wave'
+    BEARWAVE: bear
 }
 
 const pages = [
@@ -28,17 +29,17 @@ const pages = [
     {
         name: 'projects', character: 'bear', states: [
             { animation: animations.BEARENTRANCE },
-            { animation: animations.FOXIDLE }
+            { animation: animations.BEARWAVE }
         ]
     },
     {
         name: 'resume', character: 'bear', states: [
-            { animation: animations.FOXENTRANCE },
-            { animation: animations.FOXIDLE }]
+            { animation: animations.BEARENTRANCE },
+            { animation: animations.BEARBALLOONS }]
     },
     {
         name: 'contact', character: 'fox', states: [
-            { animation: animations.BEARENTRANCE },
+            { animation: animations.FOXENTRANCE },
             { animation: animations.FOXIDLE }]
     }
 ]

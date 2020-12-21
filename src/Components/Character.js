@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import bubble from 'Assets/bubble.png';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-import bubblePopPath from 'Assets/bubblepop.mp3';
+// import bubblePopPath from 'Assets/bubblepop.mp3';
 import { CharacterContext } from 'Contexts/CharacterContext';
 
 
@@ -29,19 +29,19 @@ const styles = theme => {
             marginBottom: '-20%',
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
-                marginBottom: '-120px',
-                width: '320px',
+                marginBottom: '-150px',
+                width: '400px',
             }
         },
         bear: {
             bottom: 0,
             right: 0,
-            marginRight: '-10%',
+            marginRight: '-12%',
             marginBottom: '-17.8%',
             [theme.breakpoints.down("xs")]: {
-                marginRight: '-75px',
-                marginBottom: '-90px',
-                width: '320px',
+                marginRight: '-100px',
+                marginBottom: '-150px',
+                width: '400px',
             },
         },
         bubble: {
@@ -233,7 +233,7 @@ class Character extends Component {
         this.state = {
             bubblesPopped: Array(NUMBUBBLES).fill(0)
         }
-        this.popSound = new Audio(bubblePopPath);
+        // this.popSound = new Audio(bubblePopPath);
 
         // if (window.performance && window.performance.getEntriesByType('navigation').length) {
         // if (window.performance.getEntriesByType('navigation')[0].type === 1) {
@@ -255,8 +255,8 @@ class Character extends Component {
     pop = (e) => {
         e.target.style.visibility = 'hidden';
 
-        const playPromise = this.popSound.play();
-        // const playPromise = document.getElementById("audio").play();
+        // const playPromise = this.popSound.play();
+        const playPromise = document.getElementById("bubble-pop").play();
 
         if (playPromise !== undefined) {
             playPromise

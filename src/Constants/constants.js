@@ -8,6 +8,7 @@ export const NUMBUBBLES = 6;
 
 
 // About me page constants
-export const NUMBALLOONS = 30;
+export const NUMBALLOONS = 125;
+export const BALLOONDURATION = '12s';
 
 

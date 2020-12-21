@@ -140,12 +140,6 @@ const styles = theme => {
 class AboutPage extends Component {
 
 
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
     popBalloon = (e) => {
         e.target.style.visibility = 'hidden';
 
