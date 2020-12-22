@@ -17,7 +17,7 @@ const styles = theme => {
             zIndex: 15,
             cursor: 'pointer',
             [theme.breakpoints.down("xs")]: {
-                minWidth: '60px',
+                minWidth: '30px',
             },
         }
     };
@@ -36,7 +36,7 @@ class SpeakerIcon extends Component {
 
 
         return <img
-            style={fox ? { right: '2%' } : { left: '2%' }}
+            style={fox ? { right: '3%' } : { left: '3%' }}
             className={classes.speaker}
             src={soundOn ? muteIcon : speakerIcon}
             alt='speaker' onClick={this.props.soundContext.switchSoundOn} />

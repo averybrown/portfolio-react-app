@@ -4,8 +4,7 @@ import { NUMBALLOONS, BALLOONDURATION } from 'Constants/constants';
 import pinkBalloon from 'Assets/balloon-pink.png';
 import greenBalloon from 'Assets/balloon-green.png';
 import blueBalloon from "Assets/balloon-blue.png";
-import { SoundContext } from 'Contexts/SoundContext';
-
+import { withSoundContext } from 'Contexts/SoundContext';
 
 
 const balloons = [pinkBalloon, greenBalloon, blueBalloon];
@@ -62,15 +61,15 @@ const styles = theme => {
             animationDelay: '4s'
         },
         balloon11: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon1',
             animationDelay: '3.5s'
         },
         balloon12: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon2',
             animationDelay: '3.3s'
         },
         balloon13: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon3',
             animationDelay: '2.8s'
         },
         balloon14: {
@@ -78,15 +77,15 @@ const styles = theme => {
             animationDelay: '4.1s'
         },
         balloon15: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon1',
             animationDelay: '2.3s'
         },
         balloon16: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon2',
             animationDelay: '3.4s'
         },
         balloon17: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon3',
             animationDelay: '3.8s'
         },
         balloon18: {
@@ -94,15 +93,15 @@ const styles = theme => {
             animationDelay: '3.6s'
         },
         balloon19: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon1',
             animationDelay: '2.9s'
         },
         balloon20: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon2',
             animationDelay: '3.1s'
         },
         balloon21: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon3',
             animationDelay: '4.5s'
         },
         balloon22: {
@@ -110,15 +109,15 @@ const styles = theme => {
             animationDelay: '5.5s'
         },
         balloon23: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon1',
             animationDelay: '4.8s'
         },
         balloon24: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon2',
             animationDelay: '4.6'
         },
         balloon25: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon3',
             animationDelay: '4.3s'
         },
         balloon26: {
@@ -126,20 +125,40 @@ const styles = theme => {
             animationDelay: '5.2s'
         },
         balloon27: {
-            animationName: '$Balloon4',
+            animationName: '$Balloon1',
             animationDelay: '5.7s'
         },
         balloon28: {
-            animationName: '$Balloon4',
-            animationDelay: '7.3s'
+            animationName: '$Balloon2',
+            animationDelay: '6.3s'
         },
         balloon29: {
-            animationName: '$Balloon4',
-            animationDelay: '7.5s'
+            animationName: '$Balloon3',
+            animationDelay: '6.5s'
         },
         balloon30: {
             animationName: '$Balloon4',
-            animationDelay: '8s'
+            animationDelay: '7s'
+        },
+        balloon31: {
+            animationName: '$Balloon1',
+            animationDelay: '6.2s'
+        },
+        balloon32: {
+            animationName: '$Balloon2',
+            animationDelay: '6.5s'
+        },
+        balloon33: {
+            animationName: '$Balloon3',
+            animationDelay: '6.8s'
+        },
+        balloon34: {
+            animationName: '$Balloon4',
+            animationDelay: '7.1s'
+        },
+        balloon35: {
+            animationName: '$Balloon1',
+            animationDelay: '6.9s'
         },
         "@keyframes Balloon1": {
             "0%": {
@@ -218,13 +237,11 @@ const styles = theme => {
 
 
 class Balloons extends Component {
-    static contextType = SoundContext;
-
 
     popBalloon = (e) => {
         e.target.style.visibility = 'hidden';
 
-        if (this.context.soundOn) {
+        if (this.props.soundContext.soundOn) {
             const playPromise = document.getElementById("balloon-pop").play();
 
             if (playPromise !== undefined) {
@@ -244,7 +261,7 @@ class Balloons extends Component {
         let { classes } = this.props;
 
         return [...Array(NUMBALLOONS)].map((e, i) => {
-            let classNum = (i % 30) + 1;
+            let classNum = (i % 35) + 1;
             let pos = Math.floor(Math.random() * 100) - 10 + '%';
             let balloonIndex = (i % 3);
 
@@ -259,4 +276,4 @@ class Balloons extends Component {
     }
 }
 
-export default withStyles(styles)(Balloons);
+export default withSoundContext(withStyles(styles)(Balloons));

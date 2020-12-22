@@ -2,47 +2,12 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import bubble from 'Assets/bubble.png';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-import { CharacterContext } from 'Contexts/CharacterContext';
-import Bubbles from 'Components/Bubbles';
+import { withSoundContext } from 'Contexts/SoundContext';
+
 
 
 const styles = theme => {
     return {
-        characterContainer: {
-            // visibility: 'hidden',
-            position: 'absolute',
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '0 0 auto',
-            width: '50vw',
-            alignItems: 'stretch',
-        },
-        character: {
-            width: '100%',
-            height: 'auto',
-        },
-        fox: {
-            bottom: 0,
-            left: 0,
-            marginLeft: '-10%',
-            marginBottom: '-20%',
-            [theme.breakpoints.down("xs")]: {
-                marginLeft: '-75px',
-                marginBottom: '-120px',
-                width: '305px',
-            }
-        },
-        bear: {
-            bottom: 0,
-            right: 0,
-            marginRight: '-12%',
-            marginBottom: '-17.8%',
-            [theme.breakpoints.down("xs")]: {
-                marginRight: '-87px',
-                marginBottom: '-120px',
-                width: '305px',
-            },
-        },
         bubble: {
             position: 'absolute',
             width: '7vw',
@@ -223,8 +188,7 @@ const styles = theme => {
 };
 
 
-class Character extends Component {
-    static contextType = CharacterContext;
+class Bubbles extends Component {
 
     pop = (e) => {
         e.target.style.visibility = 'hidden';
@@ -248,12 +212,7 @@ class Character extends Component {
         e.target.style.visibility = 'visible';
     }
 
-    // componentDidMount() {
-    //     setInterval(this.updateFoxState, 12800);
-    //   }
-
-
-    renderBubbles = () => {
+    render() {
         let { classes } = this.props;
 
         return [...Array(NUMBUBBLES)].map((e, i) =>
@@ -264,24 +223,6 @@ class Character extends Component {
                 onAnimationIteration={this.bubbleStart} />
         )
     }
-
-
-    render() {
-        let { classes } = this.props;
-        let doesCharacterEnter = this.context.doesCharacterEnter();
-        let showBubbles = this.context.checkBubbles();
-        let characterStates = this.context.getCharacterStates()
-        let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
-        let characterType = this.context.getCharacterType();
-
-
-        return <div className={doesCharacterEnter ?
-            `${classes.characterContainer} characterEntrance ${classes[characterType]}`
-            : `${classes.characterContainer} ${classes[characterType]}`}>
-            <img className={classes.character} src={animation} alt='character' />
-            {showBubbles ? <Bubbles /> : null}
-        </div>
-    }
 }
 
-export default withStyles(styles)(Character);
+export default withSoundContext(withStyles(styles)(Bubbles));
