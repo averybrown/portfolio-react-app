@@ -36,7 +36,7 @@ const styles = theme => {
             bottom: 0,
             right: 0,
             marginRight: '-12%',
-            marginBottom: '-17.8%',
+            marginBottom: '-19.8%',
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-87px',
                 marginBottom: '-120px',

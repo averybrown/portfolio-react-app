@@ -44,8 +44,13 @@ let theme = createMuiTheme({
       },
       body2: {
         fontFamily: `"Mukta", sans-serif`,
-        fontSize: 'calc(8px + 1.5vmin) !important',
+        fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'black'
+      }, 
+      caption: {
+        fontFamily: `"Mukta", sans-serif`,
+        fontSize: 'calc(4px + 1.5vmin) !important',
+        color: 'black', 
       }
     }
   }

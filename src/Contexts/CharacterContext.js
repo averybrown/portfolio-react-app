@@ -32,14 +32,14 @@ const pages = [
         ]
     },
     {
-        name: 'resume', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE },
-            { animation: animations.BEARBALLOONS }]
-    },
-    {
-        name: 'contact', character: 'fox', states: [
+        name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE },
             { animation: animations.FOXIDLE }]
+    },
+    {
+        name: 'contact', character: 'bear', states: [
+            { animation: animations.BEARENTRANCE },
+            { animation: animations.BEARBALLOONS }]
     }
 ]
 
