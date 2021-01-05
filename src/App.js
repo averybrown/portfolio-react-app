@@ -30,6 +30,22 @@ let theme = createMuiTheme({
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
         color: 'black',
+      },
+      subtitle1: {
+        fontFamily: `"Mukta", sans-serif`,
+        fontSize: 'calc(5px + 1.5vmin) !important',
+        color: 'black',
+      },
+      body1: {
+        fontFamily: `"Mukta", sans-serif`,
+        fontSize: 'calc(10px + 1.5vmin) !important',
+        color: 'black',
+        fontWeight: '600'
+      },
+      body2: {
+        fontFamily: `"Mukta", sans-serif`,
+        fontSize: 'calc(8px + 1.5vmin) !important',
+        color: 'black'
       }
     }
   }

@@ -11,7 +11,7 @@ const styles = theme => {
         speaker: {
             visibility: 'visible',
             position: 'fixed',
-            width: '5vw',
+            width: '4vw',
             bottom: '2%',
             display: 'block',
             zIndex: 15,
@@ -36,7 +36,7 @@ class SpeakerIcon extends Component {
 
 
         return <img
-            style={fox ? { right: '3%' } : { left: '3%' }}
+            style={fox ? { right: '2%' } : { left: '2%' }}
             className={classes.speaker}
             src={soundOn ? muteIcon : speakerIcon}
             alt='speaker' onClick={this.props.soundContext.switchSoundOn} />
