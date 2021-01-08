@@ -15,9 +15,7 @@ const styles = theme => {
             justifyContent: 'center'
         },
         title: {
-            zIndex: 10,
-            marginTop: theme.spacing(15), 
-            visibility: 'hidden',
+            marginLeft: theme.spacing(25), 
         }
     };
 };
@@ -30,7 +28,7 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.homePage}>
-            <Typography className="name" variant="h6">avery brown</Typography>
+            <Typography className={classes.title} variant="h6">avery brown</Typography>
             <Character />
             <SpeakerIcon/>
         </div>
