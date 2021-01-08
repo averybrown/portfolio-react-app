@@ -38,7 +38,7 @@ class SpeakerIcon extends Component {
         return <img
             style={fox ? { right: '1.5%' } : { left: '1.5%' }}
             className={classes.speaker}
-            src={soundOn ? muteIcon : speakerIcon}
+            src={soundOn ? speakerIcon : muteIcon}
             alt='speaker' onClick={this.props.soundContext.switchSoundOn} />
     }
 }

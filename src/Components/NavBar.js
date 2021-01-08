@@ -60,9 +60,6 @@ class NavBar extends Component {
                         </NavLink>
                     </div>
                     <div className={classes.navLinks}>
-                        {/* <NavLink className={classes.link} activeClassName={classes.active} to="/about">
-                            <Typography variant="subtitle2" className={classes.navText}>about</Typography>
-                        </NavLink> */}
                         <NavLink exact className={classes.link} activeClassName={classes.active} to="/projects">
                             <Typography variant="subtitle2" className={classes.navText}>projects</Typography>
                         </NavLink>

@@ -221,8 +221,6 @@ class ResumePage extends Component {
                 </div>
             </div>
             <Character />
-            {/* <Balloons /> */}
-            {/* <SpeakerIcon /> */}
         </div>
     }
 }

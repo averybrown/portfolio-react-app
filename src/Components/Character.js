@@ -272,6 +272,7 @@ class Character extends Component {
         let showBubbles = this.context.checkBubbles();
         let characterStates = this.context.getCharacterStates()
         let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
+        console.log(animation)
         let characterType = this.context.getCharacterType();
 
 

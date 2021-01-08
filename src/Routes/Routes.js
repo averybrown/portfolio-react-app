@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { play, exit } from 'Timelines/index.js'
 import HomePage from 'Routes/Home';
-import AboutPage from 'Routes/About';
 import ResumePage from 'Routes/Resume';
 import ContactPage from 'Routes/Contact';
 import ProjectsPage from 'Routes/Projects';
@@ -33,13 +32,6 @@ const Routes = (props) => {
                                         <HomePage />
                                     )}
                                 />
-                                {/* <Route
-                                    exact
-                                    path="/about"
-                                    render={props => (
-                                        <AboutPage />
-                                    )}
-                                /> */}
                                 <Route
                                     exact
                                     path="/projects"

@@ -1,8 +1,10 @@
 import React, { createContext, Component } from 'react';
-import foxBubble from 'Assets/fox-blowing-bubbles.gif';
+// import foxBubble from 'Assets/fox-blowing-bubbles.gif';
+import foxBubble from 'Assets/flipbook-final.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import { withRouter } from "react-router-dom";
-import bear from 'Assets/bear.png';
+// import bear from 'Assets/bear.png';
+import bear from 'Assets/bear2.png';
 
 
 export const CharacterContext = createContext();
@@ -12,34 +14,36 @@ const animations = {
     FOXENTRANCE: 'enter',
     BEARENTRANCE: 'bear enter',
     FOXBUBBLES: foxBubble,
-    FOXIDLE: foxIdle,
-    BEARBALLOONS: bear,
+    FOXPLANTGROWING: 'plant growing', 
+    FOXPLANT: foxIdle,
     FOXPHONE: 'fox phone',
-    BEARWAVE: bear
+    BEARWAVE: bear, 
+    BEARLEAF: bear, 
 }
 
 const pages = [
     {
         name: 'home', character: 'fox', bubbles: true, states: [
-            { animation: animations.FOXENTRANCE },
+            { animation: animations.FOXENTRANCE, duration: 300 },
             { animation: animations.FOXBUBBLES }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE },
+            { animation: animations.BEARENTRANCE, duration: 300 },
             { animation: animations.BEARWAVE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE },
-            { animation: animations.FOXIDLE }]
+            { animation: animations.FOXENTRANCE, duration: 300 },
+            { animation: animations.FOXPLANT, duration: 400 },
+            { animation: animations.FOXPLANTGROWING, duration: 300 }]
     },
     {
         name: 'contact', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE },
-            { animation: animations.BEARBALLOONS }]
+            { animation: animations.BEARENTRANCE, duration: 400 },
+            { animation: animations.BEARLEAF, duration: 300 }]
     }
 ]
 
