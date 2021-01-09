@@ -15,7 +15,16 @@ const styles = theme => {
             justifyContent: 'center'
         },
         title: {
-            marginLeft: theme.spacing(25), 
+            marginLeft: theme.spacing(50),
+            marginTop: theme.spacing(10), 
+            [theme.breakpoints.down("xs")]: {
+                marginLeft: 0,
+                marginTop: 0
+            },
+            [theme.breakpoints.down("md")]: {
+                marginTop: 0, 
+                marginLeft: 0, 
+            },
         }
     };
 };

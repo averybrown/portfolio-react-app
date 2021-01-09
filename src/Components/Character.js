@@ -14,7 +14,7 @@ const styles = theme => {
             display: 'flex',
             flexDirection: 'column',
             flex: '0 0 auto',
-            width: '50vw',
+            width: '45vw',
             alignItems: 'stretch',
         },
         character: {
@@ -25,7 +25,7 @@ const styles = theme => {
             bottom: 0,
             left: 0,
             marginLeft: '-10%',
-            marginBottom: '-20%',
+            marginBottom: '-18%',
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
                 marginBottom: '-120px',
@@ -35,8 +35,8 @@ const styles = theme => {
         bear: {
             bottom: 0,
             right: 0,
-            marginRight: '-12%',
-            marginBottom: '-19.8%',
+            marginRight: '-14%',
+            marginBottom: '-18.8%',
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-87px',
                 marginBottom: '-120px',
