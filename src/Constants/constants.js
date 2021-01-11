@@ -1,5 +1,3 @@
-
-
 // Homepage constants
 export const BUBBLESTART = 0.3;
 export const BUBBLEDELAY = 1;

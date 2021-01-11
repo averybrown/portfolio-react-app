@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import Character from 'Components/Character';
-import Balloons from "Components/Balloons";
-import SpeakerIcon from 'Components/SpeakerIcon';
+// import Balloons from "Components/Balloons";
+// import SpeakerIcon from 'Components/SpeakerIcon';
 
 const styles = theme => {
     return {

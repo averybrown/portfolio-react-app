@@ -248,11 +248,6 @@ class Character extends Component {
         e.target.style.visibility = 'visible';
     }
 
-    // componentDidMount() {
-    //     setInterval(this.updateFoxState, 12800);
-    //   }
-
-
     renderBubbles = () => {
         let { classes } = this.props;
 
@@ -270,9 +265,7 @@ class Character extends Component {
         let { classes } = this.props;
         let doesCharacterEnter = this.context.doesCharacterEnter();
         let showBubbles = this.context.checkBubbles();
-        let characterStates = this.context.getCharacterStates()
-        let animation = characterStates !== undefined ? characterStates[1].animation : undefined;
-        console.log(animation)
+        let animation = this.context.getCharacterAnimation();
         let characterType = this.context.getCharacterType();
 
 

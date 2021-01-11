@@ -1,5 +1,6 @@
 import React, { createContext, Component } from 'react';
 // import foxBubble from 'Assets/fox-blowing-bubbles.gif';
+import foxEnters from 'Assets/flipbook-fox-enter-scene.gif';
 import foxBubble from 'Assets/flipbook-final.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import { withRouter } from "react-router-dom";
@@ -11,38 +12,39 @@ export const CharacterContext = createContext();
 export const CharacterConsumer = CharacterContext.Consumer;
 
 const animations = {
-    FOXENTRANCE: 'enter',
+    FOXENTRANCE: foxEnters,
     BEARENTRANCE: 'bear enter',
     FOXBUBBLES: foxBubble,
-    FOXPLANTGROWING: 'plant growing', 
+    FOXPLANTGROWING: foxIdle,
     FOXPLANT: foxIdle,
     FOXPHONE: 'fox phone',
-    BEARWAVE: bear, 
-    BEARLEAF: bear, 
+    BEARWAVE: bear,
+    BEARLEAF: bear,
 }
 
 const pages = [
     {
-        name: 'home', character: 'fox', bubbles: true, states: [
-            { animation: animations.FOXENTRANCE, duration: 300 },
-            { animation: animations.FOXBUBBLES }
+        name: 'home', character: 'fox', states: [
+            { animation: animations.FOXENTRANCE, duration: 1800 },
+            { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 300 },
+            { animation: animations.BEARENTRANCE, duration: 1800 },
             { animation: animations.BEARWAVE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE, duration: 300 },
+            { animation: animations.FOXENTRANCE, duration: 1800 },
             { animation: animations.FOXPLANT, duration: 400 },
-            { animation: animations.FOXPLANTGROWING, duration: 300 }]
+            { animation: animations.FOXPLANTGROWING, duration: 300 }
+        ]
     },
     {
         name: 'contact', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 400 },
+            { animation: animations.BEARENTRANCE, duration: 1800 },
             { animation: animations.BEARLEAF, duration: 300 }]
     }
 ]
@@ -55,31 +57,46 @@ class CharacterDataProvider extends Component {
         this.state = {
             currentPage: undefined,
             lastPage: undefined,
-            startingCharacter: undefined
+            currentState: 0,
         }
     }
 
     doesCharacterEnter = () => {
         const { currentPage, lastPage } = this.state;
+
         return (currentPage !== undefined && lastPage !== undefined) ?
             currentPage.character !== lastPage.character
             : true
     }
 
-    getCharacterStates = () => {
-        const { currentPage } = this.state;
-        if (currentPage !== undefined) return currentPage.states
+    isNewPage = () => {
+        const { currentPage, lastPage } = this.state;
+        
+        return (currentPage !== undefined && lastPage !== undefined) ?
+            currentPage !== lastPage
+            : true
     }
 
+    getCharacterAnimation = () => {
+        const { currentPage, currentState } = this.state;
+
+        if (currentPage !== undefined && currentPage.states[currentState] !== undefined) {
+            return (currentPage.states[currentState].animation)
+        }
+    }
+
+
     checkBubbles = () => {
-        const { currentPage } = this.state;
-        if (currentPage !== undefined) {
-            return currentPage.bubbles;
+        const { currentPage, currentState } = this.state;
+
+        if (currentPage !== undefined && currentPage.states[currentState]) {
+            return currentPage.states[currentState].bubbles;
         }
     }
 
     getCharacterType = () => {
         const { currentPage } = this.state;
+
         if (currentPage !== undefined) {
             return currentPage.character;
         }
@@ -87,6 +104,7 @@ class CharacterDataProvider extends Component {
 
     getPage = () => {
         let pathname = window.location.pathname
+
         return pathname === '/' ?
             pages.find(element => element.name === 'home')
             : pages.find(element => pathname.includes(element.name))
@@ -100,26 +118,50 @@ class CharacterDataProvider extends Component {
             : this.setState({ currentPage: currentPageData, lastPage: currentPage })
     }
 
-    setStartingCharacter = async (currentPageData) => {
-        if (currentPageData !== undefined) {
-            this.setState({ startingCharacter: currentPageData.character })
+    isNextState = () => {
+        const { currentPage, currentState } = this.state;
+        let nextState = currentState + 1
+
+        return currentPage.states[nextState] !== undefined
+    }
+
+    updateCurrentState = () => {
+        const { currentState, currentPage } = this.state;
+        let nextState = currentState + 1
+
+        this.setState({ currentState: nextState })
+        if (this.isNextState()) {
+            let duration = currentPage.states[nextState].duration
+            setTimeout(this.updateCurrentState, duration)
         }
     }
 
     componentDidMount() {
         let currentPageData = this.getPage();
-        this.setCurrentPageState(currentPageData)
-        this.setStartingCharacter(currentPageData)
+
+        this.setCurrentPageState(currentPageData).then(() => {
+            if (this.state.currentPage !== undefined) {
+                let duration = this.state.currentPage.states[0].duration
+                setTimeout(this.updateCurrentState, duration)
+            }
+        })
     }
 
     componentDidUpdate(newProps) {
-        const { currentPage } = this.state;
-
         if (this.props.location !== newProps.location) {
             let currentPageData = this.getPage();
-            if (currentPageData !== currentPage) {
-                this.setCurrentPageState(currentPageData)
-            }
+
+            this.setCurrentPageState(currentPageData).then(() => {
+                let newPageAndCharacterEnters = this.isNewPage() && this.doesCharacterEnter()
+                let newPage = this.isNewPage() && !this.doesCharacterEnter()
+                let currentState = newPage ? 1 : newPageAndCharacterEnters ? 0 : 1;
+
+                this.setState({ currentState: currentState }, () => {
+                    if (this.state.currentPage !== undefined && this.isNextState()) {
+                        setTimeout(this.updateCurrentState, this.state.currentPage.states[this.state.currentState].duration)
+                    }
+                })
+            })
         }
     }
 
@@ -129,8 +171,8 @@ class CharacterDataProvider extends Component {
                 ...this.state,
                 doesCharacterEnter: this.doesCharacterEnter,
                 checkBubbles: this.checkBubbles,
-                getCharacterStates: this.getCharacterStates,
-                getCharacterType: this.getCharacterType
+                getCharacterAnimation: this.getCharacterAnimation,
+                getCharacterType: this.getCharacterType,
             }}>
                 {this.props.children}
             </CharacterContext.Provider >
