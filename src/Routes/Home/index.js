@@ -17,6 +17,10 @@ const styles = theme => {
         title: {
             marginLeft: theme.spacing(50),
             marginTop: theme.spacing(10), 
+            transition: 'all .4s ease-in-out',
+            '&:hover': {
+                transform: 'scale(1.2)',
+              },
             [theme.breakpoints.down("xs")]: {
                 marginLeft: 0,
                 marginTop: 0

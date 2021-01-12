@@ -27,9 +27,10 @@ let theme = createMuiTheme({
         textShadowRadius: 10,
       },
       subtitle2: {
-        fontFamily: `"Mukta", sans-serif`,
+        fontFamily: `"Roboto", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
         color: 'black',
+        fontWeight: '300',
       },
       subtitle1: {
         fontFamily: `"Mukta", sans-serif`,

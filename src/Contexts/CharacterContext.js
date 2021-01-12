@@ -8,7 +8,6 @@ import foxBubble from 'Assets/flipbook-final.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import bearIdle from 'Assets/flipbook-bear-idle.gif';
 import { withRouter } from "react-router-dom";
-// import bear from 'Assets/bear.png';
 import bear from 'Assets/bear.png';
 
 
@@ -23,7 +22,6 @@ const animations = {
     FOXBUBBLES: foxBubble,
     FOXPLANTGROWING: foxIdle,
     FOXPLANT: foxIdle,
-    FOXPHONE: 'fox phone',
     BEARWAVE: bear,
     BEARLEAF: bear,
     BEARIDLE: bearIdle
@@ -33,29 +31,29 @@ const pages = [
     {
         name: 'home', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
-            { animation: animations.FOXENTRANCE2, duration: 1900 },
+            { animation: animations.FOXENTRANCE2, duration: 2000 },
             { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
             { animation: animations.BEARENTRANCE, duration: 1800 },
-            { animation: animations.BEARENTRANCE2, duration: 1900 },
+            { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
-            { animation: animations.FOXENTRANCE2, duration: 1900 },
-            { animation: animations.FOXPLANT, duration: 400 },
+            { animation: animations.FOXENTRANCE2, duration: 2000 },
+            { animation: animations.FOXPLANT, duration: 2000 },
             { animation: animations.FOXPLANTGROWING, duration: 300 }
         ]
     },
     {
         name: 'contact', character: 'bear', states: [
             { animation: animations.BEARENTRANCE, duration: 1800 },
-            { animation: animations.BEARENTRANCE2, duration: 1900 },
+            { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE, duration: 300 }]
     }
 ]
@@ -139,8 +137,11 @@ class CharacterDataProvider extends Component {
 
     updateCurrentState = () => {
         const { currentState, currentPage, timeout } = this.state;
-        let nextState = currentState + 1
-        console.log(timeout)
+        let nextState = currentState + 1;
+        clearTimeout(timeout);
+
+
+        console.log(timeout, "current state: ", currentState)
         
         this.setState({ currentState: nextState }, () => {
             if (this.isNextState()) {
@@ -151,12 +152,13 @@ class CharacterDataProvider extends Component {
 
     }
 
-    componentDidMount() {
+    componentWillUnmount() {
         const { timeout } = this.state;
-
-        let currentPageData = this.getPage();
         clearTimeout(timeout);
+    }
 
+    componentDidMount() {
+        let currentPageData = this.getPage();
 
         this.setCurrentPageState(currentPageData).then(() => {
             if (this.state.currentPage !== undefined) {
@@ -172,6 +174,8 @@ class CharacterDataProvider extends Component {
         if (this.props.location !== newProps.location) {
             let currentPageData = this.getPage();
 
+            clearTimeout(timeout);
+
             this.setCurrentPageState(currentPageData).then(() => {
                 let newPageAndCharacterEnters = this.isNewPage() && this.doesCharacterEnter()
                 let newPage = this.isNewPage() && !this.doesCharacterEnter()
@@ -179,8 +183,6 @@ class CharacterDataProvider extends Component {
 
                 this.setState({ currentState: currentState }, () => {
                     if (this.state.currentPage !== undefined && this.isNextState()) {
-                        clearTimeout(timeout);
-
                         this.setState(
                             {
                                 timeout: setTimeout(this.updateCurrentState,

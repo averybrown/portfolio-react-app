@@ -21,12 +21,14 @@ const styles = theme => ({
         maxWidth: '300px',
         textAlign: 'start'
     },
+    //     grow { transition: all .2s ease-in-out; }
+    // .grow:hover { transform: scale(1.1); }
     pages: {
         maxWidth: '25%',
     },
     navText: {
         textAlign: 'start',
-        margin: theme.spacing(3), 
+        margin: theme.spacing(3),
     },
     navLinks: {
         display: 'flex',
@@ -36,12 +38,47 @@ const styles = theme => ({
     },
     link: {
         textDecoration: 'none !important',
-        cursor: 'pointer', 
-        zIndex: 9
+        cursor: 'pointer',
+        zIndex: 9,
+        position: 'relative',
+        transition: 'all .2s ease-in-out',
+
+        '&:hover': {
+            transform: 'scale(1.1)',
+        },
+        '&:hover:after': {
+            width: '50%',
+            left: '24%'
+        },
+        '&:after': {
+            background: 'none repeat scroll 0 0 transparent',
+            bottom: '20%',
+            content: "' '",
+            display: 'block',
+            height: '2px',
+            left: '50%',
+            position: 'absolute',
+            background: '#ddd',
+            transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
+            width: 0
+        },
     },
     active: {
         textDecoration: 'none !important',
-
+        color: 'white',
+        '&:after': {
+            background: 'none repeat scroll 0 0 transparent',
+            bottom: '20%',
+            content: "' '",
+            display: 'block',
+            height: '2px',
+            left: '50%',
+            position: 'absolute',
+            background: '#ddd',
+            transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
+            width: '50%',
+            left: '24%'
+        },
     }
 });
 
