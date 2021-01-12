@@ -10,8 +10,7 @@ const styles = theme => {
         contactPage: {
             height: '100%',
             width: '100%',
-            overflowY: 'hidden',
-            overFlow: 'hidden',
+            overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
             position: 'relative',

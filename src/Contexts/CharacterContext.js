@@ -2,8 +2,11 @@ import React, { createContext, Component } from 'react';
 // import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxEnters from 'Assets/flipbook-fox-enter-scene.gif';
 import foxEnters2 from 'Assets/flipbook-fox-enter-scene-2.gif';
+import bearEnters from 'Assets/flipbook-bear-enter-scene.gif';
+import bearEnters2 from 'Assets/flipbook-bear-enter-scene-2.gif';
 import foxBubble from 'Assets/flipbook-final.gif';
 import foxIdle from 'Assets/fox-idle.gif';
+import bearIdle from 'Assets/flipbook-bear-idle.gif';
 import { withRouter } from "react-router-dom";
 // import bear from 'Assets/bear.png';
 import bear from 'Assets/bear.png';
@@ -15,33 +18,36 @@ export const CharacterConsumer = CharacterContext.Consumer;
 const animations = {
     FOXENTRANCE: foxEnters,
     FOXENTRANCE2: foxEnters2,
-    BEARENTRANCE: 'bear enter',
+    BEARENTRANCE: bearEnters,
+    BEARENTRANCE2: bearEnters2,
     FOXBUBBLES: foxBubble,
     FOXPLANTGROWING: foxIdle,
     FOXPLANT: foxIdle,
     FOXPHONE: 'fox phone',
     BEARWAVE: bear,
     BEARLEAF: bear,
+    BEARIDLE: bearIdle
 }
 
 const pages = [
     {
         name: 'home', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
-            { animation: animations.FOXENTRANCE2, duration: 200 },
+            { animation: animations.FOXENTRANCE2, duration: 1900 },
             { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
             { animation: animations.BEARENTRANCE, duration: 1800 },
-            { animation: animations.BEARWAVE }
+            { animation: animations.BEARENTRANCE2, duration: 1900 },
+            { animation: animations.BEARIDLE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
-            { animation: animations.FOXENTRANCE2, duration: 200 },
+            { animation: animations.FOXENTRANCE2, duration: 1900 },
             { animation: animations.FOXPLANT, duration: 400 },
             { animation: animations.FOXPLANTGROWING, duration: 300 }
         ]
@@ -49,7 +55,8 @@ const pages = [
     {
         name: 'contact', character: 'bear', states: [
             { animation: animations.BEARENTRANCE, duration: 1800 },
-            { animation: animations.BEARLEAF, duration: 300 }]
+            { animation: animations.BEARENTRANCE2, duration: 1900 },
+            { animation: animations.BEARIDLE, duration: 300 }]
     }
 ]
 
@@ -131,11 +138,11 @@ class CharacterDataProvider extends Component {
     }
 
     updateCurrentState = () => {
-        const { currentState, currentPage } = this.state;
+        const { currentState, currentPage, timeout } = this.state;
         let nextState = currentState + 1
-
+        console.log(timeout)
+        
         this.setState({ currentState: nextState }, () => {
-            console.log(this.state.currentState)
             if (this.isNextState()) {
                 let duration = currentPage.states[this.state.currentState].duration
                 this.setState({ timeout: setTimeout(this.updateCurrentState, duration) })
@@ -145,7 +152,11 @@ class CharacterDataProvider extends Component {
     }
 
     componentDidMount() {
+        const { timeout } = this.state;
+
         let currentPageData = this.getPage();
+        clearTimeout(timeout);
+
 
         this.setCurrentPageState(currentPageData).then(() => {
             if (this.state.currentPage !== undefined) {
@@ -167,9 +178,9 @@ class CharacterDataProvider extends Component {
                 let currentState = newPage ? 2 : newPageAndCharacterEnters ? 0 : 2;
 
                 this.setState({ currentState: currentState }, () => {
-                    console.log(this.state.currentState, this.state.currentPage.states[this.state.currentState].duration)
-                    clearTimeout(timeout);
                     if (this.state.currentPage !== undefined && this.isNextState()) {
+                        clearTimeout(timeout);
+
                         this.setState(
                             {
                                 timeout: setTimeout(this.updateCurrentState,

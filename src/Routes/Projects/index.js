@@ -11,7 +11,7 @@ const styles = theme => {
         projectsPage: {
             height: '100%',
             width: '100%',
-            overflowY: 'hidden',
+            overflow: 'hidden',
             display: 'flex',
             alignItems: 'flex-start',
             justifyContent: 'center',
