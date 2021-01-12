@@ -1,11 +1,12 @@
 import React, { createContext, Component } from 'react';
 // import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxEnters from 'Assets/flipbook-fox-enter-scene.gif';
+import foxEnters2 from 'Assets/flipbook-fox-enter-scene-2.gif';
 import foxBubble from 'Assets/flipbook-final.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import { withRouter } from "react-router-dom";
 // import bear from 'Assets/bear.png';
-import bear from 'Assets/bear2.png';
+import bear from 'Assets/bear.png';
 
 
 export const CharacterContext = createContext();
@@ -13,6 +14,7 @@ export const CharacterConsumer = CharacterContext.Consumer;
 
 const animations = {
     FOXENTRANCE: foxEnters,
+    FOXENTRANCE2: foxEnters2,
     BEARENTRANCE: 'bear enter',
     FOXBUBBLES: foxBubble,
     FOXPLANTGROWING: foxIdle,
@@ -26,6 +28,7 @@ const pages = [
     {
         name: 'home', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
+            { animation: animations.FOXENTRANCE2, duration: 200 },
             { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
@@ -38,6 +41,7 @@ const pages = [
     {
         name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 1800 },
+            { animation: animations.FOXENTRANCE2, duration: 200 },
             { animation: animations.FOXPLANT, duration: 400 },
             { animation: animations.FOXPLANTGROWING, duration: 300 }
         ]
@@ -58,6 +62,7 @@ class CharacterDataProvider extends Component {
             currentPage: undefined,
             lastPage: undefined,
             currentState: 0,
+            timeout: null
         }
     }
 
@@ -71,7 +76,7 @@ class CharacterDataProvider extends Component {
 
     isNewPage = () => {
         const { currentPage, lastPage } = this.state;
-        
+
         return (currentPage !== undefined && lastPage !== undefined) ?
             currentPage !== lastPage
             : true
@@ -129,11 +134,14 @@ class CharacterDataProvider extends Component {
         const { currentState, currentPage } = this.state;
         let nextState = currentState + 1
 
-        this.setState({ currentState: nextState })
-        if (this.isNextState()) {
-            let duration = currentPage.states[nextState].duration
-            setTimeout(this.updateCurrentState, duration)
-        }
+        this.setState({ currentState: nextState }, () => {
+            console.log(this.state.currentState)
+            if (this.isNextState()) {
+                let duration = currentPage.states[this.state.currentState].duration
+                this.setState({ timeout: setTimeout(this.updateCurrentState, duration) })
+            }
+        })
+
     }
 
     componentDidMount() {
@@ -142,23 +150,31 @@ class CharacterDataProvider extends Component {
         this.setCurrentPageState(currentPageData).then(() => {
             if (this.state.currentPage !== undefined) {
                 let duration = this.state.currentPage.states[0].duration
-                setTimeout(this.updateCurrentState, duration)
+                this.setState({ timeout: setTimeout(this.updateCurrentState, duration) })
             }
         })
     }
 
     componentDidUpdate(newProps) {
+        const { timeout } = this.state;
+
         if (this.props.location !== newProps.location) {
             let currentPageData = this.getPage();
 
             this.setCurrentPageState(currentPageData).then(() => {
                 let newPageAndCharacterEnters = this.isNewPage() && this.doesCharacterEnter()
                 let newPage = this.isNewPage() && !this.doesCharacterEnter()
-                let currentState = newPage ? 1 : newPageAndCharacterEnters ? 0 : 1;
+                let currentState = newPage ? 2 : newPageAndCharacterEnters ? 0 : 2;
 
                 this.setState({ currentState: currentState }, () => {
+                    console.log(this.state.currentState, this.state.currentPage.states[this.state.currentState].duration)
+                    clearTimeout(timeout);
                     if (this.state.currentPage !== undefined && this.isNextState()) {
-                        setTimeout(this.updateCurrentState, this.state.currentPage.states[this.state.currentState].duration)
+                        this.setState(
+                            {
+                                timeout: setTimeout(this.updateCurrentState,
+                                    this.state.currentPage.states[this.state.currentState].duration)
+                            })
                     }
                 })
             })

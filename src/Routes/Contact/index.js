@@ -11,6 +11,7 @@ const styles = theme => {
             height: '100%',
             width: '100%',
             overflowY: 'hidden',
+            overFlow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
             position: 'relative',
