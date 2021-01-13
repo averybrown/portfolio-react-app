@@ -19,7 +19,7 @@ const styles = theme => {
         },
         character: {
             width: '100%',
-            height: 'auto',
+            height: 'auto'
         },
         fox: {
             bottom: 0,
@@ -42,6 +42,17 @@ const styles = theme => {
                 marginBottom: '-120px',
                 width: '305px',
             },
+        },
+        foxEntrance: {
+            animationName: '$foxEntrance',
+            animationFillMode: 'both',
+            animationDuration: '3000ms'
+        }, 
+        bearEntrance: {
+            animationName: '$bearEntrance',
+            animationIterationCount: 'initial',
+            animationFillMode: 'both',
+            animationDuration: '3000ms'  
         },
         bubble: {
             position: 'absolute',
@@ -80,6 +91,22 @@ const styles = theme => {
         bubble6: {
             animationName: '$BubbleUp6',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 5}s`
+        },
+        "@keyframes foxEntrance": {
+            "0%": {
+                bottom: '-25%', 
+            },
+            "100%": {
+                bottom: 0, 
+            },
+        },
+        "@keyframes bearEntrance": {
+            "0%": {
+                bottom: '-25%',
+            },
+            "100%": {
+                bottom: 0,
+            },
         },
         "@keyframes BubbleUp1": {
             "0%": {
@@ -267,10 +294,10 @@ class Character extends Component {
         let showBubbles = this.context.checkBubbles();
         let animation = this.context.getCharacterAnimation();
         let characterType = this.context.getCharacterType();
-
+        let characterEntrance = characterType + 'Entrance'
 
         return <div className={doesCharacterEnter ?
-            `${classes.characterContainer} characterEntrance ${classes[characterType]}`
+            `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
             : `${classes.characterContainer} ${classes[characterType]}`}>
             <img className={classes.character} src={animation} alt='character' />
             {showBubbles ? <Bubbles /> : null}

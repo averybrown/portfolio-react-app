@@ -102,7 +102,7 @@ class ResumePage extends Component {
                 </Typography>
                 <GetAppIcon className={classes.downloadIcon} />
             </Link>
-            <div className={classes.content}>
+            {/* <div className={classes.content}>
                 <div className={classes.education}>
                     <Typography className={classes.heading} variant="body1">
                         Education
@@ -219,8 +219,8 @@ class ResumePage extends Component {
                         </li>
                     </ul>
                 </div>
-            </div>
-            <Character />
+            </div> */}
+            {/* <Character /> */}
         </div>
     }
 }

@@ -42,7 +42,7 @@ class HomePage extends Component {
 
         return <div className={classes.homePage}>
             <Typography className={classes.title} variant="h6">avery brown</Typography>
-            <Character />
+            {/* <Character /> */}
             <SpeakerIcon/>
         </div>
     }

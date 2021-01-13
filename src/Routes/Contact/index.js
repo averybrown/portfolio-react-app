@@ -36,7 +36,7 @@ class ContactPage extends Component {
         return <div className={classes.contactPage}>
             <Typography className={classes.title} variant="h5">contact</Typography>
             <a className={classes.email} href={"mailto:avery.brown@mac.com"}><Typography variant="subtitle2">avery.brown@mac.com</Typography></a>
-            <Character />
+            {/* <Character /> */}
             {/* <Balloons /> 
             <SpeakerIcon /> */}
         </div>

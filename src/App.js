@@ -5,7 +5,42 @@ import { ThemeProvider, createMuiTheme, responsiveFontSizes } from '@material-ui
 import MenuDrawer from 'Components/MenuDrawer';
 import CharacterDataProvider from 'Contexts/CharacterContext';
 import { SoundProvider } from 'Contexts/SoundContext';
+import Character from 'Components/Character';
+// import { withStyles } from "@material-ui/core/styles";
 
+
+
+// const styles = theme => {
+//   return {
+    // bubble6: {
+    //   animationName: '$BubbleUp6',
+    //   animationDelay: `5s`
+    // },
+    // "@keyframes BubbleUp1": {
+    //   "0%": {
+    //       bottom: '53%',
+    //       opacity: 0,
+    //       transform: 'scale(0.4)',
+    //   },
+    //   "1%": {
+    //       opacity: 100
+    //   },
+    //   "20%": {
+    //       transform: 'translateX(10vw) scale(1.2)'
+    //   },
+    //   "40%": {
+    //       transform: 'translateX(14vw) scale(1.2)'
+    //   },
+    //   "60%": {
+    //       transform: 'translateX(10vw) scale(1.2)'
+    //   },
+    //   "100%": {
+    //       bottom: '145vh',
+    //       transform: 'translateX(5vw) scale(1.2)'
+    //   },
+    // },
+//   };
+// };
 
 let theme = createMuiTheme({
   overrides: {
@@ -47,11 +82,11 @@ let theme = createMuiTheme({
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'black'
-      }, 
+      },
       caption: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(4px + 1.5vmin) !important',
-        color: 'black', 
+        color: 'black',
       }
     }
   }
@@ -71,6 +106,7 @@ function App() {
             </div>
             <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
               <Routes />
+              <Character />
             </div>
           </div>
         </SoundProvider>
@@ -79,4 +115,5 @@ function App() {
   );
 }
 
+// export default withStyles(styles)(App);
 export default App;

@@ -42,7 +42,7 @@ class ProjectsPage extends Component {
 
         return <div className={classes.projectsPage}>
             <Typography className={classes.title} variant="h5">projects</Typography>
-            <Character/>
+            {/* <Character/> */}
         </div>
     }
 }

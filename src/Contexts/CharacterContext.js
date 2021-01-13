@@ -30,21 +30,21 @@ const animations = {
 const pages = [
     {
         name: 'home', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE, duration: 1800 },
+            { animation: animations.FOXENTRANCE, duration: 2800 },
             { animation: animations.FOXENTRANCE2, duration: 2000 },
             { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 1800 },
+            { animation: animations.BEARENTRANCE, duration: 2800 },
             { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE, duration: 1800 },
+            { animation: animations.FOXENTRANCE, duration: 2800 },
             { animation: animations.FOXENTRANCE2, duration: 2000 },
             { animation: animations.FOXPLANT, duration: 2000 },
             { animation: animations.FOXPLANTGROWING, duration: 300 }
@@ -52,7 +52,7 @@ const pages = [
     },
     {
         name: 'contact', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 1800 },
+            { animation: animations.BEARENTRANCE, duration: 2800 },
             { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE, duration: 300 }]
     }
@@ -72,11 +72,13 @@ class CharacterDataProvider extends Component {
     }
 
     doesCharacterEnter = () => {
-        const { currentPage, lastPage } = this.state;
+        const { currentPage, lastPage, currentState } = this.state;
 
-        return (currentPage !== undefined && lastPage !== undefined) ?
-            currentPage.character !== lastPage.character
-            : true
+        if (currentPage !== undefined && lastPage !== undefined) {
+            let characterSwitched = currentPage.character !== lastPage.character;
+            let characterDoneEntrance = currentState > 0
+            return characterSwitched ? true : !characterDoneEntrance
+        } else return true
     }
 
     isNewPage = () => {
@@ -142,7 +144,7 @@ class CharacterDataProvider extends Component {
 
 
         console.log(timeout, "current state: ", currentState)
-        
+
         this.setState({ currentState: nextState }, () => {
             if (this.isNextState()) {
                 let duration = currentPage.states[this.state.currentState].duration
