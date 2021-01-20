@@ -12,7 +12,8 @@ const styles = theme => {
             overflowY: 'hidden',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center', 
+            position: 'absolute'
         },
         title: {
             marginLeft: theme.spacing(50),
@@ -42,7 +43,6 @@ class HomePage extends Component {
 
         return <div className={classes.homePage}>
             <Typography className={classes.title} variant="h6">avery brown</Typography>
-            {/* <Character /> */}
             <SpeakerIcon/>
         </div>
     }

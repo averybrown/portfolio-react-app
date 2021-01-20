@@ -29,20 +29,11 @@ const styles = theme => {
 
 class ProjectsPage extends Component {
 
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
-
-
     render() {
         let { classes } = this.props;
 
         return <div className={classes.projectsPage}>
             <Typography className={classes.title} variant="h5">projects</Typography>
-            {/* <Character/> */}
         </div>
     }
 }

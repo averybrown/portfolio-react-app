@@ -2,12 +2,13 @@ import { TimelineMax as Timeline, Power1 } from 'gsap';
 
 const getDefaultTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
-    const character = node.querySelector('.characterEntrance');
+    // const character = node.querySelector('.characterEntrance');
     const title = node.querySelector('h5');
+    const email = node.querySelector('.email')
 
     timeline
-        .from(character, { duration: 1.5, display: 'none', y: 200, autoAlpha: 1 })
-        .staggerFrom(title, 0.2, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
+        .from(email, 0.8, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, '+=1')
+        .staggerFrom(title, 0.8, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
 
     return timeline;
 }
@@ -18,7 +19,7 @@ const getHomeTimeline = (node, delay) => {
     const character = node.querySelector('.characterEntrance');
 
     timeline
-        .from(character, { duration: 1.5, display: 'none', y: 200, autoAlpha: 1 })
+        .from(character, { duration: 0.8, autoAlpha: 0, x: 50, ease: Power1.easeOut }, '+=1')
         .staggerFrom(name, 0.2, { autoAlpha: 0, x: 50, ease: Power1.easeOut }, 0.125);
 
     return timeline;

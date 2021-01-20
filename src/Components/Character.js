@@ -9,21 +9,21 @@ import Bubbles from 'Components/Bubbles';
 const styles = theme => {
     return {
         characterContainer: {
-            // visibility: 'hidden',
             position: 'absolute',
-            display: 'flex',
-            flexDirection: 'column',
-            flex: '0 0 auto',
             width: '45vw',
-            alignItems: 'stretch',
+            height: '52%',
+            bottom: 0,
         },
         character: {
             width: '100%',
-            height: 'auto'
+            height: 'auto',
+            position: 'absolute',
+            bottom: 0,
         },
         fox: {
-            bottom: 0,
-            left: 0,
+            // position: 'absolute',
+            // bottom: 0,
+            // left: 0,
             marginLeft: '-10%',
             marginBottom: '-18%',
             [theme.breakpoints.down("xs")]: {
@@ -33,7 +33,7 @@ const styles = theme => {
             }
         },
         bear: {
-            bottom: 0,
+            // bottom: 0,
             right: 0,
             marginRight: '-14%',
             marginBottom: '-18.8%',
@@ -47,17 +47,16 @@ const styles = theme => {
             animationName: '$foxEntrance',
             animationFillMode: 'both',
             animationDuration: '3000ms'
-        }, 
+        },
         bearEntrance: {
             animationName: '$bearEntrance',
-            animationIterationCount: 'initial',
             animationFillMode: 'both',
-            animationDuration: '3000ms'  
+            animationDuration: '3000ms'
         },
         bubble: {
             position: 'absolute',
             width: '7vw',
-            bottom: '53%',
+            bottom: '13%',
             left: '67%',
             display: 'block',
             animationIterationCount: 'infinite',
@@ -94,10 +93,10 @@ const styles = theme => {
         },
         "@keyframes foxEntrance": {
             "0%": {
-                bottom: '-25%', 
+                bottom: '-32%',
             },
             "100%": {
-                bottom: 0, 
+                bottom: 0,
             },
         },
         "@keyframes bearEntrance": {
@@ -110,7 +109,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp1": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.4)',
             },
@@ -133,7 +132,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp2": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.3)',
             },
@@ -156,7 +155,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp3": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.2)',
             },
@@ -179,7 +178,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp4": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.4)'
             },
@@ -202,7 +201,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp5": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.4)',
             },
@@ -225,7 +224,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp6": {
             "0%": {
-                bottom: '53%',
+                bottom: '13%',
                 opacity: 0,
                 transform: 'scale(0.3)',
             },
@@ -252,6 +251,14 @@ const styles = theme => {
 
 class Character extends Component {
     static contextType = CharacterContext;
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            imageStatus: "loading",
+            currentGif: undefined
+        };
+    }
 
     pop = (e) => {
         e.target.style.visibility = 'hidden';
@@ -287,21 +294,76 @@ class Character extends Component {
         )
     }
 
+    handleImageLoaded = () => {
+        console.log("loaded handler")
+        if (this.state.currentGif !== undefined && this.context.currentGif !== undefined && this.state.currentGif !== this.context.currentGif) { console.log("trueeee") }
+        this.setState({ imageStatus: "loaded", currentGif: this.context.currentGif });
+    }
+
+    // handleImageLoading = () => {
+    //     this.setState({ imageStatus: "loading" });
+    // }
+
+    handleImageErrored = () => {
+        this.setState({ imageStatus: "failed to load" });
+    }
+
+    componentDidMount() {
+        this.setState({ currentGif: this.context.currentGif })
+    }
+
+    componentDidUpdate() {
+        if (this.state.currentGif === undefined && this.context.currentGif !== undefined) {
+            console.log("first update: ", this.context.currentGif)
+            this.setState({ currentGif: this.context.currentGif })
+        }
+        // else if (this.state.currentGif !== undefined && this.context.currentGif !== undefined && this.state.currentGif !== this.context.currentGif) {
+        //     this.setState({ imageStatus: "loading" });
+        // }
+    }
+
 
     render() {
         let { classes } = this.props;
         let doesCharacterEnter = this.context.doesCharacterEnter();
         let showBubbles = this.context.checkBubbles();
-        let animation = this.context.getCharacterAnimation();
+        let nextGif = this.context.currentGif;
         let characterType = this.context.getCharacterType();
-        let characterEntrance = characterType + 'Entrance'
+        let characterEntrance = characterType + 'Entrance';
+        let loading = false;
+        let isFox = characterType === 'fox';
+        loading = this.state.currentGif !== this.context.currentGif || this.state.currentGif === undefined
 
-        return <div className={doesCharacterEnter ?
-            `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
-            : `${classes.characterContainer} ${classes[characterType]}`}>
-            <img className={classes.character} src={animation} alt='character' />
-            {showBubbles ? <Bubbles /> : null}
-        </div>
+        // console.log("equal ", this.state.currentGif, nextGif)
+        console.log("does character enter screen: ", doesCharacterEnter, "is the new image loading: ", loading)
+
+        return <React.Fragment>
+            <div className={doesCharacterEnter ?
+                `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
+                : `${classes.characterContainer} ${classes[characterType]}`}>
+                <img
+                    style={isFox ? { right: 0 } : { left: 0 }}
+                    className={classes.character}
+                    src={this.state.currentGif}
+                    onLoad={this.handleImageLoading}
+                    onError={this.handleImageErrored}
+                    alt='character' />
+
+                <img
+                    style={isFox ?
+                        { right: 0, visibility: loading ? "hidden" : "visible" }
+                        : { left: 0, visibility: loading ? "hidden" : "visible" }}
+                    className={classes.character}
+                    src={nextGif}
+                    onLoad={this.handleImageLoaded}
+                    onError={this.handleImageErrored}
+                    alt='character' />
+                {showBubbles ? <Bubbles /> : null}
+            </div>
+            {/* {showBubbles ? <Bubbles /> : null} */}
+
+        </React.Fragment>
+
     }
 }
 

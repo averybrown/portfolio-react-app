@@ -5,6 +5,7 @@ import foxEnters2 from 'Assets/flipbook-fox-enter-scene-2.gif';
 import bearEnters from 'Assets/flipbook-bear-enter-scene.gif';
 import bearEnters2 from 'Assets/flipbook-bear-enter-scene-2.gif';
 import foxBubble from 'Assets/flipbook-final.gif';
+import foxPlant from 'Assets/flipbook-plant.gif';
 import foxIdle from 'Assets/fox-idle.gif';
 import bearIdle from 'Assets/flipbook-bear-idle.gif';
 import { withRouter } from "react-router-dom";
@@ -21,7 +22,7 @@ const animations = {
     BEARENTRANCE2: bearEnters2,
     FOXBUBBLES: foxBubble,
     FOXPLANTGROWING: foxIdle,
-    FOXPLANT: foxIdle,
+    FOXPLANT: foxPlant,
     BEARWAVE: bear,
     BEARLEAF: bear,
     BEARIDLE: bearIdle
@@ -30,33 +31,35 @@ const animations = {
 const pages = [
     {
         name: 'home', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE, duration: 2800 },
-            { animation: animations.FOXENTRANCE2, duration: 2000 },
+            { animation: animations.FOXENTRANCE, duration: 3000 },
+            { animation: animations.FOXENTRANCE2, duration: 2800 },
             { animation: animations.FOXBUBBLES, bubbles: true }
         ]
     },
     {
         name: 'projects', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 2800 },
+            { animation: animations.BEARENTRANCE, duration: 3000 },
             { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE }
         ]
     },
     {
         name: 'resume', character: 'fox', states: [
-            { animation: animations.FOXENTRANCE, duration: 2800 },
+            { animation: animations.FOXENTRANCE, duration: 3000 },
             { animation: animations.FOXENTRANCE2, duration: 2000 },
-            { animation: animations.FOXPLANT, duration: 2000 },
-            { animation: animations.FOXPLANTGROWING, duration: 300 }
+            { animation: animations.FOXPLANTGROWING, duration: 1000 },
+            { animation: animations.FOXPLANT, duration: 300 }
         ]
     },
     {
         name: 'contact', character: 'bear', states: [
-            { animation: animations.BEARENTRANCE, duration: 2800 },
+            { animation: animations.BEARENTRANCE, duration: 3000 },
             { animation: animations.BEARENTRANCE2, duration: 2000 },
             { animation: animations.BEARIDLE, duration: 300 }]
     }
 ]
+
+let timeout;
 
 
 class CharacterDataProvider extends Component {
@@ -67,7 +70,8 @@ class CharacterDataProvider extends Component {
             currentPage: undefined,
             lastPage: undefined,
             currentState: 0,
-            timeout: null
+            // currentGif: undefined
+            // timeout: null,
         }
     }
 
@@ -89,14 +93,13 @@ class CharacterDataProvider extends Component {
             : true
     }
 
-    getCharacterAnimation = () => {
-        const { currentPage, currentState } = this.state;
+    // getCharacterAnimation = () => {
+    //     const { currentPage, currentState } = this.state;
 
-        if (currentPage !== undefined && currentPage.states[currentState] !== undefined) {
-            return (currentPage.states[currentState].animation)
-        }
-    }
-
+    //     if (currentPage !== undefined && currentPage.states[currentState] !== undefined) {
+    //         return (currentPage.states[currentState].animation)
+    //     }
+    // }
 
     checkBubbles = () => {
         const { currentPage, currentState } = this.state;
@@ -138,24 +141,22 @@ class CharacterDataProvider extends Component {
     }
 
     updateCurrentState = () => {
-        const { currentState, currentPage, timeout } = this.state;
+        const { currentState, currentPage } = this.state;
         let nextState = currentState + 1;
         clearTimeout(timeout);
 
+        this.setState({ currentState: nextState, currentGif: this.state.currentPage.states[nextState].animation }, () => {
+            // console.log("hi: ", this.state.currentGif)
 
-        console.log(timeout, "current state: ", currentState)
-
-        this.setState({ currentState: nextState }, () => {
             if (this.isNextState()) {
                 let duration = currentPage.states[this.state.currentState].duration
-                this.setState({ timeout: setTimeout(this.updateCurrentState, duration) })
+                timeout = setTimeout(this.updateCurrentState, duration)
             }
         })
 
     }
 
     componentWillUnmount() {
-        const { timeout } = this.state;
         clearTimeout(timeout);
     }
 
@@ -164,14 +165,14 @@ class CharacterDataProvider extends Component {
 
         this.setCurrentPageState(currentPageData).then(() => {
             if (this.state.currentPage !== undefined) {
+                this.setState({ currentGif: this.state.currentPage.states[0].animation })
                 let duration = this.state.currentPage.states[0].duration
-                this.setState({ timeout: setTimeout(this.updateCurrentState, duration) })
+                timeout = setTimeout(this.updateCurrentState, duration)
             }
         })
     }
 
     componentDidUpdate(newProps) {
-        const { timeout } = this.state;
 
         if (this.props.location !== newProps.location) {
             let currentPageData = this.getPage();
@@ -183,13 +184,10 @@ class CharacterDataProvider extends Component {
                 let newPage = this.isNewPage() && !this.doesCharacterEnter()
                 let currentState = newPage ? 2 : newPageAndCharacterEnters ? 0 : 2;
 
-                this.setState({ currentState: currentState }, () => {
+                this.setState({ currentState: currentState, currentGif: this.state.currentPage.states[currentState].animation }, () => {
                     if (this.state.currentPage !== undefined && this.isNextState()) {
-                        this.setState(
-                            {
-                                timeout: setTimeout(this.updateCurrentState,
-                                    this.state.currentPage.states[this.state.currentState].duration)
-                            })
+                        timeout = setTimeout(this.updateCurrentState,
+                            this.state.currentPage.states[this.state.currentState].duration)
                     }
                 })
             })
@@ -198,15 +196,17 @@ class CharacterDataProvider extends Component {
 
     render() {
         return (
-            <CharacterContext.Provider value={{
-                ...this.state,
-                doesCharacterEnter: this.doesCharacterEnter,
-                checkBubbles: this.checkBubbles,
-                getCharacterAnimation: this.getCharacterAnimation,
-                getCharacterType: this.getCharacterType,
-            }}>
-                {this.props.children}
-            </CharacterContext.Provider >
+            <React.Fragment>
+                <CharacterContext.Provider value={{
+                    ...this.state,
+                    doesCharacterEnter: this.doesCharacterEnter,
+                    checkBubbles: this.checkBubbles,
+                    // getCharacterAnimation: this.getCharacterAnimation,
+                    getCharacterType: this.getCharacterType,
+                }}>
+                    {this.props.children}
+                </CharacterContext.Provider >
+            </React.Fragment>
         )
     }
 }

@@ -97,10 +97,10 @@ class ResumePage extends Component {
         return <div className={classes.resumePage}>
             <Typography className={classes.title} variant="h5">resume</Typography>
             <Link className={classes.resumeLink} style={{ textDecoration: 'none' }} to="/resume.pdf" target="_blank" download>
-                <Typography variant="subtitle1">
+                {/* <Typography variant="subtitle1">
                     download full resume
                 </Typography>
-                <GetAppIcon className={classes.downloadIcon} />
+                <GetAppIcon className={classes.downloadIcon} /> */}
             </Link>
             {/* <div className={classes.content}>
                 <div className={classes.education}>
