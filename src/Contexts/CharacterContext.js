@@ -70,8 +70,6 @@ class CharacterDataProvider extends Component {
             currentPage: undefined,
             lastPage: undefined,
             currentState: 0,
-            // currentGif: undefined
-            // timeout: null,
         }
     }
 
@@ -92,14 +90,6 @@ class CharacterDataProvider extends Component {
             currentPage !== lastPage
             : true
     }
-
-    // getCharacterAnimation = () => {
-    //     const { currentPage, currentState } = this.state;
-
-    //     if (currentPage !== undefined && currentPage.states[currentState] !== undefined) {
-    //         return (currentPage.states[currentState].animation)
-    //     }
-    // }
 
     checkBubbles = () => {
         const { currentPage, currentState } = this.state;
@@ -146,8 +136,6 @@ class CharacterDataProvider extends Component {
         clearTimeout(timeout);
 
         this.setState({ currentState: nextState, currentGif: this.state.currentPage.states[nextState].animation }, () => {
-            // console.log("hi: ", this.state.currentGif)
-
             if (this.isNextState()) {
                 let duration = currentPage.states[this.state.currentState].duration
                 timeout = setTimeout(this.updateCurrentState, duration)
@@ -201,7 +189,6 @@ class CharacterDataProvider extends Component {
                     ...this.state,
                     doesCharacterEnter: this.doesCharacterEnter,
                     checkBubbles: this.checkBubbles,
-                    // getCharacterAnimation: this.getCharacterAnimation,
                     getCharacterType: this.getCharacterType,
                 }}>
                     {this.props.children}

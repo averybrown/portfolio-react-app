@@ -11,8 +11,12 @@ const styles = theme => {
         characterContainer: {
             position: 'absolute',
             width: '45vw',
-            height: '52%',
+            paddingTop: '45%',
             bottom: 0,
+            marginBottom: '-18%',
+            [theme.breakpoints.down("xs")]: {
+                paddingTop: '50%',
+            }, 
         },
         character: {
             width: '100%',
@@ -21,11 +25,7 @@ const styles = theme => {
             bottom: 0,
         },
         fox: {
-            // position: 'absolute',
-            // bottom: 0,
-            // left: 0,
             marginLeft: '-10%',
-            marginBottom: '-18%',
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
                 marginBottom: '-120px',
@@ -33,10 +33,8 @@ const styles = theme => {
             }
         },
         bear: {
-            // bottom: 0,
             right: 0,
             marginRight: '-14%',
-            marginBottom: '-18.8%',
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-87px',
                 marginBottom: '-120px',
@@ -56,7 +54,7 @@ const styles = theme => {
         bubble: {
             position: 'absolute',
             width: '7vw',
-            bottom: '13%',
+            bottom: '-50%',
             left: '67%',
             display: 'block',
             animationIterationCount: 'infinite',
@@ -109,7 +107,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp1": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.4)',
             },
@@ -132,7 +130,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp2": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.3)',
             },
@@ -155,7 +153,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp3": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.2)',
             },
@@ -178,7 +176,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp4": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.4)'
             },
@@ -201,7 +199,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp5": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.4)',
             },
@@ -224,7 +222,7 @@ const styles = theme => {
         },
         "@keyframes BubbleUp6": {
             "0%": {
-                bottom: '13%',
+                bottom: '-50%',
                 opacity: 0,
                 transform: 'scale(0.3)',
             },
@@ -300,10 +298,6 @@ class Character extends Component {
         this.setState({ imageStatus: "loaded", currentGif: this.context.currentGif });
     }
 
-    // handleImageLoading = () => {
-    //     this.setState({ imageStatus: "loading" });
-    // }
-
     handleImageErrored = () => {
         this.setState({ imageStatus: "failed to load" });
     }
@@ -317,9 +311,6 @@ class Character extends Component {
             console.log("first update: ", this.context.currentGif)
             this.setState({ currentGif: this.context.currentGif })
         }
-        // else if (this.state.currentGif !== undefined && this.context.currentGif !== undefined && this.state.currentGif !== this.context.currentGif) {
-        //     this.setState({ imageStatus: "loading" });
-        // }
     }
 
 
@@ -334,8 +325,6 @@ class Character extends Component {
         let isFox = characterType === 'fox';
         loading = this.state.currentGif !== this.context.currentGif || this.state.currentGif === undefined
 
-        // console.log("equal ", this.state.currentGif, nextGif)
-        console.log("does character enter screen: ", doesCharacterEnter, "is the new image loading: ", loading)
 
         return <React.Fragment>
             <div className={doesCharacterEnter ?
@@ -358,10 +347,10 @@ class Character extends Component {
                     onLoad={this.handleImageLoaded}
                     onError={this.handleImageErrored}
                     alt='character' />
-                {showBubbles ? <Bubbles /> : null}
-            </div>
-            {/* {showBubbles ? <Bubbles /> : null} */}
 
+                {showBubbles ? <Bubbles /> : null}
+                
+            </div>
         </React.Fragment>
 
     }
