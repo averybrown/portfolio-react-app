@@ -16,6 +16,7 @@ const styles = theme => {
             position: 'absolute'
         },
         title: {
+            fontSize: 'calc(10px + 10vmin) !important',
             marginLeft: theme.spacing(50),
             marginTop: theme.spacing(10), 
             transition: 'all .4s ease-in-out',
@@ -42,7 +43,7 @@ class HomePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.homePage}>
-            <Typography className={classes.title} variant="h6">avery brown</Typography>
+            <Typography className={classes.title} variant="h5">avery brown</Typography>
             <SpeakerIcon/>
         </div>
     }

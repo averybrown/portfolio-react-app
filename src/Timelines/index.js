@@ -15,7 +15,7 @@ const getDefaultTimeline = (node, delay) => {
 
 const getHomeTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
-    const name = node.querySelector('h6');
+    const name = node.querySelector('h5');
     const character = node.querySelector('.characterEntrance');
 
     timeline

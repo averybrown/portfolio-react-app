@@ -15,7 +15,8 @@ const styles = theme => {
             bottom: 0,
             marginBottom: '-18%',
             [theme.breakpoints.down("xs")]: {
-                paddingTop: '50%',
+                height: '305px',
+                paddingTop: 0
             }, 
         },
         character: {
@@ -292,9 +293,11 @@ class Character extends Component {
         )
     }
 
+    componentWillUnmount(){
+        console.log("unmounted")
+    }
+
     handleImageLoaded = () => {
-        console.log("loaded handler")
-        if (this.state.currentGif !== undefined && this.context.currentGif !== undefined && this.state.currentGif !== this.context.currentGif) { console.log("trueeee") }
         this.setState({ imageStatus: "loaded", currentGif: this.context.currentGif });
     }
 
@@ -308,7 +311,6 @@ class Character extends Component {
 
     componentDidUpdate() {
         if (this.state.currentGif === undefined && this.context.currentGif !== undefined) {
-            console.log("first update: ", this.context.currentGif)
             this.setState({ currentGif: this.context.currentGif })
         }
     }
