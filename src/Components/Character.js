@@ -99,7 +99,7 @@ const styles = theme => {
         },
         "@keyframes bearEntrance": {
             "0%": {
-                bottom: '-25%',
+                bottom: '-38%',
             },
             "100%": {
                 bottom: 0,
