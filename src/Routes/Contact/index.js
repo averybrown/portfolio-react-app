@@ -37,7 +37,6 @@ const styles = theme => {
             animationFillMode: 'both',
             animationDuration: '8000ms',
             animationIterationCount: 'infinite',
-            // transition: '1s',
         },
         pinwheelPole: {
             position: 'absolute'
@@ -55,7 +54,7 @@ const styles = theme => {
                 transform: 'rotate(0deg)'
             },
             "100%": {
-                transform: 'rotate(1080deg)'
+                transform: 'rotate(-1080deg)'
             },
         },
     };

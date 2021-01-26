@@ -52,6 +52,16 @@ const styles = theme => {
             animationFillMode: 'both',
             animationDuration: '3000ms'
         },
+        foxExit: {
+            animationName: '$foxExit',
+            animationFillMode: 'both',
+            animationDuration: '3000ms'
+        },
+        bearExit: {
+            animationName: '$bearExit',
+            animationFillMode: 'both',
+            animationDuration: '3000ms'
+        },
         bubble: {
             position: 'absolute',
             width: '7vw',
@@ -104,6 +114,22 @@ const styles = theme => {
             },
             "100%": {
                 bottom: 0,
+            },
+        },
+        "@keyframes foxExit": {
+            "0%": {
+                bottom: 0,
+            },
+            "100%": {
+                bottom: '-32%',
+            },
+        },
+        "@keyframes bearExit": {
+            "0%": {
+                bottom: 0,
+            },
+            "100%": {
+                bottom: '-38%',
             },
         },
         "@keyframes BubbleUp1": {
@@ -293,10 +319,6 @@ class Character extends Component {
         )
     }
 
-    componentWillUnmount(){
-        console.log("unmounted")
-    }
-
     handleImageLoaded = () => {
         this.setState({ imageStatus: "loaded", currentGif: this.context.currentGif });
     }
@@ -318,11 +340,13 @@ class Character extends Component {
 
     render() {
         let { classes } = this.props;
-        let doesCharacterEnter = this.context.doesCharacterEnter();
+        let isCharacterExiting = this.context.isCharacterExiting();
+        let doesCharacterEnter = this.context.doesCharacterEnter() && !isCharacterExiting;
         let showBubbles = this.context.checkBubbles();
         let nextGif = this.context.currentGif;
         let characterType = this.context.getCharacterType();
         let characterEntrance = characterType + 'Entrance';
+        let characterExit = characterType + 'Exit';
         let loading = false;
         let isFox = characterType === 'fox';
         loading = this.state.currentGif !== this.context.currentGif || this.state.currentGif === undefined
@@ -331,6 +355,8 @@ class Character extends Component {
         return <React.Fragment>
             <div className={doesCharacterEnter ?
                 `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
+                : isCharacterExiting ? 
+                `${classes.characterContainer} ${classes[characterExit]} ${classes[characterType]}`
                 : `${classes.characterContainer} ${classes[characterType]}`}>
                 <img
                     style={isFox ? { right: 0 } : { left: 0 }}
