@@ -280,7 +280,6 @@ class Character extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            imageStatus: "loading",
             currentGif: undefined
         };
     }
@@ -320,11 +319,11 @@ class Character extends Component {
     }
 
     handleImageLoaded = () => {
-        this.setState({ imageStatus: "loaded", currentGif: this.context.currentGif });
+        this.setState({ currentGif: this.context.currentGif });
     }
 
     handleImageErrored = () => {
-        this.setState({ imageStatus: "failed to load" });
+        console.log("error loading image")
     }
 
     componentDidMount() {
@@ -368,8 +367,8 @@ class Character extends Component {
 
                 <img
                     style={isFox ?
-                        { right: 0, visibility: loading ? "hidden" : "visible" }
-                        : { left: 0, visibility: loading ? "hidden" : "visible" }}
+                        { right: 0, visibility: loading ? "hidden" : "visible", opacity: loading ? 0 : 1, display: loading ? 'none' : 'inline' }
+                        : { left: 0, visibility: loading ? "hidden" : "visible", opacity: loading ? 0 : 1, display: loading ? 'none' : 'inline' }}
                     className={classes.character}
                     src={nextGif}
                     onLoad={this.handleImageLoaded}
