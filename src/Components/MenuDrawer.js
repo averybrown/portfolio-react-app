@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(4),
         "& svg": {
             "& path": {
-                color: 'black'
+                color: 'white'
             }
         },
     },

@@ -110,7 +110,6 @@ class CharacterDataProvider extends Component {
     }
 
     setCurrentPageState = async (currentPageData) => {
-        const { currentPage } = this.state;
         this.setState({ currentPage: currentPageData })
     }
 
@@ -130,18 +129,36 @@ class CharacterDataProvider extends Component {
         let nextStateExists = currentPage.states[nextStateIndex] !== undefined;
         let currentStateCycles = currentPage.states[currentState].cycle
 
-        console.log("playnextstate")
-
         return nextStateExists && !currentStateCycles
     }
 
-    doesCharacterEnter = () => {
+    isSameCharacter = () => {
+        const { currentPage } = this.state;
+        let currentPageData = this.getPage();
+
+        if (currentPageData !== undefined && currentPage !== undefined) {
+            return currentPageData.character === currentPage.character;
+        }
+    }
+
+    isSameCharacterCurrentlyEntering = () => {
         let currentPageData = this.getPage();
 
         const { currentPage, currentState } = this.state;
 
         if (currentPageData !== undefined && currentPage !== undefined) {
-            let characterSwitched = currentPageData.character !== currentPage.character;
+            let isSameCharacter = this.isSameCharacter()
+            let characterDoneEntrance = currentState > 1
+            return isSameCharacter && !characterDoneEntrance
+        } else return false
+    }
+
+    doesCharacterEnter = () => {
+        let currentPageData = this.getPage();
+        const { currentPage, currentState } = this.state;
+
+        if (currentPageData !== undefined && currentPage !== undefined) {
+            let characterSwitched = !this.isSameCharacter()
             let characterDoneEntrance = currentState > 0
             return characterSwitched ? true : !characterDoneEntrance
         } else return true
@@ -160,12 +177,11 @@ class CharacterDataProvider extends Component {
         let nextStateIndex = currentState + 1;
         let characterExiting = currentPage.states[currentState].exit
         let endOfExit = currentPage.states[nextStateIndex] === undefined;
-        console.log(endOfExit && characterExiting)
 
         return characterExiting && endOfExit;
     }
 
-    startNewPage = nextState => {
+    startNewPage = (nextState) => {
         let currentPageData = this.getPage();
         clearTimeout(timeout);
 
@@ -174,13 +190,14 @@ class CharacterDataProvider extends Component {
         })
     }
 
-    setNextStateIndexAndGif = nextState => {
+    setNextStateIndexAndGif = (nextState) => {
         clearTimeout(timeout);
+
 
         this.setState({ currentState: nextState, currentGif: this.state.currentPage.states[nextState].animation }, () => {
             if (this.playNextState()) {
-                timeout = setTimeout(this.updateCurrentState,
-                    this.state.currentPage.states[this.state.currentState].duration)
+                let duration = this.state.currentPage.states[this.state.currentState].duration
+                timeout = setTimeout(this.updateCurrentState, duration)
             } else if (this.isEndOfExit()) {
                 let nextStateIndex = 0;
                 this.startNewPage(nextStateIndex)
@@ -194,6 +211,7 @@ class CharacterDataProvider extends Component {
         clearTimeout(timeout);
 
         let nextState = currentState + 1;
+
         this.setNextStateIndexAndGif(nextState)
     }
 
@@ -222,12 +240,17 @@ class CharacterDataProvider extends Component {
         if (this.props.location !== newProps.location && this.state.currentPage !== undefined) {
             clearTimeout(timeout);
 
-            let doesCharacterEnter = this.doesCharacterEnter()
-            let newPageSameCharacter = this.isNewPage() && !doesCharacterEnter
+            // if character is entering and is same character, don't play exit
+            let newPageSameCharacter = this.isNewPage() && this.isSameCharacter()
+            let isSamePage = !this.isNewPage()
+            let sameCharacterEntering = this.isSameCharacterCurrentlyEntering()
             let exitStateIndex = this.state.currentPage.states.length - 2
-            let nextState = newPageSameCharacter ? 2 : exitStateIndex;
+            let nextState = newPageSameCharacter && !sameCharacterEntering ?
+                2 : sameCharacterEntering || isSamePage ?
+                    this.state.currentState
+                    : exitStateIndex;
 
-            newPageSameCharacter ? this.startNewPage(nextState) : this.setNextStateIndexAndGif(nextState)
+            newPageSameCharacter || sameCharacterEntering ? this.startNewPage(nextState) : this.setNextStateIndexAndGif(nextState)
         }
     }
 

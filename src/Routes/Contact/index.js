@@ -26,7 +26,7 @@ const styles = theme => {
         },
         pinwheelContainer:{
             position: 'absolute',
-            left: '39%',
+            left: '52%',
             zIndex: 5,
             animationName: '$pinwheelEntrance',
             animationFillMode: 'both',
@@ -39,7 +39,10 @@ const styles = theme => {
             animationIterationCount: 'infinite',
         },
         pinwheelPole: {
-            position: 'absolute'
+            height: '400%', 
+            width: '100%',
+            position: 'absolute', 
+            top: '30%'
         },
         "@keyframes pinwheelEntrance": {
             "0%": {
@@ -72,7 +75,7 @@ class ContactPage extends Component {
                 <Typography className={"email"} variant="subtitle2">avery.brown@mac.com</Typography>
             </a>
             <div className={classes.pinwheelContainer}>
-                {/* <img className={classes.pinwheelPole} src={pinwheelPole} width='200px' height='200px' alt='pinwheel' /> */}
+                <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />
                 <img className={classes.pinwheel} src={pinwheel} width='300px' height='300px' alt='pinwheel' />
             </div>
         </div>
