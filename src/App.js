@@ -21,7 +21,7 @@ let theme = createMuiTheme({
       h5: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 8vmin) !important',
-        color: 'black',
+        color: 'white',
         textShadowColor: '#585858',
         textShadowOffset: { width: 5, height: 5 },
         textShadowRadius: 10,
@@ -29,7 +29,7 @@ let theme = createMuiTheme({
       subtitle2: {
         fontFamily: `"Roboto", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
-        color: 'black',
+        color: 'white',
         fontWeight: '300',
       },
       subtitle1: {
@@ -69,7 +69,7 @@ function App() {
             <div className="App-nav">
               <NavBar />
             </div>
-            <div style={{ position: 'absolute', overflowY: 'hidden' }} className="App-body">
+            <div style={{ position: 'absolute', overflow: 'hidden' }} className="App-body">
               <Routes />
               <div style={{ height: '100%', width: '100%' }}>
                 <Character />

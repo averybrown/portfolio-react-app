@@ -10,7 +10,8 @@
   /* background-color: #FFD976; */
   background-color: white;
   /* background: url("Assets/background_copy.png"); */
-  background: url("Assets/background-final.png");
+  /* background: url("Assets/background-final.png"); */
+  background: url("Assets/background-final-smaller-leaves.png");
   background-position:center;
   background-size: cover; 
 }

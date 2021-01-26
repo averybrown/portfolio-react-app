@@ -145,6 +145,7 @@ class CharacterDataProvider extends Component {
     }
 
     componentWillUnmount() {
+        console.log("hi")
         clearTimeout(timeout);
     }
 
