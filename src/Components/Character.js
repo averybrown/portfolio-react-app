@@ -17,13 +17,25 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
                 paddingTop: 0
-            }, 
+            },
         },
         character: {
             width: '100%',
             height: 'auto',
             position: 'absolute',
             bottom: 0,
+        },
+        visible: {
+            visibility: 'visible', 
+            backfaceVisibility: 'visible', 
+            opacity: 1, 
+            display: 'block'
+        }, 
+        hidden:{
+            visibility: 'hidden', 
+            backfaceVisibility: 'hidden', 
+            display: 'none', 
+            opacity: 0
         },
         fox: {
             marginLeft: '-10%',
@@ -354,9 +366,9 @@ class Character extends Component {
         return <React.Fragment>
             <div className={doesCharacterEnter ?
                 `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
-                : isCharacterExiting ? 
-                `${classes.characterContainer} ${classes[characterExit]} ${classes[characterType]}`
-                : `${classes.characterContainer} ${classes[characterType]}`}>
+                : isCharacterExiting ?
+                    `${classes.characterContainer} ${classes[characterExit]} ${classes[characterType]}`
+                    : `${classes.characterContainer} ${classes[characterType]}`}>
                 <img
                     style={isFox ? { right: 0 } : { left: 0 }}
                     className={classes.character}
@@ -367,16 +379,21 @@ class Character extends Component {
 
                 <img
                     style={isFox ?
-                        { right: 0, visibility: loading ? "hidden" : "visible", opacity: loading ? 0 : 1, display: loading ? 'none' : 'inline' }
-                        : { left: 0, visibility: loading ? "hidden" : "visible", opacity: loading ? 0 : 1, display: loading ? 'none' : 'inline' }}
-                    className={classes.character}
+                        { right: 0, 
+                            // visibility: loading ? "hidden" : "visible" 
+                        }
+                        : { left: 0,
+                            //  visibility: loading ? "hidden" : "visible" 
+                            }}
+                    className={loading ? `${classes.character} ${classes.hidden}`
+                        : `${classes.character} ${classes.visible}`}
                     src={nextGif}
                     onLoad={this.handleImageLoaded}
                     onError={this.handleImageErrored}
                     alt='character' />
 
                 {showBubbles ? <Bubbles /> : null}
-                
+
             </div>
         </React.Fragment>
 
