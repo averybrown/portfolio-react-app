@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import pinwheel from 'Assets/pinwheel.png';
 import pinwheelPole from 'Assets/pinwheelpole.png';
+import letter from 'Assets/letter.png';
 
 const styles = theme => {
     return {
@@ -22,15 +23,36 @@ const styles = theme => {
         },
         email: {
             zIndex: 100,
-            textDecoration: 'none'
+            textDecoration: 'none',
+            transition: 'all .2s ease-in-out',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            '&:hover': {
+                transform: 'scale(1.1)',
+            },
         },
-        pinwheelContainer:{
+        address: {
+            paddingRight: theme.spacing(1),
+        },
+        letter: {
+            width: 'calc(33px + 1.5vmin) !important',
+            height: 'auto', 
+            '&:hover': {
+                transform: 'scaleX(-1)',
+            },
+    
+        },
+        pinwheelContainer: {
             position: 'absolute',
             left: '52%',
             zIndex: 5,
             animationName: '$pinwheelEntrance',
             animationFillMode: 'both',
-            animationDuration: '5000ms'
+            animationDuration: '5000ms',
+            [theme.breakpoints.down("xs")]: {
+                left: '10%'
+            },
         },
         pinwheel: {
             animationName: '$pinwheel',
@@ -39,9 +61,9 @@ const styles = theme => {
             animationIterationCount: 'infinite',
         },
         pinwheelPole: {
-            height: '400%', 
+            height: '400%',
             width: '100%',
-            position: 'absolute', 
+            position: 'absolute',
             top: '30%'
         },
         "@keyframes pinwheelEntrance": {
@@ -71,8 +93,9 @@ class ContactPage extends Component {
 
         return <div className={classes.contactPage}>
             <Typography className={classes.title} variant="h5">contact</Typography>
-            <a className={classes.email} href={"mailto:avery.brown@mac.com"}>
-                <Typography className={"email"} variant="subtitle2">avery.brown@mac.com</Typography>
+            <a className={`${classes.email}`} href={"mailto:avery.brown@mac.com"}>
+                <Typography className={classes.address} variant="subtitle2">avery.brown@mac.com</Typography>
+                <img className={classes.letter} src={letter} width='100px' height='100px' alt='pinwheel' />
             </a>
             <div className={classes.pinwheelContainer}>
                 <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />

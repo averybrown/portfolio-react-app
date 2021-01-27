@@ -14,6 +14,7 @@ const styles = theme => {
             paddingTop: '45%',
             bottom: 0,
             marginBottom: '-18%',
+            zIndex: 100, 
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
                 paddingTop: 0
@@ -54,23 +55,13 @@ const styles = theme => {
                 width: '305px',
             },
         },
-        foxEntrance: {
-            animationName: '$foxEntrance',
+        entrance: {
+            animationName: '$entrance',
             animationFillMode: 'both',
             animationDuration: '3000ms'
         },
-        bearEntrance: {
-            animationName: '$bearEntrance',
-            animationFillMode: 'both',
-            animationDuration: '3000ms'
-        },
-        foxExit: {
-            animationName: '$foxExit',
-            animationFillMode: 'both',
-            animationDuration: '3000ms'
-        },
-        bearExit: {
-            animationName: '$bearExit',
+        exit: {
+            animationName: '$exit',
             animationFillMode: 'both',
             animationDuration: '3000ms'
         },
@@ -112,15 +103,7 @@ const styles = theme => {
             animationName: '$BubbleUp6',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 5}s`
         },
-        "@keyframes foxEntrance": {
-            "0%": {
-                bottom: '-32%',
-            },
-            "100%": {
-                bottom: 0,
-            },
-        },
-        "@keyframes bearEntrance": {
+        "@keyframes entrance": {
             "0%": {
                 bottom: '-38%',
             },
@@ -128,15 +111,7 @@ const styles = theme => {
                 bottom: 0,
             },
         },
-        "@keyframes foxExit": {
-            "0%": {
-                bottom: 0,
-            },
-            "100%": {
-                bottom: '-32%',
-            },
-        },
-        "@keyframes bearExit": {
+        "@keyframes exit": {
             "0%": {
                 bottom: 0,
             },
@@ -356,8 +331,8 @@ class Character extends Component {
         let showBubbles = this.context.checkBubbles();
         let nextGif = this.context.currentGif;
         let characterType = this.context.getCharacterType();
-        let characterEntrance = characterType + 'Entrance';
-        let characterExit = characterType + 'Exit';
+        // let characterEntrance = characterType + 'Entrance';
+        // let characterExit = characterType + 'Exit';
         let loading = false;
         let isFox = characterType === 'fox';
         loading = this.state.currentGif !== this.context.currentGif || this.state.currentGif === undefined
@@ -365,9 +340,9 @@ class Character extends Component {
 
         return <React.Fragment>
             <div className={doesCharacterEnter ?
-                `${classes.characterContainer} ${classes[characterEntrance]} ${classes[characterType]}`
+                `${classes.characterContainer} ${classes.entrance} ${classes[characterType]}`
                 : isCharacterExiting ?
-                    `${classes.characterContainer} ${classes[characterExit]} ${classes[characterType]}`
+                    `${classes.characterContainer} ${classes.exit} ${classes[characterType]}`
                     : `${classes.characterContainer} ${classes[characterType]}`}>
                 <img
                     style={isFox ? { right: 0 } : { left: 0 }}

@@ -6,12 +6,14 @@ import bearEnters from 'Assets/flipbook-bear-enter-scene.gif';
 import bearEnters2 from 'Assets/flipbook-bear-enter-scene-2.gif';
 import foxBubble from 'Assets/flipbook-final.gif';
 import foxPlant from 'Assets/flipbook-plant.gif';
-import foxIdle from 'Assets/fox-idle.gif';
 import bearIdle from 'Assets/flipbook-bear-idle.gif';
 import { withRouter } from "react-router-dom";
 import bear from 'Assets/bear.png';
 import foxExit from 'Assets/flipbook-fox-exit-scene-1.gif';
+import foxExitPlant from 'Assets/flipbook-fox-exit-scene-plant.gif';
 import bearExit from 'Assets/flipbook-bear-exit-scene-1.gif';
+import foxPlantGrowing from 'Assets/flipbook-plant-growing.gif';
+
 
 
 export const CharacterContext = createContext();
@@ -22,9 +24,10 @@ const animations = {
     FOXENTRANCE2: foxEnters2,
 
     FOXBUBBLES: foxBubble,
-    FOXPLANTGROWING: foxIdle,
+    FOXPLANTGROWING: foxPlantGrowing,
     FOXPLANT: foxPlant,
     FOXEXIT: foxExit,
+    FOXEXITPLANT: foxExitPlant,
     BEARENTRANCE: bearEnters,
     BEARENTRANCE2: bearEnters2,
     BEARLEAF: bear,
@@ -55,9 +58,9 @@ const pages = [
         name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 3000 },
             { animation: animations.FOXENTRANCE2, duration: 2000 },
-            { animation: animations.FOXPLANTGROWING, duration: 1000 },
+            { animation: animations.FOXPLANTGROWING, duration: 2000 },
             { animation: animations.FOXPLANT, duration: 300, cycle: true },
-            { animation: animations.FOXEXIT, duration: 2000, exit: true },
+            { animation: animations.FOXEXITPLANT, duration: 2000, exit: true },
             { animation: animations.FOXENTRANCE, duration: 3000, exit: true },
         ]
     },
