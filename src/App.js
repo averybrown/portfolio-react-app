@@ -28,30 +28,30 @@ let theme = createMuiTheme({
       },
       subtitle2: {
         fontFamily: `"Roboto", sans-serif`,
-        fontSize: 'calc(10px + 1.5vmin) !important',
+        fontSize: 'calc(9px + 1.5vmin) !important',
         color: 'white',
         fontWeight: '300',
       },
       subtitle1: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(5px + 1.5vmin) !important',
-        color: 'black',
+        color: 'white',
       },
       body1: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
-        color: 'black',
+        color: 'white',
         fontWeight: '600'
       },
       body2: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
-        color: 'black'
+        color: 'white'
       },
       caption: {
         fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(4px + 1.5vmin) !important',
-        color: 'black',
+        color: 'white',
       }
     }
   }

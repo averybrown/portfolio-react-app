@@ -58,7 +58,7 @@ const pages = [
         name: 'resume', character: 'fox', states: [
             { animation: animations.FOXENTRANCE, duration: 3000 },
             { animation: animations.FOXENTRANCE2, duration: 2000 },
-            { animation: animations.FOXPLANTGROWING, duration: 2000 },
+            { animation: animations.FOXPLANTGROWING, duration: 3000 },
             { animation: animations.FOXPLANT, duration: 300, cycle: true },
             { animation: animations.FOXEXITPLANT, duration: 2000, exit: true },
             { animation: animations.FOXENTRANCE, duration: 3000, exit: true },
