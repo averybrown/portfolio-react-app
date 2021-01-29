@@ -12,7 +12,7 @@ let theme = createMuiTheme({
     MuiTypography: {
       h6: {
         fontFamily: `"Mukta", sans-serif`,
-        fontSize: 'calc(10px + 8vmin) !important',
+        fontSize: 'calc(7px + 8vmin) !important',
         color: 'white',
         textShadowColor: '#585858',
         textShadowOffset: { width: 5, height: 5 },

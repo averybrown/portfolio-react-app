@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
-import sign from 'Assets/sign.png';
 import neonLeafPink from 'Assets/neon-leaf.png'
 import neonLeafYellow from 'Assets/neon-leaf-yellow.png'
 import neonLeafBlue from 'Assets/neon-leaf-blue.png'
-import Sign from 'Components/ResumeSign'
+import Sign from 'Components/ResumeSign';
+import bulletBlue from 'Assets/bullet-blue.png';
+import bulletPink from 'Assets/bullet-pink.png';
+import bulletYellow from 'Assets/bullet-yellow.png';
 
 
 const styles = theme => {
@@ -28,12 +30,16 @@ const styles = theme => {
         content: {
             display: 'grid',
             height: '100%',
-            gridTemplateColumns: '175px 175px 175px',
+            gridTemplateColumns: '230px 230px 230px',
             gridTemplateRows: 'auto 3fr auto',
             alignContent: 'center',
             justifyItems: 'center',
             alignItems: 'center',
             justifyContent: 'center',
+            paddingTop: theme.spacing(4),
+            [theme.breakpoints.down("xs")]: {
+                gridTemplateColumns: '1fr',
+            },
         },
         resumeLink: {
             cursor: 'pointer',
@@ -95,57 +101,68 @@ const styles = theme => {
         list: {
             textAlign: 'left',
             fontSize: 'calc(4px + 1.5vmin) !important',
-            alignSelf: 'start'
+            alignSelf: 'start',
+            marginTop: theme.spacing(7),
+            paddingLeft: theme.spacing(2),
+            paddingRight: theme.spacing(1)
         },
         education: {
             gridRow: 1,
             gridColumn: 1,
-            paddingTop: '30px', 
+            paddingTop: '30px',
+            justifySelf: 'end',
+            marginRight: theme.spacing(1)
+
 
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
             //     filter: 'drop-shadow(0 0 0.4rem rgb(255, 187, 17))'
             // },
         },
-        body: {
-            display: 'flex'
-        },
         info: {
-            marginRight: theme.spacing(5),
+            marginRight: theme.spacing(1),
         },
-        centeredParagraph: {
-            marginTop: theme.spacing(3),
+        educationInfo: {
+            marginBottom: theme.spacing(40),
             gridRow: 2,
             gridColumn: 1,
             gridColumnStart: 1,
             gridColumnEnd: '4',
             justifySelf: 'center',
-            alignSelf: 'start'
+            alignSelf: 'center'
+        },
+        educationList: {
+            flexDirection: 'column',
+
+            '&:before': {
+                backgroundImage: `url(${bulletYellow})`,
+                alignSelf: 'center',
+                height: `${theme.spacing(3)}px !important`
+            },
+            '&:hover:before': {
+                filter: 'drop-shadow(0 0 0.4rem rgb(255, 187, 17))'
+            },
         },
         experience: {
             gridRow: 1,
             gridColumn: 2,
-            paddingTop: '30px', 
+            paddingTop: '30px',
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
             //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             // },
         },
-        job: {
-            alignSelf: 'start'
+        experienceList: {
+            flexDirection: 'column',
+            '&:before': {
+                backgroundImage: `url(${bulletPink})`,
+                alignSelf: 'center',
+                height: `${theme.spacing(3)}px !important`
+            },
+            '&:hover:before': {
+                filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
+            },
         },
-        // explist1: {
-        //     gridRow: 3,
-        //     gridColumn: 1,
-        // },
-        // explist2: {
-        //     gridRow: 3,
-        //     gridColumn: 2,
-        // },
-        // explist3: {
-        //     gridRow: 3,
-        //     gridColumn: 3,
-        // },
         job1: {
             gridRow: 2,
             gridColumn: 1,
@@ -161,14 +178,45 @@ const styles = theme => {
         skills: {
             gridRow: 1,
             gridColumn: 3,
-            paddingTop: '30px', 
+            paddingTop: '30px',
+            justifySelf: 'start',
+            marginLeft: theme.spacing(1)
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
             //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             // },
         },
         skillsText: {
-            textAlign: 'start', 
+            textAlign: 'start',
+        },
+        listItem: {
+            listStyle: 'none',
+            display: 'flex',
+            marginBottom: theme.spacing(2),
+            '&:before': {
+                content: '" "',
+                display: 'inline-block',
+                height: '11px',
+                maxWidth: '25px',
+                width: '1vw',
+                minWidth: '5px',
+                padding: theme.spacing(1),
+                marginRight: theme.spacing(1),
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                transition: 'all 0.2s ease-in',
+            },
+            '&:hover:before': {
+                transition: 'all 0.2s ease-in',
+            },
+        },
+        skillsList: {
+            '&:before': {
+                backgroundImage: `url(${bulletBlue})`,
+            },
+            '&:hover:before': {
+                filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
+            },
         },
         leaves: {
             position: 'absolute',
@@ -209,6 +257,10 @@ const styles = theme => {
                 filter: 'drop-shadow(0 0 0.5rem rgb(2, 208, 194))'
             },
         },
+        break: {
+            flexBasis: '100%',
+            height: 0
+        },
         "@keyframes fadein": {
             "from": { opacity: 0 },
             "to": { opacity: 1 }
@@ -229,7 +281,7 @@ const styles = theme => {
             },
             "100%": {
                 transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)',
-                top: '26%',
+                top: '29%',
             },
         },
         "@keyframes leaf2Entrance": {
@@ -246,7 +298,7 @@ const styles = theme => {
                 transform: 'translateX(1vw) rotate(-5deg)'
             },
             "100%": {
-                top: '26%',
+                top: '29%',
                 transform: 'translateX(-2vw)'
             },
         },
@@ -264,7 +316,7 @@ const styles = theme => {
                 transform: 'scaleY(-1) translateX(-5vw) rotate(-5deg)'
             },
             "100%": {
-                top: '26%',
+                top: '29%',
                 transform: 'scaleY(-1) translateX(-2vw)',
             },
         },
@@ -279,7 +331,7 @@ class ResumePage extends Component {
 
         return <div className={classes.resumePage}>
             <Typography className={classes.title} variant="h6">resume</Typography>
-            <Sign/>
+            <Sign />
             <div className={classes.content}>
                 <div className={classes.education}>
                     <img className={`${classes.leaf1} ${classes.leaves}`}
@@ -292,14 +344,18 @@ class ResumePage extends Component {
                 </Typography>
                 </div>
 
-                {/* <div className={`${classes.centeredParagraph} ${classes.body}`}>
-                    <Typography className={classes.info} variant="body2">
-                        Univerisity of British Columbia
+                <ul className={`${classes.educationInfo} ${classes.list}`}>
+                    <li className={`${classes.educationList} ${classes.listItem}`}>
+                        <div style={{display: 'flex'}}>
+                            <Typography className={classes.info} variant="body2">
+                                Univerisity of British Columbia,
                 </Typography>
-                    <Typography className={classes.date} variant="body2">
-                        2015 - 2019
+                            <Typography className={classes.date} variant="body2">
+                                2015 - 2019
                 </Typography>
-                </div> */}
+                        </div>
+                    </li>
+                </ul>
 
                 <div className={classes.skills}>
                     <img className={`${classes.leaf3} ${classes.leaves}`}
@@ -313,55 +369,58 @@ class ResumePage extends Component {
                 </div>
 
                 {/* <ul className={classes.list}>
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             Java, JavaScript, Python, C++
                                 </Typography>
                     </li>
 
-                    <li>
-                        <Typography variant="subtitle1">
-                            Photoshop, Figma, Invision
-                                </Typography>
-                    </li>
-                    <li>
+
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             Azure DevOps, GitHub
+                                </Typography>
+                    </li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
+                        <Typography variant="subtitle1">
+                            HTML, CSS, React.JS
                                 </Typography>
                     </li>
 
                 </ul>
                 <ul className={classes.list}>
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             Database Design and SQL
                                 </Typography>
                     </li>
 
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             Google Analytics
                                 </Typography>
                     </li>
                 </ul>
                 <ul className={classes.list}>
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
-                            HTML, CSS, React.JS,
+                            Photoshop, Figma, Invision
                                 </Typography>
                     </li>
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             AWS development tools
                                 </Typography>
                     </li>
 
-                    <li>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography variant="subtitle1">
                             Confluence
                                 </Typography>
                     </li>
                 </ul> */}
+
+
                 <div className={classes.experience}>
                     <img className={`${classes.leaf2} ${classes.leaves}`}
                         src={neonLeafPink}
@@ -372,15 +431,23 @@ class ResumePage extends Component {
                         experience
                 </Typography>
                 </div>
-
-                {/* <div className={`${classes.job1} ${classes.job}`}>
-                    <Typography className={classes.info} variant="caption">
-                        Front-end Developer, Clotech
+                {/* 
+                <ul className={`${classes.job1} ${classes.list}`}>
+                    <li className={`${classes.listItem} ${classes.experienceList}`}>
+                        <div style={{ height: '100px' }}>
+                            <Typography className={classes.info} variant="body2">
+                                Front-end Developer,
                         </Typography>
-                    <Typography className={classes.date} variant="caption">
-                        Sept. 2019 - April 2020
+                            <Typography className={classes.info} style={{ height: '80px' }} variant="caption">
+                                Clotech
                         </Typography>
-                </div> */}
+                        </div>
+                        <div className={classes.break}></div>
+                        <Typography className={classes.date} variant="caption">
+                            Sept. 2019 - April 2020
+                        </Typography>
+                    </li>
+                </ul> */}
 
                 {/* <ul className={`${classes.list} ${classes.explist1}`}>
                     <li>
@@ -412,14 +479,23 @@ class ResumePage extends Component {
 
                 </ul> */}
 
-                {/* <div className={`${classes.job2} ${classes.job}`}>
-                    <Typography className={classes.info} variant="caption">
-                        Intern, Global Champions Equestrian Jumping Tour and League
+                {/* <ul className={`${classes.job2} ${classes.list}`}>
+                    <li className={`${classes.listItem} ${classes.experienceList}`}>
+                        <div style={{ height: '100px' }}>
+
+                            <Typography className={classes.info} variant="body2">
+                                Intern,
                 </Typography>
-                    <Typography className={classes.date} variant="caption">
-                        May 2018 - Aug. 2018
+                            <Typography className={classes.info} variant="caption">
+                                Global Champions Equestrian Jumping Tour and League
                 </Typography>
-                </div> */}
+                        </div>
+                        <div className={classes.break}></div>
+                        <Typography className={classes.date} variant="caption">
+                            May 2018 - Aug. 2018
+                </Typography>
+                    </li>
+                </ul> */}
 
                 {/* <ul className={`${classes.list} ${classes.explist2}`}>
                     <li>
@@ -439,15 +515,23 @@ class ResumePage extends Component {
                     </li>
                 </ul> */}
 
-{/* 
-                <div className={`${classes.job3} ${classes.job}`}>
-                    <Typography className={classes.info} variant="caption">
-                        Website Development Intern, Treetrunk Group
+
+                {/* <ul className={`${classes.job3} ${classes.list}`}>
+                    <li className={`${classes.listItem} ${classes.experienceList}`}>
+                        <div style={{ height: '100px' }}>
+                            <Typography className={classes.info} variant="body2">
+                                Website Development Intern,
                 </Typography>
-                    <Typography className={classes.date} variant="caption">
-                        July 2017 - Aug. 2017
+                            <Typography className={classes.info} variant="caption">
+                                Treetrunk Group
                 </Typography>
-                </div> */}
+                        </div>
+                        <div className={classes.break}></div>
+                        <Typography className={classes.date} variant="caption">
+                            July 2017 - Aug. 2017
+                </Typography>
+                    </li>
+                </ul> */}
 
 
                 {/* <ul className={`${classes.list} ${classes.explist3}`}>

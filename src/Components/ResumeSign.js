@@ -20,9 +20,16 @@ const styles = theme => {
             },
             width: '18%',
             height: 'auto',
-            [theme.breakpoints.down("sm")]: {
-                width: '35%',
-                minWidth: '200px'
+            marginBottom: 0,
+            minWidth: '200px',
+            [theme.breakpoints.down("xs")]: {
+                width: '25%',
+                minWidth: '200px', 
+                marginBottom: '100px', 
+                left: 0, 
+                right: 0, 
+                marginRight: 'auto', 
+                marginLeft: 'auto'
             },
         },
         sign: {
