@@ -29,7 +29,7 @@ const styles = theme => {
             display: 'grid',
             height: '100%',
             gridTemplateColumns: '175px 175px 175px',
-            gridTemplateRows: '1fr 3fr auto',
+            gridTemplateRows: 'auto 3fr auto',
             alignContent: 'center',
             justifyItems: 'center',
             alignItems: 'center',
@@ -100,6 +100,7 @@ const styles = theme => {
         education: {
             gridRow: 1,
             gridColumn: 1,
+            paddingTop: '30px', 
 
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
@@ -124,6 +125,7 @@ const styles = theme => {
         experience: {
             gridRow: 1,
             gridColumn: 2,
+            paddingTop: '30px', 
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
             //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
@@ -159,13 +161,14 @@ const styles = theme => {
         skills: {
             gridRow: 1,
             gridColumn: 3,
+            paddingTop: '30px', 
             // '&:hover': {
             //     transition: 'all 0.2s ease-in',
             //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             // },
         },
         skillsText: {
-            textAlign: 'start'
+            textAlign: 'start', 
         },
         leaves: {
             position: 'absolute',
@@ -239,8 +242,8 @@ const styles = theme => {
             "40%": {
                 transform: 'translateX(-5vw) rotate(8deg)'
             },
-            "60%": {
-                transform: 'translateX(2vw) rotate(-5deg)'
+            "70%": {
+                transform: 'translateX(1vw) rotate(-5deg)'
             },
             "100%": {
                 top: '26%',
@@ -275,7 +278,7 @@ class ResumePage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.resumePage}>
-            <Typography className={classes.title} variant="h5">resume</Typography>
+            <Typography className={classes.title} variant="h6">resume</Typography>
             <Sign/>
             <div className={classes.content}>
                 <div className={classes.education}>

@@ -102,7 +102,7 @@ class ContactPage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.contactPage}>
-            <Typography className={classes.title} variant="h5">contact</Typography>
+            <Typography className={classes.title} variant="h6">contact</Typography>
             <a className={`${classes.email}`} href={"mailto:avery.brown@mac.com"}>
                 <Typography className={classes.address} variant="subtitle2">avery.brown@mac.com</Typography>
                 <img className={classes.letter} src={letter} width='100px' height='100px' alt='pinwheel' />

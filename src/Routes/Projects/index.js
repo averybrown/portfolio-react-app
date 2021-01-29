@@ -33,7 +33,7 @@ class ProjectsPage extends Component {
         let { classes } = this.props;
 
         return <div className={classes.projectsPage}>
-            <Typography className={classes.title} variant="h5">projects</Typography>
+            <Typography className={classes.title} variant="h6">projects</Typography>
         </div>
     }
 }
