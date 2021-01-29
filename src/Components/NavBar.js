@@ -39,16 +39,19 @@ const styles = theme => ({
     link: {
         textDecoration: 'none !important',
         cursor: 'pointer',
-        zIndex: 9,
+        zIndex: 100,
         position: 'relative',
         transition: 'all .2s ease-in-out',
 
         '&:hover': {
             transform: 'scale(1.1)',
+            cursor: 'pointer',
         },
         '&:hover:after': {
             width: '50%',
-            left: '24%'
+            left: '24%', 
+            cursor: 'pointer',
+
         },
         '&:after': {
             background: 'none repeat scroll 0 0 transparent',
@@ -60,7 +63,8 @@ const styles = theme => ({
             position: 'absolute',
             background: '#ddd',
             transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
-            width: 0
+            width: 0, 
+            cursor: 'pointer',
         },
     },
     active: {

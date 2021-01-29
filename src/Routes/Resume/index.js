@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
-import Divider from '@material-ui/core/Divider';
 import sign from 'Assets/sign.png';
-import vine from 'Assets/vine.png';
 import neonLeafPink from 'Assets/neon-leaf.png'
 import neonLeafYellow from 'Assets/neon-leaf-yellow.png'
 import neonLeafBlue from 'Assets/neon-leaf-blue.png'
+import Sign from 'Components/ResumeSign'
 
 
 const styles = theme => {
@@ -29,17 +28,17 @@ const styles = theme => {
         content: {
             display: 'grid',
             height: '100%',
-            gridTemplateColumns: '150px 150px 150px',
-            gridTemplateRows: '1fr 3fr',
+            gridTemplateColumns: '175px 175px 175px',
+            gridTemplateRows: '1fr 3fr auto',
             alignContent: 'center',
             justifyItems: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-            gridGap: '3%',
         },
         resumeLink: {
             cursor: 'pointer',
-            zIndex: 100,
+            pointerEvents: 'auto',
+            zIndex: 1000,
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
@@ -53,13 +52,18 @@ const styles = theme => {
             fontWeight: 400,
             animation: '$fadein 2s',
             animationDelay: '8s',
-            opacity: 0, 
+            opacity: 0,
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
             position: 'relative',
             '&:hover': {
                 transform: 'scale(1.1)',
+
             },
+            // '&:hover ~ $leaf1': {
+            //     transition: 'all 0.2s ease-in',
+            //     filter: 'drop-shadow(0 0 0.4rem rgb(255, 187, 17))'
+            // },
             '&:hover:after': {
                 width: '100%',
                 left: 0
@@ -90,93 +94,126 @@ const styles = theme => {
         },
         list: {
             textAlign: 'left',
-            fontSize: 'calc(4px + 1.5vmin) !important'
+            fontSize: 'calc(4px + 1.5vmin) !important',
+            alignSelf: 'start'
         },
         education: {
             gridRow: 1,
-            gridColumn: 1
+            gridColumn: 1,
+
+            // '&:hover': {
+            //     transition: 'all 0.2s ease-in',
+            //     filter: 'drop-shadow(0 0 0.4rem rgb(255, 187, 17))'
+            // },
+        },
+        body: {
+            display: 'flex'
+        },
+        info: {
+            marginRight: theme.spacing(5),
+        },
+        centeredParagraph: {
+            marginTop: theme.spacing(3),
+            gridRow: 2,
+            gridColumn: 1,
+            gridColumnStart: 1,
+            gridColumnEnd: '4',
+            justifySelf: 'center',
+            alignSelf: 'start'
         },
         experience: {
             gridRow: 1,
-            gridColumn: 2
+            gridColumn: 2,
+            // '&:hover': {
+            //     transition: 'all 0.2s ease-in',
+            //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
+            // },
+        },
+        job: {
+            alignSelf: 'start'
+        },
+        // explist1: {
+        //     gridRow: 3,
+        //     gridColumn: 1,
+        // },
+        // explist2: {
+        //     gridRow: 3,
+        //     gridColumn: 2,
+        // },
+        // explist3: {
+        //     gridRow: 3,
+        //     gridColumn: 3,
+        // },
+        job1: {
+            gridRow: 2,
+            gridColumn: 1,
+        },
+        job2: {
+            gridRow: 2,
+            gridColumn: 2,
+        },
+        job3: {
+            gridRow: 2,
+            gridColumn: 3,
         },
         skills: {
             gridRow: 1,
-            gridColumn: 3
+            gridColumn: 3,
+            // '&:hover': {
+            //     transition: 'all 0.2s ease-in',
+            //     filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
+            // },
         },
         skillsText: {
             textAlign: 'start'
         },
-        signContainer: {
-            position: 'absolute',
-            right: '4%',
-            zIndex: 5,
-            animationName: '$signEntrance',
-            animationDelay: '5s',
-            animationFillMode: 'both',
-            animationDuration: '5000ms',
-            '&:hover': {
-                cursor: 'pointer',
-            },
-            width: '18%',
-            height: 'auto',
-            [theme.breakpoints.down("sm")]: {
-                width: '35%',
-                minWidth: '200px'
-            },
-        },
         leaves: {
-            position: 'absolute', 
-            '&:hover': {
-                // color: #fdec6e;
-                // text-shadow:0px 0px 30px #fdec6e;
-                // transition: 'all 0.2s ease-in',
-            },
+            position: 'absolute',
         },
         leaf1: {
             animationDelay: '1s',
             animationName: '$leaf1Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
+            transition: 'all 0.2s ease-in',
+            filter: 'drop-shadow(0 0 0.1rem rgb(255, 187, 17))',
+            '&:hover': {
+                transition: 'all 0.2s ease-in',
+                filter: 'drop-shadow(0 0 0.5rem rgb(255, 187, 17))'
+            },
         },
         leaf2: {
             animationDelay: '3s',
             animationName: '$leaf2Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
-        }, 
+            transition: 'all 0.2s ease-in',
+            filter: 'drop-shadow(0 0 0.1rem rgb(216, 88, 168))',
+            '&:hover': {
+                transition: 'all 0.2s ease-in',
+                filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
+            },
+        },
         leaf3: {
             animationDelay: '2s',
             animationName: '$leaf3Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
-        },
-        sign: {
+            transition: 'all 0.2s ease-in',
+            filter: 'drop-shadow(0 0 0.1rem rgb(2, 208, 194))',
             '&:hover': {
-                cursor: 'pointer',
-                transform: 'scale(1.05)',
-                transform: 'rotate(5deg)',
-                transformOrigin: '50% 150%'
+                transition: 'all 0.2s ease-in',
+                filter: 'drop-shadow(0 0 0.5rem rgb(2, 208, 194))'
             },
-            width: '100%',
-            height: 'auto'
         },
         "@keyframes fadein": {
             "from": { opacity: 0 },
-            "to":   { opacity: 1 }
-        }, 
-        "@keyframes signEntrance": {
-            "0%": {
-                bottom: '-50%',
-            },
-            "100%": {
-                bottom: '-10px',
-            },
+            "to": { opacity: 1 }
         },
         "@keyframes leaf1Entrance": {
             "0%": {
                 top: '-100px',
-                transform: 'scale(-1, -1)', 
+                transform: 'scale(-1, -1)',
             },
             "20%": {
                 transform: 'scale(-1, -1) translateX(4vw) rotate(5deg)'
@@ -188,7 +225,7 @@ const styles = theme => {
                 transform: 'scale(-1, -1) translateX(2vw) rotate(7deg)'
             },
             "100%": {
-                transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)', 
+                transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)',
                 top: '26%',
             },
         },
@@ -225,7 +262,7 @@ const styles = theme => {
             },
             "100%": {
                 top: '26%',
-                transform: 'scaleY(-1) translateX(-2vw)', 
+                transform: 'scaleY(-1) translateX(-2vw)',
             },
         },
     };
@@ -239,137 +276,193 @@ class ResumePage extends Component {
 
         return <div className={classes.resumePage}>
             <Typography className={classes.title} variant="h5">resume</Typography>
-            <div className={classes.signContainer}>
-                <Link className={classes.resumeLink} style={{ textDecoration: 'none' }} to="/resume.pdf" target="_blank" download>
-                    <img className={classes.sign} src={sign} width='300px' height='300px' alt='sign' />
-                </Link>
-            </div>
-            {/* <div className={classes.vineContainer}>
-                <img className={classes.vine1} src={vine} width='200px' height='600px' alt='sign' />
-                <img className={classes.vine2} src={vine} width='200px' height='600px' alt='sign' />
-            </div> */}
-
+            <Sign/>
             <div className={classes.content}>
                 <div className={classes.education}>
-                    <img className={`${classes.leaf1} ${classes.leaves}`} src={neonLeafYellow} width='50px' height='50px' alt='sign' />
+                    <img className={`${classes.leaf1} ${classes.leaves}`}
+                        src={neonLeafYellow}
+                        width='50px'
+                        height='50px'
+                        alt='leaf1' />
                     <Typography className={classes.heading} variant="body1">
                         education
                 </Typography>
-                    {/* <Divider className={classes.divider} /> */}
-                    {/* <div className={classes.body}>
-                        <Typography className={classes.heading} variant="body2">
-                            Univerisity of British Columbia
-                </Typography>
-                        <Typography className={classes.date} variant="body2">
-                            2015 - 2019
-                </Typography>
-                    </div> */}
                 </div>
+
+                {/* <div className={`${classes.centeredParagraph} ${classes.body}`}>
+                    <Typography className={classes.info} variant="body2">
+                        Univerisity of British Columbia
+                </Typography>
+                    <Typography className={classes.date} variant="body2">
+                        2015 - 2019
+                </Typography>
+                </div> */}
+
                 <div className={classes.skills}>
-                    <img className={`${classes.leaf3} ${classes.leaves}`} src={neonLeafBlue} width='50px' height='50px' alt='sign' />
+                    <img className={`${classes.leaf3} ${classes.leaves}`}
+                        src={neonLeafBlue}
+                        width='50px'
+                        height='50px'
+                        alt='leaf' />
                     <Typography className={classes.heading} variant="body1" >
                         technical skills
                 </Typography>
-                    {/* <Divider className={classes.divider} /> */}
-                    {/* <div className={classes.body}>
-                        <Typography className={classes.skillsText} variant="caption">
-                            Java, JavaScript, Python, C++, Node.js, Database Design and SQL, AWS development tools, HTML, CSS, React.JS,
-                            Google Analytics, Photoshop, Figma, InVision, Confluence
-                </Typography> */}
                 </div>
+
+                {/* <ul className={classes.list}>
+                    <li>
+                        <Typography variant="subtitle1">
+                            Java, JavaScript, Python, C++
+                                </Typography>
+                    </li>
+
+                    <li>
+                        <Typography variant="subtitle1">
+                            Photoshop, Figma, Invision
+                                </Typography>
+                    </li>
+                    <li>
+                        <Typography variant="subtitle1">
+                            Azure DevOps, GitHub
+                                </Typography>
+                    </li>
+
+                </ul>
+                <ul className={classes.list}>
+                    <li>
+                        <Typography variant="subtitle1">
+                            Database Design and SQL
+                                </Typography>
+                    </li>
+
+                    <li>
+                        <Typography variant="subtitle1">
+                            Google Analytics
+                                </Typography>
+                    </li>
+                </ul>
+                <ul className={classes.list}>
+                    <li>
+                        <Typography variant="subtitle1">
+                            HTML, CSS, React.JS,
+                                </Typography>
+                    </li>
+                    <li>
+                        <Typography variant="subtitle1">
+                            AWS development tools
+                                </Typography>
+                    </li>
+
+                    <li>
+                        <Typography variant="subtitle1">
+                            Confluence
+                                </Typography>
+                    </li>
+                </ul> */}
                 <div className={classes.experience}>
-                    <img className={`${classes.leaf2} ${classes.leaves}`} src={neonLeafPink} width='50px' height='50px' alt='sign' />
+                    <img className={`${classes.leaf2} ${classes.leaves}`}
+                        src={neonLeafPink}
+                        width='50px'
+                        height='50px'
+                        alt='leaf' />
                     <Typography className={classes.heading}>
                         experience
                 </Typography>
-                    {/* <Divider className={classes.divider} /> */}
                 </div>
-            </div>
-        </div>
 
-        /* <div className={classes.body}>
-                <Typography className={classes.heading} variant="body2">
-                    Front-end Developer, Clotech
+                {/* <div className={`${classes.job1} ${classes.job}`}>
+                    <Typography className={classes.info} variant="caption">
+                        Front-end Developer, Clotech
                         </Typography>
-                <Typography className={classes.date} variant="body2">
-                    Sept. 2019 - April 2020
+                    <Typography className={classes.date} variant="caption">
+                        Sept. 2019 - April 2020
                         </Typography>
-            </div>
+                </div> */}
 
-            <ul className={classes.list}>
-                <li>
-                    <Typography variant="caption">
-                        Developed dynamic single-page web applications with React.JS
+                {/* <ul className={`${classes.list} ${classes.explist1}`}>
+                    <li>
+                        <Typography variant="caption">
+                            Developed dynamic single-page web applications with React.JS
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Implemented secure login and authentication flows using Amazon Web Services
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Implemented secure login and authentication flows using Amazon Web Services
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Integrated with external APIs for order processing
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Integrated with external APIs for order processing
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Designed a relational database schema using MySql to store front-end assets and user data
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Designed a relational database schema using MySql to store front-end assets and user data
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Used AWS Lambda to define functions for securely reading, writing, and updating user data
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Used AWS Lambda to define functions for securely reading, writing, and updating user data
                                 </Typography>
-                </li>
+                    </li>
 
 
-            </ul>
-            <div className={classes.body}>
-                <Typography className={classes.heading} variant="body2">
-                    Intern, Global Champions Equestrian Jumping Tour and League
+                </ul> */}
+
+                {/* <div className={`${classes.job2} ${classes.job}`}>
+                    <Typography className={classes.info} variant="caption">
+                        Intern, Global Champions Equestrian Jumping Tour and League
                 </Typography>
-                <Typography className={classes.date} variant="body2">
-                    May 2018 - Aug. 2018
+                    <Typography className={classes.date} variant="caption">
+                        May 2018 - Aug. 2018
                 </Typography>
-            </div>
-            <ul className={classes.list}>
-                <li>
-                    <Typography variant="caption">
-                        Collaborated with a video delivery consulting firm on developing the company’s digital strategy
+                </div> */}
+
+                {/* <ul className={`${classes.list} ${classes.explist2}`}>
+                    <li>
+                        <Typography variant="caption">
+                            Collaborated with a video delivery consulting firm on developing the company’s digital strategy
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Created Google Analytics reports to effectively evaluate website traffic and user behaviour
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Created Google Analytics reports to effectively evaluate website traffic and user behaviour
                             </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Conducted market research on the current digital landscape of various sport organizations
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Conducted market research on the current digital landscape of various sport organizations
                             </Typography>
-                </li>
-            </ul>
-            <div className={classes.body}>
-                <Typography className={classes.heading} variant="body2">
-                    Website Development Intern, Treetrunk Group
+                    </li>
+                </ul> */}
+
+{/* 
+                <div className={`${classes.job3} ${classes.job}`}>
+                    <Typography className={classes.info} variant="caption">
+                        Website Development Intern, Treetrunk Group
                 </Typography>
-                <Typography className={classes.date} variant="body2">
-                    July 2017 - Aug. 2017
+                    <Typography className={classes.date} variant="caption">
+                        July 2017 - Aug. 2017
                 </Typography>
-            </div>
-            <ul className={classes.list}>
-                <li>
-                    <Typography variant="caption">
-                        Collaborated with a small team of three on the website of a startup marketing company using Python and Django web framework
+                </div> */}
+
+
+                {/* <ul className={`${classes.list} ${classes.explist3}`}>
+                    <li>
+                        <Typography variant="caption">
+                            Collaborated with a small team of three on the website of a startup marketing company using Python and Django web framework
                                 </Typography>
-                </li>
-                <li>
-                    <Typography variant="caption">
-                        Contributed to high-level design decisions to improve website's functionality and user experience
+                    </li>
+                    <li>
+                        <Typography variant="caption">
+                            Contributed to high-level design decisions to improve website's functionality and user experience
                             </Typography>
-                </li>
-            </ul> */
+                    </li>
+                </ul> */}
+            </div>
+        </div >
+
+
 
     }
 }

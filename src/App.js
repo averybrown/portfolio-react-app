@@ -19,7 +19,8 @@ let theme = createMuiTheme({
         textShadowRadius: 10,
       },
       h5: {
-        fontFamily: `"Mukta", sans-serif`,
+        // fontFamily: `'Mrs Sheppards', cursive;`,
+        fontFamily: `'Libre Franklin', sans-serif;`,
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         textShadowColor: '#585858',
@@ -50,7 +51,7 @@ let theme = createMuiTheme({
       },
       caption: {
         fontFamily: `"Mukta", sans-serif`,
-        fontSize: 'calc(4px + 1.5vmin) !important',
+        fontSize: 'calc(3px + 1.5vmin) !important',
         color: 'white',
       }
     }

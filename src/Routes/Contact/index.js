@@ -24,12 +24,15 @@ const styles = theme => {
         email: {
             zIndex: 100,
             textDecoration: 'none',
-            transition: 'all .2s ease-in-out',
+            transition: 'all .3s ease-in-out',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            cursor: 'pointer',
             '&:hover': {
                 transform: 'scale(1.1)',
+                transition: 'all .3s ease-in-out',
+                filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))',
             },
         },
         address: {
@@ -38,8 +41,11 @@ const styles = theme => {
         letter: {
             width: 'calc(33px + 1.5vmin) !important',
             height: 'auto', 
+            transition: 'all .4s ease-in-out',
             '&:hover': {
                 transform: 'scaleX(-1)',
+                transition: 'all .4s ease-in-out',
+                filter: 'drop-shadow(0 0 0.05rem rgb(2, 208, 194))',
             },
     
         },
@@ -59,6 +65,10 @@ const styles = theme => {
             animationFillMode: 'both',
             animationDuration: '8000ms',
             animationIterationCount: 'infinite',
+            '&:hover': {
+                transform: 'scaleX(-1)',
+                filter: 'drop-shadow(0 0 0.05rem rgb(2, 208, 194))',
+            },
         },
         pinwheelPole: {
             height: '400%',

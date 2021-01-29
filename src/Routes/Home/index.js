@@ -16,12 +16,15 @@ const styles = theme => {
             position: 'absolute'
         },
         title: {
-            fontSize: 'calc(10px + 10vmin) !important',
+            fontSize: 'calc(-18px + 10vmin) !important',
             marginLeft: theme.spacing(50),
+            filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))',
             marginTop: theme.spacing(10), 
             transition: 'all .4s ease-in-out',
             '&:hover': {
-                transform: 'scale(1.2)',
+                transform: 'scale(1.1)',
+                filter: 'drop-shadow(0 0 0.7rem rgb(216, 88, 168))',
+                // boxShadow: 'inset 1em 1em rgba(216, 88, 168, 0.18)'
               },
             [theme.breakpoints.down("xs")]: {
                 marginLeft: 0,
@@ -31,7 +34,25 @@ const styles = theme => {
                 marginTop: 0, 
                 marginLeft: 0, 
             },
-        }
+            animationName: '$title',
+            animationFillMode: 'both',
+            animationDuration: '3000ms',
+            animationIterationCount: 'infinite',
+        }, 
+        "@keyframes title": {
+            "0%": {
+                filter: 'drop-shadow(0 0 0.3rem rgb(216, 88, 168))',
+                // boxShadow: 'inset 1em 1em rgba(216, 88, 168, 0.18)'
+            },
+            "50%": {
+                filter: 'drop-shadow(0 0 0.9rem rgb(216, 88, 168))',
+                // boxShadow: 'inset 1em 1em rgba(216, 88, 168, 0.18)'
+            },
+            "100%": {
+                filter: 'drop-shadow(0 0 0.3rem rgb(216, 88, 168))',
+                // boxShadow: 'inset 1em 1em rgba(216, 88, 168, 0.18)'
+            }
+        },
     };
 };
 
