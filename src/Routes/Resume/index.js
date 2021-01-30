@@ -25,7 +25,10 @@ const styles = theme => {
         title: {
             zIndex: 10,
             marginTop: theme.spacing(14),
-            visibility: 'hidden'
+            visibility: 'hidden',
+            [theme.breakpoints.down("xs")]: {
+                marginTop: theme.spacing(8),
+            },
         },
         content: {
             display: 'grid',
@@ -38,7 +41,12 @@ const styles = theme => {
             justifyContent: 'center',
             paddingTop: theme.spacing(4),
             [theme.breakpoints.down("xs")]: {
-                gridTemplateColumns: '1fr',
+                gridTemplateColumns: '1fr 1fr 1fr',
+                paddingTop: 0,
+                marginTop: '-190px',
+                gridTemplateRows: 'auto 110px 135px 110px',
+                paddingRight: theme.spacing(1),
+                paddingLeft: theme.spacing(1)
             },
         },
         resumeLink: {
@@ -100,7 +108,10 @@ const styles = theme => {
             justifyContent: 'space-between'
         },
         date: {
-            textAlign: 'end'
+            textAlign: 'end',
+            [theme.breakpoints.down("xs")]: {
+                textAlign: 'center'
+            },
         },
         downloadIcon: {
             color: 'black',
@@ -112,7 +123,11 @@ const styles = theme => {
             alignSelf: 'start',
             marginTop: theme.spacing(7),
             paddingLeft: theme.spacing(2),
-            paddingRight: theme.spacing(1)
+            paddingRight: theme.spacing(1),
+            [theme.breakpoints.down("xs")]: {
+                marginTop: 0,
+                padding: 0,
+            },
         },
         education: {
             gridRow: 1,
@@ -129,9 +144,15 @@ const styles = theme => {
                 width: '100%',
                 left: 0
             },
+            [theme.breakpoints.down("xs")]: {
+                justifySelf: 'center'
+            },
         },
         info: {
             marginRight: theme.spacing(1),
+            [theme.breakpoints.down("xs")]: {
+                marginRight: theme.spacing(1) / 2,
+            },
         },
         educationInfo: {
             gridRow: 2,
@@ -140,10 +161,13 @@ const styles = theme => {
             gridColumnEnd: '4',
             justifySelf: 'center',
             alignSelf: 'start',
-            opacity: 0, 
-            animationName: '$hidden', 
-            animationDuration: '8s', 
+            opacity: 0,
+            animationName: '$hidden',
+            animationDuration: '8s',
             transition: 'all 0.3s ease-in',
+            [theme.breakpoints.down("xs")]: {
+                marginTop: theme.spacing(16)
+            },
         },
         educationList: {
             flexDirection: 'column',
@@ -161,7 +185,6 @@ const styles = theme => {
             gridRow: 1,
             gridColumn: 2,
             paddingTop: '30px',
-            width: '43%',
             transition: 'all 0.5s ease-in',
             '&:hover ~ $experienceInfo': {
                 transition: 'all 0.5s ease-in',
@@ -174,8 +197,8 @@ const styles = theme => {
         },
         experienceInfo: {
             opacity: 0,
-            animationName: '$hidden', 
-            animationDuration: '10s', 
+            animationName: '$hidden',
+            animationDuration: '10s',
             transition: 'all 0.3s ease-in',
         },
         experienceList: {
@@ -188,30 +211,47 @@ const styles = theme => {
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
             },
+            [theme.breakpoints.down("xs")]: {
+                width: '78vw'
+            },
         },
         job1: {
             gridRow: 2,
             gridColumn: 1,
+            [theme.breakpoints.down("xs")]: {
+                gridColumnStart: 1,
+                gridColumnEnd: '4',
+            },
         },
         job2: {
             gridRow: 2,
             gridColumn: 2,
+            [theme.breakpoints.down("xs")]: {
+                gridRow: 3,
+                gridColumnStart: 1,
+                gridColumnEnd: '4',
+            },
         },
         job3: {
             gridRow: 2,
             gridColumn: 3,
+            [theme.breakpoints.down("xs")]: {
+                gridRow: 4,
+                gridColumnStart: 1,
+                gridColumnEnd: '4',
+            },
         },
         skill1: {
-            gridRow: 2, 
-            gridColumn: 1
-        }, 
+            gridRow: 2,
+            gridColumn: 1,
+        },
         skill2: {
-            gridRow: 2, 
-            gridColumn: 2
-        }, 
+            gridRow: 2,
+            gridColumn: 2,
+        },
         skill3: {
-            gridRow: 2, 
-            gridColumn: 3
+            gridRow: 2,
+            gridColumn: 3,
         },
         skills: {
             gridRow: 1,
@@ -228,12 +268,23 @@ const styles = theme => {
                 width: '100%',
                 left: 0
             },
+            [theme.breakpoints.down("xs")]: {
+                justifySelf: 'center',
+                '&:hover ~ $skillsMobile': {
+                    transition: 'all 0.5s ease-in',
+                    opacity: 1
+                },
+            },
         },
         skillsInfo: {
-            opacity: 0, 
-            animationName: '$hidden', 
-            animationDuration: '10s', 
+            opacity: 0,
+            animationName: '$hidden',
+            animationDuration: '10s',
             transition: 'all 0.3s ease-in',
+            [theme.breakpoints.down("xs")]: {
+                // marginTop: theme.spacing(6), 
+                opacity: '0 !important'
+            },
         },
         skillsText: {
             textAlign: 'start',
@@ -248,27 +299,40 @@ const styles = theme => {
                 height: '11px',
                 maxWidth: '25px',
                 width: '1vw',
-                minWidth: '5px',
+                minWidth: '10px',
                 padding: theme.spacing(1),
                 marginRight: theme.spacing(1),
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 transition: 'all 0.2s ease-in',
+                [theme.breakpoints.down("xs")]: {
+                    marginBottom: -theme.spacing(1)
+                },
             },
             '&:hover:before': {
                 transition: 'all 0.2s ease-in',
+            },
+            [theme.breakpoints.down("xs")]: {
+                marginTop: theme.spacing(2),
             },
         },
         skillsList: {
             '&:before': {
                 backgroundImage: `url(${bulletBlue})`,
+                [theme.breakpoints.down("xs")]: {
+                    alignSelf: 'center',
+                    height: `${theme.spacing(3)}px !important`
+                },
             },
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             },
+            [theme.breakpoints.down("xs")]: {
+                flexDirection: 'column',
+            },
         },
         leaves: {
-            position: 'absolute',
+            position: 'absolute'
         },
         leaf1: {
             animationDelay: '1s',
@@ -280,6 +344,9 @@ const styles = theme => {
             '&:hover': {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(255, 187, 17))'
+            },
+            [theme.breakpoints.down("xs")]: {
+                animationName: '$leaf1EntranceMobile',
             },
         },
         leaf2: {
@@ -293,6 +360,9 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
             },
+            [theme.breakpoints.down("xs")]: {
+                animationName: '$leaf2EntranceMobile',
+            },
         },
         leaf3: {
             animationDelay: '2s',
@@ -305,11 +375,57 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(2, 208, 194))'
             },
+            [theme.breakpoints.down("xs")]: {
+                animationName: '$leaf3EntranceMobile',
+            },
         },
         break: {
             flexBasis: '100%',
             height: 0
         },
+        biggerBody2Font: {
+            [theme.breakpoints.down("xs")]: {
+                fontSize: 'calc(16px) !important',
+            },
+        },
+        biggerCaptionFont: {
+            [theme.breakpoints.down("xs")]: {
+                fontSize: 'calc(14px) !important',
+            },
+        },
+        experienceTitle: {
+            height: '100px',
+            [theme.breakpoints.down("xs")]: {
+                height: 'auto',
+                alignItems: 'center',
+                justifyContent: 'center',
+                display: 'flex',
+                flexDirection: 'column'
+                // display: 'flex'
+                // fontSize: 'calc(3px + 2.5vmin) !important',
+            },
+            // height: 'auto',
+            // padding: '9px',
+            // backgroundColor: '#1212118c',
+            // borderRadius: '11px'
+        },
+        skillsMobile: {
+            opacity: 0,
+            animationName: '$hidden',
+            animationDuration: '10s',
+            transition: 'all 0.3s ease-in',
+            marginTop: theme.spacing(6),
+            gridRow: 2,
+            gridColumn: 1,
+            gridColumnStart: 1,
+            gridColumnEnd: '4',
+            justifySelf: 'center',
+            alignSelf: 'start',
+            [theme.breakpoints.down("xs")]: {
+                marginTop: theme.spacing(16)
+            },
+        },
+
         "@keyframes hidden": {
             "from": { opacity: 0 },
             "to": { opacity: 0 }
@@ -317,6 +433,61 @@ const styles = theme => {
         "@keyframes fadein": {
             "from": { opacity: 0 },
             "to": { opacity: 1 }
+        },
+        "@keyframes leaf1EntranceMobile": {
+            "0%": {
+                top: '-100px',
+                transform: 'scale(-1, -1)',
+            },
+            "20%": {
+                transform: 'scale(-1, -1) translateX(4vw) rotate(5deg)'
+            },
+            "40%": {
+                transform: 'scale(-1, -1) translateX(-3vw) rotate(-7deg)'
+            },
+            "60%": {
+                transform: 'scale(-1, -1) translateX(2vw) rotate(7deg)'
+            },
+            "100%": {
+                transform: 'translateX(-7vw) scale(-1, -1) rotate(-5deg)',
+                top: '14%',
+            },
+        },
+        "@keyframes leaf2EntranceMobile": {
+            "0%": {
+                top: '-100px',
+            },
+            "20%": {
+                transform: 'translateX(-2vw) rotate(-5deg)'
+            },
+            "40%": {
+                transform: 'translateX(-5vw) rotate(8deg)'
+            },
+            "70%": {
+                transform: 'translateX(1vw) rotate(-5deg)'
+            },
+            "100%": {
+                top: '14%',
+                transform: 'translateX(-8vw)'
+            },
+        },
+        "@keyframes leaf3EntranceMobile": {
+            "0%": {
+                top: '-100px',
+            },
+            "20%": {
+                transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
+            },
+            "40%": {
+                transform: 'scaleY(-1) translateX(2vw) rotate(8deg)',
+            },
+            "60%": {
+                transform: 'scaleY(-1) translateX(-5vw) rotate(-5deg)'
+            },
+            "100%": {
+                top: '14%',
+                transform: 'scaleY(-1) translateX(-9vw)',
+            },
         },
         "@keyframes leaf1Entrance": {
             "0%": {
@@ -400,11 +571,14 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.educationInfo} ${classes.list}`}>
                     <li className={`${classes.educationList} ${classes.listItem}`}>
-                        <div style={{ display: 'flex' }}>
-                            <Typography className={classes.info} variant="body2">
+                        <Typography style={{textAlign: 'center'}} className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
+                            Bachelor of Science in Computer Science
+                </Typography>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <Typography className={`${classes.info} ${classes.biggerCaptionFont}`} variant="caption">
                                 Univerisity of British Columbia,
                 </Typography>
-                            <Typography className={classes.date} variant="body2">
+                            <Typography className={`${classes.date} ${classes.biggerCaptionFont}`} variant="caption">
                                 2015 - 2019
                 </Typography>
                         </div>
@@ -424,19 +598,19 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.list} ${classes.skillsInfo} ${classes.skill1}`}>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Java, JavaScript, Python, C++
                                 </Typography>
                     </li>
 
 
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Azure DevOps, GitHub
                                 </Typography>
                     </li>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             HTML, CSS, React.JS
                                 </Typography>
                     </li>
@@ -444,36 +618,47 @@ class ResumePage extends Component {
                 </ul>
                 <ul className={`${classes.list} ${classes.skillsInfo} ${classes.skill2}`}>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Database Design and SQL
                                 </Typography>
                     </li>
 
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Google Analytics
                                 </Typography>
                     </li>
                 </ul>
                 <ul className={`${classes.list} ${classes.skillsInfo} ${classes.skill3}`}>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Photoshop, Figma, Invision
                                 </Typography>
                     </li>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             AWS development tools
                                 </Typography>
                     </li>
 
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography variant="subtitle1">
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Confluence
                                 </Typography>
                     </li>
                 </ul>
 
+                <ul className={`${classes.list} ${classes.skillsMobile}`}>
+                    <li className={`${classes.listItem} ${classes.skillsList}`}>
+                        <Typography className={`${classes.biggerBody2Font} ${classes.listItem}`}
+                            style={{ textAlign: 'center', marginTop: 0, marginLeft: '-32px' }}
+                            variant="subtitle1">
+                            Java, Javascript, Python, C++, HTML, CSS, React.JS, SQL,
+                            Photoshop, Figma, Invision,
+                            Google Analytics, Azure DevOps, GitHub, Confluence
+                                </Typography>
+                    </li>
+                </ul>
 
                 <div className={classes.experience}>
                     <Typography className={classes.heading}>
@@ -485,19 +670,19 @@ class ResumePage extends Component {
                         height='50px'
                         alt='leaf' />
                 </div>
-                
+
                 <ul className={`${classes.job1} ${classes.list} ${classes.experienceInfo}`}>
                     <li className={`${classes.listItem} ${classes.experienceList}`}>
-                        <div style={{ height: '100px' }}>
-                            <Typography className={classes.info} variant="body2">
+                        <div className={classes.experienceTitle}>
+                            <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
                                 Front-end Developer
                         </Typography>
-                            <Typography className={classes.info} style={{ height: '80px' }} variant="caption">
+                            <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
                                 Clotech
                         </Typography>
                         </div>
                         <div className={classes.break}></div>
-                        <Typography className={classes.date} variant="caption">
+                        <Typography className={`${classes.date} ${classes.biggerCaptionFont}`} variant="caption">
                             Sept. 2019 - April 2020
                         </Typography>
                     </li>
@@ -505,17 +690,17 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.job2} ${classes.list} ${classes.experienceInfo}`}>
                     <li className={`${classes.listItem} ${classes.experienceList}`}>
-                        <div style={{ height: '100px' }}>
+                        <div className={classes.experienceTitle}>
 
-                            <Typography className={classes.info} variant="body2">
+                            <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
                                 Intern
                 </Typography>
-                            <Typography className={classes.info} variant="caption">
+                            <Typography style={{textAlign: 'center'}} className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
                                 Global Champions Equestrian Jumping Tour and League
                 </Typography>
                         </div>
                         <div className={classes.break}></div>
-                        <Typography className={classes.date} variant="caption">
+                        <Typography className={`${classes.date} ${classes.biggerCaptionFont}`} variant="caption">
                             May 2018 - Aug. 2018
                 </Typography>
                     </li>
@@ -523,16 +708,16 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.job3} ${classes.list} ${classes.experienceInfo}`}>
                     <li className={`${classes.listItem} ${classes.experienceList}`}>
-                        <div style={{ height: '100px' }}>
-                            <Typography className={classes.info} variant="body2">
+                        <div className={classes.experienceTitle}>
+                            <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
                                 Website Development Intern
                 </Typography>
-                            <Typography className={classes.info} variant="caption">
+                            <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
                                 Treetrunk Group
                 </Typography>
                         </div>
                         <div className={classes.break}></div>
-                        <Typography className={classes.date} variant="caption">
+                        <Typography className={`${classes.date} ${classes.biggerCaptionFont}`} variant="caption">
                             July 2017 - Aug. 2017
                 </Typography>
                     </li>

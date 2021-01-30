@@ -9,8 +9,7 @@ const styles = theme => {
             position: 'absolute',
             right: '4%',
             pointerEvents: 'auto',
-
-            // zIndex: 100,
+            zIndex: 101,
             animationName: '$signEntrance',
             animationDelay: '5s',
             animationFillMode: 'both',
@@ -24,8 +23,8 @@ const styles = theme => {
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
                 width: '25%',
-                minWidth: '200px', 
-                marginBottom: '100px', 
+                minWidth: '160px', 
+                marginBottom: '118px', 
                 left: 0, 
                 right: 0, 
                 marginRight: 'auto', 
