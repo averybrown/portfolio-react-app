@@ -78,10 +78,6 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))'
             },
-            // '$&:hover $educationInfo': {
-            //     transition: 'all 0.2s ease-in',
-            //     opacity: 1
-            // },
             '&:hover:after': {
                 width: '100%',
                 left: 0
@@ -129,12 +125,15 @@ const styles = theme => {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
             },
+            '&:hover > $heading::after': {
+                width: '100%',
+                left: 0
+            },
         },
         info: {
             marginRight: theme.spacing(1),
         },
         educationInfo: {
-            // marginBottom: theme.spacing(40),
             gridRow: 2,
             gridColumn: 1,
             gridColumnStart: 1,
@@ -162,10 +161,15 @@ const styles = theme => {
             gridRow: 1,
             gridColumn: 2,
             paddingTop: '30px',
+            width: '43%',
             transition: 'all 0.5s ease-in',
             '&:hover ~ $experienceInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
+            },
+            '&:hover > $heading::after': {
+                width: '100%',
+                left: 0
             },
         },
         experienceInfo: {
@@ -219,6 +223,10 @@ const styles = theme => {
             '&:hover ~ $skillsInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
+            },
+            '&:hover > $heading::after': {
+                width: '100%',
+                left: 0
             },
         },
         skillsInfo: {
@@ -495,36 +503,6 @@ class ResumePage extends Component {
                     </li>
                 </ul>
 
-                {/* <ul className={`${classes.list} ${classes.explist1}`}>
-                    <li>
-                        <Typography variant="caption">
-                            Developed dynamic single-page web applications with React.JS
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Implemented secure login and authentication flows using Amazon Web Services
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Integrated with external APIs for order processing
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Designed a relational database schema using MySql to store front-end assets and user data
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Used AWS Lambda to define functions for securely reading, writing, and updating user data
-                                </Typography>
-                    </li>
-
-
-                </ul> */}
-
                 <ul className={`${classes.job2} ${classes.list} ${classes.experienceInfo}`}>
                     <li className={`${classes.listItem} ${classes.experienceList}`}>
                         <div style={{ height: '100px' }}>
@@ -543,25 +521,6 @@ class ResumePage extends Component {
                     </li>
                 </ul>
 
-                {/* <ul className={`${classes.list} ${classes.explist2}`}>
-                    <li>
-                        <Typography variant="caption">
-                            Collaborated with a video delivery consulting firm on developing the company’s digital strategy
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Created Google Analytics reports to effectively evaluate website traffic and user behaviour
-                            </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Conducted market research on the current digital landscape of various sport organizations
-                            </Typography>
-                    </li>
-                </ul> */}
-
-
                 <ul className={`${classes.job3} ${classes.list} ${classes.experienceInfo}`}>
                     <li className={`${classes.listItem} ${classes.experienceList}`}>
                         <div style={{ height: '100px' }}>
@@ -578,20 +537,6 @@ class ResumePage extends Component {
                 </Typography>
                     </li>
                 </ul>
-
-
-                {/* <ul className={`${classes.list} ${classes.explist3}`}>
-                    <li>
-                        <Typography variant="caption">
-                            Collaborated with a small team of three on the website of a startup marketing company using Python and Django web framework
-                                </Typography>
-                    </li>
-                    <li>
-                        <Typography variant="caption">
-                            Contributed to high-level design decisions to improve website's functionality and user experience
-                            </Typography>
-                    </li>
-                </ul> */}
             </div>
         </div >
 
