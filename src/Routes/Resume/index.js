@@ -39,9 +39,6 @@ const styles = theme => {
             maxHeight: '50%',
             gridTemplateColumns: '1fr 1fr 1fr',
             gridTemplateRows: '11% 24% 30% 24%',
-            // gridTemplateRows: '22% 24% 30% 24%',
-            // gridTemplateColumns: '230px 230px 230px',
-            // gridTemplateRows: 'auto 3fr auto',
             maxWidth: '55%',
             justifyItems: 'center',
             alignItems: 'center',
@@ -56,9 +53,7 @@ const styles = theme => {
                 paddingTop: 0,
                 maxHeight: '70%',
                 maxWidth: '95%',
-                // maxHeight: '50%',
                 marginTop: '21%',
-                // gridTemplateRows: '23% 24% 30% 23%',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1)
             },
@@ -117,9 +112,6 @@ const styles = theme => {
                 transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
                 width: 0
             },
-            [theme.breakpoints.down("sm")]: {
-                // paddingTop: theme.spacing(3)
-            },
         },
         body: {
             display: 'flex',
@@ -139,7 +131,6 @@ const styles = theme => {
             textAlign: 'left',
             fontSize: 'calc(4px + 1.5vmin) !important',
             alignSelf: 'center',
-            // marginTop: theme.spacing(7),
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(1),
             [theme.breakpoints.down("sm")]: {
@@ -150,11 +141,9 @@ const styles = theme => {
         education: {
             gridRow: 1,
             gridColumn: 1,
-            // paddingTop: '30px',
             justifySelf: 'end',
             marginRight: theme.spacing(1),
             transition: 'all 0.5s ease-in',
-            // marginTop: '30%',
             '&:hover ~ $educationInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -166,9 +155,6 @@ const styles = theme => {
             '&:hover > $heading': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
-            },
-            [theme.breakpoints.down("sm")]: {
-                // marginTop: 0,
             },
         },
         info: {
@@ -204,8 +190,6 @@ const styles = theme => {
         experience: {
             gridRow: 1,
             gridColumn: 2,
-            // paddingTop: '30px',
-            // marginTop: '30%',
             transition: 'all 0.5s ease-in',
             '&:hover ~ $experienceInfo': {
                 transition: 'all 0.5s ease-in',
@@ -218,9 +202,6 @@ const styles = theme => {
             '&:hover > $heading': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
-            },
-            [theme.breakpoints.down("sm")]: {
-                // marginTop: 0
             },
         },
         experienceInfo: {
@@ -291,11 +272,9 @@ const styles = theme => {
         skills: {
             gridRow: 1,
             gridColumn: 3,
-            // paddingTop: '30px',
             justifySelf: 'start',
             marginLeft: theme.spacing(1),
             transition: 'all 0.5s ease-in',
-            // marginTop: '30%',
             '&:hover ~ $skillsInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -313,7 +292,6 @@ const styles = theme => {
                     transition: 'all 0.5s ease-in',
                     opacity: 1
                 },
-                // marginTop: 0
             },
         },
         skillsInfo: {
@@ -437,8 +415,6 @@ const styles = theme => {
                 justifyContent: 'center',
                 display: 'flex',
                 flexDirection: 'column'
-                // display: 'flex'
-                // fontSize: 'calc(3px + 2.5vmin) !important',
             },
             // height: 'auto',
             // padding: '9px',
@@ -468,7 +444,7 @@ const styles = theme => {
         },
         "@keyframes leaf1Entrance": {
             "0%": {
-                top: '-38%',
+                top: '-70%',
                 transform: 'scale(-1, -1)',
             },
             "20%": {
@@ -487,7 +463,7 @@ const styles = theme => {
         },
         "@keyframes leaf2Entrance": {
             "0%": {
-                top: '-38%',
+                top: '-70%',
             },
             "20%": {
                 transform: 'translateX(-2vw) rotate(-5deg)'
@@ -505,7 +481,7 @@ const styles = theme => {
         },
         "@keyframes leaf3Entrance": {
             "0%": {
-                top: '-38%',
+                top: '-70%',
             },
             "20%": {
                 transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
