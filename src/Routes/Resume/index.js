@@ -24,27 +24,41 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: theme.spacing(14),
+            marginTop: '12%',
             visibility: 'hidden',
             [theme.breakpoints.down("xs")]: {
-                marginTop: theme.spacing(8),
+                marginTop: '9%',
             },
         },
         content: {
             display: 'grid',
             height: '100%',
-            gridTemplateColumns: '230px 230px 230px',
-            gridTemplateRows: 'auto 3fr auto',
-            alignContent: 'center',
+            position: 'absolute',
+            marginTop: '18%',
+            minWidth: '250px',
+            maxHeight: '50%',
+            gridTemplateColumns: '1fr 1fr 1fr',
+            gridTemplateRows: '11% 24% 30% 24%',
+            // gridTemplateRows: '22% 24% 30% 24%',
+            // gridTemplateColumns: '230px 230px 230px',
+            // gridTemplateRows: 'auto 3fr auto',
+            maxWidth: '55%',
             justifyItems: 'center',
             alignItems: 'center',
             justifyContent: 'center',
             paddingTop: theme.spacing(4),
-            [theme.breakpoints.down("xs")]: {
+            left: 0,
+            right: 0,
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            [theme.breakpoints.down("sm")]: {
                 gridTemplateColumns: '1fr 1fr 1fr',
                 paddingTop: 0,
-                marginTop: '-190px',
-                gridTemplateRows: 'auto 110px 135px 110px',
+                maxHeight: '70%',
+                maxWidth: '95%',
+                // maxHeight: '50%',
+                marginTop: '21%',
+                // gridTemplateRows: '23% 24% 30% 23%',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1)
             },
@@ -70,6 +84,7 @@ const styles = theme => {
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
             position: 'relative',
+            marginTop: '30%',
             '&:hover': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
@@ -102,6 +117,9 @@ const styles = theme => {
                 transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
                 width: 0
             },
+            [theme.breakpoints.down("sm")]: {
+                // paddingTop: theme.spacing(3)
+            },
         },
         body: {
             display: 'flex',
@@ -109,7 +127,7 @@ const styles = theme => {
         },
         date: {
             textAlign: 'end',
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 textAlign: 'center'
             },
         },
@@ -120,11 +138,11 @@ const styles = theme => {
         list: {
             textAlign: 'left',
             fontSize: 'calc(4px + 1.5vmin) !important',
-            alignSelf: 'start',
-            marginTop: theme.spacing(7),
+            alignSelf: 'center',
+            // marginTop: theme.spacing(7),
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(1),
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 marginTop: 0,
                 padding: 0,
             },
@@ -132,10 +150,11 @@ const styles = theme => {
         education: {
             gridRow: 1,
             gridColumn: 1,
-            paddingTop: '30px',
+            // paddingTop: '30px',
             justifySelf: 'end',
             marginRight: theme.spacing(1),
             transition: 'all 0.5s ease-in',
+            // marginTop: '30%',
             '&:hover ~ $educationInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -144,30 +163,31 @@ const styles = theme => {
                 width: '100%',
                 left: 0
             },
-            [theme.breakpoints.down("xs")]: {
-                justifySelf: 'center'
+            '&:hover > $heading': {
+                transform: 'scale(1.1)',
+                transition: 'all .2s ease-in-out',
+            },
+            [theme.breakpoints.down("sm")]: {
+                // marginTop: 0,
             },
         },
         info: {
             marginRight: theme.spacing(1),
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 marginRight: theme.spacing(1) / 2,
             },
         },
         educationInfo: {
-            gridRow: 2,
-            gridColumn: 1,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumnStart: 1,
-            gridColumnEnd: '4',
+            gridColumnEnd: 4,
             justifySelf: 'center',
-            alignSelf: 'start',
+            alignSelf: 'center',
             opacity: 0,
             animationName: '$hidden',
             animationDuration: '8s',
             transition: 'all 0.3s ease-in',
-            [theme.breakpoints.down("xs")]: {
-                marginTop: theme.spacing(16)
-            },
         },
         educationList: {
             flexDirection: 'column',
@@ -184,7 +204,8 @@ const styles = theme => {
         experience: {
             gridRow: 1,
             gridColumn: 2,
-            paddingTop: '30px',
+            // paddingTop: '30px',
+            // marginTop: '30%',
             transition: 'all 0.5s ease-in',
             '&:hover ~ $experienceInfo': {
                 transition: 'all 0.5s ease-in',
@@ -193,6 +214,13 @@ const styles = theme => {
             '&:hover > $heading::after': {
                 width: '100%',
                 left: 0
+            },
+            '&:hover > $heading': {
+                transform: 'scale(1.1)',
+                transition: 'all .2s ease-in-out',
+            },
+            [theme.breakpoints.down("sm")]: {
+                // marginTop: 0
             },
         },
         experienceInfo: {
@@ -211,55 +239,63 @@ const styles = theme => {
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
             },
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 width: '78vw'
             },
         },
         job1: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 1,
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
+                gridRow: 2,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
             },
         },
         job2: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 2,
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 gridRow: 3,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
             },
         },
         job3: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 3,
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 gridRow: 4,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
             },
         },
         skill1: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 1,
         },
         skill2: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 2,
         },
         skill3: {
-            gridRow: 2,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumn: 3,
         },
         skills: {
             gridRow: 1,
             gridColumn: 3,
-            paddingTop: '30px',
+            // paddingTop: '30px',
             justifySelf: 'start',
             marginLeft: theme.spacing(1),
             transition: 'all 0.5s ease-in',
+            // marginTop: '30%',
             '&:hover ~ $skillsInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -268,12 +304,16 @@ const styles = theme => {
                 width: '100%',
                 left: 0
             },
-            [theme.breakpoints.down("xs")]: {
-                justifySelf: 'center',
+            '&:hover > $heading': {
+                transform: 'scale(1.1)',
+                transition: 'all .2s ease-in-out',
+            },
+            [theme.breakpoints.down("sm")]: {
                 '&:hover ~ $skillsMobile': {
                     transition: 'all 0.5s ease-in',
                     opacity: 1
                 },
+                // marginTop: 0
             },
         },
         skillsInfo: {
@@ -281,8 +321,7 @@ const styles = theme => {
             animationName: '$hidden',
             animationDuration: '10s',
             transition: 'all 0.3s ease-in',
-            [theme.breakpoints.down("xs")]: {
-                // marginTop: theme.spacing(6), 
+            [theme.breakpoints.down("sm")]: {
                 opacity: '0 !important'
             },
         },
@@ -292,7 +331,6 @@ const styles = theme => {
         listItem: {
             listStyle: 'none',
             display: 'flex',
-            marginBottom: theme.spacing(2),
             '&:before': {
                 content: '" "',
                 display: 'inline-block',
@@ -305,21 +343,21 @@ const styles = theme => {
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 transition: 'all 0.2s ease-in',
-                [theme.breakpoints.down("xs")]: {
-                    marginBottom: -theme.spacing(1)
+                [theme.breakpoints.down("sm")]: {
+                    marginRight: 0,
                 },
             },
             '&:hover:before': {
                 transition: 'all 0.2s ease-in',
             },
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 marginTop: theme.spacing(2),
             },
         },
         skillsList: {
             '&:before': {
                 backgroundImage: `url(${bulletBlue})`,
-                [theme.breakpoints.down("xs")]: {
+                [theme.breakpoints.down("sm")]: {
                     alignSelf: 'center',
                     height: `${theme.spacing(3)}px !important`
                 },
@@ -327,12 +365,19 @@ const styles = theme => {
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             },
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 flexDirection: 'column',
             },
         },
         leaves: {
-            position: 'absolute'
+            position: 'absolute',
+            top: 0,
+            width: '50px',
+            height: 'auto',
+            minWidth: '30px',
+            [theme.breakpoints.down("sm")]: {
+                width: '5vw',
+            },
         },
         leaf1: {
             animationDelay: '1s',
@@ -344,9 +389,6 @@ const styles = theme => {
             '&:hover': {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(255, 187, 17))'
-            },
-            [theme.breakpoints.down("xs")]: {
-                animationName: '$leaf1EntranceMobile',
             },
         },
         leaf2: {
@@ -360,9 +402,6 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
             },
-            [theme.breakpoints.down("xs")]: {
-                animationName: '$leaf2EntranceMobile',
-            },
         },
         leaf3: {
             animationDelay: '2s',
@@ -375,27 +414,24 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
                 filter: 'drop-shadow(0 0 0.5rem rgb(2, 208, 194))'
             },
-            [theme.breakpoints.down("xs")]: {
-                animationName: '$leaf3EntranceMobile',
-            },
         },
         break: {
             flexBasis: '100%',
             height: 0
         },
         biggerBody2Font: {
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 fontSize: 'calc(16px) !important',
             },
         },
         biggerCaptionFont: {
-            [theme.breakpoints.down("xs")]: {
+            [theme.breakpoints.down("sm")]: {
                 fontSize: 'calc(14px) !important',
             },
         },
         experienceTitle: {
-            height: '100px',
-            [theme.breakpoints.down("xs")]: {
+            height: '150px',
+            [theme.breakpoints.down("sm")]: {
                 height: 'auto',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -414,16 +450,12 @@ const styles = theme => {
             animationName: '$hidden',
             animationDuration: '10s',
             transition: 'all 0.3s ease-in',
-            marginTop: theme.spacing(6),
-            gridRow: 2,
-            gridColumn: 1,
+            gridRowStart: 2,
+            gridRowEnd: 5,
             gridColumnStart: 1,
-            gridColumnEnd: '4',
+            gridColumnEnd: 4,
             justifySelf: 'center',
-            alignSelf: 'start',
-            [theme.breakpoints.down("xs")]: {
-                marginTop: theme.spacing(16)
-            },
+            alignSelf: 'center',
         },
 
         "@keyframes hidden": {
@@ -434,64 +466,9 @@ const styles = theme => {
             "from": { opacity: 0 },
             "to": { opacity: 1 }
         },
-        "@keyframes leaf1EntranceMobile": {
-            "0%": {
-                top: '-100px',
-                transform: 'scale(-1, -1)',
-            },
-            "20%": {
-                transform: 'scale(-1, -1) translateX(4vw) rotate(5deg)'
-            },
-            "40%": {
-                transform: 'scale(-1, -1) translateX(-3vw) rotate(-7deg)'
-            },
-            "60%": {
-                transform: 'scale(-1, -1) translateX(2vw) rotate(7deg)'
-            },
-            "100%": {
-                transform: 'translateX(-7vw) scale(-1, -1) rotate(-5deg)',
-                top: '14%',
-            },
-        },
-        "@keyframes leaf2EntranceMobile": {
-            "0%": {
-                top: '-100px',
-            },
-            "20%": {
-                transform: 'translateX(-2vw) rotate(-5deg)'
-            },
-            "40%": {
-                transform: 'translateX(-5vw) rotate(8deg)'
-            },
-            "70%": {
-                transform: 'translateX(1vw) rotate(-5deg)'
-            },
-            "100%": {
-                top: '14%',
-                transform: 'translateX(-8vw)'
-            },
-        },
-        "@keyframes leaf3EntranceMobile": {
-            "0%": {
-                top: '-100px',
-            },
-            "20%": {
-                transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
-            },
-            "40%": {
-                transform: 'scaleY(-1) translateX(2vw) rotate(8deg)',
-            },
-            "60%": {
-                transform: 'scaleY(-1) translateX(-5vw) rotate(-5deg)'
-            },
-            "100%": {
-                top: '14%',
-                transform: 'scaleY(-1) translateX(-9vw)',
-            },
-        },
         "@keyframes leaf1Entrance": {
             "0%": {
-                top: '-100px',
+                top: '-38%',
                 transform: 'scale(-1, -1)',
             },
             "20%": {
@@ -505,12 +482,12 @@ const styles = theme => {
             },
             "100%": {
                 transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)',
-                top: '29%',
+                top: '0%',
             },
         },
         "@keyframes leaf2Entrance": {
             "0%": {
-                top: '-100px',
+                top: '-38%',
             },
             "20%": {
                 transform: 'translateX(-2vw) rotate(-5deg)'
@@ -522,13 +499,13 @@ const styles = theme => {
                 transform: 'translateX(1vw) rotate(-5deg)'
             },
             "100%": {
-                top: '29%',
+                top: '0%',
                 transform: 'translateX(-2vw)'
             },
         },
         "@keyframes leaf3Entrance": {
             "0%": {
-                top: '-100px',
+                top: '-38%',
             },
             "20%": {
                 transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
@@ -540,7 +517,7 @@ const styles = theme => {
                 transform: 'scaleY(-1) translateX(-5vw) rotate(-5deg)'
             },
             "100%": {
-                top: '29%',
+                top: '0%',
                 transform: 'scaleY(-1) translateX(-2vw)',
             },
         },
@@ -571,7 +548,7 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.educationInfo} ${classes.list}`}>
                     <li className={`${classes.educationList} ${classes.listItem}`}>
-                        <Typography style={{textAlign: 'center'}} className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
+                        <Typography style={{ textAlign: 'center' }} className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
                             Bachelor of Science in Computer Science
                 </Typography>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -651,7 +628,7 @@ class ResumePage extends Component {
                 <ul className={`${classes.list} ${classes.skillsMobile}`}>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography className={`${classes.biggerBody2Font} ${classes.listItem}`}
-                            style={{ textAlign: 'center', marginTop: 0, marginLeft: '-32px' }}
+                            style={{ textAlign: 'center', marginTop: 0, width: '62vw', marginLeft: '-3%' }}
                             variant="subtitle1">
                             Java, Javascript, Python, C++, HTML, CSS, React.JS, SQL,
                             Photoshop, Figma, Invision,
@@ -695,7 +672,7 @@ class ResumePage extends Component {
                             <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
                                 Intern
                 </Typography>
-                            <Typography style={{textAlign: 'center'}} className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
+                            <Typography style={{ textAlign: 'center' }} className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
                                 Global Champions Equestrian Jumping Tour and League
                 </Typography>
                         </div>

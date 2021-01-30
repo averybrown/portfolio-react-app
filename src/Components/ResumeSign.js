@@ -23,12 +23,12 @@ const styles = theme => {
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
                 width: '25%',
-                minWidth: '160px', 
-                marginBottom: '118px', 
-                left: 0, 
+                minWidth: '140px', 
+                // marginBottom: '118px', 
+                // left: 0, 
                 right: 0, 
-                marginRight: 'auto', 
-                marginLeft: 'auto'
+                marginRight: '7%', 
+                // marginLeft: 'auto'
             },
         },
         sign: {
