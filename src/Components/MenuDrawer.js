@@ -30,14 +30,15 @@ const useStyles = makeStyles(theme => ({
         marginRight: theme.spacing(4),
         "& svg": {
             "& path": {
-                color: 'black'
+                color: '#ffffff'
             }
         },
     },
     drawerPaper: {
         width: '100%',
-        backgroundColor: '#88C29F', 
-        opacity: '85%'
+        // backgroundColor: '#A62667',
+        backgroundColor: '#0A4261', 
+        opacity: '95%'
     },
     navBar: {
         display: 'flex',
@@ -75,11 +76,6 @@ function ResponsiveDrawer(props) {
             <div>
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>home</Typography>
-                </NavLink>
-                <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
-
-                <NavLink exact className={classes.link} activeClassName='active-link' to="/about">
-                    <Typography variant='subtitle2' className={classes.navText}>about</Typography>
                 </NavLink>
                 <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
 

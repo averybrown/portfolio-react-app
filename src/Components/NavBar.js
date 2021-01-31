@@ -21,12 +21,14 @@ const styles = theme => ({
         maxWidth: '300px',
         textAlign: 'start'
     },
+    //     grow { transition: all .2s ease-in-out; }
+    // .grow:hover { transform: scale(1.1); }
     pages: {
         maxWidth: '25%',
     },
     navText: {
         textAlign: 'start',
-        margin: theme.spacing(3)
+        margin: theme.spacing(3),
     },
     navLinks: {
         display: 'flex',
@@ -36,14 +38,52 @@ const styles = theme => ({
     },
     link: {
         textDecoration: 'none !important',
-        cursor: 'pointer', 
-        zIndex: 9
-    },
-    hangerIcon: {
-        marginRight: theme.spacing(3)
+        cursor: 'pointer',
+        zIndex: 100,
+        position: 'relative',
+        transition: 'all .2s ease-in-out',
+
+        '&:hover': {
+            transform: 'scale(1.1)',
+            cursor: 'pointer',
+        },
+        '&:hover:after': {
+            width: '50%',
+            left: '24%', 
+            cursor: 'pointer',
+
+        },
+        '&:after': {
+            background: 'none repeat scroll 0 0 transparent',
+            bottom: '20%',
+            content: "' '",
+            display: 'block',
+            height: '2px',
+            left: '50%',
+            position: 'absolute',
+            background: '#ddd',
+            transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
+            width: 0, 
+            cursor: 'pointer',
+        },
     },
     active: {
         textDecoration: 'none !important',
+        color: 'white',
+        '&:after': {
+            background: 'none repeat scroll 0 0 transparent',
+            bottom: '20%',
+            content: "' '",
+            display: 'block',
+            height: '2px',
+            left: '50%',
+            position: 'absolute',
+            background: '#ddd',
+            transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
+            width: '50%',
+            left: '24%', 
+            filter: 'drop-shadow(0 0 0.8rem rgb(216, 88, 168))'
+        },
     }
 });
 
@@ -62,9 +102,6 @@ class NavBar extends Component {
                         </NavLink>
                     </div>
                     <div className={classes.navLinks}>
-                        <NavLink className={classes.link} activeClassName={classes.active} to="/about">
-                            <Typography variant="subtitle2" className={classes.navText}>about</Typography>
-                        </NavLink>
                         <NavLink exact className={classes.link} activeClassName={classes.active} to="/projects">
                             <Typography variant="subtitle2" className={classes.navText}>projects</Typography>
                         </NavLink>
