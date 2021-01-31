@@ -24,17 +24,17 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: '12%',
+            marginTop: '14vh',
             visibility: 'hidden',
-            [theme.breakpoints.down("xs")]: {
-                marginTop: '9%',
+            [theme.breakpoints.down("sm")]: {
+                marginTop: '4vh',
             },
         },
         content: {
             display: 'grid',
             height: '100%',
             position: 'absolute',
-            marginTop: '20%',
+            marginTop: '28vh',
             minWidth: '250px',
             maxHeight: '50%',
             gridTemplateColumns: '1fr 1fr 1fr',
@@ -53,7 +53,7 @@ const styles = theme => {
                 paddingTop: 0,
                 maxHeight: '70%',
                 maxWidth: '95%',
-                marginTop: '25%',
+                marginTop: '13vh',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1)
             },
@@ -79,7 +79,7 @@ const styles = theme => {
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
             position: 'relative',
-            marginTop: '30%',
+            marginTop: theme.spacing(3),
             '&:hover': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
@@ -329,7 +329,7 @@ const styles = theme => {
                 transition: 'all 0.2s ease-in',
             },
             [theme.breakpoints.down("sm")]: {
-                marginTop: theme.spacing(2),
+                marginTop: theme.spacing(3),
             },
         },
         skillsList: {
@@ -408,7 +408,7 @@ const styles = theme => {
             },
         },
         experienceTitle: {
-            height: '120px',
+            height: '125px',
             [theme.breakpoints.down("sm")]: {
                 height: 'auto',
                 alignItems: 'center',
@@ -444,7 +444,7 @@ const styles = theme => {
         },
         "@keyframes leaf1Entrance": {
             "0%": {
-                top: '-75%',
+                top: '-83%',
                 transform: 'scale(-1, -1)',
             },
             "20%": {
@@ -463,7 +463,7 @@ const styles = theme => {
         },
         "@keyframes leaf2Entrance": {
             "0%": {
-                top: '-75%',
+                top: '-83%',
             },
             "20%": {
                 transform: 'translateX(-2vw) rotate(-5deg)'
@@ -481,7 +481,7 @@ const styles = theme => {
         },
         "@keyframes leaf3Entrance": {
             "0%": {
-                top: '-75%',
+                top: '-83%',
             },
             "20%": {
                 transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
@@ -579,6 +579,11 @@ class ResumePage extends Component {
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             Google Analytics
+                                </Typography>
+                    </li>
+                    <li style={{visibility: 'hidden', opacity: 0}} className={`${classes.listItem} ${classes.skillsList}`}>
+                        <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
+                            HTML, CSS, React.JS
                                 </Typography>
                     </li>
                 </ul>
