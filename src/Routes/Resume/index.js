@@ -27,10 +27,13 @@ const styles = theme => {
             marginTop: '14vh',
             visibility: 'hidden',
             [theme.breakpoints.down("xs")]: {
-                marginTop: '6vh',
+                marginTop: '5vh',
             },
             [theme.breakpoints.between("sm", 'md')]: {
-                marginTop: '9vh',
+                marginTop: '10vh',
+            },
+            [theme.breakpoints.up('md')]: {
+                marginTop: '14vh'
             },
         },
         content: {
@@ -40,8 +43,8 @@ const styles = theme => {
             marginTop: '28vh',
             minWidth: '250px',
             maxHeight: '50vh',
-            gridTemplateColumns: '1fr 1fr 1fr',
-            gridTemplateRows: '11% 24% 30% 24%',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gridTemplateRows: 'fit-content(100px) 24% 30% 24%',
             maxWidth: '58vw',
             justifyItems: 'center',
             alignItems: 'center',
@@ -50,30 +53,32 @@ const styles = theme => {
             right: 0,
             marginRight: 'auto',
             marginLeft: 'auto',
-            paddingTop: theme.spacing(4), 
             [theme.breakpoints.down("xs")]: {
-                gridTemplateColumns: '1fr 1fr 1fr',
+                // gridTemplateColumns: '1fr 1fr 1fr',
                 paddingTop: 0,
-                maxHeight: '58vh',
+                maxHeight: '70vh',
                 maxWidth: '95vw',
-                marginTop: '15vh',
+                marginTop: '17vh',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1), 
+            },
+            [theme.breakpoints.down("md")]: {
+                gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr))',
             },
             [theme.breakpoints.between("sm", 'md')]: {
                 marginTop: '24vh',
                 maxHeight: '72vh',
                 height: '72vh',
-                gridTemplateRows: '11% 24% 24% 24%',
+                gridTemplateRows: 'fit-content(100px) 24% 24% 24%',
                 paddingTop: 0,
             },
             [theme.breakpoints.up('lg')]: {
-                // paddingTop: theme.spacing(4), 
-                marginTop: '32vh'
+                marginTop: '32vh', 
+                maxWidth: '50vw'
             },
             [theme.breakpoints.between("md", 'lg')]: {
-                paddingTop: theme.spacing(4), 
-                marginTop: '30vh'
+                marginTop: '30vh', 
+                maxHeight: '60vh'
             },
         },
         resumeLink: {
@@ -97,7 +102,7 @@ const styles = theme => {
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
             position: 'relative',
-            marginTop: theme.spacing(3),
+            paddingTop: '2vh',
             '&:hover': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
@@ -120,7 +125,7 @@ const styles = theme => {
             },
             '&:after': {
                 background: 'none repeat scroll 0 0 transparent',
-                bottom: '-20%',
+                bottom: '-2%',
                 content: "' '",
                 display: 'block',
                 height: '2px',
@@ -129,6 +134,12 @@ const styles = theme => {
                 background: '#ddd',
                 transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
                 width: 0
+            },
+            [theme.breakpoints.up('lg')]: {
+                paddingTop: '2vh'
+            },
+            [theme.breakpoints.between("md", 'lg')]: {
+                paddingTop: '6vh', 
             },
         },
         body: {
@@ -197,6 +208,12 @@ const styles = theme => {
             transition: 'all 0.3s ease-in',
             [theme.breakpoints.down("md")]: {
                 marginTop: '-12vh',
+            },
+            [theme.breakpoints.down("xs")]: {
+                marginTop: 0,
+            },
+            [theme.breakpoints.between("md", 'lg')]: {
+                marginTop: '-8vh'
             },
         },
         educationList: {
@@ -297,8 +314,10 @@ const styles = theme => {
             gridRow: 1,
             gridColumn: 3,
             justifySelf: 'start',
-            marginLeft: theme.spacing(1),
             transition: 'all 0.5s ease-in',
+            [theme.breakpoints.down("md")]: {
+                marginLeft: theme.spacing(1),
+            },
             '&:hover ~ $skillsInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -340,11 +359,13 @@ const styles = theme => {
                 height: '11px',
                 maxWidth: '25px',
                 width: '1vw',
-                minWidth: '10px',
-                padding: theme.spacing(1),
+                minWidth: '20px',
+                padding: 0,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
-                transition: 'all 0.2s ease-in',
+                transition: 'all 0.2s ease-in', 
+                marginTop: theme.spacing(1), 
+                marginBottom: theme.spacing(1)
             },
             '&:hover:before': {
                 transition: 'all 0.2s ease-in',
@@ -373,17 +394,19 @@ const styles = theme => {
             },
             [theme.breakpoints.up("lg")]: {
                 marginBottom: theme.spacing(2),
+                alignItems: 'start', 
+                height: '5vh'
             },
         },
         leaves: {
+            zIndex: '100',
             position: 'absolute',
             top: 0,
-            width: '50px',
+            maxWidth: '50px',
             height: 'auto',
             minWidth: '30px',
             [theme.breakpoints.down("sm")]: {
-                // width: '7vw',
-                width: 'calc(10px + 1.5vmin)'
+                width: 'calc(20px + 1.5vmax)'
             },
         },
         leaf1: {
@@ -428,12 +451,12 @@ const styles = theme => {
         },
         biggerBody2Font: {
             [theme.breakpoints.down("xs")]: {
-                fontSize: 'calc(4px + 3vmin) !important',
+                fontSize: 'calc(8px + 75%) !important',
             },
         },
         biggerCaptionFont: {
             [theme.breakpoints.down("xs")]: {
-                fontSize: 'calc(1px + 3vmin) !important',
+                fontSize: 'calc(5px + 75%) !important',
             },
         },
         experienceTitle: {
@@ -461,10 +484,16 @@ const styles = theme => {
             gridColumnEnd: 4,
             justifySelf: 'center',
             alignSelf: 'center',
-            marginTop: '-12vh'
-            // [theme.breakpoints.between("md", 'lg')]: {
-            //     marginTop: '-12vh'
-            // },
+            marginTop: '-12vh', 
+            [theme.breakpoints.down("md")]: {
+                marginTop: '-12vh',
+            },
+            [theme.breakpoints.down("xs")]: {
+                marginTop: 0,
+            },
+            [theme.breakpoints.between("md", 'lg')]: {
+                marginTop: '-8vh'
+            },
         },
 
         "@keyframes hidden": {
@@ -491,7 +520,7 @@ const styles = theme => {
             },
             "100%": {
                 transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)',
-                top: '0%',
+                top: '-3%',
             },
         },
         "@keyframes leaf2Entrance": {
@@ -508,7 +537,7 @@ const styles = theme => {
                 transform: 'translateX(1vw) rotate(-5deg)'
             },
             "100%": {
-                top: '0%',
+                top: '-3%',
                 transform: 'translateX(-2vw)'
             },
         },
@@ -526,7 +555,7 @@ const styles = theme => {
                 transform: 'scaleY(-1) translateX(-5vw) rotate(-5deg)'
             },
             "100%": {
-                top: '0%',
+                top: '-3%',
                 transform: 'scaleY(-1) translateX(-2vw)',
             },
         },
