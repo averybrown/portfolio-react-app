@@ -81,7 +81,8 @@ const styles = theme => ({
             background: '#ddd',
             transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
             width: '50%',
-            left: '24%'
+            left: '24%', 
+            filter: 'drop-shadow(0 0 0.8rem rgb(216, 88, 168))'
         },
     }
 });

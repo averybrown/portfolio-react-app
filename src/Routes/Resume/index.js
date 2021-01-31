@@ -34,7 +34,7 @@ const styles = theme => {
             display: 'grid',
             height: '100%',
             position: 'absolute',
-            marginTop: '18%',
+            marginTop: '20%',
             minWidth: '250px',
             maxHeight: '50%',
             gridTemplateColumns: '1fr 1fr 1fr',
@@ -53,7 +53,7 @@ const styles = theme => {
                 paddingTop: 0,
                 maxHeight: '70%',
                 maxWidth: '95%',
-                marginTop: '21%',
+                marginTop: '25%',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1)
             },
@@ -207,7 +207,7 @@ const styles = theme => {
         experienceInfo: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '10s',
+            animationDuration: '8s',
             transition: 'all 0.3s ease-in',
         },
         experienceList: {
@@ -297,7 +297,7 @@ const styles = theme => {
         skillsInfo: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '10s',
+            animationDuration: '8s',
             transition: 'all 0.3s ease-in',
             [theme.breakpoints.down("sm")]: {
                 opacity: '0 !important'
@@ -408,7 +408,7 @@ const styles = theme => {
             },
         },
         experienceTitle: {
-            height: '150px',
+            height: '120px',
             [theme.breakpoints.down("sm")]: {
                 height: 'auto',
                 alignItems: 'center',
@@ -424,7 +424,7 @@ const styles = theme => {
         skillsMobile: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '10s',
+            animationDuration: '8s',
             transition: 'all 0.3s ease-in',
             gridRowStart: 2,
             gridRowEnd: 5,
@@ -444,7 +444,7 @@ const styles = theme => {
         },
         "@keyframes leaf1Entrance": {
             "0%": {
-                top: '-70%',
+                top: '-75%',
                 transform: 'scale(-1, -1)',
             },
             "20%": {
@@ -463,7 +463,7 @@ const styles = theme => {
         },
         "@keyframes leaf2Entrance": {
             "0%": {
-                top: '-70%',
+                top: '-75%',
             },
             "20%": {
                 transform: 'translateX(-2vw) rotate(-5deg)'
@@ -481,7 +481,7 @@ const styles = theme => {
         },
         "@keyframes leaf3Entrance": {
             "0%": {
-                top: '-70%',
+                top: '-75%',
             },
             "20%": {
                 transform: 'scaleY(-1) translateX(-6vw) rotate(-5deg)'
