@@ -23,11 +23,11 @@ const styles = theme => {
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
                 width: '25%',
-                minWidth: '140px', 
+                minWidth: '115px', 
                 // marginBottom: '118px', 
                 // left: 0, 
                 right: 0, 
-                marginRight: '7%', 
+                marginRight: '5%', 
                 // marginLeft: 'auto'
             },
         },

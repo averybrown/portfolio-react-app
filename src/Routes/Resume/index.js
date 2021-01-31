@@ -26,8 +26,11 @@ const styles = theme => {
             zIndex: 10,
             marginTop: '14vh',
             visibility: 'hidden',
-            [theme.breakpoints.down("sm")]: {
-                marginTop: '4vh',
+            [theme.breakpoints.down("xs")]: {
+                marginTop: '6vh',
+            },
+            [theme.breakpoints.between("sm", 'md')]: {
+                marginTop: '9vh',
             },
         },
         content: {
@@ -36,26 +39,41 @@ const styles = theme => {
             position: 'absolute',
             marginTop: '28vh',
             minWidth: '250px',
-            maxHeight: '50%',
+            maxHeight: '50vh',
             gridTemplateColumns: '1fr 1fr 1fr',
             gridTemplateRows: '11% 24% 30% 24%',
-            maxWidth: '55%',
+            maxWidth: '58vw',
             justifyItems: 'center',
             alignItems: 'center',
             justifyContent: 'center',
-            paddingTop: theme.spacing(4),
             left: 0,
             right: 0,
             marginRight: 'auto',
             marginLeft: 'auto',
-            [theme.breakpoints.down("sm")]: {
+            paddingTop: theme.spacing(4), 
+            [theme.breakpoints.down("xs")]: {
                 gridTemplateColumns: '1fr 1fr 1fr',
                 paddingTop: 0,
-                maxHeight: '70%',
-                maxWidth: '95%',
-                marginTop: '13vh',
+                maxHeight: '70vh',
+                maxWidth: '95vw',
+                marginTop: '15vh',
                 paddingRight: theme.spacing(1),
-                paddingLeft: theme.spacing(1)
+                paddingLeft: theme.spacing(1), 
+            },
+            [theme.breakpoints.between("sm", 'md')]: {
+                marginTop: '20vh',
+                maxHeight: '72vh',
+                height: '72vh',
+                gridTemplateRows: '11% 24% 24% 24%',
+                paddingTop: 0,
+            },
+            [theme.breakpoints.up('lg')]: {
+                // paddingTop: theme.spacing(4), 
+                marginTop: '32vh'
+            },
+            [theme.breakpoints.between("md", 'lg')]: {
+                paddingTop: theme.spacing(4), 
+                marginTop: '20vh'
             },
         },
         resumeLink: {
@@ -119,7 +137,7 @@ const styles = theme => {
         },
         date: {
             textAlign: 'end',
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 textAlign: 'center'
             },
         },
@@ -133,10 +151,13 @@ const styles = theme => {
             alignSelf: 'center',
             paddingLeft: theme.spacing(2),
             paddingRight: theme.spacing(1),
-            [theme.breakpoints.down("sm")]: {
-                marginTop: 0,
+            // marginTop: '-12vh',
+
+            [theme.breakpoints.down("md")]: {
+                // marginTop: 0,
                 padding: 0,
             },
+
         },
         education: {
             gridRow: 1,
@@ -159,7 +180,7 @@ const styles = theme => {
         },
         info: {
             marginRight: theme.spacing(1),
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 marginRight: theme.spacing(1) / 2,
             },
         },
@@ -174,6 +195,9 @@ const styles = theme => {
             animationName: '$hidden',
             animationDuration: '8s',
             transition: 'all 0.3s ease-in',
+            [theme.breakpoints.down("md")]: {
+                marginTop: '-12vh',
+            },
         },
         educationList: {
             flexDirection: 'column',
@@ -228,7 +252,7 @@ const styles = theme => {
             gridRowStart: 2,
             gridRowEnd: 5,
             gridColumn: 1,
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 gridRow: 2,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
@@ -238,7 +262,7 @@ const styles = theme => {
             gridRowStart: 2,
             gridRowEnd: 5,
             gridColumn: 2,
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 gridRow: 3,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
@@ -248,7 +272,7 @@ const styles = theme => {
             gridRowStart: 2,
             gridRowEnd: 5,
             gridColumn: 3,
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 gridRow: 4,
                 gridColumnStart: 1,
                 gridColumnEnd: '4',
@@ -287,7 +311,7 @@ const styles = theme => {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
             },
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 '&:hover ~ $skillsMobile': {
                     transition: 'all 0.5s ease-in',
                     opacity: 1
@@ -299,7 +323,7 @@ const styles = theme => {
             animationName: '$hidden',
             animationDuration: '8s',
             transition: 'all 0.3s ease-in',
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 opacity: '0 !important'
             },
         },
@@ -309,6 +333,7 @@ const styles = theme => {
         listItem: {
             listStyle: 'none',
             display: 'flex',
+            alignItems: 'center',
             '&:before': {
                 content: '" "',
                 display: 'inline-block',
@@ -317,13 +342,9 @@ const styles = theme => {
                 width: '1vw',
                 minWidth: '10px',
                 padding: theme.spacing(1),
-                marginRight: theme.spacing(1),
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 transition: 'all 0.2s ease-in',
-                [theme.breakpoints.down("sm")]: {
-                    marginRight: 0,
-                },
             },
             '&:hover:before': {
                 transition: 'all 0.2s ease-in',
@@ -333,9 +354,13 @@ const styles = theme => {
             },
         },
         skillsList: {
+            marginBottom: 0,
             '&:before': {
                 backgroundImage: `url(${bulletBlue})`,
-                [theme.breakpoints.down("sm")]: {
+                [theme.breakpoints.up("lg")]: {
+                    marginRight: theme.spacing(1),
+                },
+                [theme.breakpoints.down("md")]: {
                     alignSelf: 'center',
                     height: `${theme.spacing(3)}px !important`
                 },
@@ -343,8 +368,11 @@ const styles = theme => {
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))'
             },
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 flexDirection: 'column',
+            },
+            [theme.breakpoints.up("lg")]: {
+                marginBottom: theme.spacing(2),
             },
         },
         leaves: {
@@ -354,7 +382,8 @@ const styles = theme => {
             height: 'auto',
             minWidth: '30px',
             [theme.breakpoints.down("sm")]: {
-                width: '5vw',
+                // width: '7vw',
+                width: 'calc(10px + 1.5vmin)'
             },
         },
         leaf1: {
@@ -398,18 +427,18 @@ const styles = theme => {
             height: 0
         },
         biggerBody2Font: {
-            [theme.breakpoints.down("sm")]: {
-                fontSize: 'calc(16px) !important',
+            [theme.breakpoints.down("xs")]: {
+                fontSize: 'calc(4px + 3vmin) !important',
             },
         },
         biggerCaptionFont: {
-            [theme.breakpoints.down("sm")]: {
-                fontSize: 'calc(14px) !important',
+            [theme.breakpoints.down("xs")]: {
+                fontSize: 'calc(1px + 3vmin) !important',
             },
         },
         experienceTitle: {
             height: '125px',
-            [theme.breakpoints.down("sm")]: {
+            [theme.breakpoints.down("md")]: {
                 height: 'auto',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -432,6 +461,10 @@ const styles = theme => {
             gridColumnEnd: 4,
             justifySelf: 'center',
             alignSelf: 'center',
+            marginTop: '-12vh'
+            // [theme.breakpoints.between("md", 'lg')]: {
+            //     marginTop: '-12vh'
+            // },
         },
 
         "@keyframes hidden": {
@@ -581,7 +614,7 @@ class ResumePage extends Component {
                             Google Analytics
                                 </Typography>
                     </li>
-                    <li style={{visibility: 'hidden', opacity: 0}} className={`${classes.listItem} ${classes.skillsList}`}>
+                    <li style={{ visibility: 'hidden', opacity: 0 }} className={`${classes.listItem} ${classes.skillsList}`}>
                         <Typography className={`${classes.biggerCaptionFont}`} variant="subtitle1">
                             HTML, CSS, React.JS
                                 </Typography>
