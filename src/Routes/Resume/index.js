@@ -61,7 +61,7 @@ const styles = theme => {
                 paddingLeft: theme.spacing(1), 
             },
             [theme.breakpoints.between("sm", 'md')]: {
-                marginTop: '20vh',
+                marginTop: '24vh',
                 maxHeight: '72vh',
                 height: '72vh',
                 gridTemplateRows: '11% 24% 24% 24%',
@@ -73,7 +73,7 @@ const styles = theme => {
             },
             [theme.breakpoints.between("md", 'lg')]: {
                 paddingTop: theme.spacing(4), 
-                marginTop: '20vh'
+                marginTop: '30vh'
             },
         },
         resumeLink: {
