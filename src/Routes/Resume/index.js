@@ -54,7 +54,7 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 gridTemplateColumns: '1fr 1fr 1fr',
                 paddingTop: 0,
-                maxHeight: '70vh',
+                maxHeight: '58vh',
                 maxWidth: '95vw',
                 marginTop: '15vh',
                 paddingRight: theme.spacing(1),
