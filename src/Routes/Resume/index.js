@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-import { Link } from "react-router-dom";
 import neonLeafPink from 'Assets/neon-leaf.png'
 import neonLeafYellow from 'Assets/neon-leaf-yellow.png'
 import neonLeafBlue from 'Assets/neon-leaf-blue.png'

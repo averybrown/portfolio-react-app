@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import sign from 'Assets/sign.png';
+import resume from 'Assets/resume.pdf';
+
 
 const styles = theme => {
     return {
@@ -65,7 +67,7 @@ class Sign extends Component {
         let { classes } = this.props;
 
         return <div className={classes.signContainer}>
-            <a className={classes.resumeLink} href="/resume.pdf" style={{ textDecoration: 'none' }} download="Avery Brown Resume">
+            <a className={classes.resumeLink} href={resume} target = "_blank" style={{ textDecoration: 'none' }} download="Avery Brown Resume">
                 <img className={classes.sign} src={sign} width='300px' height='300px' alt='sign' />
             </a>
         </div>
