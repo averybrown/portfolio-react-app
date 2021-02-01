@@ -25,7 +25,10 @@ const styles = theme => {
         title: {
             zIndex: 10,
             marginTop: '14vh',
-            visibility: 'hidden',
+            animation: '$fadein 3s',
+            animationDelay: '1s',
+            opacity: 0,
+            animationFillMode: 'both',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
             },
@@ -60,7 +63,7 @@ const styles = theme => {
                 maxWidth: '95vw',
                 marginTop: '17vh',
                 paddingRight: theme.spacing(1),
-                paddingLeft: theme.spacing(1), 
+                paddingLeft: theme.spacing(1),
             },
             [theme.breakpoints.down("md")]: {
                 gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr))',
@@ -73,11 +76,11 @@ const styles = theme => {
                 paddingTop: 0,
             },
             [theme.breakpoints.up('lg')]: {
-                marginTop: '32vh', 
+                marginTop: '32vh',
                 maxWidth: '50vw'
             },
             [theme.breakpoints.between("md", 'lg')]: {
-                marginTop: '30vh', 
+                marginTop: '30vh',
                 maxHeight: '60vh'
             },
         },
@@ -139,7 +142,7 @@ const styles = theme => {
                 paddingTop: '2vh'
             },
             [theme.breakpoints.between("md", 'lg')]: {
-                paddingTop: '6vh', 
+                paddingTop: '6vh',
             },
         },
         body: {
@@ -222,7 +225,6 @@ const styles = theme => {
             '&:before': {
                 backgroundImage: `url(${bulletYellow})`,
                 alignSelf: 'center',
-                height: `${theme.spacing(3)}px !important`
             },
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.4rem rgb(255, 187, 17))'
@@ -256,7 +258,6 @@ const styles = theme => {
             '&:before': {
                 backgroundImage: `url(${bulletPink})`,
                 alignSelf: 'center',
-                height: `${theme.spacing(3)}px !important`
             },
             '&:hover:before': {
                 filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
@@ -363,9 +364,10 @@ const styles = theme => {
                 padding: 0,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
-                transition: 'all 0.2s ease-in', 
-                marginTop: theme.spacing(1), 
-                marginBottom: theme.spacing(1)
+                transition: 'all 0.2s ease-in',
+                marginTop: theme.spacing(1),
+                marginBottom: theme.spacing(1),
+                height: `${theme.spacing(3)}px !important`
             },
             '&:hover:before': {
                 transition: 'all 0.2s ease-in',
@@ -380,10 +382,10 @@ const styles = theme => {
                 backgroundImage: `url(${bulletBlue})`,
                 [theme.breakpoints.up("lg")]: {
                     marginRight: theme.spacing(1),
+                    marginTop: theme.spacing(1) / 4
                 },
                 [theme.breakpoints.down("md")]: {
                     alignSelf: 'center',
-                    height: `${theme.spacing(3)}px !important`
                 },
             },
             '&:hover:before': {
@@ -394,7 +396,7 @@ const styles = theme => {
             },
             [theme.breakpoints.up("lg")]: {
                 marginBottom: theme.spacing(2),
-                alignItems: 'start', 
+                alignItems: 'start',
                 height: '5vh'
             },
         },
@@ -484,7 +486,7 @@ const styles = theme => {
             gridColumnEnd: 4,
             justifySelf: 'center',
             alignSelf: 'center',
-            marginTop: '-12vh', 
+            marginTop: '-12vh',
             [theme.breakpoints.down("md")]: {
                 marginTop: '-12vh',
             },

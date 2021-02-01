@@ -19,9 +19,16 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            visibility: 'hidden',
+            animation: '$fadein 3s',
+            animationDelay: '1s',
+            animationFillMode: 'both',
+            opacity: 0,
         },
         email: {
+            animation: '$fadein 3s',
+            animationDelay: '1s',
+            animationFillMode: 'both',
+            opacity: 0,
             zIndex: 100,
             textDecoration: 'none',
             transition: 'all .3s ease-in-out',
@@ -65,16 +72,16 @@ const styles = theme => {
             animationFillMode: 'both',
             animationDuration: '8000ms',
             animationIterationCount: 'infinite',
-            '&:hover': {
-                transform: 'scaleX(-1)',
-                filter: 'drop-shadow(0 0 0.05rem rgb(2, 208, 194))',
-            },
         },
         pinwheelPole: {
             height: '400%',
             width: '100%',
             position: 'absolute',
             top: '30%'
+        },
+        "@keyframes fadein": {
+            "from": { opacity: 0 },
+            "to": { opacity: 1 }
         },
         "@keyframes pinwheelEntrance": {
             "0%": {
