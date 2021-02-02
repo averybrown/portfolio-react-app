@@ -56,9 +56,8 @@ const styles = theme => {
             marginRight: 'auto',
             marginLeft: 'auto',
             [theme.breakpoints.down("xs")]: {
-                // gridTemplateColumns: '1fr 1fr 1fr',
                 paddingTop: 0,
-                maxHeight: '70vh',
+                maxHeight: '62vh',
                 maxWidth: '95vw',
                 marginTop: '17vh',
                 paddingRight: theme.spacing(1),
@@ -469,10 +468,6 @@ const styles = theme => {
                 display: 'flex',
                 flexDirection: 'column'
             },
-            // height: 'auto',
-            // padding: '9px',
-            // backgroundColor: '#1212118c',
-            // borderRadius: '11px'
         },
         skillsMobile: {
             opacity: 0,

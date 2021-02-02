@@ -114,10 +114,10 @@ class ContactPage extends Component {
                 <Typography className={classes.address} variant="subtitle2">avery.brown@mac.com</Typography>
                 <img className={classes.letter} src={letter} width='100px' height='100px' alt='pinwheel' />
             </a>
-            <div className={classes.pinwheelContainer}>
+            {/* <div className={classes.pinwheelContainer}> */}
                 <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />
                 <img className={classes.pinwheel} src={pinwheel} width='300px' height='300px' alt='pinwheel' />
-            </div>
+            {/* </div> */}
         </div>
     }
 }
