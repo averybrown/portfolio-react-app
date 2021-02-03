@@ -185,11 +185,11 @@ class Character extends Component {
                     style={isFox ?
                         {
                             right: 0,
-                            // visibility: loading ? "hidden" : "visible" 
+                            visibility: loading ? "hidden" : "visible" 
                         }
                         : {
                             left: 0,
-                            //  visibility: loading ? "hidden" : "visible" 
+                             visibility: loading ? "hidden" : "visible" 
                         }}
                     className={loading ? `${classes.character} ${classes.hidden}`
                         : `${classes.character} ${classes.visible}`}

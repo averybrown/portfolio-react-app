@@ -41,11 +41,11 @@ const styles = theme => {
             },
         },
         address: {
-            paddingRight: theme.spacing(1),
+            paddingRight: theme.spacing(1)/4,
             // fontWeight: '500'
         },
         letter: {
-            width: 'calc(33px + 1.5vmin) !important',
+            width: 'calc(20px + 1.5vmin) !important',
             height: 'auto',
             transition: 'all 0.4s ease-in',
         },

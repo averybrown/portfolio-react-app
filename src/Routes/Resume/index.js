@@ -394,7 +394,7 @@ const styles = theme => {
                 backgroundImage: `url(${bulletBlue})`,
                 [theme.breakpoints.up("lg")]: {
                     marginRight: theme.spacing(1),
-                    marginTop: 'calc(15px - 0.4vmin)'
+                    marginTop: '0.5vh'
                 },
                 [theme.breakpoints.down("md")]: {
                     alignSelf: 'center',
