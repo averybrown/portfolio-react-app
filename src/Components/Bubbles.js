@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import bubble from 'Assets/bubble.png';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-import { withSoundContext } from 'Contexts/SoundContext';
+// import { withSoundContext } from 'Contexts/SoundContext';
 
 
 
@@ -193,19 +193,19 @@ class Bubbles extends Component {
     pop = (e) => {
         e.target.style.visibility = 'hidden';
 
-        if (this.props.soundContext.soundOn) {
-            const playPromise = document.getElementById("bubble-pop").play();
+        // if (this.props.soundContext.soundOn) {
+        //     const playPromise = document.getElementById("bubble-pop").play();
 
-            if (playPromise !== undefined) {
-                playPromise
-                    .then(_ => {
-                        console.log("audio played auto");
-                    })
-                    .catch(error => {
-                        console.log("playback prevented: ", error);
-                    });
-            }
-        }
+        //     if (playPromise !== undefined) {
+        //         playPromise
+        //             .then(_ => {
+        //                 console.log("audio played auto");
+        //             })
+        //             .catch(error => {
+        //                 console.log("playback prevented: ", error);
+        //             });
+        //     }
+        // }
     }
 
     bubbleStart = (e) => {
@@ -225,4 +225,4 @@ class Bubbles extends Component {
     }
 }
 
-export default withSoundContext(withStyles(styles)(Bubbles));
+export default withStyles(styles)(Bubbles);

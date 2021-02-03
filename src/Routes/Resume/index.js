@@ -24,9 +24,6 @@ const styles = theme => {
         title: {
             zIndex: 10,
             marginTop: '14vh',
-            animation: '$fadein 3s',
-            animationDelay: '1s',
-            opacity: 0,
             animationFillMode: 'both',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
@@ -98,7 +95,7 @@ const styles = theme => {
             textAlign: 'start',
             fontWeight: 400,
             animation: '$fadein 2s',
-            animationDelay: '8s',
+            animationDelay: '6000ms',
             opacity: 0,
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
@@ -189,6 +186,9 @@ const styles = theme => {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
             },
+            [theme.breakpoints.down("md")]: {
+                marginBottom: theme.spacing(1)
+            },
         },
         info: {
             marginRight: theme.spacing(1),
@@ -205,7 +205,7 @@ const styles = theme => {
             alignSelf: 'center',
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '8s',
+            animationDuration: '6s',
             transition: 'all 0.3s ease-in',
             [theme.breakpoints.down("md")]: {
                 marginTop: '-12vh',
@@ -244,11 +244,14 @@ const styles = theme => {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
             },
+            [theme.breakpoints.down("md")]: {
+                marginBottom: theme.spacing(1)
+            },
         },
         experienceInfo: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '8s',
+            animationDuration: '6s',
             transition: 'all 0.3s ease-in',
         },
         experienceList: {
@@ -314,9 +317,6 @@ const styles = theme => {
             gridColumn: 3,
             justifySelf: 'start',
             transition: 'all 0.5s ease-in',
-            [theme.breakpoints.down("md")]: {
-                marginLeft: theme.spacing(1),
-            },
             '&:hover ~ $skillsInfo': {
                 transition: 'all 0.5s ease-in',
                 opacity: 1
@@ -330,6 +330,8 @@ const styles = theme => {
                 transition: 'all .2s ease-in-out',
             },
             [theme.breakpoints.down("md")]: {
+                marginLeft: theme.spacing(1),
+                marginBottom: theme.spacing(1),
                 '&:hover ~ $skillsMobile': {
                     transition: 'all 0.5s ease-in',
                     opacity: 1
@@ -339,7 +341,7 @@ const styles = theme => {
         skillsInfo: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '8s',
+            animationDuration: '6s',
             transition: 'all 0.3s ease-in',
             [theme.breakpoints.down("md")]: {
                 opacity: '0 !important'
@@ -410,7 +412,7 @@ const styles = theme => {
             },
         },
         leaf1: {
-            animationDelay: '1s',
+            // animationDelay: '300ms',
             animationName: '$leaf1Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
@@ -422,7 +424,7 @@ const styles = theme => {
             },
         },
         leaf2: {
-            animationDelay: '3s',
+            animationDelay: '1000ms',
             animationName: '$leaf2Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
@@ -434,7 +436,7 @@ const styles = theme => {
             },
         },
         leaf3: {
-            animationDelay: '2s',
+            animationDelay: '2000ms',
             animationName: '$leaf3Entrance',
             animationFillMode: 'both',
             animationDuration: '5000ms',
@@ -472,7 +474,7 @@ const styles = theme => {
         skillsMobile: {
             opacity: 0,
             animationName: '$hidden',
-            animationDuration: '8s',
+            animationDuration: '6s',
             transition: 'all 0.3s ease-in',
             gridRowStart: 2,
             gridRowEnd: 5,
