@@ -1,4 +1,6 @@
-import { TimelineMax as Timeline, Power1, Power2 } from 'gsap';
+import { TimelineMax as Timeline, Power1, Power4, Power2 } from 'gsap';
+// import { SplitText } from "gsap/SplitText";
+
 
 const getDefaultTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
@@ -26,6 +28,20 @@ const getContactTimeline = (node, delay) => {
     return timeline;
 }
 
+const getProjectTimeline = (node, delay) => {
+    const timeline = new Timeline({ paused: true });
+    const title = node.querySelector('h6');
+    // var splitText = new SplitText(".projectParagraph", {type: 'words, lines, chars'})
+    // const paragraph = node.querySelector('.projectParagraph')
+    // lines = splitText.lines
+
+    timeline
+        // .staggerFrom(lines, 0.5, { opacity: 0, x:0, ease: Power4.easeOut }, 0.7)
+        .staggerFrom(title, 1, { autoAlpha: 0, x: 50, ease: Power2.easeOut }, 0.125);
+
+    return timeline;
+}
+
 const getHomeTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
     const name = node.querySelector('h5');
@@ -48,6 +64,7 @@ export const play = (pathname, node, appears) => {
         .loadPromise
         .then(() => {
             if (pathname === '/') timeline = getHomeTimeline(node, delay);
+            else if (pathname === '/project') timeline = getProjectTimeline(node, delay)
             else if (pathname === '/contact') timeline = getContactTimeline(node, delay)
             else timeline = getDefaultTimeline(node, delay);
 

@@ -10,7 +10,8 @@ let theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       h6: {
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Playfair Display', sans-serif`,
 
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(7px + 8vmin) !important',
@@ -25,7 +26,11 @@ let theme = createMuiTheme({
         // fontFamily: `"Mukta", sans-serif`,
         // fontFamily: `'Libre Franklin', sans-serif;`,
         // fontFamily: `'Montserrat', sans-serif;`,
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Lato', sans-serif`,
+        fontFamily: `'Playfair Display', sans-serif`,
+        // fontFamily: `'Wire One', sans-serif`,
+        // fontFamily: `'Londrina Outline' cursive;`,
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
@@ -36,21 +41,25 @@ let theme = createMuiTheme({
       },
       subtitle2: {
         // fontFamily: `"Roboto", sans-serif`,
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Lato', sans-serif`,
 
         fontSize: 'calc(9px + 1.5vmin) !important',
         color: 'white',
         fontWeight: '300',
       },
       subtitle1: {
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Lato', sans-serif`,
+
 
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(5px + 1.5vmin) !important',
         color: 'white',
       },
       body1: {
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Lato', sans-serif`,
 
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
@@ -58,13 +67,15 @@ let theme = createMuiTheme({
         fontWeight: '600'
       },
       body2: {
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Lato', sans-serif`,
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'white'
       },
       caption: {
-        fontFamily: `'Raleway', sans-serif`,
+        // fontFamily: `'Raleway', sans-serif`,
+        fontFamily: `'Lato', sans-serif`,
 
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(3px + 1.5vmin) !important',

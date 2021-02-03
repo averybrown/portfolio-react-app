@@ -42,9 +42,10 @@ const styles = theme => {
             margin: 'auto',
             gridColumnGap: theme.spacing(3),
             [theme.breakpoints.down("xs")]: {
-                gridTemplateColumns: 'fit-content(80%)',
+                gridTemplateColumns: 'fit-content(70%)',
                 gridTemplateRows: 'max-content max-content max-content',
-                bottom: '42vh !important'
+                bottom: '42vh !important', 
+                // right: '0 !important'
             },
             [theme.breakpoints.up('sm')]: {
                 maxWidth: '80%', 
@@ -53,12 +54,13 @@ const styles = theme => {
             [theme.breakpoints.up('md')]: {
                 maxWidth: '80%', 
                 gridRowGap: theme.spacing(3), 
-                gridTemplateColumns: 'repeat(2, fit-content(30%))',
+                gridTemplateColumns: 'fit-content(70%) fit-content(30%)',
                 bottom: '12vh', 
                 right: '12vw'
             },
             [theme.breakpoints.down('sm')]: {
-                bottom: '30vh'
+                bottom: '24vh', 
+                right: '10%'
             },
 
         },
@@ -70,7 +72,7 @@ const styles = theme => {
             height: 'auto',
             width: '100%',
             // maxWidth: '500px',
-            minWidth: '200px',
+            // minWidth: '200px',
             alignSelf: 'start',
             marginLeft: 0,
             [theme.breakpoints.down("xs")]: {
@@ -87,7 +89,7 @@ const styles = theme => {
                 marginLeft: '0 !important'
             },
             [theme.breakpoints.up('sm')]: {
-                minWidth: '56vh', 
+                // minWidth: '56vh', 
                 marginLeft: '-82px'
             },
         },
@@ -118,6 +120,7 @@ const styles = theme => {
         projectDescription: {
             gridRow: 2,
             gridColumn: 2,
+            fontFamily: `'Lato', sans-serif`,
             textAlign: 'start',
             // maxWidth: '30vw',
             justifySelf: 'start',
@@ -194,7 +197,7 @@ class ProjectsPage extends Component {
                     <Typography className={classes.projectTitle} variant="h6">panda</Typography>
                     <Typography className={classes.projectTitle} variant="h6">express</Typography>
                 </div>
-                <Typography className={classes.projectDescription} variant="caption">
+                <Typography className={`${classes.projectDescription} "projectParagraph"`} variant="caption">
                     Play as Regis the panda in his journey to save the other last
                     remaining member of his species in the side-scrolling runner, Panda Express.
                     My personal contributions to the project included character designs,
