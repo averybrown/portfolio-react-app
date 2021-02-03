@@ -42,6 +42,7 @@ const styles = theme => {
         },
         address: {
             paddingRight: theme.spacing(1),
+            // fontWeight: '500'
         },
         letter: {
             width: 'calc(33px + 1.5vmin) !important',

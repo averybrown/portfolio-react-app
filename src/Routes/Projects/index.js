@@ -18,18 +18,10 @@ const styles = theme => {
             minHeight: '100%',
         },
         title: {
-            // zIndex: 10, 
-            // marginTop: theme.spacing(14), 
             zIndex: 10,
-            marginTop: '14vh',
-            [theme.breakpoints.down("sm")]: {
+            marginTop: 'calc(13vh - 1.5vmax)',
+            [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
-            },
-            [theme.breakpoints.between("sm", 'md')]: {
-                marginTop: '10vh',
-            },
-            [theme.breakpoints.up('md')]: {
-                marginTop: '14vh'
             },
         },
         grid: {
@@ -60,13 +52,13 @@ const styles = theme => {
             },
             [theme.breakpoints.up('md')]: {
                 maxWidth: '80%', 
-                gridRowGap: theme.spacing(1), 
+                gridRowGap: theme.spacing(3), 
                 gridTemplateColumns: 'repeat(2, fit-content(30%))',
                 bottom: '12vh', 
                 right: '12vw'
             },
             [theme.breakpoints.down('sm')]: {
-                bottom: '32vh'
+                bottom: '30vh'
             },
 
         },
@@ -121,6 +113,7 @@ const styles = theme => {
             fontSize: 'calc(40px + 1.5vmin) !important',
             textAlign: 'start',
             lineHeight: '1.1',
+            fontWeight: 500
         },
         projectDescription: {
             gridRow: 2,
@@ -198,8 +191,8 @@ class ProjectsPage extends Component {
             <div className={classes.grid}>
                 <img className={classes.sign} src={videoSign} width={'450px'} height={'300px'} />
                 <div className={classes.projectTitleContainer}>
-                    <Typography className={classes.projectTitle} variant="h6">Panda</Typography>
-                    <Typography className={classes.projectTitle} variant="h6">Express</Typography>
+                    <Typography className={classes.projectTitle} variant="h6">panda</Typography>
+                    <Typography className={classes.projectTitle} variant="h6">express</Typography>
                 </div>
                 <Typography className={classes.projectDescription} variant="caption">
                     Play as Regis the panda in his journey to save the other last

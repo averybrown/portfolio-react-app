@@ -22,8 +22,7 @@ const styles = theme => {
             marginBottom: 0,
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
-                width: '25%',
-                minWidth: '115px', 
+                width: '45%',
                 right: 0, 
                 marginRight: '5%', 
             },

@@ -15,6 +15,7 @@ let theme = createMuiTheme({
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(7px + 8vmin) !important',
         color: 'white',
+        fontWeight: '200',
         textShadowColor: '#585858',
         textShadowOffset: { width: 5, height: 5 },
         textShadowRadius: 10,
@@ -66,6 +67,7 @@ let theme = createMuiTheme({
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(3px + 1.5vmin) !important',
         color: 'white',
+        fontWeight: 300
       }
     }
   }

@@ -23,16 +23,9 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: '14vh',
-            animationFillMode: 'both',
+            marginTop: 'calc(13vh - 1.5vmax)',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
-            },
-            [theme.breakpoints.between("sm", 'md')]: {
-                marginTop: '10vh',
-            },
-            [theme.breakpoints.up('md')]: {
-                marginTop: '14vh'
             },
         },
         content: {
@@ -59,12 +52,13 @@ const styles = theme => {
                 marginTop: '17vh',
                 paddingRight: theme.spacing(1),
                 paddingLeft: theme.spacing(1),
+                gridTemplateColumns: 'repeat(3, 1fr) !important',
             },
             [theme.breakpoints.down("md")]: {
                 gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr))',
             },
             [theme.breakpoints.between("sm", 'md')]: {
-                marginTop: '24vh',
+                marginTop: '28vh',
                 maxHeight: '72vh',
                 height: '72vh',
                 gridTemplateRows: 'fit-content(100px) 24% 24% 24%',
@@ -72,7 +66,7 @@ const styles = theme => {
             },
             [theme.breakpoints.up('lg')]: {
                 marginTop: '32vh',
-                maxWidth: '50vw'
+                maxWidth: '58vw'
             },
             [theme.breakpoints.between("md", 'lg')]: {
                 marginTop: '30vh',
@@ -93,14 +87,15 @@ const styles = theme => {
         },
         heading: {
             textAlign: 'start',
-            fontWeight: 400,
+            fontWeight: 300,
+            lineHeight: 2,
             animation: '$fadein 2s',
             animationDelay: '6000ms',
             opacity: 0,
             animationFillMode: 'both',
             transition: 'all .2s ease-in-out',
             position: 'relative',
-            paddingTop: '2vh',
+            paddingTop: 'clamp(calc(10px + 2vmin), calc(9px + 3vmin), 20%)',
             '&:hover': {
                 transform: 'scale(1.1)',
                 transition: 'all .2s ease-in-out',
@@ -134,10 +129,10 @@ const styles = theme => {
                 width: 0
             },
             [theme.breakpoints.up('lg')]: {
-                paddingTop: '2vh'
+                // paddingTop: '2vh'
             },
             [theme.breakpoints.between("md", 'lg')]: {
-                paddingTop: '6vh',
+                // paddingTop: '6vh',
             },
         },
         body: {
@@ -188,6 +183,10 @@ const styles = theme => {
             },
             [theme.breakpoints.down("md")]: {
                 marginBottom: theme.spacing(1)
+            },
+            [theme.breakpoints.down("xs")]: {
+                justifySelf: 'center',
+
             },
         },
         info: {
@@ -337,6 +336,19 @@ const styles = theme => {
                     opacity: 1
                 },
             },
+            [theme.breakpoints.down("xs")]: {
+                justifySelf: 'center',
+
+            },
+        },
+
+        skillsFullTitle: {
+            // display: 'inline-block',
+            opacity: 1,
+            [theme.breakpoints.down("xs")]: {
+                // display: 'none'
+                opacity: 0
+            },
         },
         skillsInfo: {
             opacity: 0,
@@ -382,7 +394,7 @@ const styles = theme => {
                 backgroundImage: `url(${bulletBlue})`,
                 [theme.breakpoints.up("lg")]: {
                     marginRight: theme.spacing(1),
-                    marginTop: theme.spacing(1) / 4
+                    marginTop: 'calc(15px - 0.4vmin)'
                 },
                 [theme.breakpoints.down("md")]: {
                     alignSelf: 'center',
@@ -397,7 +409,7 @@ const styles = theme => {
             [theme.breakpoints.up("lg")]: {
                 marginBottom: theme.spacing(2),
                 alignItems: 'start',
-                height: '5vh'
+                height: '7vh'
             },
         },
         leaves: {
@@ -453,7 +465,8 @@ const styles = theme => {
         },
         biggerBody2Font: {
             [theme.breakpoints.down("xs")]: {
-                fontSize: 'calc(8px + 75%) !important',
+                fontSize: 'calc(8px + 65%) !important',
+                fontWeight: 400
             },
         },
         biggerCaptionFont: {
@@ -462,13 +475,21 @@ const styles = theme => {
             },
         },
         experienceTitle: {
-            height: '125px',
+            height: 'calc(14vh + 1vmax)',
             [theme.breakpoints.down("md")]: {
                 height: 'auto',
                 alignItems: 'center',
                 justifyContent: 'center',
                 display: 'flex',
                 flexDirection: 'column'
+            },
+        },
+        skillsMobileTitle: {
+            // display: 'none',
+            opacity: 0,
+            [theme.breakpoints.down("xs")]: {
+                // display: 'inline-block', 
+                opacity: 1
             },
         },
         skillsMobile: {
@@ -491,6 +512,16 @@ const styles = theme => {
             },
             [theme.breakpoints.between("md", 'lg')]: {
                 marginTop: '-8vh'
+            },
+        },
+        skillsMobileText: {
+            textAlign: 'center',
+            marginTop: 0,
+            width: '62vw',
+            marginLeft: 0,
+            fontWeight: 300,
+            [theme.breakpoints.down("xs")]: {
+                marginLeft: '-15px',
             },
         },
 
@@ -517,7 +548,7 @@ const styles = theme => {
                 transform: 'scale(-1, -1) translateX(2vw) rotate(7deg)'
             },
             "100%": {
-                transform: 'translateX(-2vw) scale(-1, -1) rotate(-5deg)',
+                transform: 'translateX(-45%) scale(-1, -1) rotate(-5deg)',
                 top: '-3%',
             },
         },
@@ -536,7 +567,7 @@ const styles = theme => {
             },
             "100%": {
                 top: '-3%',
-                transform: 'translateX(-2vw)'
+                transform: 'translateX(-45%)'
             },
         },
         "@keyframes leaf3Entrance": {
@@ -554,7 +585,7 @@ const styles = theme => {
             },
             "100%": {
                 top: '-3%',
-                transform: 'scaleY(-1) translateX(-2vw)',
+                transform: 'scaleY(-1) translateX(-45%)',
             },
         },
     };
@@ -598,9 +629,20 @@ class ResumePage extends Component {
                     </li>
                 </ul>
 
-                <div className={classes.skills}>
+                <div className={`${classes.skills} ${classes.skillsFullTitle}`}>
                     <Typography className={classes.heading} variant="body1" >
                         technical skills
+                </Typography>
+                    <img className={`${classes.leaf3} ${classes.leaves}`}
+                        src={neonLeafBlue}
+                        width='50px'
+                        height='50px'
+                        alt='leaf' />
+                </div>
+
+                <div className={`${classes.skills} ${classes.skillsMobileTitle}`}>
+                    <Typography className={classes.heading} style={{ width: '130%' }} variant="body1" >
+                        skills
                 </Typography>
                     <img className={`${classes.leaf3} ${classes.leaves}`}
                         src={neonLeafBlue}
@@ -668,8 +710,7 @@ class ResumePage extends Component {
 
                 <ul className={`${classes.list} ${classes.skillsMobile}`}>
                     <li className={`${classes.listItem} ${classes.skillsList}`}>
-                        <Typography className={`${classes.biggerBody2Font} ${classes.listItem}`}
-                            style={{ textAlign: 'center', marginTop: 0, width: '62vw', marginLeft: '-3%' }}
+                        <Typography className={`${classes.skillsMobileText} ${classes.biggerBody2Font} ${classes.listItem}`}
                             variant="subtitle1">
                             Java, Javascript, Python, C++, HTML, CSS, React.JS, SQL,
                             Photoshop, Figma, Invision,
@@ -711,7 +752,7 @@ class ResumePage extends Component {
                         <div className={classes.experienceTitle}>
 
                             <Typography className={`${classes.info} ${classes.biggerBody2Font}`} variant="body2">
-                                Intern
+                                Summer Intern
                 </Typography>
                             <Typography style={{ textAlign: 'center' }} className={`${classes.info} ${classes.biggerBody2Font}`} variant="caption">
                                 Global Champions Equestrian Jumping Tour and League
