@@ -11,7 +11,7 @@
   background-color: white;
   /* background: url("Assets/background_copy.png"); */
   /* background: url("Assets/background-final.png"); */
-  background: url("Assets/background-final-smaller-leaves-2.png");
+  background: url("Assets/background-final-smaller-leaves-again.png");
   background-position:center;
   background-size: cover; 
 }
@@ -35,3 +35,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mrs+Sheppards&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,100&family=Mrs+Sheppards&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,400;1,600&display=swap');

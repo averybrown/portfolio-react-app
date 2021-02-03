@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import pinwheel from 'Assets/pinwheel.png';
 import pinwheelPole from 'Assets/pinwheelpole.png';
 import letter from 'Assets/letter.png';
+// import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const styles = theme => {
     return {
@@ -19,16 +20,8 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            animation: '$fadein 3s',
-            animationDelay: '1s',
-            animationFillMode: 'both',
-            opacity: 0,
         },
         email: {
-            animation: '$fadein 3s',
-            animationDelay: '1s',
-            animationFillMode: 'both',
-            opacity: 0,
             zIndex: 100,
             textDecoration: 'none',
             transition: 'all .3s ease-in-out',
@@ -41,28 +34,29 @@ const styles = theme => {
                 transition: 'all .3s ease-in-out',
                 filter: 'drop-shadow(0 0 0.4rem rgb(2, 208, 194))',
             },
+            '&:hover > $letter': {
+                transition: 'all 0.4s ease-in',
+                transform: 'scaleX(-1)',
+                filter: 'drop-shadow(0 0 0.05rem rgb(2, 208, 194))'
+            },
         },
         address: {
-            paddingRight: theme.spacing(1),
+            paddingRight: theme.spacing(1)/4,
+            // fontWeight: '500'
         },
         letter: {
-            width: 'calc(33px + 1.5vmin) !important',
-            height: 'auto', 
-            transition: 'all .4s ease-in-out',
-            '&:hover': {
-                transform: 'scaleX(-1)',
-                transition: 'all .4s ease-in-out',
-                filter: 'drop-shadow(0 0 0.05rem rgb(2, 208, 194))',
-            },
-    
+            width: 'calc(20px + 1.5vmin) !important',
+            height: 'auto',
+            transition: 'all 0.4s ease-in',
         },
         pinwheelContainer: {
             position: 'absolute',
             left: '52%',
+            bottom: '50%',
             zIndex: 5,
-            animationName: '$pinwheelEntrance',
-            animationFillMode: 'both',
-            animationDuration: '5000ms',
+            // animationName: '$pinwheelEntrance',
+            // animationFillMode: 'both',
+            // animationDuration: '5000ms',
             [theme.breakpoints.down("xs")]: {
                 left: '10%'
             },
@@ -71,6 +65,7 @@ const styles = theme => {
             animationName: '$pinwheel',
             animationFillMode: 'both',
             animationDuration: '8000ms',
+            // animationDelay: '6000ms',
             animationIterationCount: 'infinite',
         },
         pinwheelPole: {
@@ -79,10 +74,45 @@ const styles = theme => {
             position: 'absolute',
             top: '30%'
         },
-        "@keyframes fadein": {
-            "from": { opacity: 0 },
-            "to": { opacity: 1 }
+        pinwheelEnter: {
+            opacity: 0,
+            bottom: '-40%',
+
+
         },
+        pinwheelAppear: {
+            opacity: 0,
+            bottom: '-40%',
+
+        },
+        pinwheelEnterActive: {
+            opacity: 1,
+            bottom: '50%',
+
+        },
+
+        pinwheelAppearActive: {
+            opacity: 1,
+            bottom: '50%',
+        },
+        pinwheelAppearDone: {
+            bottom: '50%',
+
+        },
+        pinwheelEnterDone: {
+            bottom: '50%',
+
+        },
+        pinwheelExit: {
+            opacity: 1
+        },
+        pinwheelExitActive: {
+            opacity: 1,
+        },
+        pinwheelExitDone: {
+            bottom: '-40%',
+        },
+
         "@keyframes pinwheelEntrance": {
             "0%": {
                 bottom: '-40%',
@@ -114,10 +144,31 @@ class ContactPage extends Component {
                 <Typography className={classes.address} variant="subtitle2">avery.brown@mac.com</Typography>
                 <img className={classes.letter} src={letter} width='100px' height='100px' alt='pinwheel' />
             </a>
-            <div className={classes.pinwheelContainer}>
-                <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />
-                <img className={classes.pinwheel} src={pinwheel} width='300px' height='300px' alt='pinwheel' />
-            </div>
+            {/* <CSSTransition
+                in={true}
+                timeout={300}
+                classNames={{
+                    enter: classes.pinwheelEnter,
+                    enterActive:
+                        classes.pinwheelEnterActive,
+                    exit: classes.pinwheelExit,
+                    exitActive:
+                        classes.pinwheelExitActive,
+                    appear: classes.pinwheelAppear,
+                    appearActive: classes.pinwheelAppearActive,
+                    enterDone: classes.pinwheelEnterDone,
+                    appearDone: classes.pinwheelAppearDone,
+                    exitDone: classes.pinwheelExitDone
+                }}
+                unmountOnExit
+            // onEnter={() => setShowButton(false)}
+            // onExited={() => setShowButton(true)}
+            > */}
+                <div className={`${classes.pinwheelContainer} pinwheel`}>
+                    <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />
+                    <img className={classes.pinwheel} src={pinwheel} width='300px' height='300px' alt='pinwheel' />
+                </div>
+            {/* </CSSTransition> */}
         </div>
     }
 }

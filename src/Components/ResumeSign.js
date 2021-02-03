@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import sign from 'Assets/sign.png';
-import resume from 'Assets/resume.pdf';
 
 
 const styles = theme => {
@@ -23,13 +22,9 @@ const styles = theme => {
             marginBottom: 0,
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
-                width: '25%',
-                minWidth: '115px', 
-                // marginBottom: '118px', 
-                // left: 0, 
+                width: '45%',
                 right: 0, 
                 marginRight: '5%', 
-                // marginLeft: 'auto'
             },
         },
         sign: {
@@ -67,7 +62,7 @@ class Sign extends Component {
         let { classes } = this.props;
 
         return <div className={classes.signContainer}>
-            <a className={classes.resumeLink} href={resume} target = "_blank" style={{ textDecoration: 'none' }} download="Avery Brown Resume">
+            <a className={classes.resumeLink} href="/resume.pdf" style={{ textDecoration: 'none' }} download="Avery Brown Resume">
                 <img className={classes.sign} src={sign} width='300px' height='300px' alt='sign' />
             </a>
         </div>

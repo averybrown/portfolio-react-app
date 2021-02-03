@@ -21,8 +21,6 @@ const styles = theme => ({
         maxWidth: '300px',
         textAlign: 'start'
     },
-    //     grow { transition: all .2s ease-in-out; }
-    // .grow:hover { transform: scale(1.1); }
     pages: {
         maxWidth: '25%',
     },
