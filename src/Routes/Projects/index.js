@@ -44,22 +44,22 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 gridTemplateColumns: 'fit-content(70%)',
                 gridTemplateRows: 'max-content max-content max-content',
-                bottom: '42vh !important', 
+                bottom: '42vh !important',
                 // right: '0 !important'
             },
             [theme.breakpoints.up('sm')]: {
-                maxWidth: '80%', 
+                maxWidth: '80%',
                 gridRowGap: theme.spacing(1)
             },
             [theme.breakpoints.up('md')]: {
-                maxWidth: '80%', 
-                gridRowGap: theme.spacing(3), 
+                maxWidth: '80%',
+                gridRowGap: theme.spacing(3),
                 gridTemplateColumns: 'fit-content(70%) fit-content(30%)',
-                bottom: '12vh', 
+                bottom: '12vh',
                 right: '12vw'
             },
             [theme.breakpoints.down('sm')]: {
-                bottom: '24vh', 
+                bottom: '24vh',
                 right: '10%'
             },
 
@@ -78,12 +78,12 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 gridRow: 1,
                 gridColumnEnd: '2 !important',
-                width: '120%', 
+                width: '117%',
             },
             [theme.breakpoints.down('sm')]: {
                 gridRow: 1,
-                gridColumnStart: 1, 
-                gridColumnEnd: 3, 
+                gridColumnStart: 1,
+                gridColumnEnd: 3,
             },
             [theme.breakpoints.up('md')]: {
                 marginLeft: '0 !important'
@@ -97,7 +97,7 @@ const styles = theme => {
             gridRow: 1,
             gridColumn: 2,
             justifySelf: 'start',
-            alignSelf: 'start',
+            alignSelf: 'end',
             [theme.breakpoints.down("xs")]: {
                 gridRow: '2 !important',
                 gridColumn: 1,
@@ -112,10 +112,13 @@ const styles = theme => {
             },
         },
         projectTitle: {
-            fontSize: 'calc(40px + 1.5vmin) !important',
+            fontSize: 'calc(54px + 1.5vmin) !important',
             textAlign: 'start',
             lineHeight: '1.1',
-            fontWeight: 500
+            fontWeight: 900,
+            [theme.breakpoints.down("xs")]: {
+                fontSize: 'calc(40px + 1.5vmin) !important',
+            },
         },
         projectDescription: {
             gridRow: 2,
@@ -131,7 +134,7 @@ const styles = theme => {
                 gridRow: '3 !important',
                 // maxWidth: '80vmin !important',
                 marginLeft: '2vw',
-                fontSize: 'calc(5px + 50%) !important',
+                fontSize: 'calc(4px + 50%) !important',
             },
             [theme.breakpoints.down('sm')]: {
                 gridRow: 2,
@@ -194,8 +197,8 @@ class ProjectsPage extends Component {
             <div className={classes.grid}>
                 <img className={classes.sign} src={videoSign} width={'450px'} height={'300px'} />
                 <div className={classes.projectTitleContainer}>
-                    <Typography className={classes.projectTitle} variant="h6">panda</Typography>
-                    <Typography className={classes.projectTitle} variant="h6">express</Typography>
+                    <Typography className={classes.projectTitle} variant="h6">Panda</Typography>
+                    <Typography className={classes.projectTitle} variant="h6">Express</Typography>
                 </div>
                 <Typography className={`${classes.projectDescription} "projectParagraph"`} variant="caption">
                     Play as Regis the panda in his journey to save the other last

@@ -95,7 +95,7 @@ class NavBar extends Component {
             <React.Fragment>
                 < nav className={classes.navBar} >
                     <div className={classes.title}>
-                        <NavLink exact to="/" activeClassName={classes.active} className={classes.link} >
+                        <NavLink exact to="/" activeClassName={classes.active} className={`${classes.link} navButton`} >
                             <Typography variant="subtitle2" className={classes.navText}>home</Typography>
                         </NavLink>
                     </div>

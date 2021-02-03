@@ -45,12 +45,28 @@ const getProjectTimeline = (node, delay) => {
 const getHomeTimeline = (node, delay) => {
     const timeline = new Timeline({ paused: true });
     const name = node.querySelector('h5');
+
+
+    timeline
+    // .to("line", 1, { attr: { y1: 0, y2: 1000 }, ease: Power1.easeOut })
+    .to(".reveal", 1, { xPercent: "-=100", ease: Power1.easeOut });
+
     // const character = node.querySelector('.characterEntrance');
     // console.log(character)
 
-    timeline
+
+    // $(".navButton").on("click", function(e){
+    //     if(timeline.isActive()){
+    //     e.preventDefault(); // this will also stop <a> tag links
+    //     e.stopImmediatePropagation(); // this will stop event bubbling
+
+    //     return false;
+    //    }
+    //    });
+
+    // timeline
         // .from(character, { duration: 0.5, autoAlpha: 0, x: 50, ease: Power1.easeOut })
-        .from(name, { duration: 1, autoAlpha: 0, x: 5000, ease: Power2.easeOut }, 0.125);
+        // .from(name, { duration: 1, autoAlpha: 0, x: 5000, ease: Power2.easeOut }, 0.125);
 
     return timeline;
 }
@@ -74,8 +90,13 @@ export const play = (pathname, node, appears) => {
 
 const getDefaultExit = (node) => {
     const timeline = new Timeline({ paused: true });
+    
+    
+    timeline
+    // .to("line", 1, { attr: { x1: 1000, x2: 1000 }, ease: Power1.easeOut })
+    .to(".reveal", 1, { xPercent: "-=150", ease: Power1.easeOut });
 
-    timeline.to(node, { duration: 5, y: '-100%', autoAlpha: 0, ease: Power1.easeOut });
+    // timeline.to(node, { duration: 5, y: '-100%', autoAlpha: 0, ease: Power1.easeOut });
 
     return timeline;
 }

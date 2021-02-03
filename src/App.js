@@ -12,9 +12,15 @@ let theme = createMuiTheme({
       h6: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Playfair Display', sans-serif`,
+        // fontFamily: `'Londrina Outline', cursive`,
+
+        // fontFamily: `'Fanwood Text', serif`,
+        // fontFamily: `Quattrocentro, serif`,
+        // fontFamily: `'Source Sans Pro', sans-serif `,
+
 
         // fontFamily: `"Mukta", sans-serif`,
-        fontSize: 'calc(7px + 8vmin) !important',
+        fontSize: 'calc(13px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
         textShadowColor: '#585858',
@@ -23,14 +29,14 @@ let theme = createMuiTheme({
       },
       h5: {
         // fontFamily: `'Mrs Sheppards', cursive;`,
-        // fontFamily: `"Mukta", sans-serif`,
-        // fontFamily: `'Libre Franklin', sans-serif;`,
-        // fontFamily: `'Montserrat', sans-serif;`,
         // fontFamily: `'Raleway', sans-serif`,
         // fontFamily: `'Lato', sans-serif`,
         fontFamily: `'Playfair Display', sans-serif`,
-        // fontFamily: `'Wire One', sans-serif`,
-        // fontFamily: `'Londrina Outline' cursive;`,
+        // fontFamily: `'Londrina Outline', cursive`,
+
+        // fontFamily: `'Fanwood Text', serif`,
+        // fontFamily: `Quattrocentro, serif`,
+
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
@@ -60,6 +66,8 @@ let theme = createMuiTheme({
       body1: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
+        // fontFamily: `'Source Sans Pro', sans-serif `,
+
 
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
@@ -69,6 +77,8 @@ let theme = createMuiTheme({
       body2: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
+        // fontFamily: `'Source Sans Pro', sans-serif `,
+
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'white'
