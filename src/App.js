@@ -11,14 +11,9 @@ let theme = createMuiTheme({
     MuiTypography: {
       h6: {
         // fontFamily: `'Raleway', sans-serif`,
-        fontFamily: `'Playfair Display', sans-serif`,
+        // fontFamily: `'Playfair Display', sans-serif`,
+        fontFamily: `'Rubik', sans-serif`,
         // fontFamily: `'Londrina Outline', cursive`,
-
-        // fontFamily: `'Fanwood Text', serif`,
-        // fontFamily: `Quattrocentro, serif`,
-        // fontFamily: `'Source Sans Pro', sans-serif `,
-
-
         // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(13px + 8vmin) !important',
         color: 'white',
@@ -31,11 +26,10 @@ let theme = createMuiTheme({
         // fontFamily: `'Mrs Sheppards', cursive;`,
         // fontFamily: `'Raleway', sans-serif`,
         // fontFamily: `'Lato', sans-serif`,
-        fontFamily: `'Playfair Display', sans-serif`,
-        // fontFamily: `'Londrina Outline', cursive`,
+        // fontFamily: `'Playfair Display', sans-serif`,
+        fontFamily: `'Rubik', sans-serif`,
 
-        // fontFamily: `'Fanwood Text', serif`,
-        // fontFamily: `Quattrocentro, serif`,
+        // fontFamily: `'Londrina Outline', cursive`,
 
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
-import Typography from '@material-ui/core/Typography';
+import { Typography, Divider } from '@material-ui/core';
 import videoSign from 'Assets/video-sign.png';
 import bulletBlue from 'Assets/bullet-blue.png';
+import trailer from 'Assets/Panda-Express-Trailer.mp4'
 
 
 const styles = theme => {
@@ -19,10 +20,13 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: 'calc(13vh - 1.5vmax)',
+            marginTop: 'calc(10vh - 1.5vmax)',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
             },
+            textAlign: 'center',
+            width: '100%',
+            // marginRight: '-20%'
         },
         grid: {
             display: 'grid',
@@ -64,34 +68,28 @@ const styles = theme => {
             },
 
         },
-        sign: {
+        trailer: {
             gridRowStart: 1,
             gridRowEnd: 3,
             gridColumn: 1,
             width: '40vw',
             height: 'auto',
             width: '100%',
-            // maxWidth: '500px',
-            // minWidth: '200px',
+            position: 'relative',
+            borderRadius: '5px',
+            cursor: 'pointer',
             alignSelf: 'start',
-            marginLeft: 0,
             [theme.breakpoints.down("xs")]: {
                 gridRow: 1,
                 gridColumnEnd: '2 !important',
-                width: '117%',
             },
             [theme.breakpoints.down('sm')]: {
                 gridRow: 1,
                 gridColumnStart: 1,
                 gridColumnEnd: 3,
             },
-            [theme.breakpoints.up('md')]: {
-                marginLeft: '0 !important'
-            },
-            [theme.breakpoints.up('sm')]: {
-                // minWidth: '56vh', 
-                marginLeft: '-82px'
-            },
+
+
         },
         projectTitleContainer: {
             gridRow: 1,
@@ -129,7 +127,7 @@ const styles = theme => {
             justifySelf: 'start',
             paddingTop: 0,
             [theme.breakpoints.down("xs")]: {
-                paddingTop: theme.spacing(3),
+                paddingTop: theme.spacing(2),
                 gridColumn: '1 !important',
                 gridRow: '3 !important',
                 // maxWidth: '80vmin !important',
@@ -142,6 +140,10 @@ const styles = theme => {
                 // maxWidth: '40vw'
             },
 
+        },
+        divider: {
+            height: '12px',
+            backgroundColor: '#f50057'
         },
         leaves: {
             zIndex: '100',
@@ -189,16 +191,60 @@ const styles = theme => {
 
 class ProjectsPage extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            paused: false
+        };
+    }
+
+    componentDidMount = () => {
+        this.playVideo();
+    };
+
+    componentWillUnmount = () => {
+        this.pauseVideo();
+    };
+
+    videoClicked = () => {
+        this.state.paused ?
+            this.playVideo()
+            : this.pauseVideo()
+    }
+
+
+    playVideo = () => {
+        this.refs.vidRef.play();
+        this.setState({ paused: false })
+    };
+
+    pauseVideo = () => {
+        this.refs.vidRef.pause();
+        this.setState({ paused: true })
+    };
+
+
     render() {
         let { classes } = this.props;
 
         return <div className={classes.projectsPage}>
             <Typography className={classes.title} variant="h6">projects</Typography>
             <div className={classes.grid}>
-                <img className={classes.sign} src={videoSign} width={'450px'} height={'300px'} />
+                {/* <div className={classes.trailer}> */}
+                {/* <img classes={classes.inner} src={videoSign} width={'450px'} height={'300px'} /> */}
+                <video onClick={this.videoClicked}
+                    ref="vidRef"
+                    className={classes.trailer}
+                    id="trailer"
+                    autoPlay>
+                    <source src={trailer} type="video/mp4" />
+                    {/* <source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/ogg" /> */}
+                </video>
+                {/* </div> */}
                 <div className={classes.projectTitleContainer}>
-                    <Typography className={classes.projectTitle} variant="h6">Panda</Typography>
-                    <Typography className={classes.projectTitle} variant="h6">Express</Typography>
+                    <Typography className={classes.projectTitle} variant="h6">Panda <br /> Express</Typography>
+                    <Divider className={classes.divider} variant="middle" />
                 </div>
                 <Typography className={`${classes.projectDescription} "projectParagraph"`} variant="caption">
                     Play as Regis the panda in his journey to save the other last

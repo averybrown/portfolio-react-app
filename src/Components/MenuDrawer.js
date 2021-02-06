@@ -36,8 +36,7 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: '100%',
-        // backgroundColor: '#A62667',
-        backgroundColor: '#0A4261', 
+        backgroundColor: '#672650',
         opacity: '95%'
     },
     navBar: {

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import Typography from '@material-ui/core/Typography';
-import neonLeafPink from 'Assets/neon-leaf.png'
-import neonLeafYellow from 'Assets/neon-leaf-yellow.png'
-import neonLeafBlue from 'Assets/neon-leaf-blue.png'
+import neonLeafPink from 'Assets/neon-leaf.png';
+import neonLeafYellow from 'Assets/neon-leaf-yellow.png';
+import neonLeafBlue from 'Assets/neon-leaf-blue.png';
+import neonLeafGreen from 'Assets/neon-leaf-green.png';
 import Sign from 'Components/ResumeSign';
 import bulletBlue from 'Assets/bullet-blue.png';
 import bulletPink from 'Assets/bullet-pink.png';
 import bulletYellow from 'Assets/bullet-yellow.png';
+import bulletGreen from 'Assets/bullet-point-green.png';
 
 
 const styles = theme => {
@@ -391,7 +393,7 @@ const styles = theme => {
         skillsList: {
             marginBottom: 0,
             '&:before': {
-                backgroundImage: `url(${bulletBlue})`,
+                backgroundImage: `url(${bulletGreen})`,
                 [theme.breakpoints.up("lg")]: {
                     marginRight: theme.spacing(1),
                     marginTop: '0.5vh'
@@ -453,10 +455,10 @@ const styles = theme => {
             animationFillMode: 'both',
             animationDuration: '5000ms',
             transition: 'all 0.2s ease-in',
-            filter: 'drop-shadow(0 0 0.1rem rgb(2, 208, 194))',
+            filter: 'drop-shadow(0 0 0.1rem rgb(22, 220, 143))',
             '&:hover': {
                 transition: 'all 0.2s ease-in',
-                filter: 'drop-shadow(0 0 0.5rem rgb(2, 208, 194))'
+                filter: 'drop-shadow(0 0 0.5rem rgb(22, 220, 143))'
             },
         },
         break: {
@@ -634,7 +636,7 @@ class ResumePage extends Component {
                         technical skills
                 </Typography>
                     <img className={`${classes.leaf3} ${classes.leaves}`}
-                        src={neonLeafBlue}
+                        src={neonLeafGreen}
                         width='50px'
                         height='50px'
                         alt='leaf' />

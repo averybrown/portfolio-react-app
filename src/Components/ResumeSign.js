@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import sign from 'Assets/sign.png';
+// var AWS = require('aws-sdk');
+// get reference to S3 client
+// var s3 = new AWS.S3();
 
 
 const styles = theme => {
@@ -23,8 +26,8 @@ const styles = theme => {
             minWidth: '200px',
             [theme.breakpoints.down("xs")]: {
                 width: '45%',
-                right: 0, 
-                marginRight: '5%', 
+                right: 0,
+                marginRight: '5%',
             },
         },
         sign: {
@@ -56,13 +59,36 @@ const styles = theme => {
 
 
 class Sign extends Component {
-
+    // downloadResume = () => {
+    //     AWS.config.update(
+    //         {
+    //             accessKeyId: "AKIAX2VUHKIVVQ2EABM7",
+    //             secretAccessKey: "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",
+    //         }
+    //     );
+    //     var s3 = new AWS.S3();
+    //     s3.getObject(
+    //         { Bucket: "personal-website-resume-avery", Key: "Avery Brown Resume.pdf" },
+    //         function (error, data) {
+    //             if (error != null) {
+    //                 alert("Failed to retrieve an object: " + error);
+    //             } else {
+    //                 alert("Loaded " + data.ContentLength + " bytes");
+    //                 // do something with data.Body
+    //             }
+    //         }
+    //     );
+    // }
 
     render() {
         let { classes } = this.props;
 
         return <div className={classes.signContainer}>
-            <a className={classes.resumeLink} href="/resume.pdf" style={{ textDecoration: 'none' }} download="Avery Brown Resume">
+            <a className={classes.resumeLink}
+                target="_blank"
+                href="https://avery-brown-resume.s3.us-east-2.amazonaws.com/Avery+Brown+Resume.pdf"
+                style={{ textDecoration: 'none' }}
+                download="Avery Brown Resume">
                 <img className={classes.sign} src={sign} width='300px' height='300px' alt='sign' />
             </a>
         </div>

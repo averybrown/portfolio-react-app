@@ -17,7 +17,7 @@ const styles = theme => {
         title: {
             fontSize: 'calc(25px + 6vmin) !important',
             marginLeft: theme.spacing(50),
-            filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))',
+            // filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))',
             marginTop: theme.spacing(10),
             transition: 'all .4s ease-in-out',
             // '&:hover': {
@@ -29,14 +29,16 @@ const styles = theme => {
                 marginLeft: 0,
             },
             [theme.breakpoints.down("sm")]: {
-                fontSize: 'calc(23px + 8vmin) !important',
+                // fontSize: 'calc(23px + 8vmin) !important',
+                fontSize: 'calc(70px + 8vmin) !important',
             },
-            fontFamily: `'Playfair Display', sans-serif`,
+            // fontFamily: `'Playfair Display', sans-serif`,
+            fontFamily: `'Rubik', sans-serif`,
 
             fontSize: 'calc(10px + 8vmin) !important',
             color: 'white',
             fontWeight: '200',
-            letterSpacing: '-0.05em',
+            // letterSpacing: '-0.05em',
             textShadowColor: '#585858',
             textShadowOffset: { width: 5, height: 5 },
             textShadowRadius: 10,
@@ -57,7 +59,7 @@ class HomePage extends Component {
 
                 <defs>
                     <clipPath id="theClipPath">
-                        <rect class="reveal" x="800" y="100" width="1000" height="250" fill="#000" />
+                        <rect class="reveal" x="1000" y="100" width="1000" height="250" fill="#000" />
                     </clipPath>
                 </defs>
 
@@ -66,7 +68,7 @@ class HomePage extends Component {
                 <g id="clipPathReveal" clip-path="url(#theClipPath)">
                     <text 
                     className={classes.title} 
-                    transform="translate(500 250)" fill="#ffffff" text-anchor="middle" font-size="100">avery brown</text>
+                    transform="translate(500 250)" fill="#ffffff" text-anchor="middle">avery brown</text>
                 </g>
             </svg>
             {/* <Typography className={classes.title} variant="h5">avery brown</Typography> */}
