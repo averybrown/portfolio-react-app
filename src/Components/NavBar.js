@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 const styles = theme => ({
     navBar: {
         display: 'none',
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.up("md")]: {
             display: 'flex',
             flexShrink: 0,
             alignItems: 'center',

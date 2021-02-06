@@ -14,7 +14,7 @@ import Divider from '@material-ui/core/Divider';
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'none',
-        [theme.breakpoints.down("xs")]: {
+        [theme.breakpoints.down("sm")]: {
             display: 'flex',
             position: 'absolute',
         },

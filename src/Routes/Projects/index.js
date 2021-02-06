@@ -215,12 +215,12 @@ class ProjectsPage extends Component {
 
 
     playVideo = () => {
-        this.refs.vidRef.play();
+        // this.refs.vidRef.play();
         this.setState({ paused: false })
     };
 
     pauseVideo = () => {
-        this.refs.vidRef.pause();
+        // this.refs.vidRef.pause();
         this.setState({ paused: true })
     };
 
@@ -233,15 +233,19 @@ class ProjectsPage extends Component {
             <div className={classes.grid}>
                 {/* <div className={classes.trailer}> */}
                 {/* <img classes={classes.inner} src={videoSign} width={'450px'} height={'300px'} /> */}
-                <video onClick={this.videoClicked}
+                {/* <video onClick={this.videoClicked}
                     ref="vidRef"
                     className={classes.trailer}
                     id="trailer"
                     autoPlay>
                     <source src={trailer} type="video/mp4" />
-                    {/* <source src="http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4" type="video/ogg" /> */}
-                </video>
+    </video> */}
                 {/* </div> */}
+                <div className={classes.trailer}>
+                    <iframe width="450" height="300"
+                        src="https://www.youtube.com/embed/oL2LSEiPcsk">
+                    </iframe>
+                    </div>
                 <div className={classes.projectTitleContainer}>
                     <Typography className={classes.projectTitle} variant="h6">Panda <br /> Express</Typography>
                     <Divider className={classes.divider} variant="middle" />
