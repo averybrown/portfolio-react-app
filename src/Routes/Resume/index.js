@@ -25,7 +25,7 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: 'calc(13vh - 1.5vmax)',
+            marginTop: 'calc(8vh - 1.5vmax)',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
             },

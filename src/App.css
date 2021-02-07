@@ -11,12 +11,13 @@
   background-color: white;
   /* background: url("Assets/background-final-smaller-leaves-again.png"); */
   /* background: url("Assets/background-final-smaller-leaves-2.png"); */
-  background: url("Assets/background-new-leaves.png");
+  background: url("Assets/background-final-smaller-leaves-even-smaller.png");
+  /* background: url("Assets/background-new-leaves.png"); */
   background-position:center;
   background-size: cover; 
 }
 
-@media (max-width: 600px) 
+/* @media (max-width: 600px) 
 {
   .App {
   background: url("Assets/background-new-leaves-phone.png");
@@ -24,7 +25,7 @@
   background-size: cover; 
   }
 
-}
+} */
 
 .App-nav {
   height: 8vmin;

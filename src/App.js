@@ -51,6 +51,7 @@ let theme = createMuiTheme({
       subtitle1: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
+        fontWeight: 300,
 
 
         // fontFamily: `"Mukta", sans-serif`,

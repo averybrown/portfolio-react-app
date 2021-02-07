@@ -20,7 +20,7 @@ const styles = theme => {
         },
         title: {
             zIndex: 10,
-            marginTop: 'calc(10vh - 1.5vmax)',
+            marginTop: 'calc(8vh - 1.5vmax)',
             [theme.breakpoints.down("xs")]: {
                 marginTop: '5vh',
             },
@@ -32,7 +32,7 @@ const styles = theme => {
             display: 'grid',
             gridTemplateRows: 'max-content max-content',
             gridTemplateColumns: '35vw 50vw',
-            gridTemplateColumns: 'fit-content(20%) fit-content(50%)',
+            gridTemplateColumns: 'fit-content(20%) fit-content(40%)',
             height: '100%',
             position: 'absolute',
             maxHeight: '27vh',
@@ -63,8 +63,8 @@ const styles = theme => {
                 right: '12vw'
             },
             [theme.breakpoints.down('sm')]: {
-                bottom: '24vh',
-                right: '10%'
+                bottom: '30vh',
+                // right: '10%'
             },
 
         },
@@ -72,13 +72,16 @@ const styles = theme => {
             gridRowStart: 1,
             gridRowEnd: 3,
             gridColumn: 1,
-            width: '40vw',
-            height: 'auto',
+            // width: '40vw',
+            height: '100%',
             width: '100%',
-            position: 'relative',
             borderRadius: '5px',
             cursor: 'pointer',
-            alignSelf: 'start',
+            alignSelf: 'center',
+            position: 'relative',
+            paddingBottom: '56.25%', /* 16:9 */
+            height: 0,
+            marginBottom: '20px',
             [theme.breakpoints.down("xs")]: {
                 gridRow: 1,
                 gridColumnEnd: '2 !important',
@@ -88,8 +91,17 @@ const styles = theme => {
                 gridColumnStart: 1,
                 gridColumnEnd: 3,
             },
+            [theme.breakpoints.up('md')]: {
+                width: '50vw'
+            },
 
-
+        },
+        video: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%'
         },
         projectTitleContainer: {
             gridRow: 1,
@@ -231,21 +243,13 @@ class ProjectsPage extends Component {
         return <div className={classes.projectsPage}>
             <Typography className={classes.title} variant="h6">projects</Typography>
             <div className={classes.grid}>
-                {/* <div className={classes.trailer}> */}
-                {/* <img classes={classes.inner} src={videoSign} width={'450px'} height={'300px'} /> */}
-                {/* <video onClick={this.videoClicked}
-                    ref="vidRef"
-                    className={classes.trailer}
-                    id="trailer"
-                    autoPlay>
-                    <source src={trailer} type="video/mp4" />
-    </video> */}
-                {/* </div> */}
                 <div className={classes.trailer}>
-                    <iframe width="450" height="300"
+                    <iframe
+                        className={classes.video}
+                        width="560" height="349"
                         src="https://www.youtube.com/embed/oL2LSEiPcsk">
                     </iframe>
-                    </div>
+                </div>
                 <div className={classes.projectTitleContainer}>
                     <Typography className={classes.projectTitle} variant="h6">Panda <br /> Express</Typography>
                     <Divider className={classes.divider} variant="middle" />
