@@ -44,7 +44,7 @@ const styles = theme => {
             top: 0,
             bottom: 0,
             margin: 'auto',
-            gridColumnGap: theme.spacing(3),
+            gridColumnGap: theme.spacing(5),
             [theme.breakpoints.down("xs")]: {
                 gridTemplateColumns: 'fit-content(70%)',
                 gridTemplateRows: 'max-content max-content max-content',
@@ -101,7 +101,12 @@ const styles = theme => {
             top: 0,
             left: 0,
             width: '100%',
-            height: '100%'
+            height: '100%', 
+            borderWidth:'4px',
+            borderColor: 'white',
+            borderStyle: 'solid',
+            borderRadius: '5px', 
+            filter: 'drop-shadow(0 0 0.5rem rgb(22, 220, 143))'
         },
         projectTitleContainer: {
             gridRow: 1,
@@ -155,7 +160,8 @@ const styles = theme => {
         },
         divider: {
             height: '12px',
-            backgroundColor: '#f50057'
+            backgroundColor: '#f50057', 
+            filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
         },
         leaves: {
             zIndex: '100',
