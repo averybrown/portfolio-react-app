@@ -1,5 +1,4 @@
 import React, { createContext, Component } from 'react';
-// import foxBubble from 'Assets/fox-blowing-bubbles.gif';
 import foxEnters from 'Assets/flipbook-fox-enter-scene.gif';
 import foxEnters2 from 'Assets/flipbook-fox-enter-scene-2.gif';
 import bearEnters from 'Assets/flipbook-bear-enter-scene.gif';
@@ -8,7 +7,6 @@ import foxBubble from 'Assets/flipbook-final.gif';
 import foxPlant from 'Assets/flipbook-plant.gif';
 import bearIdle from 'Assets/flipbook-bear-idle.gif';
 import { withRouter } from "react-router-dom";
-import bear from 'Assets/bear.png';
 import foxExit from 'Assets/flipbook-fox-exit-scene-1.gif';
 import foxExitPlant from 'Assets/flipbook-fox-exit-scene-plant.gif';
 import bearExit from 'Assets/flipbook-bear-exit-scene-1.gif';
@@ -30,7 +28,6 @@ const animations = {
     FOXEXITPLANT: foxExitPlant,
     BEARENTRANCE: bearEnters,
     BEARENTRANCE2: bearEnters2,
-    BEARLEAF: bear,
     BEARIDLE: bearIdle,
     BEAREXIT: bearExit
 }

@@ -28,13 +28,11 @@ const styles = theme => {
         },
         visible: {
             visibility: 'visible',
-            backfaceVisibility: 'visible',
             opacity: 1,
             display: 'block'
         },
         hidden: {
             visibility: 'hidden',
-            backfaceVisibility: 'hidden',
             display: 'none',
             opacity: 0
         },
