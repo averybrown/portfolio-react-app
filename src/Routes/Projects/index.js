@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Typography, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { gsap } from 'gsap';
+
 
 const useStyles = makeStyles(theme => ({
     projectsPage: {
+        opacity: 0,
         height: '100%',
         width: '100%',
         overflow: 'hidden',
@@ -38,7 +41,8 @@ const useStyles = makeStyles(theme => ({
         top: 0,
         bottom: 0,
         margin: 'auto',
-        gridColumnGap: theme.spacing(5),
+        gridRowGap: 0,
+        gridColumnGap: theme.spacing(3),
         [theme.breakpoints.down("xs")]: {
             gridTemplateColumns: 'fit-content(70%)',
             gridTemplateRows: 'max-content max-content max-content',
@@ -47,18 +51,20 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: '80%',
-            gridRowGap: theme.spacing(1)
+            gridRowGap: theme.spacing(3)
         },
         [theme.breakpoints.up('md')]: {
             maxWidth: '80%',
             gridRowGap: theme.spacing(3),
             gridTemplateColumns: 'fit-content(70%) fit-content(30%)',
             bottom: '12vh',
-            right: '12vw'
+            right: '12vw', 
+            gridColumnGap: theme.spacing(7),
         },
         [theme.breakpoints.down('sm')]: {
             bottom: '30vh',
-            // right: '10%'
+            gridRowGap: theme.spacing(3), 
+            maxHeight: '22vh'
         },
 
     },
@@ -66,27 +72,32 @@ const useStyles = makeStyles(theme => ({
         gridRowStart: 1,
         gridRowEnd: 3,
         gridColumn: 1,
-        // width: '40vw',
-        // height: '100%',
         width: '100%',
-        borderRadius: '5px',
         cursor: 'pointer',
         alignSelf: 'center',
+        justifySelf: 'center',
         position: 'relative',
         paddingBottom: '56.25%', /* 16:9 */
-        height: 0,
+        // height: 0,
         marginBottom: '20px',
         [theme.breakpoints.down("xs")]: {
             gridRow: 1,
             gridColumnEnd: '2 !important',
+            justifySelf: 'center !important',
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 1,
             gridColumnStart: 1,
             gridColumnEnd: 3,
+            justifySelf: 'start'
         },
         [theme.breakpoints.up('md')]: {
-            width: '50vw'
+            width: '42vw !important',
+            paddingBottom: '56.25% !important', /* 16:9 */
+        },
+        [theme.breakpoints.up('sm')]: {
+            width: '56vw', 
+            paddingBottom: '43.25%', /* 16:9 */
         },
 
     },
@@ -96,11 +107,11 @@ const useStyles = makeStyles(theme => ({
         left: 0,
         width: '100%',
         height: '100%',
-        borderWidth: '4px',
-        borderColor: 'white',
+        borderColor: 'transparent',
         borderStyle: 'solid',
+        borderWidth: '9px',
         borderRadius: '5px',
-        filter: 'drop-shadow(0 0 0.5rem rgb(22, 220, 143))'
+        boxShadow: '0 0 6pt 5pt rgb(22 220 143)'
     },
     projectTitleContainer: {
         gridRow: 1,
@@ -134,28 +145,25 @@ const useStyles = makeStyles(theme => ({
         gridColumn: 2,
         fontFamily: `'Lato', sans-serif`,
         textAlign: 'start',
-        // maxWidth: '30vw',
         justifySelf: 'start',
         paddingTop: 0,
         [theme.breakpoints.down("xs")]: {
-            paddingTop: theme.spacing(2),
             gridColumn: '1 !important',
             gridRow: '3 !important',
-            // maxWidth: '80vmin !important',
             marginLeft: '2vw',
             fontSize: 'calc(4px + 50%) !important',
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 2,
             gridColumn: 2,
-            // maxWidth: '40vw'
         },
 
     },
     divider: {
         height: '12px',
         backgroundColor: '#f50057',
-        filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))'
+        filter: 'drop-shadow(0 0 0.5rem rgb(216, 88, 168))',
+        marginTop: theme.spacing(2)
     },
     leaves: {
         zIndex: '100',
@@ -202,12 +210,36 @@ const useStyles = makeStyles(theme => ({
 
 function ProjectsPage(props) {
     const classes = useStyles();
+    let title = useRef(null);
+    let project = useRef(null);
+    let video = useRef(null);
+    let divider = useRef(null);
+    let paragraph = useRef(null);
+    let page = useRef(null);
 
 
-    return <div className={classes.projectsPage}>
-        <Typography className={classes.title} variant="h6">projects</Typography>
+    useEffect(() => {
+        gsap.to([page], {
+            duration: 0.1, 
+            autoAlpha: 1
+        });
+        gsap.from([title, video, project, divider, paragraph], {
+            duration: 0.8,
+            delay: 0.5,
+            ease: "power3.out",
+            y: 32,
+            // opacity: 0,
+            stagger: {
+                amount: 0.5
+            }
+        })
+    }, [title, video, project, divider, paragraph])
+
+
+    return <div ref={el => (page = el)} className={classes.projectsPage}>
+        <Typography ref={el => (title = el)} className={classes.title} variant="h6">projects</Typography>
         <div className={classes.grid}>
-            <div className={classes.trailer}>
+            <div ref={el => (video = el)} className={classes.trailer}>
                 <iframe
                     title="trailer"
                     className={classes.video}
@@ -216,10 +248,10 @@ function ProjectsPage(props) {
                 </iframe>
             </div>
             <div className={classes.projectTitleContainer}>
-                <Typography className={classes.projectTitle} variant="h6">Panda <br /> Express</Typography>
-                <Divider className={classes.divider} variant="middle" />
+                <Typography ref={el => (project = el)} className={classes.projectTitle} variant="h6">Panda <br /> Express</Typography>
+                <Divider ref={el => (divider = el)} className={classes.divider} variant="middle" />
             </div>
-            <Typography className={`${classes.projectDescription} "projectParagraph"`} variant="caption">
+            <Typography ref={el => (paragraph = el)} className={`${classes.projectDescription} "projectParagraph"`} variant="caption">
                 Play as Regis the panda in his journey to save the other last
                 remaining member of his species in the side-scrolling runner, Panda Express.
                 My personal contributions to the project included character designs,

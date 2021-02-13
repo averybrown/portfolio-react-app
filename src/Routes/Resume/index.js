@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Typography from '@material-ui/core/Typography';
 import neonLeafPink from 'Assets/neon-leaf.png';
 import neonLeafYellow from 'Assets/neon-leaf-yellow.png';
@@ -9,6 +9,9 @@ import bulletPink from 'Assets/bullet-pink.png';
 import bulletYellow from 'Assets/bullet-yellow.png';
 import bulletGreen from 'Assets/bullet-point-green.png';
 import { makeStyles } from '@material-ui/core/styles';
+import { gsap } from 'gsap';
+
+
 
 const useStyles = makeStyles(theme => ({
     resumePage: {
@@ -595,10 +598,22 @@ const useStyles = makeStyles(theme => ({
 
 function ResumePage(props) {
     const classes = useStyles();
+    let title = useRef(null);
+
+    useEffect(() => {
+        gsap.from([title], {
+            duration: 0.8,
+            delay: 0.5, 
+            ease: "power3.out", 
+            y: 64, 
+            // alpha: 0,
+            display: 'none',
+        })
+    }, [title])
 
 
     return <div className={classes.resumePage}>
-        <Typography className={classes.title} variant="h6">resume</Typography>
+        <Typography ref={el => (title = el)} className={classes.title} variant="h6">resume</Typography>
         <Sign />
         <div className={classes.content}>
             <div className={classes.education}>

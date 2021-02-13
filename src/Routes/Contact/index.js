@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Typography from '@material-ui/core/Typography';
-import pinwheel from 'Assets/pinwheel.png';
+import pinwheelImg from 'Assets/pinwheel.png';
 import pinwheelPole from 'Assets/pinwheelpole.png';
 import letter from 'Assets/letter.png';
 import { makeStyles } from '@material-ui/core/styles';
+import { gsap, TimelineMax as Timeline } from 'gsap';
+
 
 const useStyles = makeStyles(theme => ({
     contactPage: {
@@ -75,20 +77,15 @@ const useStyles = makeStyles(theme => ({
     pinwheelEnter: {
         opacity: 0,
         bottom: '-40%',
-
-
     },
     pinwheelAppear: {
         opacity: 0,
         bottom: '-40%',
-
     },
     pinwheelEnterActive: {
         opacity: 1,
         bottom: '50%',
-
     },
-
     pinwheelAppearActive: {
         opacity: 1,
         bottom: '50%',
@@ -99,7 +96,6 @@ const useStyles = makeStyles(theme => ({
     },
     pinwheelEnterDone: {
         bottom: '50%',
-
     },
     pinwheelExit: {
         opacity: 1
@@ -132,19 +128,45 @@ const useStyles = makeStyles(theme => ({
 
 function ContactPage(props) {
     const classes = useStyles();
+    let title = useRef(null);
+    let email = useRef(null);
+    let pinwheel = useRef(null);
+    // const timeline = new Timeline({ paused: true });
+
+
+    useEffect(() => {
+        gsap.from([pinwheel], {
+            duration: 5,
+            delay: 0.3,
+            ease: "power1.in",
+            y: 600,
+            opacity: 0,
+        })
+        gsap.from([title, email], {
+            duration: 0.5,
+            delay: 0.5,
+            ease: "power3.in",
+            y: 32,
+            opacity: 0,
+            stagger: {
+                amount: 0.1
+            }
+        });
+    }, [pinwheel, title, email])
 
 
     return (
-
         <div className={classes.contactPage}>
-            <Typography className={classes.title} variant="h6">contact</Typography>
-            <a className={`${classes.email}`} href={"mailto:avery.brown@mac.com"}>
+            <Typography ref={el => (title = el)} className={classes.title} variant="h6">contact</Typography>
+            <a ref={el => (email = el)} className={`${classes.email}`} href={"mailto:avery.brown@mac.com"}>
                 <Typography className={classes.address} variant="subtitle2">avery.brown@mac.com</Typography>
                 <img className={classes.letter} src={letter} width='100px' height='100px' alt='pinwheel' />
             </a>
-            <div className={`${classes.pinwheelContainer} pinwheel`}>
+            <div
+                ref={el => (pinwheel = el)} 
+                className={`${classes.pinwheelContainer} pinwheel`}>
                 <img className={classes.pinwheelPole} src={pinwheelPole} width='90px' height='160px' alt='pinwheel' />
-                <img className={classes.pinwheel} src={pinwheel} width='300px' height='300px' alt='pinwheel' />
+                <img className={classes.pinwheel} src={pinwheelImg} width='300px' height='300px' alt='pinwheel' />
             </div>
         </div>
     )

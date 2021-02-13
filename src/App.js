@@ -13,8 +13,6 @@ let theme = createMuiTheme({
         // fontFamily: `'Raleway', sans-serif`,
         // fontFamily: `'Playfair Display', sans-serif`,
         fontFamily: `'Rubik', sans-serif`,
-        // fontFamily: `'Londrina Outline', cursive`,
-        // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(13px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
@@ -25,12 +23,8 @@ let theme = createMuiTheme({
       h5: {
         // fontFamily: `'Mrs Sheppards', cursive;`,
         // fontFamily: `'Raleway', sans-serif`,
-        // fontFamily: `'Lato', sans-serif`,
         // fontFamily: `'Playfair Display', sans-serif`,
         fontFamily: `'Rubik', sans-serif`,
-
-        // fontFamily: `'Londrina Outline', cursive`,
-
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
@@ -52,19 +46,12 @@ let theme = createMuiTheme({
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
         fontWeight: 300,
-
-
-        // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(5px + 1.5vmin) !important',
         color: 'white',
       },
       body1: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
-        // fontFamily: `'Source Sans Pro', sans-serif `,
-
-
-        // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
         color: 'white',
         fontWeight: '600'
@@ -72,17 +59,12 @@ let theme = createMuiTheme({
       body2: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
-        // fontFamily: `'Source Sans Pro', sans-serif `,
-
-        // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'white'
       },
       caption: {
         // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
-
-        // fontFamily: `"Mukta", sans-serif`,
         fontSize: 'calc(3px + 1.5vmin) !important',
         color: 'white',
         fontWeight: 300

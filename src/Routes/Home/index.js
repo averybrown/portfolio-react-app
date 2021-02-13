@@ -1,6 +1,9 @@
-import React from 'react';
-// import Typography from '@material-ui/core/Typography';
+import React, { useEffect, useRef } from 'react';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { gsap } from 'gsap';
+
+
 
 const useStyles = makeStyles(theme => ({
     homePage: {
@@ -14,8 +17,8 @@ const useStyles = makeStyles(theme => ({
     },
 
     title: {
-        fontSize: 'calc(25px + 6vmin) !important',
         marginLeft: theme.spacing(50),
+        opacity: 1,
         // filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))',
         marginTop: theme.spacing(10),
         transition: 'all .4s ease-in-out',
@@ -28,16 +31,12 @@ const useStyles = makeStyles(theme => ({
             marginLeft: 0,
         },
         [theme.breakpoints.down("sm")]: {
-            // fontSize: 'calc(23px + 8vmin) !important',
-            fontSize: 'calc(70px + 8vmin) !important',
+            fontSize: 'calc(40px + 5vmin) !important',
         },
-        // fontFamily: `'Playfair Display', sans-serif`,
         fontFamily: `'Rubik', sans-serif`,
-
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
-        // letterSpacing: '-0.05em',
         textShadowColor: '#585858',
         textShadowOffset: { width: 5, height: 5 },
         textShadowRadius: 10,
@@ -48,26 +47,22 @@ const useStyles = makeStyles(theme => ({
 
 function HomePage() {
     const classes = useStyles();
+    let title = useRef(null);
+
+    useEffect(() => {
+        gsap.from([title], {
+            duration: 0.2,
+            delay: 0.5, 
+            ease: "power3.out", 
+            y: 32, 
+            opacity: 0,
+            display: 'none',
+        })
+    }, [title])
 
 
     return <div className={classes.homePage}>
-        <svg className={classes.title} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
-
-            <defs>
-                <clipPath id="theClipPath">
-                    <rect class="reveal" x="1000" y="100" width="1000" height="250" fill="#000" />
-                </clipPath>
-            </defs>
-
-            <line class="reveal" x1="500" y1="150" x2="500" y2="150" stroke-width="1" stroke="white" />
-
-            <g id="clipPathReveal" clip-path="url(#theClipPath)">
-                <text
-                    className={classes.title}
-                    transform="translate(500 250)" fill="#ffffff" text-anchor="middle">avery brown</text>
-            </g>
-        </svg>
-        {/* <Typography className={classes.title} variant="h5">avery brown</Typography> */}
+        <Typography ref={el => (title = el)} className={classes.title} variant="h5">avery brown</Typography>
     </div>
 }
 
