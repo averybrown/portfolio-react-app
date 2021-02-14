@@ -51,6 +51,11 @@ const useStyles = makeStyles(theme => ({
         textDecoration: 'none !important',
         cursor: 'pointer'
     },
+    "@global": {
+        ".MuiIconButton-colorInherit": {
+            color: 'white'
+        }
+    }
 }));
 
 

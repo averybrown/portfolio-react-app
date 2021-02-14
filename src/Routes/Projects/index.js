@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: 'calc(8vh - 1.5vmax)',
         [theme.breakpoints.down("xs")]: {
             marginTop: '5vh',
+            fontSize: '2.2rem !important'
         },
         textAlign: 'center',
         width: '100%',
@@ -43,9 +44,10 @@ const useStyles = makeStyles(theme => ({
         gridRowGap: 0,
         gridColumnGap: theme.spacing(3),
         [theme.breakpoints.down("xs")]: {
-            gridTemplateColumns: 'fit-content(70%)',
+            gridTemplateColumns: 'fit-content(75%)',
             gridTemplateRows: 'max-content max-content max-content',
-            bottom: '42vh !important',
+            bottom: '42vh !important', 
+            gridRowGap: theme.spacing(2)
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: '80%',
@@ -216,14 +218,14 @@ function ProjectsPage(props) {
     useEffect(() => {
         gsap.from([title, video, project, divider, paragraph], {
             duration: 3,
-            delay: 0.8, 
-            ease: "power3.out", 
-            y: 64, 
+            delay: 0.8,
+            ease: "power3.out",
+            y: 64,
             opacity: 0,
             stagger: {
                 amount: 1
             }
-        }); 
+        });
     }, [title, video, project, divider, paragraph])
 
 

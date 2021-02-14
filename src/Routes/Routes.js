@@ -6,7 +6,6 @@ import ResumePage from 'Routes/Resume';
 import ContactPage from 'Routes/Contact';
 import ProjectsPage from 'Routes/Projects';
 import { makeStyles } from '@material-ui/core/styles';
-import { gsap } from 'gsap';
 
 
 const useStyles = makeStyles(theme => ({
@@ -74,4 +73,3 @@ const Routes = (props) => {
 }
 
 export default Routes;
-                                // <Redirect exact to='/' />

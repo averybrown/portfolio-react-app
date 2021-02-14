@@ -28,6 +28,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: 'calc(8vh - 1.5vmax)',
         [theme.breakpoints.down("xs")]: {
             marginTop: '5vh',
+            fontSize: '2.2rem !important'
         },
     },
     content: {
@@ -49,9 +50,9 @@ const useStyles = makeStyles(theme => ({
         marginLeft: 'auto',
         [theme.breakpoints.down("xs")]: {
             paddingTop: 0,
-            maxHeight: '62vh',
+            maxHeight: '54vh',
             maxWidth: '95vw',
-            marginTop: '17vh',
+            marginTop: '18vh',
             paddingRight: theme.spacing(1),
             paddingLeft: theme.spacing(1),
             gridTemplateColumns: 'repeat(3, 1fr) !important',
@@ -384,7 +385,11 @@ const useStyles = makeStyles(theme => ({
             transition: 'all 0.2s ease-in',
             marginTop: theme.spacing(1),
             marginBottom: theme.spacing(1),
-            height: `${theme.spacing(3)}px !important`
+            height: `${theme.spacing(3)}px !important`, 
+            [theme.breakpoints.down("xs")]: {
+                marginTop: 0,
+                marginBottom: 0
+            },
         },
         '&:hover:before': {
             transition: 'all 0.2s ease-in',
@@ -469,13 +474,16 @@ const useStyles = makeStyles(theme => ({
     },
     biggerBody2Font: {
         [theme.breakpoints.down("xs")]: {
-            fontSize: 'calc(8px + 65%) !important',
+            // fontSize: 'calc(8px + 65%) !important',
+            fontSize: '0.75rem !important',
             fontWeight: 400
         },
     },
     biggerCaptionFont: {
         [theme.breakpoints.down("xs")]: {
-            fontSize: 'calc(5px + 75%) !important',
+            // fontSize: 'calc(5px + 75%) !important',
+            fontSize: '0.65rem !important',
+
         },
     },
     experienceTitle: {

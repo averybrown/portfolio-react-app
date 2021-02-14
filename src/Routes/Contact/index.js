@@ -20,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         zIndex: 10,
+        [theme.breakpoints.down("xs")]: {
+            fontSize: '2.2rem !important'
+        }
     },
     email: {
         zIndex: 100,
