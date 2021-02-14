@@ -600,13 +600,14 @@ function ResumePage(props) {
     const classes = useStyles();
     let title = useRef(null);
 
+
     useEffect(() => {
         gsap.from([title], {
             duration: 0.8,
-            delay: 0.5, 
+            delay: 0.8, 
             ease: "power3.out", 
             y: 64, 
-            // alpha: 0,
+            opacity: 0,
             display: 'none',
         })
     }, [title])

@@ -12,28 +12,23 @@ import { gsap } from 'gsap';
 const useStyles = makeStyles(theme => ({
     pageTransitionEnter: {
         opacity: 0,
+        
     },
     pageTransitionEnterActive: {
         opacity: 1,
-        transition: 'opacity 400ms',
-        transitionDelay: '600ms'
+        transition: 'opacity 600ms',
+        transitionDelay: '1000ms',
+       
     },
     pageTransitionExit: {
-        opacity: 1,
+        opacity: 1,        
     },
     pageTransitionExitActive: {
         opacity: 0,
-        transition: 'opacity 400ms',
-        transitionDelay: '600ms'
+        display:'none',
+        transition: 'opacity 600ms',
+        transitionDelay: '1000ms'
     },
-    pageTransitionAppear: {
-        opacity: 0
-    },
-    pageTransitionAppearActive: {
-        opacity: 1,
-        transition: 'opacity 400ms',
-        transitionDelay: '600ms'
-    }
 }));
 
 
@@ -48,39 +43,6 @@ const routes = [
 
 const Routes = (props) => {
     const classes = useStyles(props);
-
-    const onEnter = node => {
-        console.log("node: ", node)
-        console.log("node children: ", node.children[0])
-        gsap.from([node], {
-            // autoAlpha: 0
-            // duration: 0.6, 
-            // y: 30, 
-            // opacity: 1, 
-            // delay: 0.6, 
-            // ease: "power3", 
-            // stagger: {
-            //     amount: 0.6
-            // }
-        });
-        gsap.to([node], {
-            autoAlpha: 1
-        })
-    }
-
-    const onExit = node => {
-        gsap.to([node], {
-            duration: 0.6,
-            y: -30, 
-            delay: 0.6, 
-            autoAlpha: 0,
-            ease: "power3.out", 
-            stagger: {
-                amount: 0.6
-            }
-        })
-    }
-
 
     return (
         <React.Fragment>
@@ -100,8 +62,6 @@ const Routes = (props) => {
 
                             }}
                             unmountOnExit
-                            onExit={onExit}
-                            onEnter={onEnter}
                         >
                                 <Component />
                         </CSSTransition>

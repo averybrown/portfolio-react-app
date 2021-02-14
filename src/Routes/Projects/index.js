@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { gsap } from 'gsap';
 
 
+
 const useStyles = makeStyles(theme => ({
     projectsPage: {
-        opacity: 0,
         height: '100%',
         width: '100%',
         overflow: 'hidden',
@@ -24,7 +24,6 @@ const useStyles = makeStyles(theme => ({
         },
         textAlign: 'center',
         width: '100%',
-        // marginRight: '-20%'
     },
     grid: {
         display: 'grid',
@@ -47,7 +46,6 @@ const useStyles = makeStyles(theme => ({
             gridTemplateColumns: 'fit-content(70%)',
             gridTemplateRows: 'max-content max-content max-content',
             bottom: '42vh !important',
-            // right: '0 !important'
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: '80%',
@@ -58,12 +56,12 @@ const useStyles = makeStyles(theme => ({
             gridRowGap: theme.spacing(3),
             gridTemplateColumns: 'fit-content(70%) fit-content(30%)',
             bottom: '12vh',
-            right: '12vw', 
+            right: '12vw',
             gridColumnGap: theme.spacing(7),
         },
         [theme.breakpoints.down('sm')]: {
             bottom: '30vh',
-            gridRowGap: theme.spacing(3), 
+            gridRowGap: theme.spacing(3),
             maxHeight: '22vh'
         },
 
@@ -78,7 +76,6 @@ const useStyles = makeStyles(theme => ({
         justifySelf: 'center',
         position: 'relative',
         paddingBottom: '56.25%', /* 16:9 */
-        // height: 0,
         marginBottom: '20px',
         [theme.breakpoints.down("xs")]: {
             gridRow: 1,
@@ -96,7 +93,7 @@ const useStyles = makeStyles(theme => ({
             paddingBottom: '56.25% !important', /* 16:9 */
         },
         [theme.breakpoints.up('sm')]: {
-            width: '56vw', 
+            width: '56vw',
             paddingBottom: '43.25%', /* 16:9 */
         },
 
@@ -215,28 +212,23 @@ function ProjectsPage(props) {
     let video = useRef(null);
     let divider = useRef(null);
     let paragraph = useRef(null);
-    let page = useRef(null);
-
 
     useEffect(() => {
-        gsap.to([page], {
-            duration: 0.1, 
-            autoAlpha: 1
-        });
         gsap.from([title, video, project, divider, paragraph], {
-            duration: 0.8,
-            delay: 0.5,
-            ease: "power3.out",
-            y: 32,
-            // opacity: 0,
+            duration: 3,
+            delay: 0.8, 
+            ease: "power3.out", 
+            y: 64, 
+            opacity: 0,
             stagger: {
-                amount: 0.5
+                amount: 1
             }
-        })
+        }); 
     }, [title, video, project, divider, paragraph])
 
 
-    return <div ref={el => (page = el)} className={classes.projectsPage}>
+
+    return <div className={classes.projectsPage}>
         <Typography ref={el => (title = el)} className={classes.title} variant="h6">projects</Typography>
         <div className={classes.grid}>
             <div ref={el => (video = el)} className={classes.trailer}>

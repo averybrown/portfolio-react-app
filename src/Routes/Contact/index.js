@@ -4,7 +4,7 @@ import pinwheelImg from 'Assets/pinwheel.png';
 import pinwheelPole from 'Assets/pinwheelpole.png';
 import letter from 'Assets/letter.png';
 import { makeStyles } from '@material-ui/core/styles';
-import { gsap, TimelineMax as Timeline } from 'gsap';
+import { gsap } from 'gsap';
 
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
     },
     address: {
         paddingRight: theme.spacing(1) / 4,
-        // fontWeight: '500'
     },
     letter: {
         width: 'calc(20px + 1.5vmin) !important',
@@ -54,9 +53,9 @@ const useStyles = makeStyles(theme => ({
         left: '52%',
         bottom: '50%',
         zIndex: 5,
-        // animationName: '$pinwheelEntrance',
-        // animationFillMode: 'both',
-        // animationDuration: '5000ms',
+        animationName: '$pinwheelEntrance',
+        animationFillMode: 'both',
+        animationDuration: '5000ms',
         [theme.breakpoints.down("xs")]: {
             left: '10%'
         },
@@ -131,28 +130,19 @@ function ContactPage(props) {
     let title = useRef(null);
     let email = useRef(null);
     let pinwheel = useRef(null);
-    // const timeline = new Timeline({ paused: true });
-
 
     useEffect(() => {
-        gsap.from([pinwheel], {
-            duration: 5,
-            delay: 0.3,
-            ease: "power1.in",
-            y: 600,
-            opacity: 0,
-        })
         gsap.from([title, email], {
-            duration: 0.5,
-            delay: 0.5,
-            ease: "power3.in",
-            y: 32,
+            duration: 0.3,
+            delay: 1, 
+            ease: "power3.out", 
+            y: 32, 
             opacity: 0,
             stagger: {
-                amount: 0.1
+                amount: 0.3
             }
         });
-    }, [pinwheel, title, email])
+    }, [title, email])
 
 
     return (

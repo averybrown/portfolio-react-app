@@ -10,8 +10,6 @@ let theme = createMuiTheme({
   overrides: {
     MuiTypography: {
       h6: {
-        // fontFamily: `'Raleway', sans-serif`,
-        // fontFamily: `'Playfair Display', sans-serif`,
         fontFamily: `'Rubik', sans-serif`,
         fontSize: 'calc(13px + 8vmin) !important',
         color: 'white',
@@ -21,9 +19,6 @@ let theme = createMuiTheme({
         textShadowRadius: 10,
       },
       h5: {
-        // fontFamily: `'Mrs Sheppards', cursive;`,
-        // fontFamily: `'Raleway', sans-serif`,
-        // fontFamily: `'Playfair Display', sans-serif`,
         fontFamily: `'Rubik', sans-serif`,
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
@@ -34,36 +29,29 @@ let theme = createMuiTheme({
         textShadowRadius: 10,
       },
       subtitle2: {
-        // fontFamily: `"Roboto", sans-serif`,
-        // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
-
         fontSize: 'calc(9px + 1.5vmin) !important',
         color: 'white',
         fontWeight: '300',
       },
       subtitle1: {
-        // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
         fontWeight: 300,
         fontSize: 'calc(5px + 1.5vmin) !important',
         color: 'white',
       },
       body1: {
-        // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
         fontSize: 'calc(10px + 1.5vmin) !important',
         color: 'white',
         fontWeight: '600'
       },
       body2: {
-        // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
         fontSize: 'calc(6px + 1.5vmin) !important',
         color: 'white'
       },
       caption: {
-        // fontFamily: `'Raleway', sans-serif`,
         fontFamily: `'Lato', sans-serif`,
         fontSize: 'calc(3px + 1.5vmin) !important',
         color: 'white',

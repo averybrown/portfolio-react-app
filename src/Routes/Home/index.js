@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { gsap } from 'gsap';
 
 
-
 const useStyles = makeStyles(theme => ({
     homePage: {
         height: '100%',
@@ -17,15 +16,13 @@ const useStyles = makeStyles(theme => ({
     },
 
     title: {
+        display: 'inline-block',
+        lineHeight: '1em',
+        transformOrigin: '0 0',
         marginLeft: theme.spacing(50),
-        opacity: 1,
-        // filter: 'drop-shadow(0 0 0.4rem rgb(216, 88, 168))',
         marginTop: theme.spacing(10),
         transition: 'all .4s ease-in-out',
-        // '&:hover': {
-        //     transform: 'scale(1.1)',
-        //     filter: 'drop-shadow(0 0 0.3rem rgb(216, 88, 168))',
-        // },
+
         [theme.breakpoints.down("md")]: {
             marginTop: 0,
             marginLeft: 0,
@@ -37,11 +34,22 @@ const useStyles = makeStyles(theme => ({
         fontSize: 'calc(10px + 8vmin) !important',
         color: 'white',
         fontWeight: '200',
-        textShadowColor: '#585858',
-        textShadowOffset: { width: 5, height: 5 },
-        textShadowRadius: 10,
 
     },
+    textWrapper: {
+        position: 'relative',
+        display: 'inline-block',
+        paddingTop: '0.2em',
+        paddingRight: '0.05em',
+        paddingBottom: '0.1em',
+        overflow: 'hidden'
+    }, 
+    ml10: {
+        position: 'relative',
+        fontWeight: 900,
+        fontSize: '4em', 
+        opacity: 0
+    }
 }))
 
 
@@ -51,10 +59,10 @@ function HomePage() {
 
     useEffect(() => {
         gsap.from([title], {
-            duration: 0.2,
-            delay: 0.5, 
+            duration: 0.5,
+            delay: 0.8, 
             ease: "power3.out", 
-            y: 32, 
+            y: 64, 
             opacity: 0,
             display: 'none',
         })
@@ -62,7 +70,9 @@ function HomePage() {
 
 
     return <div className={classes.homePage}>
-        <Typography ref={el => (title = el)} className={classes.title} variant="h5">avery brown</Typography>
+        <div className={`${classes.textWrapper} textWrapper`}>
+            <Typography ref={el => (title = el)} className={`${classes.title} letters`} variant="h5">avery brown</Typography>
+        </div>
     </div>
 }
 
