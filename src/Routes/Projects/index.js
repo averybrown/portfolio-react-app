@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
             gridTemplateColumns: 'fit-content(75%)',
             gridTemplateRows: 'max-content max-content max-content',
             bottom: '42vh !important', 
-            gridRowGap: theme.spacing(2)
+            gridRowGap: `${theme.spacing(2)} !important`
         },
         [theme.breakpoints.up('sm')]: {
             maxWidth: '80%',
@@ -82,7 +82,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("xs")]: {
             gridRow: 1,
             gridColumnEnd: '2 !important',
-            justifySelf: 'center !important',
+            justifySelf: 'start !important',
+            width: '61vw',
+            paddingBottom: '45.25%', /* 16:9 */
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 1,
@@ -120,10 +122,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down("xs")]: {
             gridRow: '2 !important',
             gridColumn: 1,
-            marginLeft: '2vw'
-        },
-        [theme.breakpoints.up("xs")]: {
-            marginTop: theme.spacing(1) / 2
+            marginLeft: 0, 
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 2,
@@ -146,11 +145,13 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'start',
         justifySelf: 'start',
         paddingTop: 0,
+        marginRight: '10%',
         [theme.breakpoints.down("xs")]: {
             gridColumn: '1 !important',
             gridRow: '3 !important',
             marginLeft: '2vw',
-            fontSize: 'calc(4px + 50%) !important',
+            fontSize: '0.6rem !important',
+            marginRight: '33%'
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 2,
