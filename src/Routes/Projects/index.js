@@ -135,7 +135,7 @@ const useStyles = makeStyles(theme => ({
         lineHeight: '1.1',
         fontWeight: 900,
         [theme.breakpoints.down("xs")]: {
-            fontSize: 'calc(40px + 1.5vmin) !important',
+            fontSize: 'calc(40px + 1.2vmin) !important',
         },
     },
     projectDescription: {
@@ -150,7 +150,7 @@ const useStyles = makeStyles(theme => ({
             gridColumn: '1 !important',
             gridRow: '3 !important',
             marginLeft: '2vw',
-            fontSize: '0.6rem !important',
+            fontSize: 'calc(9px + 0.6vmin) !important',
             marginRight: '33%'
         },
         [theme.breakpoints.down('sm')]: {
