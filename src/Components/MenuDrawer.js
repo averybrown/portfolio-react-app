@@ -13,17 +13,12 @@ import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        display: 'none',
-        [theme.breakpoints.down("xs")]: {
-            display: 'flex',
-            position: 'absolute',
+        display: 'flex',
+        position: 'absolute',
+        [theme.breakpoints.up("md")]: {
+            display: 'none',
         },
-        zIndex: 9
-    },
-    landscapeMobile: {
-        ['@media all and (orientation:landscape)']: {
-            display: 'none'
-        }
+        zIndex: 9,
     },
     menuButton: {
         marginLeft: theme.spacing(1),
@@ -36,21 +31,20 @@ const useStyles = makeStyles(theme => ({
     },
     drawerPaper: {
         width: '100%',
-        // backgroundColor: '#A62667',
-        backgroundColor: '#0A4261', 
+        backgroundColor: '#672650',
         opacity: '95%'
     },
     navBar: {
         display: 'flex',
         flexDirection: 'column',
-        paddingBottom: theme.spacing(2), 
+        paddingBottom: theme.spacing(2),
         paddingTop: theme.spacing(2)
     },
     navText: {
         color: 'rgb(255, 255, 255, 1)',
         textAlign: 'center',
-        verticalAlign: 'middle', 
-        marginBottom: theme.spacing(2), 
+        verticalAlign: 'middle',
+        marginBottom: theme.spacing(2),
         marginTop: theme.spacing(2)
     },
     link: {
@@ -77,17 +71,17 @@ function ResponsiveDrawer(props) {
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/">
                     <Typography variant='subtitle2' className={classes.navText}>home</Typography>
                 </NavLink>
-                <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
+                <Divider style={{ marginLeft: '40%', marginRight: '40%' }} variant="middle" />
 
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/projects">
                     <Typography variant='subtitle2' className={classes.navText}>projects</Typography>
                 </NavLink>
-                <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
+                <Divider style={{ marginLeft: '40%', marginRight: '40%' }} variant="middle" />
 
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/resume">
                     <Typography variant='subtitle2' className={classes.navText}>resume</Typography>
                 </NavLink>
-                <Divider style={{marginLeft:'40%', marginRight: '40%'}} variant="middle" />
+                <Divider style={{ marginLeft: '40%', marginRight: '40%' }} variant="middle" />
 
                 <NavLink exact className={classes.link} activeClassName='active-link' to="/contact">
                     <Typography variant='subtitle2' className={classes.navText}>contact</Typography>

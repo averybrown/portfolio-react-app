@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import bubble from 'Assets/bubble.png';
 import { BUBBLESTART, BUBBLEDELAY, BUBBLEDURATION, NUMBUBBLES } from 'Constants/constants';
-// import { withSoundContext } from 'Contexts/SoundContext';
 
 
 
@@ -23,30 +22,30 @@ const styles = theme => {
             },
         },
         bubble1: {
-            animationName: '$BubbleUp1',
+            animationName: '$bubbleUp1',
             animationDelay: `${BUBBLESTART}s`
         },
         bubble2: {
-            animationName: '$BubbleUp2',
+            animationName: '$bubbleUp2',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY}s`
         },
         bubble3: {
-            animationName: '$BubbleUp3',
+            animationName: '$bubbleUp3',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 2}s`
         },
         bubble4: {
-            animationName: '$BubbleUp4',
+            animationName: '$bubbleUp4',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 3}s`
         },
         bubble5: {
-            animationName: '$BubbleUp5',
+            animationName: '$bubbleUp5',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 4}s`
         },
         bubble6: {
-            animationName: '$BubbleUp6',
+            animationName: '$bubbleUp6',
             animationDelay: `${BUBBLESTART + BUBBLEDELAY * 5}s`
         },
-        "@keyframes BubbleUp1": {
+        "@keyframes bubbleUp1": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
@@ -69,7 +68,7 @@ const styles = theme => {
                 transform: 'translateX(5vw) scale(1.2)'
             },
         },
-        "@keyframes BubbleUp2": {
+        "@keyframes bubbleUp2": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
@@ -92,7 +91,7 @@ const styles = theme => {
                 transform: 'translateX(12vw) scale(1)',
             },
         },
-        "@keyframes BubbleUp3": {
+        "@keyframes bubbleUp3": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
@@ -115,7 +114,7 @@ const styles = theme => {
                 transform: 'translateX(8vw) scale(0.8)'
             },
         },
-        "@keyframes BubbleUp4": {
+        "@keyframes bubbleUp4": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
@@ -138,7 +137,7 @@ const styles = theme => {
                 transform: 'translateX(5vw) scale(0.7)'
             },
         },
-        "@keyframes BubbleUp5": {
+        "@keyframes bubbleUp5": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,
@@ -161,7 +160,7 @@ const styles = theme => {
                 transform: 'translateX(5vw) scale(1.2)'
             },
         },
-        "@keyframes BubbleUp6": {
+        "@keyframes bubbleUp6": {
             "0%": {
                 bottom: '53%',
                 opacity: 0,

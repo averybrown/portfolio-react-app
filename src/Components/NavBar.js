@@ -7,7 +7,7 @@ import { withRouter } from "react-router-dom";
 const styles = theme => ({
     navBar: {
         display: 'none',
-        [theme.breakpoints.up("sm")]: {
+        [theme.breakpoints.up("md")]: {
             display: 'flex',
             flexShrink: 0,
             alignItems: 'center',
@@ -47,7 +47,7 @@ const styles = theme => ({
         },
         '&:hover:after': {
             width: '50%',
-            left: '24%', 
+            left: '24%',
             cursor: 'pointer',
 
         },
@@ -61,7 +61,7 @@ const styles = theme => ({
             position: 'absolute',
             background: '#ddd',
             transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
-            width: 0, 
+            width: 0,
             cursor: 'pointer',
         },
     },
@@ -79,7 +79,7 @@ const styles = theme => ({
             background: '#ddd',
             transition: 'width 0.3s ease 0s, left 0.3s ease 0s',
             width: '50%',
-            left: '24%', 
+            left: '24%',
             filter: 'drop-shadow(0 0 0.8rem rgb(216, 88, 168))'
         },
     }
@@ -95,7 +95,7 @@ class NavBar extends Component {
             <React.Fragment>
                 < nav className={classes.navBar} >
                     <div className={classes.title}>
-                        <NavLink exact to="/" activeClassName={classes.active} className={classes.link} >
+                        <NavLink exact to="/" activeClassName={classes.active} className={`${classes.link} navButton`} >
                             <Typography variant="subtitle2" className={classes.navText}>home</Typography>
                         </NavLink>
                     </div>
@@ -111,6 +111,7 @@ class NavBar extends Component {
                         </NavLink>
 
                     </div>
+     
                 </nav >
             </React.Fragment>
         )
