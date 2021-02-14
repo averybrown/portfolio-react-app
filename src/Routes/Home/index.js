@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft: theme.spacing(50),
         marginTop: theme.spacing(10),
         transition: 'all .4s ease-in-out',
+        transform: 'translate(0px, -5px)',
 
         [theme.breakpoints.down("md")]: {
             marginTop: 0,
@@ -60,9 +61,9 @@ function HomePage() {
     useEffect(() => {
         gsap.from([title], {
             duration: 0.5,
-            delay: 0.8, 
+            delay: 4, 
             ease: "power3.out", 
-            y: 64, 
+            y: 85, 
             opacity: 0,
             display: 'none',
         })
