@@ -61,7 +61,7 @@ function HomePage() {
     useEffect(() => {
         gsap.from([title], {
             duration: 0.5,
-            delay: 4, 
+            delay: 1, 
             ease: "power3.out", 
             y: 85, 
             opacity: 0,

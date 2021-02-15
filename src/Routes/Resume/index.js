@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         zIndex: 10,
         marginTop: 'calc(8vh - 1.5vmax)',
         [theme.breakpoints.down("xs")]: {
-            marginTop: '5vh',
+            marginTop: '3vh',
             fontSize: '2.2rem !important'
         },
     },

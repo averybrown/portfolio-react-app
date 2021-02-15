@@ -11,13 +11,12 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     pageTransitionEnter: {
         opacity: 0,
-        
+        display: 'none' 
     },
     pageTransitionEnterActive: {
         opacity: 1,
         transition: 'opacity 600ms',
-        transitionDelay: '1000ms',
-       
+        transitionDelay: '1000ms', 
     },
     pageTransitionExit: {
         opacity: 1,        
