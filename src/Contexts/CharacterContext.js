@@ -65,7 +65,7 @@ const pages = [
 ]
 
 let timeout;
-
+let MyCharacter;
 
 class CharacterDataProvider extends Component {
 
@@ -92,6 +92,27 @@ class CharacterDataProvider extends Component {
         if (currentPage !== undefined && currentPage.states[currentState]) {
             return currentPage.states[currentState].bubbles;
         }
+    }
+
+    checkIfPlantGrowing = () => {
+        const { currentPage, currentState } = this.state;
+        let isPlantGrowing = false
+
+        if (currentPage !== undefined) {
+            let isResumePage = currentPage.name === 'resume';
+            isPlantGrowing = isResumePage && currentState === 3
+        }
+        return isPlantGrowing
+    }
+
+    checkPlayFinalFrame = () => {
+        const { currentPage, currentState } = this.state;
+        let playFinalFrame = false;
+
+        if (currentPage !== undefined) {
+            playFinalFrame =  currentState === 2
+        }
+        return playFinalFrame
     }
 
     getCharacterType = () => {
@@ -246,8 +267,12 @@ class CharacterDataProvider extends Component {
         clearTimeout(timeout);
 
         let nextState = currentState + 1;
-
-        this.setNextStateIndexAndGif(nextState)
+        /*if(MyCharacter !== undefined)
+        {
+            let nextGif = this.state.currentPage.states[nextState].animation;
+            MyCharacter.SetCurrentStateAndGifForCharacter(nextGif);
+        }*/
+        this.setNextStateIndexAndGif(nextState);
     }
 
 
@@ -303,6 +328,16 @@ class CharacterDataProvider extends Component {
         }
     }
 
+    setMyCharacter(TheCharacter) {
+        MyCharacter = TheCharacter;
+        //TheCharacter.SetCurrentStateAndGifForCharacter(this.state.currentState,this.state.currentGif);
+        console.log("CHARACTER SET");
+    }
+
+    getMyCharacter(TheCharacter) {
+        return MyCharacter;
+    }
+
     render() {
         return (
             //  Component allows consuming components to subscribe to context changes
@@ -312,6 +347,11 @@ class CharacterDataProvider extends Component {
                 isCharacterExiting: this.isCharacterExiting,
                 checkBubbles: this.checkBubbles,
                 getCharacterType: this.getCharacterType,
+                getMyCharacter: this.getMyCharacter,
+                setMyCharacter: this.setMyCharacter,
+                setNextStateIndexAndGif: this.setNextStateIndexAndGif,
+                checkIfPlantGrowing: this.checkIfPlantGrowing, 
+                checkPlayFinalFrame: this.checkPlayFinalFrame
             }}>
                 {this.props.children}
             </CharacterContext.Provider >
