@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
             paddingTop: 0,
             maxHeight: '54vh',
             maxWidth: '95vw',
-            marginTop: '18vh',
+            marginTop: '16vh',
             paddingRight: theme.spacing(1),
             paddingLeft: theme.spacing(1),
             gridTemplateColumns: 'repeat(3, 1fr) !important',
@@ -138,8 +138,10 @@ const useStyles = makeStyles(theme => ({
     },
     date: {
         textAlign: 'end',
+        alignSelf: 'flex-end',
         [theme.breakpoints.down("md")]: {
-            textAlign: 'center'
+            textAlign: 'center', 
+            alignSelf: 'center'
         },
     },
     downloadIcon: {

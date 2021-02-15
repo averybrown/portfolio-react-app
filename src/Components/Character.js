@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import { CharacterContext } from 'Contexts/CharacterContext';
 import Bubbles from 'Components/Bubbles';
+import foxEnterFinalFrame from 'Assets/fox-enter-scene-2-final-frame.png';
+import bearEnterFinalFrame from 'Assets/bear-enter-scene-final-frame.png';
+import foxPlantGrowingFinalFrame from 'Assets/fox-plant-growing-final-frame.png';
 
+
+let MyGif;
+let MyNextGif;
+let MyNextState;
 
 const styles = theme => {
     return {
@@ -110,20 +117,30 @@ class Character extends Component {
         }
     }
 
+    SetCurrentStateAndGifForCharacter(NextState, NextGif) {
+        console.log("HI THERE :)")
+        MyNextState = NextState;
+        MyNextGif = new Image();
+        MyNextGif.src = NextGif;
+        MyNextGif.handleImageLoaded = this.handleImageLoaded();
+    }
+
 
     render() {
         let { classes } = this.props;
+        let { currentGif } = this.state;
         let isCharacterExiting = this.context.isCharacterExiting();
         let doesCharacterEnter = this.context.doesCharacterEnter() && !isCharacterExiting;
         let showBubbles = this.context.checkBubbles();
-        let nextGif = this.context.currentGif;
         let characterType = this.context.getCharacterType();
-        // let characterEntrance = characterType + 'Entrance';
-        // let characterExit = characterType + 'Exit';
         let loading = false;
+        let contextCurrentGif = this.context.currentGif;
         let isFox = characterType === 'fox';
-        loading = this.state.currentGif !== this.context.currentGif || this.state.currentGif === undefined
-
+        let isPlantGrowing = this.context.checkIfPlantGrowing();
+        let lastFrame = isFox ? (isPlantGrowing ? foxPlantGrowingFinalFrame : foxEnterFinalFrame) : bearEnterFinalFrame
+        loading = currentGif !== contextCurrentGif || currentGif === undefined
+        let showFinalFrame = this.context.checkPlayFinalFrame()
+        console.log("isplantgrowing: ", isPlantGrowing)
 
         return <React.Fragment>
             <div className={doesCharacterEnter ?
@@ -132,10 +149,18 @@ class Character extends Component {
                     `${classes.characterContainer} ${classes.exit} ${classes[characterType]}`
                     : `${classes.characterContainer} ${classes[characterType]}`}>
                 <img
-                    style={isFox ? { right: 0 } : { left: 0 }}
+                    style={isFox ?
+                        {
+                            right: 0,
+                            visibility: loading && (showFinalFrame || isPlantGrowing) ? "hidden" : "visible"
+                        }
+                        : {
+                            left: 0,
+                            visibility: loading && (showFinalFrame || isPlantGrowing) ? "hidden" : "visible"
+                        }}
                     className={classes.character}
-                    src={this.state.currentGif}
-                    onLoad={this.handleImageLoading}
+                    src={contextCurrentGif}
+                    onLoad={this.handleImageLoaded}
                     onError={this.handleImageErrored}
                     alt='character' />
 
@@ -143,16 +168,15 @@ class Character extends Component {
                     style={isFox ?
                         {
                             right: 0,
-                            visibility: loading ? "hidden" : "visible" 
+                            visibility: loading && (showFinalFrame || isPlantGrowing) ? "visible" : "hidden"
                         }
                         : {
                             left: 0,
-                             visibility: loading ? "hidden" : "visible" 
+                            visibility: loading && (showFinalFrame || isPlantGrowing) ? "visible" : "hidden"
                         }}
-                    className={loading ? `${classes.character} ${classes.hidden}`
-                        : `${classes.character} ${classes.visible}`}
-                    src={nextGif}
-                    onLoad={this.handleImageLoaded}
+                    className={loading ? `${classes.character} ${classes.visible}`
+                        : `${classes.character} ${classes.hidden}`}
+                    src={lastFrame}
                     onError={this.handleImageErrored}
                     alt='character' />
 

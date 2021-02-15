@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             bottom: '30vh',
             gridRowGap: theme.spacing(3),
-            maxHeight: '22vh'
+            maxHeight: '19vh'
         },
 
     },
@@ -150,7 +150,7 @@ const useStyles = makeStyles(theme => ({
             gridColumn: '1 !important',
             gridRow: '3 !important',
             marginLeft: '2vw',
-            fontSize: 'calc(9px + 0.6vmin) !important',
+            fontSize: 'calc(9px + 0.75vmin) !important',
             marginRight: '33%'
         },
         [theme.breakpoints.down('sm')]: {
