@@ -140,6 +140,7 @@ class Character extends Component {
         let lastFrame = isFox ? (isPlantGrowing ? foxPlantGrowingFinalFrame : foxEnterFinalFrame) : bearEnterFinalFrame
         loading = currentGif !== contextCurrentGif || currentGif === undefined
         let showFinalFrame = this.context.checkPlayFinalFrame()
+        console.log("isplantgrowing: ", isPlantGrowing)
 
         return <React.Fragment>
             <div className={doesCharacterEnter ?
