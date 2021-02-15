@@ -7,9 +7,9 @@ import bearEnterFinalFrame from 'Assets/bear-enter-scene-final-frame.png';
 import foxPlantGrowingFinalFrame from 'Assets/fox-plant-growing-final-frame.png';
 
 
-let MyGif;
-let MyNextGif;
-let MyNextState;
+let lastFrame;
+let bFirstStaticImageShown;
+// let RenderCounter=0;
 
 const styles = theme => {
     return {
@@ -100,7 +100,21 @@ class Character extends Component {
 
 
     handleImageLoaded = () => {
-        this.setState({ currentGif: this.context.currentGif });
+
+        let NewLastFrame;
+        if(bFirstStaticImageShown)
+        {
+            NewLastFrame = foxPlantGrowingFinalFrame;
+        }
+        else if(this.context.checkIfPlantGrowing())
+        {
+            NewLastFrame =foxEnterFinalFrame
+        }
+        if(lastFrame !== NewLastFrame)
+        {
+            lastFrame=NewLastFrame;
+        }
+        this.setState({ currentGif: this.context.currentGif })
     }
 
     handleImageErrored = () => {
@@ -117,16 +131,10 @@ class Character extends Component {
         }
     }
 
-    SetCurrentStateAndGifForCharacter(NextState, NextGif) {
-        console.log("HI THERE :)")
-        MyNextState = NextState;
-        MyNextGif = new Image();
-        MyNextGif.src = NextGif;
-        MyNextGif.handleImageLoaded = this.handleImageLoaded();
-    }
-
 
     render() {
+        // RenderCounter++;
+        // console.log("Render:",RenderCounter);
         let { classes } = this.props;
         let { currentGif } = this.state;
         let isCharacterExiting = this.context.isCharacterExiting();
@@ -137,10 +145,24 @@ class Character extends Component {
         let contextCurrentGif = this.context.currentGif;
         let isFox = characterType === 'fox';
         let isPlantGrowing = this.context.checkIfPlantGrowing();
-        let lastFrame = isFox ? (isPlantGrowing ? foxPlantGrowingFinalFrame : foxEnterFinalFrame) : bearEnterFinalFrame
+        if(bFirstStaticImageShown )
+        {
+            lastFrame = foxPlantGrowingFinalFrame;
+        }
+        else
+        {
+            lastFrame = isFox ? foxEnterFinalFrame : bearEnterFinalFrame
+        }
         loading = currentGif !== contextCurrentGif || currentGif === undefined
         let showFinalFrame = this.context.checkPlayFinalFrame()
-        console.log("isplantgrowing: ", isPlantGrowing)
+        if(loading && showFinalFrame && this.context.checkWillPlantGrow())
+        {
+            bFirstStaticImageShown = true;
+        }
+        if(loading && isPlantGrowing)
+        {
+            bFirstStaticImageShown=false;
+        }
 
         return <React.Fragment>
             <div className={doesCharacterEnter ?

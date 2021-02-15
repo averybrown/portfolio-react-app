@@ -65,7 +65,6 @@ const pages = [
 ]
 
 let timeout;
-let MyCharacter;
 
 class CharacterDataProvider extends Component {
 
@@ -103,6 +102,17 @@ class CharacterDataProvider extends Component {
             isPlantGrowing = isResumePage && currentState === 3
         }
         return isPlantGrowing
+    }
+
+    checkWillPlantGrow = () => {
+        const { currentPage, currentState } = this.state;
+        let willPlantGrow = false
+
+        if (currentPage !== undefined) {
+            let isResumePage = currentPage.name === 'resume';
+            willPlantGrow = isResumePage && currentState === 2
+        }
+        return willPlantGrow
     }
 
     checkPlayFinalFrame = () => {
@@ -328,15 +338,6 @@ class CharacterDataProvider extends Component {
         }
     }
 
-    setMyCharacter(TheCharacter) {
-        MyCharacter = TheCharacter;
-        //TheCharacter.SetCurrentStateAndGifForCharacter(this.state.currentState,this.state.currentGif);
-        console.log("CHARACTER SET");
-    }
-
-    getMyCharacter(TheCharacter) {
-        return MyCharacter;
-    }
 
     render() {
         return (
@@ -351,7 +352,8 @@ class CharacterDataProvider extends Component {
                 setMyCharacter: this.setMyCharacter,
                 setNextStateIndexAndGif: this.setNextStateIndexAndGif,
                 checkIfPlantGrowing: this.checkIfPlantGrowing, 
-                checkPlayFinalFrame: this.checkPlayFinalFrame
+                checkPlayFinalFrame: this.checkPlayFinalFrame,
+                checkWillPlantGrow: this.checkWillPlantGrow
             }}>
                 {this.props.children}
             </CharacterContext.Provider >
