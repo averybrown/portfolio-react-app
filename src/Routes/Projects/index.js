@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
         gridRowGap: 0,
         gridColumnGap: theme.spacing(3),
         [theme.breakpoints.down("xs")]: {
-            gridTemplateColumns: 'fit-content(75%)',
+            gridTemplateColumns: 'fit-content(80%)',
             gridTemplateRows: 'max-content max-content max-content',
             bottom: '42vh !important', 
             gridRowGap: `14px !important`
@@ -130,12 +130,12 @@ const useStyles = makeStyles(theme => ({
         },
     },
     projectTitle: {
-        fontSize: 'calc(54px + 1.5vmin) !important',
+        fontSize: 'calc(54px + 1.5vmin)',
         textAlign: 'start',
         lineHeight: '1.1',
         fontWeight: 900,
         [theme.breakpoints.down("xs")]: {
-            fontSize: 'calc(30px + 3vmin) !important',
+            fontSize: 'calc(20px + 3.5vmin) !important',
         },
     },
     projectDescription: {
@@ -150,8 +150,8 @@ const useStyles = makeStyles(theme => ({
             gridColumn: '1 !important',
             gridRow: '3 !important',
             marginLeft: '1vw',
-            fontSize: 'calc(9px + 0.7vmin) !important',
-            marginRight: '33%'
+            fontSize: 'calc(5px + 1.75vmin) !important',
+            marginRight: '28%'
         },
         [theme.breakpoints.down('sm')]: {
             gridRow: 2,
