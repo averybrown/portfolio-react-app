@@ -5,10 +5,18 @@
   display: flex;
   flex-direction: column;
   overflow: hidden; 
-  background-color: white;
+  background-color: #0d0c0b;
   background: url("Assets/background-final-smaller-leaves-2.png");
   background-position:center;
   background-size: cover; 
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    background: url("Assets/background-final-smaller-leaves-2-phone.png");
+    background-position:center;
+    background-size: cover; 
+  }
 }
 
 .App-nav {
