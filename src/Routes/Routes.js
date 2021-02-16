@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
     pageTransitionEnter: {
         opacity: 0,
-        display: 'none' 
+        // display: 'none' 
     },
     pageTransitionEnterActive: {
         opacity: 1,
