@@ -125,7 +125,11 @@ class Character extends Component {
         this.setState({ currentGif: this.context.currentGif })
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(newProps) {
+        if (this.props.location !== newProps.location) {
+            console.log("New page: boolean false")
+            bFirstStaticImageShown = false;
+        }
         if (this.state.currentGif === undefined && this.context.currentGif !== undefined) {
             this.setState({ currentGif: this.context.currentGif })
         }
@@ -145,6 +149,10 @@ class Character extends Component {
         let contextCurrentGif = this.context.currentGif;
         let isFox = characterType === 'fox';
         let isPlantGrowing = this.context.checkIfPlantGrowing();
+        if(isCharacterExiting || doesCharacterEnter)
+        {
+            bFirstStaticImageShown=false;
+        }
         if(bFirstStaticImageShown )
         {
             lastFrame = foxPlantGrowingFinalFrame;
