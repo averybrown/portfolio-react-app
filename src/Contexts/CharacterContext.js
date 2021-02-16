@@ -28,7 +28,7 @@ const pages = [
     {
         name: 'home', character: 'fox', states: [
             { animation: foxEnters, duration: 3000 },
-            { animation: foxEnters2, duration: 2800 },
+            { animation: foxEnters2, duration: 3000 },
             { animation: foxBubble, bubbles: true, cycle: true },
             { animation: foxExit, duration: 2000, exit: true },
             { animation: foxEnters, duration: 3000, exit: true },
@@ -37,7 +37,7 @@ const pages = [
     {
         name: 'projects', character: 'bear', states: [
             { animation: bearEnters, duration: 3000 },
-            { animation: bearEnters2, duration: 2000 },
+            { animation: bearEnters2, duration: 4000 },
             { animation: bearIdle, cycle: true },
             { animation: bearExit, duration: 2000, exit: true },
             { animation: bearEnters, duration: 3000, exit: true },
@@ -46,7 +46,7 @@ const pages = [
     {
         name: 'resume', character: 'fox', states: [
             { animation: foxEnters, duration: 3000 },
-            { animation: foxEnters2, duration: 2000 },
+            { animation: foxEnters2, duration: 3000 },
             { animation: foxPlantGrowing, duration: 3000 },
             { animation: foxPlant, duration: 300, cycle: true },
             { animation: foxExitPlant, duration: 2000, exit: true },
@@ -56,7 +56,7 @@ const pages = [
     {
         name: 'contact', character: 'bear', states: [
             { animation: bearEnters, duration: 3000 },
-            { animation: bearEnters2, duration: 2000 },
+            { animation: bearEnters2, duration: 4000 },
             { animation: bearIdle, duration: 300, cycle: true },
             { animation: bearExit, duration: 2000, exit: true },
             { animation: bearEnters, duration: 3000, exit: true }
