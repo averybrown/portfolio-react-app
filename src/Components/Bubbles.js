@@ -63,9 +63,13 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(10vw) scale(1.2)'
             },
+            "99%": {
+                bottom: '145vh',
+                transform: 'translateX(5vw) scale(0.4)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vw) scale(1.2)'
+                transform: 'scale(0.4)'
             },
         },
         "@keyframes bubbleUp2": {
@@ -86,9 +90,12 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(8vw) scale(1)',
             },
+            "99%": {
+                transform: 'translateX(12vw) scale(0.3)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(12vw) scale(1)',
+                transform: 'scale(0.3)',
             },
         },
         "@keyframes bubbleUp3": {
@@ -109,9 +116,13 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(6vw) scale(0.8)'
             },
+            "99%": {
+                bottom: '145vh',
+                transform: 'translateX(8vw) scale(0.2)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(8vw) scale(0.8)'
+                transform: 'scale(0.2)'
             },
         },
         "@keyframes bubbleUp4": {
@@ -132,9 +143,13 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(10vw) scale(0.7)'
             },
+            "99%": {
+                bottom: '145vh',
+                transform: 'translateX(8vw) scale(0.4)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vw) scale(0.7)'
+                transform: 'scale(0.4)'
             },
         },
         "@keyframes bubbleUp5": {
@@ -155,9 +170,13 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(10vw) scale(1.2)'
             },
+            "99%": {
+                bottom: '145vh',
+                transform: 'translateX(8vw) scale(0.4)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(5vw) scale(1.2)'
+                transform: 'scale(0.4)'
             },
         },
         "@keyframes bubbleUp6": {
@@ -178,9 +197,13 @@ const styles = theme => {
             "60%": {
                 transform: 'translateX(7vw) scale(1)'
             },
+            "99%": {
+                bottom: '145vh',
+                transform: 'translateX(12vw) scale(0.3)',
+            },
             "100%": {
                 bottom: '145vh',
-                transform: 'translateX(12vw) scale(1)'
+                transform: 'scale(0.3)'
             },
         },
     };
