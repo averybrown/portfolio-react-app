@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
             paddingRight: theme.spacing(1),
             paddingLeft: theme.spacing(1),
             gridTemplateColumns: 'repeat(3, 1fr) !important',
-            gridTemplateRows: 'fit-content(100px) 28% 34% 24%',
+            gridTemplateRows: 'fit-content(100px) 24% 30% 24%',
         },
         [theme.breakpoints.down("md")]: {
             gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr))',
