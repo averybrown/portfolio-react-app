@@ -6,6 +6,7 @@ import MenuDrawer from 'Components/MenuDrawer';
 import CharacterDataProvider from 'Contexts/CharacterContext';
 import Character from 'Components/Character';
 
+
 let theme = createMuiTheme({
   overrides: {
     MuiTypography: {

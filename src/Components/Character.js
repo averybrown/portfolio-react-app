@@ -32,7 +32,7 @@ const styles = theme => {
                 paddingTop: 0, 
                 marginBottom: '-120px', 
             },
-            [theme.breakpoints.up("xlg")]: {
+            [theme.breakpoints.up("xl")]: {
                 height: '850px !important',
                 paddingTop: 0,
                 marginBottom: '-340px !important', 
@@ -62,7 +62,7 @@ const styles = theme => {
                 marginBottom: '-260px',
                 width: '650px',
             },
-            [theme.breakpoints.up("xlg")]: {
+            [theme.breakpoints.up("xl")]: {
                 marginLeft: '-145px !important',
                 marginBottom: '-340px !important',
                 width: '850px !important',
@@ -86,7 +86,7 @@ const styles = theme => {
                 marginBottom: '-120px',
                 width: '305px',
             },
-            [theme.breakpoints.up("xlg")]: {
+            [theme.breakpoints.up("xl")]: {
                 marginLeft: '-250px !important',
                 marginBottom: '-340px !important',
                 width: '850px !important',

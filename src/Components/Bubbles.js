@@ -20,7 +20,7 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 minWidth: '60px',
             },
-            [theme.breakpoints.down("lg")]: {
+            [theme.breakpoints.up("lg")]: {
                 maxWidth: '100px',
             },
         },
@@ -67,11 +67,11 @@ const styles = theme => {
                 transform: 'translateX(10vw) scale(1.2)'
             },
             "99%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'translateX(5vw) scale(0.4)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.4)'
             },
         },
@@ -94,10 +94,11 @@ const styles = theme => {
                 transform: 'translateX(8vw) scale(1)',
             },
             "99%": {
+                bottom: '150vh',
                 transform: 'translateX(12vw) scale(0.3)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.3)',
             },
         },
@@ -120,11 +121,11 @@ const styles = theme => {
                 transform: 'translateX(6vw) scale(0.8)'
             },
             "99%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'translateX(8vw) scale(0.2)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.2)'
             },
         },
@@ -147,11 +148,11 @@ const styles = theme => {
                 transform: 'translateX(10vw) scale(0.7)'
             },
             "99%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'translateX(8vw) scale(0.4)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.4)'
             },
         },
@@ -174,11 +175,11 @@ const styles = theme => {
                 transform: 'translateX(10vw) scale(1.2)'
             },
             "99%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'translateX(8vw) scale(0.4)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.4)'
             },
         },
@@ -201,11 +202,11 @@ const styles = theme => {
                 transform: 'translateX(7vw) scale(1)'
             },
             "99%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'translateX(12vw) scale(0.3)',
             },
             "100%": {
-                bottom: '145vh',
+                bottom: '150vh',
                 transform: 'scale(0.3)'
             },
         },
