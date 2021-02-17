@@ -16,7 +16,7 @@ const styles = theme => {
         characterContainer: {
             position: 'absolute',
             width: '45vw',
-            maxWidth: '45vw',
+            maxWidth: '650px',
             paddingTop: '45%',
             bottom: 0,
             marginBottom: '-18%',
@@ -29,7 +29,8 @@ const styles = theme => {
             },
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
-                paddingTop: 0
+                paddingTop: 0, 
+                marginBottom: '-120px', 
             },
             [theme.breakpoints.up("xlg")]: {
                 height: '850px !important',
@@ -243,7 +244,7 @@ class Character extends Component {
                     onError={this.handleImageErrored}
                     alt='character' />
 
-                {showBubbles ? <Bubbles /> : null}
+                {showBubbles && !loading ? <Bubbles /> : null}
 
             </div>
         </React.Fragment>

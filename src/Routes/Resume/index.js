@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
         minWidth: '250px',
         maxHeight: '50vh',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gridTemplateRows: 'fit-content(100px) 24% 30% 24%',
+        gridTemplateRows: 'fit-content(100px) 14% 30% 24%',
         maxWidth: '58vw',
         justifyItems: 'center',
         alignItems: 'center',
@@ -56,6 +56,7 @@ const useStyles = makeStyles(theme => ({
             paddingRight: theme.spacing(1),
             paddingLeft: theme.spacing(1),
             gridTemplateColumns: 'repeat(3, 1fr) !important',
+            gridTemplateRows: 'fit-content(100px) 24% 24% 24%',
         },
         [theme.breakpoints.down("md")]: {
             gridTemplateColumns: 'repeat(3, minmax(max-content, 1fr))',
@@ -151,7 +152,7 @@ const useStyles = makeStyles(theme => ({
     list: {
         textAlign: 'left',
         fontSize: 'calc(4px + 1.5vmin) !important',
-        alignSelf: 'center',
+        alignSelf: 'flex-start',
         paddingLeft: theme.spacing(2),
         paddingRight: theme.spacing(1),
         [theme.breakpoints.down("md")]: {
@@ -192,27 +193,26 @@ const useStyles = makeStyles(theme => ({
         },
     },
     educationInfo: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumnStart: 1,
         gridColumnEnd: 4,
         justifySelf: 'center',
-        alignSelf: 'center',
+        alignSelf: 'flex-start',
         opacity: 0,
         marginLeft: 0,
         animationName: '$hidden',
         animationDuration: '6s',
         transition: 'all 0.3s ease-in',
         [theme.breakpoints.down("md")]: {
-            marginTop: '-12vh',
+            marginTop: '-5vh',
             marginLeft: '16px'
         },
         [theme.breakpoints.down("xs")]: {
-            marginTop: 0,
-            marginLeft: 0
+            marginTop: '0px !important',
+            marginLeft: '0px !important'
         },
         [theme.breakpoints.between("md", 'lg')]: {
-            marginTop: '-8vh'
+            // marginTop: '-8vh'
         },
     },
     educationList: {
@@ -273,8 +273,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     job1: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 1,
         [theme.breakpoints.down("md")]: {
             gridRow: 2,
@@ -283,8 +282,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     job2: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 2,
         [theme.breakpoints.down("md")]: {
             gridRow: 3,
@@ -293,8 +291,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     job3: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 3,
         [theme.breakpoints.down("md")]: {
             gridRow: 4,
@@ -303,18 +300,15 @@ const useStyles = makeStyles(theme => ({
         },
     },
     skill1: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 1,
     },
     skill2: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 2,
     },
     skill3: {
-        gridRowStart: 2,
-        gridRowEnd: 5,
+        gridRow: 3,
         gridColumn: 3,
     },
     skills: {
