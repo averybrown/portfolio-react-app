@@ -16,15 +16,15 @@ const styles = theme => {
         characterContainer: {
             position: 'absolute',
             width: '45vw',
-            maxWidth: '620px',
+            maxWidth: '650px',
             paddingTop: '45%',
             bottom: 0,
             marginBottom: '-18%',
             zIndex: 100,
             [theme.breakpoints.up("lg")]: {
-                height: '620px',
+                height: '650px',
                 paddingTop: 0,
-                marginBottom: '-245px'
+                marginBottom: '-260px'
             },
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
@@ -50,9 +50,9 @@ const styles = theme => {
         fox: {
             marginLeft: '-10%',
             [theme.breakpoints.up("lg")]: {
-                marginLeft: '-120px',
-                marginBottom: '-245px',
-                width: '620px',
+                marginLeft: '-145px',
+                marginBottom: '-260px',
+                width: '650px',
             },
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
@@ -64,9 +64,9 @@ const styles = theme => {
             right: 0,
             marginRight: '-14%',
             [theme.breakpoints.up("lg")]: {
-                marginRight: '-170px',
-                marginBottom: '-245px',
-                width: '620px',
+                marginRight: '-200px',
+                marginBottom: '-250px',
+                width: '650px',
             },
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-87px',
