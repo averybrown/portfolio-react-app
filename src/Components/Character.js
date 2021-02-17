@@ -16,7 +16,7 @@ const styles = theme => {
         characterContainer: {
             position: 'absolute',
             width: '45vw',
-            maxWidth: '650px',
+            maxWidth: '45vw',
             paddingTop: '45%',
             bottom: 0,
             marginBottom: '-18%',
@@ -24,11 +24,18 @@ const styles = theme => {
             [theme.breakpoints.up("lg")]: {
                 height: '650px',
                 paddingTop: 0,
+                maxWidth: '650px',
                 marginBottom: '-260px'
             },
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
                 paddingTop: 0
+            },
+            [theme.breakpoints.up("xlg")]: {
+                height: '850px !important',
+                paddingTop: 0,
+                marginBottom: '-340px !important', 
+                maxWidth: '850px !important',
             },
         },
         character: {
@@ -54,6 +61,11 @@ const styles = theme => {
                 marginBottom: '-260px',
                 width: '650px',
             },
+            [theme.breakpoints.up("xlg")]: {
+                marginLeft: '-145px !important',
+                marginBottom: '-340px !important',
+                width: '850px !important',
+            },
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
                 marginBottom: '-120px',
@@ -72,6 +84,11 @@ const styles = theme => {
                 marginRight: '-87px',
                 marginBottom: '-120px',
                 width: '305px',
+            },
+            [theme.breakpoints.up("xlg")]: {
+                marginLeft: '-250px !important',
+                marginBottom: '-340px !important',
+                width: '850px !important',
             },
         },
         entrance: {
