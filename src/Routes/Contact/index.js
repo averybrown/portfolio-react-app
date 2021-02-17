@@ -69,12 +69,21 @@ const useStyles = makeStyles(theme => ({
         animationDuration: '8000ms',
         // animationDelay: '6000ms',
         animationIterationCount: 'infinite',
+        [theme.breakpoints.up("xl")]: {
+            // height: '200%',
+            width: '70%', 
+            height: 'auto'
+        },
     },
     pinwheelPole: {
         height: '400%',
         width: '100%',
         position: 'absolute',
-        top: '30%'
+        top: '30%', 
+        [theme.breakpoints.up("xl")]: {
+            // height: '800%', 
+            width: '70%'
+        },
     },
     pinwheelEnter: {
         opacity: 0,
