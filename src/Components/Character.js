@@ -87,7 +87,7 @@ const styles = theme => {
                 width: '305px',
             },
             [theme.breakpoints.up("xl")]: {
-                marginLeft: '-250px !important',
+                marginRight: '-260px !important',
                 marginBottom: '-340px !important',
                 width: '850px !important',
             },
