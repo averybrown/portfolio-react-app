@@ -20,6 +20,9 @@ const styles = theme => {
             [theme.breakpoints.down("xs")]: {
                 minWidth: '60px',
             },
+            [theme.breakpoints.down("lg")]: {
+                maxWidth: '100px',
+            },
         },
         bubble1: {
             animationName: '$bubbleUp1',
@@ -214,20 +217,6 @@ class Bubbles extends Component {
 
     pop = (e) => {
         e.target.style.visibility = 'hidden';
-
-        // if (this.props.soundContext.soundOn) {
-        //     const playPromise = document.getElementById("bubble-pop").play();
-
-        //     if (playPromise !== undefined) {
-        //         playPromise
-        //             .then(_ => {
-        //                 console.log("audio played auto");
-        //             })
-        //             .catch(error => {
-        //                 console.log("playback prevented: ", error);
-        //             });
-        //     }
-        // }
     }
 
     bubbleStart = (e) => {

@@ -16,10 +16,16 @@ const styles = theme => {
         characterContainer: {
             position: 'absolute',
             width: '45vw',
+            maxWidth: '620px',
             paddingTop: '45%',
             bottom: 0,
             marginBottom: '-18%',
             zIndex: 100,
+            [theme.breakpoints.up("lg")]: {
+                height: '620px',
+                paddingTop: 0,
+                marginBottom: '-245px'
+            },
             [theme.breakpoints.down("xs")]: {
                 height: '305px',
                 paddingTop: 0
@@ -43,6 +49,11 @@ const styles = theme => {
         },
         fox: {
             marginLeft: '-10%',
+            [theme.breakpoints.up("lg")]: {
+                marginLeft: '-120px',
+                marginBottom: '-245px',
+                width: '620px',
+            },
             [theme.breakpoints.down("xs")]: {
                 marginLeft: '-75px',
                 marginBottom: '-120px',
@@ -52,6 +63,11 @@ const styles = theme => {
         bear: {
             right: 0,
             marginRight: '-14%',
+            [theme.breakpoints.up("lg")]: {
+                marginRight: '-170px',
+                marginBottom: '-245px',
+                width: '620px',
+            },
             [theme.breakpoints.down("xs")]: {
                 marginRight: '-87px',
                 marginBottom: '-120px',
@@ -70,7 +86,7 @@ const styles = theme => {
         },
         "@keyframes entrance": {
             "0%": {
-                bottom: '-38%',
+                bottom: '-55%',
             },
             "100%": {
                 bottom: 0,
@@ -81,7 +97,7 @@ const styles = theme => {
                 bottom: 0,
             },
             "100%": {
-                bottom: '-38%',
+                bottom: '-45%',
             },
         },
     };
